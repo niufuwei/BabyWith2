@@ -153,6 +153,16 @@
     [_photoScrollView setContentOffset:tem];
     
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [appDelegate hideTabbar];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [appDelegate showTabbar];
+}
+
+
 -(void)startPlay
 {
     _isBack=FALSE;

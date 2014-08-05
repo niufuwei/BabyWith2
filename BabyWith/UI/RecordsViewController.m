@@ -125,6 +125,8 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         [rightButton setBackgroundImage:[UIImage imageNamed:@"删除.png"] forState:UIControlStateNormal];
         [_imageCollection reloadData];
         [appDelegate hideTabbar];
+        
+        _imageCollection.frame = CGRectMake(0, 0, 320, kScreenHeight - 64);
     }
     else
     {
@@ -136,6 +138,8 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 
         [_imageCollection reloadData];
         [appDelegate showTabbar];
+        
+        _imageCollection.frame = CGRectMake(0, 0, 320, kScreenHeight - 64 - 44);
     }
     
 }
@@ -871,7 +875,9 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         
         PhotoScanViewController *photoController = [[PhotoScanViewController alloc] initWithArray:currentSectionPhoto Type:0 CurrentPage:indexPath.row Delegate:nil];
         [self.navigationController pushViewController:photoController animated:YES];
-
+        
+        
+        
     }
     
     NSLog(@"%@",deleteArray);
