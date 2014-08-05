@@ -67,6 +67,7 @@
     _cameraTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 270) style:UITableViewStylePlain];
     _cameraTableView.delegate = self;
     _cameraTableView.dataSource = self;
+    _cameraTableView.scrollEnabled = NO;
     _cameraTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     _cameraTableView.backgroundView = nil;
     _cameraTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -79,7 +80,7 @@
     
     UIButton *dissolveButton = [UIButton buttonWithType:UIButtonTypeCustom];
     dissolveButton.frame = CGRectMake(44
-                                      , CGRectGetHeight(_cameraTableView.frame)+37, 232, 31);
+                                      , CGRectGetHeight(_cameraTableView.frame)+45, 232, 35);
     //dissolveButton.autoresizingMask =
     [dissolveButton setBackgroundImage:[UIImage imageNamed:@"qietu_162"] forState:UIControlStateNormal];
     [dissolveButton addTarget:self action:@selector(dissolveDevice:) forControlEvents:UIControlEventTouchUpInside];

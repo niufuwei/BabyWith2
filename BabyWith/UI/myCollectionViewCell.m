@@ -22,8 +22,8 @@
         _videoImage.frame = CGRectMake(21.75, 21.75,32, 32);
         [self addSubview:_videoImage];
         
-        _deleteImage = [[[UIImageView alloc] initWithFrame:CGRectMake(50, 5, 20, 20)] autorelease];
-        [_deleteImage.layer setCornerRadius:10];
+        _deleteImage = [[[UIImageView alloc] initWithFrame:CGRectMake(60, 0, 15, 15)] autorelease];
+        [_deleteImage.layer setCornerRadius:7.5];
         [self addSubview:_deleteImage];
     }
     return self;

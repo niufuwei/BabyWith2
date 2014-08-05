@@ -48,7 +48,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCollentView) name:@"imageCollectionReload" object:nil];
     
-    leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
 //    [navButton setImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
 //    [navButton setImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateHighlighted];
     [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑.png"] forState:UIControlStateNormal];
@@ -58,7 +58,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     UIBarButtonItem *LeftItem = [[UIBarButtonItem alloc] initWithCustomView: leftButton];
     self.navigationItem.leftBarButtonItem = LeftItem;
     
-    rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     //    [navButton setImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
     //    [navButton setImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateHighlighted];
     [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
