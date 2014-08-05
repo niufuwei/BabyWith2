@@ -70,14 +70,16 @@
     //看护器名称文本区域
      _cameraTextField= [[UITextField alloc] initWithFrame:CGRectMake(20, 55, 280, 35)];
     _cameraTextField.placeholder = @"请输入看护器名称";
+    _cameraTextField.borderStyle = UITextBorderStyleNone;
     _cameraTextField.font = [UIFont systemFontOfSize:15.0];
     _cameraTextField.delegate = self;
-    _cameraTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+//    _cameraTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     [_cameraTextField becomeFirstResponder];
-    [_cameraTextField setKeyboardType:UIKeyboardTypeDefault];
-    _cameraTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+//    _cameraTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     _cameraTextField.backgroundColor = [UIColor colorWithPatternImage:[UIImage  imageNamed:@"输入框"]];
     _cameraTextField.layer.cornerRadius = 1.5;
+    
+    
     
     UILabel *paddingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 10, 32)];
     paddingLabel.backgroundColor = [UIColor clearColor];
