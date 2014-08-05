@@ -204,6 +204,7 @@
 
 -(void)onclick:(id)sender
 {
+    [appDelegate hideTabbar];
     UIButton * btn = (UIButton *) sender;
     switch (btn.tag) {
         case 101:
@@ -642,7 +643,7 @@
     
     NSLog(@"view will appear");
     //获取设备列表，并且刷新数据
-//
+     [appDelegate showTabbar];
     self.deviceArray = [appDelegate.deviceConnectManager getDeviceInfoList];
     [_homeTableView1 reloadData];
     titleImage.hidden = NO;
@@ -665,6 +666,8 @@
 //进入到添加设备页面
 - (void)bind:(UIBarButtonItem *)item
 {
+    
+    [appDelegate hideTabbar];
     AddDeviceViewController *vc = [[AddDeviceViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -881,7 +884,7 @@
 //            [self.navigationController pushViewController:vc animated:YES];
 //        }
 //    }
-    
+    [appDelegate hideTabbar];
     [appDelegate.appDefault setObject:[self.deviceArray objectAtIndex:indexPath.row] forKey:@"Device_selected"];
     NSLog(@"存入的设备是%@",[appDelegate.appDefault objectForKey:@"Device_selected"]);
     CameraPlayViewController *vc = [[CameraPlayViewController alloc]init];
