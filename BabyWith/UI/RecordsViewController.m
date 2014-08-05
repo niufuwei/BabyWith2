@@ -165,43 +165,50 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     }
     else
     {
-        for(int i = 0 ;i<deleteArray.count;i++)
+        if([deleteArray count]==0)
         {
-            //删除选中图片
-            NSDictionary * dic = [deleteArray objectAtIndex:i];
-           
-            [appDelegate.sqliteManager removeRecordInfo:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0] deleteType:1];
-     
-            //看是否是有视频，有视频就删除视频
-            if ([[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"is_vedio"] intValue]==1)
-            {
-                //删除视频
-                NSString *vedioPath = [NSString stringWithFormat:@"%@",[babywith_sandbox_address
-                                                                        stringByAppendingPathComponent:[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"record_data_path"]]];
-                NSError *error = nil;
-                [[NSFileManager defaultManager] removeItemAtPath:vedioPath error:&error];
-                if (!error)
-                {
-                    NSLog(@"删除视频成功");
-                }
-            }
-           
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"请选择要删除的图片" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
         }
-        [_sectionArray removeAllObjects];
-        [RowDictionary removeAllObjects];
-        [arrayDictionary removeAllObjects];
-        [_countForSectionArray removeAllObjects];
-        [self ShowRecordList];
-
-        isDelete = FALSE;
-        [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑.png"] forState:UIControlStateNormal];
-
-//        [leftButton setTitle:@"编辑" forState:UIControlStateNormal];
-        [deleteArray removeAllObjects];
-        [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
-        
-        [_imageCollection reloadData];
-
+        else
+        {
+            for(int i = 0 ;i<deleteArray.count;i++)
+            {
+                //删除选中图片
+                NSDictionary * dic = [deleteArray objectAtIndex:i];
+                
+                [appDelegate.sqliteManager removeRecordInfo:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0] deleteType:1];
+                
+                //看是否是有视频，有视频就删除视频
+                if ([[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"is_vedio"] intValue]==1)
+                {
+                    //删除视频
+                    NSString *vedioPath = [NSString stringWithFormat:@"%@",[babywith_sandbox_address
+                                                                            stringByAppendingPathComponent:[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"record_data_path"]]];
+                    NSError *error = nil;
+                    [[NSFileManager defaultManager] removeItemAtPath:vedioPath error:&error];
+                    if (!error)
+                    {
+                        NSLog(@"删除视频成功");
+                    }
+                }
+                
+            }
+            [_sectionArray removeAllObjects];
+            [RowDictionary removeAllObjects];
+            [arrayDictionary removeAllObjects];
+            [_countForSectionArray removeAllObjects];
+            [self ShowRecordList];
+            
+            isDelete = FALSE;
+            [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑.png"] forState:UIControlStateNormal];
+            
+            //        [leftButton setTitle:@"编辑" forState:UIControlStateNormal];
+            [deleteArray removeAllObjects];
+            [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
+            
+            [_imageCollection reloadData];
+        }
     }
 }
 
@@ -211,8 +218,6 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     {
         if([[[NSUserDefaults standardUserDefaults] objectForKey:@"isSaveVideo"] isEqualToString:@"1"])
         {
-            
-            
             [self reloadCollentView];
         }
     }
