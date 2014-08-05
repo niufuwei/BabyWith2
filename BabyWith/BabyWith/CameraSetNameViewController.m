@@ -60,22 +60,23 @@
     }
     
     
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(11, 10, 160, 40)];
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 160, 35)];
     nameLabel.backgroundColor = [UIColor clearColor];
     nameLabel.text = @"请填写设备名称";
     nameLabel.textColor = [UIColor grayColor];
     [self.view addSubview:nameLabel];
     
     //看护器名称文本区域
-     _cameraTextField= [[UITextField alloc] initWithFrame:CGRectMake(11, 50, 298, 40)];
+     _cameraTextField= [[UITextField alloc] initWithFrame:CGRectMake(20, 55, 280, 35)];
     _cameraTextField.placeholder = @"请输入看护器名称";
+    _cameraTextField.font = [UIFont systemFontOfSize:15.0];
     _cameraTextField.delegate = self;
     _cameraTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     [_cameraTextField becomeFirstResponder];
     [_cameraTextField setKeyboardType:UIKeyboardTypeDefault];
     _cameraTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     _cameraTextField.backgroundColor = [UIColor colorWithPatternImage:[UIImage  imageNamed:@"输入框"]];
-    _cameraTextField.layer.cornerRadius = 5.0;
+    _cameraTextField.layer.cornerRadius = 1.5;
     
     UILabel *paddingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 10, 32)];
     paddingLabel.backgroundColor = [UIColor clearColor];
@@ -89,7 +90,7 @@
     
     
     //下一步按钮
-    UIButton *nextButton = [[UIButton alloc] initWithFrame:CGRectMake(44, 130, 232, 31)];
+    UIButton *nextButton = [[UIButton alloc] initWithFrame:CGRectMake(44, 130, 232, 35)];
     //[nextButton setBackgroundColor:babywith_green_color];
     [nextButton setBackgroundImage:[UIImage imageNamed:@"qietu_146.png"] forState:UIControlStateNormal];
 //    CGSize imageSize = CGSizeMake(300, 40);

@@ -38,7 +38,7 @@
     //导航条设置
     {
         //左导航-主选择页面
-        UIButton *navButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 36)];
+        UIButton *navButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
         navButton.tag = 1;
         [navButton setImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
         [navButton addTarget:self action:@selector(ShowPrePage) forControlEvents:UIControlEventTouchUpInside];
@@ -59,11 +59,12 @@
     }
     _selectedRow = 0;
     
-    _settingTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 480) style:UITableViewStylePlain];
+    _settingTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320,44*3+64) style:UITableViewStylePlain];
     _settingTableView.dataSource = self;
     _settingTableView.delegate = self;
     _settingTableView.backgroundView = nil;
     _settingTableView.backgroundColor = [UIColor clearColor];
+    _settingTableView.scrollEnabled = NO;
     _settingTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     [self.view addSubview:_settingTableView];
