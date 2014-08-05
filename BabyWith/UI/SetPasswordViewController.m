@@ -111,7 +111,15 @@
     
     
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [appDelegate hideTabbar];
+}
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [appDelegate showTabbar];
+}
 
 - (IBAction)submitPass:(id)sender
 {

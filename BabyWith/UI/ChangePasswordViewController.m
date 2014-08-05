@@ -91,6 +91,17 @@
    
 }
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [appDelegate hideTabbar];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [appDelegate showTabbar];
+}
+
 //显示密码按钮
 
 - (IBAction)displayBtn:(id)sender {

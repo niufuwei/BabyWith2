@@ -8,6 +8,9 @@
 
 #import "AboutUsViewController.h"
 
+#import "MainAppDelegate.h"
+
+
 @interface AboutUsViewController ()
 
 @end
@@ -42,6 +45,19 @@
     }
     
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [appDelegate hideTabbar];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [appDelegate showTabbar];
+}
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

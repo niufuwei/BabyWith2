@@ -39,6 +39,8 @@
     [super viewDidLoad];
     
     
+    
+    
     //左导航-主选择页面
     UIButton *navButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
     [navButton setImage:[UIImage imageNamed:@"返回.png"] forState:UIControlStateNormal];
@@ -69,6 +71,17 @@
     
 
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [appDelegate hideTabbar];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [appDelegate showTabbar];
+}
+
 
 -(void)pop:(id )sender
 

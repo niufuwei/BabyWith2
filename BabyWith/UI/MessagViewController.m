@@ -63,6 +63,12 @@
 
     
 }
+
+
+
+
+
+
 -(void)getBackName:(void (^)(NSString *))backName
 {
     if(self)
@@ -74,6 +80,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
 
+    [appDelegate showTabbar];
     _backName(@"0");
     NSLog(@"删除之前是%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]);
     NSMutableArray *arr = [NSMutableArray arrayWithArray:(NSArray*)[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]];
@@ -84,6 +91,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 
+    [appDelegate hideTabbar];
     [super viewWillAppear:YES];
     [_messageTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 
