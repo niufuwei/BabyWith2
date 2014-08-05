@@ -16,7 +16,7 @@
 #import "Reachability.h"
 #include<stdlib.h>
 #import <AVFoundation/AVFoundation.h>
-
+#import "tabbarViewController.h"
 //#import <AudioToolbox/AudioToolbox.h>
 
 @class WebInfoManager;
@@ -86,9 +86,12 @@
 @property (nonatomic,retain) NSMutableArray *selectDeviceArr;
 @property (nonatomic,retain)NSMutableArray *systemMessageArray;
 @property (nonatomic,strong) AVAudioPlayer  *avAudioPlayer;;
-
+@property (nonatomic,strong) tabbarViewController *tabbar;
 //风火轮委托
 - (void)showWithLabel:(NSString *)title;
 - (void)endHud;
+
+-(void)hideTabbar;
+-(void)showTabbar;
 
 @end

@@ -24,7 +24,6 @@
 #import "RecordsViewController.h"
 #import "SettingsViewController.h"
 #import "BaseNavigationController.h"
-#import "BaseTabBarController.h"
 
 #import "AppGlobal.h"
 #import "Configuration.h"
@@ -488,8 +487,8 @@ int HudIsBecome = 0;
     BaseNavigationController *settingNav = [[[BaseNavigationController alloc] initWithRootViewController:settingVC] autorelease];
     
     
-    BaseTabBarController *tabbar = [[BaseTabBarController alloc] init];
-    tabbar.viewControllers = @[homeNav,shareNav,recordNav,settingNav];
+    _tabbar = [[tabbarViewController alloc] init];
+    _tabbar.viewControllers = @[homeNav,shareNav,recordNav,settingNav];
     
     
     [homeVC release];
@@ -498,7 +497,17 @@ int HudIsBecome = 0;
     [settingVC release];
     
 
-    return [tabbar autorelease];;
+    return [_tabbar autorelease];;
+}
+
+-(void)hideTabbar
+{
+    [_tabbar hideTabBar];
+}
+
+-(void)showTabbar
+{
+    [_tabbar showTabBar];
 }
 #pragma mark -
 #pragma mark ios push
@@ -536,7 +545,7 @@ int HudIsBecome = 0;
     NSDate *date = [NSDate date];
     NSTimeInterval time = [date timeIntervalSince1970];
     NSDateFormatter *formatter =[[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy.MM.dd HH:mm:ss"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *messageTime = [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:time]];
     
     //接收到的消息id,以;隔开的
