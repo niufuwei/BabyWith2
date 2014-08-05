@@ -536,7 +536,7 @@ int HudIsBecome = 0;
     NSDate *date = [NSDate date];
     NSTimeInterval time = [date timeIntervalSince1970];
     NSDateFormatter *formatter =[[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [formatter setDateFormat:@"yyyy.MM.dd HH:mm:ss"];
     NSString *messageTime = [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:time]];
     
     //接收到的消息id,以;隔开的

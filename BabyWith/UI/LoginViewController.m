@@ -224,10 +224,10 @@
             
                 //绑定设备的时间
                 NSDate *date = [NSDate date];
-                NSTimeInterval time = [date timeIntervalSince1970];
+//                NSTimeInterval time = [date timeIntervalSince1970];
                 NSDateFormatter *formatter =[[NSDateFormatter alloc] init];
-                [formatter setDateFormat:@"yyyy-MM-dd"];
-                NSString *bindTime = [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:time]];
+                [formatter setDateFormat:@"yyyy.MM.dd"];
+                NSString *bindTime = [formatter stringFromDate:date];
                 
                 [appDelegate.appDefault setObject:bindTime forKey:[NSString stringWithFormat:@"%@_time",[dic objectForKey:@"device_id"]]];
                 

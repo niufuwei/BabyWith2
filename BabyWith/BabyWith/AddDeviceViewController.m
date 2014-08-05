@@ -622,6 +622,23 @@
         } completionBlock:^{
             [indicator removeFromSuperview];
             [activity stop];
+            
+            
+            
+            //绑定设备的时间
+            NSDate *date = [NSDate date];
+            //            NSTimeInterval time = [date timeIntervalSince1970];
+            NSDateFormatter *formatter =[[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy.MM.dd"];
+            
+            
+            NSString *bindTime = [formatter stringFromDate:date];
+            NSLog(@"%@",bindTime);
+            [appDelegate.appDefault setObject:bindTime forKey:[NSString stringWithFormat:@"%@_time",deviceID]];
+
+            
+            
+            
             self.view.userInteractionEnabled = YES;
 
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToMain" object:nil];
