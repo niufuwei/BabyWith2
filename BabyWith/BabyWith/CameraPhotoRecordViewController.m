@@ -46,8 +46,8 @@
         
         [setButton addTarget:self action:@selector(deletePic) forControlEvents:UIControlEventTouchUpInside];
         [setButton setTitle:@"删除" forState:UIControlStateNormal];
-        setButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
-        setButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        setButton.titleLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        setButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         setButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView: setButton];
         self.navigationItem.rightBarButtonItem = rightItem;
