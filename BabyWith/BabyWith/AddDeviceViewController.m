@@ -261,12 +261,12 @@
         inputLabel.text = @"请输入15位产品序列号";
         [inputView addSubview:inputLabel];
         
-        UITextField *inputTextField = [[UITextField alloc] initWithFrame:CGRectMake(12, 40, 276, 33)];
+        UITextField *inputTextField = [[UITextField alloc] initWithFrame:CGRectMake(16, 40, 268, 33)];
         inputTextField.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"输入框"]];
         inputTextField.placeholder = @"产品序列号";
         inputTextField.tag = 20;
         inputTextField.font = [UIFont systemFontOfSize:13.0];
-        inputTextField.layer.cornerRadius = 5.0;
+        inputTextField.layer.cornerRadius = 1.5;
         [inputView addSubview:inputTextField];
         
         UIButton *bindBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
