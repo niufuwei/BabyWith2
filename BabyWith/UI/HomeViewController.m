@@ -165,7 +165,7 @@
         [buttonTitle addTarget:self action:@selector(onclick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:buttonTitle];
         
-        UIImageView * jiantou = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width-25,17.5, 10, 13)];
+        UIImageView * jiantou = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width-25,17.5, 7, 13)];
         [jiantou setImage:[UIImage imageNamed:@"qietu_40.png"]];
         [buttonTitle addSubview:jiantou];
         
