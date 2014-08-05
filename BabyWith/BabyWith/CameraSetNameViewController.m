@@ -63,6 +63,7 @@
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 160, 35)];
     nameLabel.backgroundColor = [UIColor clearColor];
     nameLabel.text = @"请填写设备名称";
+    nameLabel.font = [UIFont systemFontOfSize:16.0];
     nameLabel.textColor = [UIColor grayColor];
     [self.view addSubview:nameLabel];
     
