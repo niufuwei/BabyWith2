@@ -637,8 +637,6 @@
             [appDelegate.appDefault setObject:bindTime forKey:[NSString stringWithFormat:@"%@_time",deviceID]];
 
             
-            
-            
             self.view.userInteractionEnabled = YES;
 
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToMain" object:nil];
