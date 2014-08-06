@@ -158,7 +158,7 @@
     
     }
     
-    UIImageView *accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(320-25,16, 10, 13)];
+    UIImageView *accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(320-25,16, 7, 13)];
     [accessoryView setImage:[UIImage imageNamed:@"qietu_40.png"]];
     [cell addSubview:accessoryView];
     
@@ -168,7 +168,7 @@
     [cell addSubview:statusImage];
     
     
-    UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 0, 30, 45)];
+    UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 0, 30, 45)];
     statusLabel.backgroundColor = [UIColor clearColor];
     
     statusLabel.text  = @"关闭";
