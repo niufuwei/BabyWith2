@@ -9,7 +9,7 @@
 #import "SharedPersonsViewController.h"
 #import "MainAppDelegate.h"
 #import <AddressBook/AddressBook.h>
-
+#import "PersonEditViewController.h"
 
 @implementation SharedPersonsViewController
 
@@ -129,8 +129,13 @@
         
         
     }
-    else{
-        while ([cell.contentView.subviews lastObject] != nil) {
+    else
+    {
+        while ([cell.contentView.subviews lastObject] != nil)
+        {
+            [statusImage removeFromSuperview];
+            [statusLabel removeFromSuperview];
+            [accessoryView removeFromSuperview];
             [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];  //删除并进行重新分配
         }
     }
@@ -138,11 +143,14 @@
    
     NSString *phone = [[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] objectAtIndex:indexPath.row];
     
-    if ([self getNameBytel:phone])
+    NSString *loginName = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
+    NSString *deviceId = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Device_selected"] objectForKey:@"device_id"];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,phone]])
     {
-        cell.textLabel.text = [self getNameBytel:phone];
+        cell.textLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,phone]];
         CGSize size = CGSizeMake(320, 45);
-        CGSize labelsize = [[self getNameBytel:phone] sizeWithFont:[UIFont systemFontOfSize:15.0] constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize labelsize = [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,phone]] sizeWithFont:[UIFont systemFontOfSize:15.0] constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
         [cell.textLabel setFrame:CGRectMake(0, 0, labelsize.width, labelsize.height)];
         NSLog(@"cell.width is %f",cell.textLabel.frame.size.width);
     }
@@ -158,17 +166,17 @@
     
     }
     
-    UIImageView *accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(320-25,16, 7, 13)];
+    accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(320-25,16, 7, 13)];
     [accessoryView setImage:[UIImage imageNamed:@"qietu_40.png"]];
     [cell addSubview:accessoryView];
     
     
-    UIImageView *statusImage = [[UIImageView alloc] initWithFrame:CGRectMake(cell.textLabel.frame.size.width + 20, 17.5 , 10, 10)];
+    statusImage = [[UIImageView alloc] initWithFrame:CGRectMake(cell.textLabel.frame.size.width + 20, 17.5 , 10, 10)];
     statusImage.image = [UIImage imageNamed:@"分享人员 (2)"];
     [cell addSubview:statusImage];
     
     
-    UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 0, 30, 45)];
+    statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 0, 30, 45)];
     statusLabel.backgroundColor = [UIColor clearColor];
     
     statusLabel.text  = @"关闭";
@@ -180,7 +188,13 @@
     
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%@",[[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] objectAtIndex:indexPath.row]);
+    PersonEditViewController *editVC = [[PersonEditViewController alloc] initwithPhoneNumber:[[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] objectAtIndex:indexPath.row]];
+    [self.navigationController pushViewController:editVC animated:YES];
 
+}
 -(NSString *)getNameBytel:(NSString *)telstr
 {
     NSMutableArray* personArray = [[NSMutableArray alloc] init];

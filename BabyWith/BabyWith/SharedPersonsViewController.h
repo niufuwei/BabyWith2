@@ -14,6 +14,9 @@
 
     NSString *_decideID;
     UILabel *_label;
+    UIImageView *statusImage;
+    UILabel *statusLabel;
+    UIImageView *accessoryView;
 
 }
 @property (nonatomic, retain) NSString *deviceID;

@@ -535,10 +535,7 @@ int HudIsBecome = 0;
     
     NSLog(@"jieshoudaodexinxi shi  %@",userInfo);
     
-    //消息的内容，所有的都一样
-    NSString *alert  = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"] ;
     
-    [appDelegate.appDefault setObject:alert forKey:@"alert"];
     
 
     //接收消息的时间
@@ -557,10 +554,11 @@ int HudIsBecome = 0;
     NSMutableArray *messageArray = [[NSMutableArray alloc] initWithCapacity:1];
     for (id obj in msgIdArray)
     {
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"0",@"0",@"msgid",@"messageTime",nil];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"0",@"0",@"0",@"msgid",@"messageTime",@"alert",nil];
     
         [dic setValue:obj forKey:@"msgid"];
         [dic setValue:messageTime forKey:@"messageTime"];
+        [dic setValue:[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] forKey:@"alert"];
         [messageArray addObject:dic];
         
     }
@@ -575,7 +573,6 @@ int HudIsBecome = 0;
     if ([appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]])
     {
         
-//        NSLog(@"111111111111");
         NSMutableArray *arr = [[NSMutableArray alloc] init];
         [arr addObjectsFromArray:[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]];
         [arr addObjectsFromArray:self.messageArray];
@@ -585,7 +582,6 @@ int HudIsBecome = 0;
     else
     {
         
-//        NSLog(@"2222222222222");
         [appDelegate.appDefault setObject:self.messageArray forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
         [self.messageArray removeAllObjects];
         NSLog(@"消息数量数组%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]);
@@ -600,13 +596,11 @@ int HudIsBecome = 0;
         [arr addObjectsFromArray:[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]];
         [arr addObjectsFromArray:self.systemMessageArray];
         [appDelegate.appDefault setObject:arr forKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
-        //[self.systemMessageArray removeAllObjects];
     }
     else
     {
         
         [appDelegate.appDefault setObject:self.systemMessageArray forKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
-        //[self.systemMessageArray removeAllObjects];
     }
     
     
