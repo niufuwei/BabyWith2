@@ -23,7 +23,8 @@
 //    }
     
     self.view.backgroundColor = babywith_color(0xf5f5f5);
-    self.navigationController.navigationBar.backIndicatorImage = [UIImage imageNamed:@"导航栏背景.png"];
+//    self.navigationController.navigationBar.backIndicatorImage = [UIImage imageNamed:@"导航栏背景.png"];
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"导航栏背景.png"]];
     if (IOS7_OR_LATER) {
         self.navigationController.navigationBar.barTintColor = babywith_color(0x2da7e7);
         self.edgesForExtendedLayout = UIRectEdgeNone;
