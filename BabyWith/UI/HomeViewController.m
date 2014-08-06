@@ -171,20 +171,25 @@
         
         if(i==1)
         {
-            tuisongLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 10, 24, 24)];
+            
+            aImageVie = [[UIImageView alloc] initWithFrame:CGRectMake(260, 12.5, 20, 20)];
+            aImageVie.image = [UIImage imageNamed:@"主页-消息.png"];
+            [buttonTitle addSubview:aImageVie];
+            tuisongLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             tuisongLabel.text =[NSString stringWithFormat:@"%lu",(unsigned long)[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]];
+            tuisongLabel.textColor = [UIColor whiteColor];
             tuisongLabel.textAlignment = NSTextAlignmentCenter;
-            tuisongLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"主页-消息.png"]];
-           
-            [buttonTitle addSubview:tuisongLabel];
+            tuisongLabel.backgroundColor = [UIColor clearColor];
+            //tuisongLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"主页-消息.png"]];
+            [aImageVie addSubview:tuisongLabel];
             
             if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
             {
-                tuisongLabel.hidden = YES;
+                aImageVie.hidden = YES;
             }
             else
             {
-                tuisongLabel.hidden = NO;
+                aImageVie.hidden = NO;
                 [self.view viewWithTag:102].backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"系统消息未读背景.png"]];
             }
 
@@ -630,11 +635,11 @@
     
     if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
     {
-        tuisongLabel.hidden = YES;
+        aImageVie.hidden = YES;
     }
     else
     {
-        tuisongLabel.hidden = NO;
+        aImageVie.hidden = NO;
         [self.view viewWithTag:102].backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"系统消息未读背景.png"]];
     }
 

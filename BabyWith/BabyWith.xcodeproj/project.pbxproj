@@ -76,7 +76,6 @@
 		71CAFE2A198B6EF200E2DC1F /* qietu_173.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE0B198B6EF200E2DC1F /* qietu_173.png */; };
 		71CAFE2B198B6EF200E2DC1F /* qietu_174.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE0C198B6EF200E2DC1F /* qietu_174.png */; };
 		71CAFE4D198B718600E2DC1F /* 关闭.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE45198B718600E2DC1F /* 关闭.png */; };
-		71CAFE4E198B718600E2DC1F /* 删除.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE46198B718600E2DC1F /* 删除.png */; };
 		71CAFE4F198B718600E2DC1F /* 导航栏背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE47198B718600E2DC1F /* 导航栏背景.png */; };
 		71CAFE50198B718600E2DC1F /* 开灯.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE48198B718600E2DC1F /* 开灯.png */; };
 		71CAFE51198B718600E2DC1F /* 添加.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE49198B718600E2DC1F /* 添加.png */; };
@@ -425,7 +424,6 @@
 		71CAFE0B198B6EF200E2DC1F /* qietu_173.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_173.png; sourceTree = "<group>"; };
 		71CAFE0C198B6EF200E2DC1F /* qietu_174.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_174.png; sourceTree = "<group>"; };
 		71CAFE45198B718600E2DC1F /* 关闭.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关闭.png"; sourceTree = "<group>"; };
-		71CAFE46198B718600E2DC1F /* 删除.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除.png"; sourceTree = "<group>"; };
 		71CAFE47198B718600E2DC1F /* 导航栏背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "导航栏背景.png"; sourceTree = "<group>"; };
 		71CAFE48198B718600E2DC1F /* 开灯.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "开灯.png"; sourceTree = "<group>"; };
 		71CAFE49198B718600E2DC1F /* 添加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "添加.png"; sourceTree = "<group>"; };
@@ -918,7 +916,6 @@
 			isa = PBXGroup;
 			children = (
 				71CAFE45198B718600E2DC1F /* 关闭.png */,
-				71CAFE46198B718600E2DC1F /* 删除.png */,
 				71CAFE47198B718600E2DC1F /* 导航栏背景.png */,
 				71CAFE48198B718600E2DC1F /* 开灯.png */,
 				71CAFE49198B718600E2DC1F /* 添加.png */,
@@ -1932,7 +1929,6 @@
 				71CAFEB9198B995700E2DC1F /* SettingsViewController.xib in Resources */,
 				EF4A5EDF198B27F600A54EB2 /* 设置.png in Resources */,
 				EF4A5E9F198B27F600A54EB2 /* 分享人员 (1).png in Resources */,
-				71CAFE4E198B718600E2DC1F /* 删除.png in Resources */,
 				EF4A5EC6198B27F600A54EB2 /* 播放视频-进度条 (1).png in Resources */,
 				71CAFE65198B7D4800E2DC1F /* 更多 (1).png in Resources */,
 				EF4A5F14198B90B800A54EB2 /* 更多 (3).png in Resources */,

@@ -78,7 +78,7 @@
         [_shrinkImage addGestureRecognizer:singleTap];
         if (kIsIphone5) {
             
-            _shrinkImage.frame=CGRectMake(25, (overlyView.frame.size.height - 25)/2-7, 60, 40);
+            _shrinkImage.frame=CGRectMake(25, (overlyView.frame.size.height - 25)/2-17, 60, 40);
   
         }
         

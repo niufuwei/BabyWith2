@@ -9,6 +9,12 @@
 #import "BaseViewController.h"
 
 @interface SettingsViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
+
+{
+    
+    UIImageView *aImageVie;
+    
+}
 @property (retain, nonatomic) IBOutlet UILabel *userInfo;
 @property (retain, nonatomic) IBOutlet UIButton *logOutBtn;
 @property (retain, nonatomic) UITableView *tableList;

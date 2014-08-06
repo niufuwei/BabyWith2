@@ -36,6 +36,7 @@
     
     UILabel * tuisongLabel;
     UIImageView *titleImage;
+    UIImageView *aImageVie;
 }
 
 
