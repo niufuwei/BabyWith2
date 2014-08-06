@@ -435,7 +435,7 @@
 - (void)animation:(UIImageView *)view
 {   //扫描框内动画
     [UIView animateWithDuration:0.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut|UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
-        view.frame = CGRectMake(60, CGRectGetMidY(view.superview.frame)-126+200-10, 200, 10) ;
+        view.frame = CGRectMake(60, CGRectGetMidY(view.superview.frame)-126+200-10, 200, 2) ;
     } completion:^(BOOL finished) {
         
     }];
