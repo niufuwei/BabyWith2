@@ -35,7 +35,11 @@
     _sharedPersonTableView.dataSource = self;
     _sharedPersonTableView.backgroundColor = [UIColor clearColor];
     _sharedPersonTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    _sharedPersonTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    if (IOS7) {
+        _sharedPersonTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    
     _label = [[UILabel alloc] init];
     
 }

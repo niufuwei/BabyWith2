@@ -325,7 +325,11 @@
         deviceListTableView.backgroundColor = [UIColor clearColor];
         deviceListTableView.delegate = self;
         deviceListTableView.dataSource = self;
-        deviceListTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        if (IOS7) {
+            deviceListTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        }
+        
+        
         [deviceListView addSubview:deviceListTableView];
         
         

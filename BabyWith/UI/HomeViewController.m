@@ -50,7 +50,10 @@
     _homeTableView1.dataSource = self;
     _homeTableView1.backgroundView = nil;
     _homeTableView1.backgroundColor = [UIColor clearColor];
-    _homeTableView1.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    if (IOS7) {
+        _homeTableView1.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    
     [self.view addSubview:_homeTableView1];
     
     activity = [[Activity alloc] initWithActivity:self.view];
