@@ -154,7 +154,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     
     //截图
     screenshotsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    screenshotsButton.frame = CGRectMake(10, 0, 80, 49);
+    screenshotsButton.frame = CGRectMake(0, 0, 80, 49);
     screenshotsButton.tag = 1;
     [screenshotsButton setBackgroundImage:[UIImage imageNamed:@"横屏截屏(1).png"] forState:UIControlStateNormal];
     [screenshotsButton setBackgroundImage:[UIImage imageNamed:@"横屏截屏(2).png"] forState:UIControlStateHighlighted];

@@ -16,6 +16,7 @@
     if (self) {
         // Initialization code
         _unlockLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 15, 40, 30)];
+        _unlockLabel.backgroundColor = [UIColor clearColor];
         _lockImage = [[UIImageView alloc] initWithFrame:CGRectMake(290, 20, 20, 20)];
         [self addSubview:_unlockLabel];
         [self addSubview:_lockImage];
