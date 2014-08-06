@@ -139,9 +139,23 @@
         }
     }
     
+    //判断未读消息
     
+    cell.tag = [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] *200;
     
-    cell.backgroundColor = [UIColor whiteColor];
+    if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] > 0)
+    {
+//        [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]
+        
+        
+     MessageCell *aCell = (MessageCell *) [cell viewWithTag:[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] *200];
+    aCell.backgroundColor = [UIColor redColor];
+    }
+    else {
+        
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    
 
     NSLog(@".....%@",[appDelegate.appDefault objectForKey:@"alert"]);
     
@@ -154,9 +168,6 @@
         [arr addObject:[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] objectAtIndex:j]];
         
     }
-    
-    
-    
     
     cell.timeLabel.text = [[arr objectAtIndex:indexPath.row] objectForKey:@"messageTime"];
     

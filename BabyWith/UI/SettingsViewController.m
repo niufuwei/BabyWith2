@@ -136,7 +136,7 @@
             aImageVie.image = [UIImage imageNamed:@"主页-消息.png"];
             
             
-            [cell.contentView addSubview:aImageVie];
+            [cell addSubview:aImageVie];
             
             cell.statusLabel.hidden = NO;
             cell.statusLabel.frame = CGRectMake(0, 0, 20, 20);
@@ -194,6 +194,8 @@
         [message getBackName:(^(NSString *str)
                                 {
                                     [((ListCell *)[tableView cellForRowAtIndexPath:indexPath]).statusLabel setHidden:YES];
+                                    [aImageVie removeFromSuperview];
+                                    
                                 })];
         [self.navigationController pushViewController:message animated:YES];
     
