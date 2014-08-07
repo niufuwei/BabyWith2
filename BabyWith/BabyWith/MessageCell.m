@@ -16,7 +16,7 @@
     if (self) {
         // Initialization code
         
-        _alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 320, 40)];
+        _alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 320, 55)];
         _alertLabel.backgroundColor = [UIColor clearColor];
         _alertLabel.font = [UIFont systemFontOfSize:15.0];
         _alertLabel.lineBreakMode = NSLineBreakByWordWrapping;
