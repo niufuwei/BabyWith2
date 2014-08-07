@@ -131,25 +131,33 @@
     if (cell == nil) {
         cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
     }
-    else
-    {
-        while ([cell.contentView.subviews lastObject] != nil) {
-            [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
-        }
-    }
-    
     //判断未读消息
-    
+//    cell.tag =(indexPath.row +1) *200;
+//    
+//    NSLog(@"......%d",cell.tag);
+//   
     NSLog(@">>>>>>>%d",[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]);
     
-    if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] > 0)
+    if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] > indexPath.row)
     {
 //        [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]
-        cell.tag = [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] *200;
+//        MessageCell *aCell = (MessageCell *) [cell.contentView viewWithTag:(indexPath.row + 1) *200];
+//        
+//        NSLog(@">>>>%d",aCell.tag);
+        cell.backgroundColor = [UIColor redColor];
+     
+//        for (int i=0 ; i<[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count];i++)
+//        {
+//            MessageCell *aCell = (MessageCell *) [_messageTableView viewWithTag:(i+1) *200];
+//            
+//            NSLog(@">>>>%@",aCell);
+//            aCell.backgroundColor = [UIColor redColor];
+//        }
         
-     UITableViewCell *aCell = (MessageCell *) [cell viewWithTag:[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] *200];
-        aCell.backgroundColor = [UIColor redColor];
+        
+     
     }
     else {
         

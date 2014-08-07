@@ -83,6 +83,9 @@
     [self.tableList reloadData];
 
 }
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
@@ -100,6 +103,12 @@
         cell.statusLabel.backgroundColor = [UIColor clearColor];
         
     }
+    else{
+        while ([cell.contentView.subviews lastObject] != nil) {
+            [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];  //删除并进行重新分配
+        }
+    }
+
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.logoImage.image = [_cellLogoArr objectAtIndex:[indexPath row]];
@@ -154,7 +163,7 @@
         else if([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
         {
             cell.statusLabel.hidden = YES;
-            aImageVie.hidden = YES;
+            [aImageVie removeFromSuperview];
         }
     }
     return cell;
