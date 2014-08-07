@@ -11,7 +11,9 @@
 #import "NewMessageCell.h"
 #import "WebInfoManager.h"
 #import "DeviceConnectManager.h"
+#import "Activity.h"
 @interface NewMessageViewController ()
+
 
 @end
 
@@ -39,6 +41,19 @@
     
     [self titleSet:@"分享设备"];
     
+     Activity *activity = [[Activity alloc] initWithActivity:self.view];
+    [activity start];
+    messageListDic =  [appDelegate.webInfoManger UserGetMessageUsingToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"Token"]];
+    NSLog(@"dic is %@",messageListDic);
+    messageArray1 =[[NSMutableArray alloc] initWithArray:[messageListDic  objectForKey:@"info"]];
+    NSLog(@"message array is %@",messageArray1);
+    
+    
+    [appDelegate.appDefault setObject:messageArray1 forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
+    
+    [activity stop];
+    
+    
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -46,8 +61,8 @@
     [super viewWillAppear:YES];
     [_messageTableView reloadData];
     
-    NSLog(@"消息数组是%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]);
-    if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
+  
+    if ([messageArray1 count]== 0)
     {
         
         _messageTableView.frame = CGRectMake(0, 0, 0, 0);
@@ -98,9 +113,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-   //return  [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count];
+   return  [messageArray1 count];
     
-    return 6;
+
 
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,12 +132,13 @@
     }
     
     
-    cell.messageLabel.text = [NSString stringWithFormat:@"%@ ",[appDelegate.appDefault objectForKey:@"alert"]];
+    cell.messageLabel.text = [[messageArray1 objectAtIndex:indexPath.row] objectForKey:@"msgContent"];
     
-   //cell.messageLabel.text = @"您好，张三将它使用的设备 工地监控一 分享给你，是否同意该监控？";
     
     [cell.agreeShareBtn addTarget:self action:@selector(agreeShare:) forControlEvents:UIControlEventTouchUpInside];
+    cell.agreeShareBtn.tag = indexPath.row + 100;
     [cell.refuseShareBtn addTarget:self action:@selector(refuseShare:) forControlEvents:UIControlEventTouchUpInside];
+    cell.refuseShareBtn.tag = indexPath.row + 1000;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -143,22 +159,31 @@
 
 -(void)agreeShare:(UIButton *)btn
 {
-    NSLog(@"同意分享1");
-    UITableViewCell *cell = (UITableViewCell *)[btn superview];
-    NSIndexPath *indexPath = [self.messageTableView indexPathForCell:cell];
     
-    NSString *IDMer = [NSString stringWithFormat:@"%@",[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] objectAtIndex:indexPath.row]];
+    NSLog(@"btn tag is %d",btn.tag);
+    Activity *activity = [[Activity alloc] initWithActivity:self.view];
+
+    [activity start];
+    NSLog(@"同意分享1");
+//    NewMessageCell *cell = (NewMessageCell *)[btn superview];
+//    NSIndexPath *indexPath = [self.messageTableView indexPathForCell:cell];
+//    
+    
+    //根据message id 去同意分享
+    NSString *IDMer = [[messageArray1 objectAtIndex:btn.tag - 100] objectForKey:@"id"];
     
     
     NSLog(@"iiiiiiiiiiiiii%@",IDMer);
-    if ([appDelegate.webInfoManger UserAgreeAddDeviceUsingIDMer:IDMer Toekn:[appDelegate.appDefault objectForKey:@"Token"]])
+    if ([appDelegate.webInfoManger UserAgreeAddDeviceUsingIDMer:IDMer Toekn:[appDelegate.appDefault objectForKey:@"Token"]] == YES)
     {
         NSLog(@"分享成功");
         
+        [activity stop];
         NSLog(@"messageArray is %@",appDelegate.messageArray);
         
         [appDelegate.messageArray addObjectsFromArray: [appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]];
-        [appDelegate.messageArray removeObjectAtIndex:indexPath.row];
+        [appDelegate.messageArray removeObjectAtIndex:btn.tag - 100];
+        [messageArray1 removeObjectAtIndex:btn.tag - 100];
         [appDelegate.appDefault setObject:appDelegate.messageArray forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
         [appDelegate.messageArray removeAllObjects];
         [self.messageTableView reloadData];
@@ -167,35 +192,67 @@
      else
     {
     
-        [self makeAlert:@"同意分享出错"];
+        [activity stop];
+        //提示框提示错误
+        [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
   
     }
+    
 
 }
  -(void)refuseShare:(UIButton *)btn
     
 {
+    
+    
+    NSLog(@"refuse btn tag is %d",btn.tag);
+
+    Activity *activity = [[Activity alloc] initWithActivity:self.view];
+
+    [activity start];
 
     NSLog(@"拒绝别人的分享");
-    UITableViewCell *cell = (UITableViewCell *)[btn superview];
-    NSIndexPath *indexPath = [self.messageTableView indexPathForCell:cell];
-    [appDelegate.messageArray addObjectsFromArray: [appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]];
-    [appDelegate.messageArray removeObjectAtIndex:indexPath.row];
-    [appDelegate.appDefault setObject:appDelegate.messageArray forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
-    [appDelegate.messageArray removeAllObjects];
-    [self.messageTableView reloadData];
-    
-    
-    if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]==0)
+   //根据message id 去同意分享
+    NSString *IDMer = [[messageArray1 objectAtIndex:btn.tag - 1000] objectForKey:@"id"];
+     NSLog(@"jjjjjjjjjjjjjjjj%@",IDMer);
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"Token"];
+    if ([appDelegate.webInfoManger UserRefuseDeviceUsingDeviceId:@"" MessageId:IDMer SharePersonNumber:@"" ToUser:[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"] Token:token] == YES)
     {
-        [_messageTableView removeFromSuperview];
-        _label.frame = CGRectMake(20, 200, 280, 60);
-        _label.textAlignment = NSTextAlignmentCenter;
-        _label.text =@"您还没有设备分享信息";
-        _label.hidden = NO;
-        _label.backgroundColor = [UIColor clearColor];
-        [self.view addSubview:_label];
+         [activity stop];
+        [appDelegate.messageArray addObjectsFromArray: [appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]];
+        [appDelegate.messageArray removeObjectAtIndex:btn.tag - 1000];
+        NSLog(@"message array 1 is %@,index is %d",messageArray1,btn.tag - 1000);
+        [messageArray1 removeObjectAtIndex:btn.tag - 1000];
+        [appDelegate.appDefault setObject:appDelegate.messageArray forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
+        [appDelegate.messageArray removeAllObjects];
+        [self.messageTableView reloadData];
+        
+        
+        if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]==0)
+        {
+            [_messageTableView removeFromSuperview];
+            _label.frame = CGRectMake(20, 200, 280, 60);
+            _label.textAlignment = NSTextAlignmentCenter;
+            _label.text =@"您还没有设备分享信息";
+            _label.hidden = NO;
+            _label.backgroundColor = [UIColor clearColor];
+            [self.view addSubview:_label];
+        }
+        
+        
+        
     }
+    else
+    {
+         [activity stop];
+        //提示框提示错误
+        [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
+
+    
+    }
+    
+    [activity stop];
+
 
 
 }

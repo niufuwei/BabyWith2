@@ -170,6 +170,32 @@
 
 }
 
+-(NSDictionary*)UserSetSahreDeviceStatusUsingDeviceId:(NSString *)aDeviceId Type:(NSString *)aType ToUser:(NSString *)aToUser User:(NSString *)aUser Token:(NSString *)aToken
+{
+
+    return [self performSynchOperation:(WebInfoBinding_SetShareDeviceStatus *)[[[WebInfoBinding_SetShareDeviceStatus alloc] initWithBinding:self DeviceId:aDeviceId Type:aType SharePersonNumber:aUser ToUserNumber:aToUser Token:aToken] autorelease]];
+
+
+}
+
+-(NSDictionary *)UserCheckDeviceIsUsefullUsingDeviceId:(NSString *)aDeviceId ToUser:(NSString *)aToUser Token:(NSString *)aToken
+{
+
+    return [self performSynchOperation:(WebInfoBinding_CheckDeviceUsefull *)[[[WebInfoBinding_CheckDeviceUsefull alloc] initWithBinding:self DeviceId:aDeviceId ToUserNumber:aToUser Token:aToken] autorelease]];
+
+
+}
+-(NSDictionary *)UserRefuseDeviceUsingDeviceId:(NSString *)aDeviceId MessageId:(NSString *)aMessageId SharePersonNumber:(NSString *)aSharePersonNumber ToUser:(NSString *)aToUser Token:(NSString *)aToken
+{
+
+    
+    return [self performSynchOperation:(WebInfoBinding_RefuseDeviceShare *)[[[WebInfoBinding_RefuseDeviceShare alloc] initWithBinding:self DeviceId:aDeviceId MessageId:aMessageId SharePersonNumber:aSharePersonNumber ToUserNumber:aToUser Token:aToken] autorelease]];
+
+
+    
+
+}
+
 -(NSDictionary *)performSynchOperation:(WebInfoBindingOper *)operation
 {
     synchOperComplete = NO;
@@ -1399,6 +1425,144 @@
 }
 @end
 
+
+@implementation WebInfoBinding_SetShareDeviceStatus
+@synthesize device_id = _device_id;
+@synthesize type = _type;
+@synthesize sharePersonNumber = _sharePersonNumber;
+@synthesize toUserNumber = _toUserNumber;
+@synthesize token=_token;
+-(id)initWithBinding:(WebInfoBinding *)binding DeviceId:(NSString *)aDeviceId Type:(NSString *)type SharePersonNumber:(NSString *)aSharePersonNumber ToUserNumber:(NSString *)aToUserNuber Token:(NSString *)aToken
+{
+
+    self = [super initWithBinding:binding];
+    if (self) {
+        self.device_id = aDeviceId;
+        self.type = type;
+        self.sharePersonNumber = aSharePersonNumber;
+        self.toUserNumber = aToUserNuber;
+        self.token = aToken;
+    }
+
+    return self;
+}
+- (void)main
+{
+    NSLog(@"start main");
+    [_responseDic autorelease];
+	_responseDic = [NSDictionary new];
+    
+    NSDictionary *outData = [NSDictionary dictionaryWithObjectsAndKeys: _device_id, @"deviceId",_type,@"type",_sharePersonNumber,@"vestUser",_toUserNumber,@"shareToUser",_token,@"token",nil];
+    
+    NSLog(@"SEND DATA = %@", outData);
+    NSError *error = nil;
+    
+    id result = [NSJSONSerialization dataWithJSONObject:outData options:kNilOptions error:&error];
+    
+	[self sendHttpPocket:result];
+    
+}
+-(void)dealloc{
+    [_device_id release];
+    [_type release];
+    [_sharePersonNumber release];
+    [_toUserNumber release];
+    [_token release];
+    [super dealloc];
+}
+
+@end
+
+
+@implementation WebInfoBinding_CheckDeviceUsefull
+@synthesize device_id = _device_id;
+@synthesize toUserNumber = _toUserNumber;
+@synthesize token=_token;
+-(id)initWithBinding:(WebInfoBinding *)binding DeviceId:(NSString *)aDeviceId ToUserNumber:(NSString *)aToUserNuber Token:(NSString *)aToken
+{
+    
+    self = [super initWithBinding:binding];
+    if (self) {
+        self.device_id = aDeviceId;
+        self.toUserNumber = aToUserNuber;
+        self.token = aToken;
+    }
+    
+    return self;
+}
+- (void)main
+{
+    NSLog(@"start main");
+    [_responseDic autorelease];
+	_responseDic = [NSDictionary new];
+    
+    NSDictionary *outData = [NSDictionary dictionaryWithObjectsAndKeys: _device_id, @"deviceId",_toUserNumber,@"shareToUser",_token,@"token",nil];
+    
+    NSLog(@"SEND DATA = %@", outData);
+    NSError *error = nil;
+    
+    id result = [NSJSONSerialization dataWithJSONObject:outData options:kNilOptions error:&error];
+    
+	[self sendHttpPocket:result];
+    
+}
+-(void)dealloc{
+    [_device_id release];
+    [_toUserNumber release];
+    [_token release];
+    [super dealloc];
+}
+
+@end
+
+
+@implementation WebInfoBinding_RefuseDeviceShare
+@synthesize device_id = _device_id;
+@synthesize message_id = _message_id;
+@synthesize sharePersonNumber = _sharePersonNumber;
+@synthesize toUserNumber = _toUserNumber;
+@synthesize token = _token;
+
+-(id)initWithBinding:(WebInfoBinding *)binding DeviceId:(NSString *)aDeviceId MessageId:(NSString *)aMessageId SharePersonNumber:(NSString *)aSharePersonNumber ToUserNumber:(NSString *)aToUserNuber Token:(NSString *)aToken
+{
+    
+    self = [super initWithBinding:binding];
+    if (self) {
+        self.device_id = aDeviceId;
+        self.message_id = aMessageId;
+        self.sharePersonNumber = aSharePersonNumber;
+        self.toUserNumber = aToUserNuber;
+        self.token = aToken;
+    }
+    
+    return self;
+}
+- (void)main
+{
+    NSLog(@"start main");
+    [_responseDic autorelease];
+	_responseDic = [NSDictionary new];
+    
+    NSDictionary *outData = [NSDictionary dictionaryWithObjectsAndKeys: _device_id, @"deviceId",_message_id,@"msgId",_sharePersonNumber,@"vestUser",_toUserNumber,@"shareToUser",_token,@"token",nil];
+    
+    NSLog(@"SEND DATA = %@", outData);
+    NSError *error = nil;
+    
+    id result = [NSJSONSerialization dataWithJSONObject:outData options:kNilOptions error:&error];
+    
+	[self sendHttpPocket:result];
+    
+}
+-(void)dealloc{
+    [_device_id release];
+    [_message_id release];
+    [_sharePersonNumber release];
+    [_toUserNumber release];
+    [_token release];
+    [super dealloc];
+}
+
+@end
 
 
 

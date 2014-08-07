@@ -566,10 +566,11 @@ int HudIsBecome = 0;
     [self.messageArray addObjectsFromArray:msgIdArray];
     //更多里面的消息，包括消息内容、消息id、消息收到的时间
     [self.systemMessageArray addObjectsFromArray:messageArray];
+   
+    
+    
+    
     //主页消息图标的改变
-    
-    
-    
     if ([appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]])
     {
         
@@ -589,7 +590,7 @@ int HudIsBecome = 0;
     
     
     
-    
+    //系统消息的总量
     if ([appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]])
     {
         NSMutableArray *arr = [[NSMutableArray alloc] init];
@@ -604,6 +605,7 @@ int HudIsBecome = 0;
     }
     
     
+    //更多里面的显示系统消息数量的图标
     if ([appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]])
     {
         NSMutableArray *arr = [[NSMutableArray alloc] init];

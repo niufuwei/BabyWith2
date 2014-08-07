@@ -95,4 +95,13 @@
 -(BOOL)UserAgreeAddDeviceUsingIDMer:(NSString *)aIDMer Toekn:(NSString *)aToken;
 
 
+//分享设备(开关状态)
+-(BOOL)UserSetSahreDeviceStatusUsingDeviceId:(NSString *)aDeviceId Type:(NSString *)aType ToUser:(NSString *)aToUser User:(NSString *)aUser Token:(NSString *)aToken;
+
+//检验设备是否可用
+-(NSDictionary*)UserCheckDeviceIsUsefullUsingDeviceId:(NSString *)aDeviceId ToUser:(NSString *)aToUser Token:(NSString *)aToken;
+
+//拒绝分享
+-(BOOL)UserRefuseDeviceUsingDeviceId:(NSString *)aDeviceId MessageId:(NSString *)aMessageId SharePersonNumber:(NSString *)aSharePersonNumber ToUser:(NSString *)aToUser Token:(NSString *)aToken;
+
 @end

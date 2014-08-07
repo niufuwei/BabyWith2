@@ -652,6 +652,19 @@
     self.deviceArray = [appDelegate.deviceConnectManager getDeviceInfoList];
     [_homeTableView1 reloadData];
     titleImage.hidden = NO;
+    
+    
+    
+    tuisongLabel.text =[NSString stringWithFormat:@"%lu",(unsigned long)[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]];
+    
+    if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
+    {
+        aImageVie.hidden = YES;
+    }
+    else
+    {
+        aImageVie.hidden = NO;
+    }
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -889,8 +902,18 @@
 //            [self.navigationController pushViewController:vc animated:YES];
 //        }
 //    }
+    
     [appDelegate hideTabbar];
     [appDelegate.appDefault setObject:[self.deviceArray objectAtIndex:indexPath.row] forKey:@"Device_selected"];
+    
+    if ([[[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"id_member"] stringValue] isEqualToString:@"2"])
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:[NSString stringWithFormat:@"%@_number",[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"device_id"]]];
+        
+        
+        
+    }
     NSLog(@"存入的设备是%@",[appDelegate.appDefault objectForKey:@"Device_selected"]);
     CameraPlayViewController *vc = [[CameraPlayViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];

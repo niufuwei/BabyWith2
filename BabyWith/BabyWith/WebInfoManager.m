@@ -595,7 +595,11 @@
         NSString *bindTime = [formatter stringFromDate:date];
         NSLog(@".....%@",bindTime);
         
-        [appDelegate.appDefault setObject:bindTime forKey:[NSString stringWithFormat:@"%@_time",[[newDeviceInfo objectAtIndex:0] objectForKey:@"device_id"]]];
+        if ([[newDeviceInfo objectAtIndex:0] objectForKey:@"device_id"])
+        {
+            [appDelegate.appDefault setObject:bindTime forKey:[NSString stringWithFormat:@"%@_time",[[newDeviceInfo objectAtIndex:0] objectForKey:@"device_id"]]];
+        }
+        
         NSLog(@"新分享设备是%@",newDeviceInfo);
         
         [appDelegate.deviceConnectManager putDeviceInfo:[response objectForKey:@"value"]];
@@ -606,7 +610,74 @@
         return NO;
     }
 }
+-(BOOL)UserSetSahreDeviceStatusUsingDeviceId:(NSString *)aDeviceId Type:(NSString *)aType ToUser:(NSString *)aToUser User:(NSString *)aUser Token:(NSString *)aToken
+{
 
+    WebInfoBinding *binding = [[WebInfoBinding alloc] initWithAddress:[NSString stringWithFormat:@"%@/share/setShareDevice",[appDelegate.appDefault objectForKey:@"BabyWith_address_api"]]];
+    NSDictionary *response = [binding UserSetSahreDeviceStatusUsingDeviceId:aDeviceId Type:aType ToUser:aToUser User:aUser Token:aToken];
+    [binding release];
+    if (response && [[response objectForKey:@"result"] isEqualToString:@"success"])
+    {
+        
+        return YES;
+    
+    
+    }
+    else
+    {
+    
+    
+        return NO;
+    }
+
+}
+-(NSDictionary*)UserCheckDeviceIsUsefullUsingDeviceId:(NSString *)aDeviceId ToUser:(NSString *)aToUser Token:(NSString *)aToken
+{
+    WebInfoBinding *binding = [[WebInfoBinding alloc] initWithAddress:[NSString stringWithFormat:@"%@/share/checkBeShareDevice",[appDelegate.appDefault objectForKey:@"BabyWith_address_api"]]];
+    NSDictionary *response = [binding UserCheckDeviceIsUsefullUsingDeviceId:aDeviceId ToUser:aToUser Token:aToken];
+    [binding release];
+    if (response && [[response objectForKey:@"result"] isEqualToString:@"success"])
+    {
+        
+        NSDictionary *dic = [NSDictionary dictionaryWithDictionary:[response objectForKey:@"value"]];
+        return dic;
+        
+    }
+    else
+    {
+        
+        
+        return nil;
+    }
+
+
+
+}
+
+-(BOOL)UserRefuseDeviceUsingDeviceId:(NSString *)aDeviceId MessageId:(NSString *)aMessageId SharePersonNumber:(NSString *)aSharePersonNumber ToUser:(NSString *)aToUser Token:(NSString *)aToken
+{
+
+    WebInfoBinding *binding = [[WebInfoBinding alloc] initWithAddress:[NSString stringWithFormat:@"%@/share/refuseAcceptDevice",[appDelegate.appDefault objectForKey:@"BabyWith_address_api"]]];
+    NSDictionary *response = [binding UserRefuseDeviceUsingDeviceId:aDeviceId MessageId:aMessageId SharePersonNumber:aSharePersonNumber ToUser:aToUser Token:aToken];
+    [binding release];
+    if (response && [[response objectForKey:@"result"] isEqualToString:@"success"])
+    {
+        
+        return YES;
+        
+        
+    }
+    else
+    {
+        
+        
+        return NO;
+    }
+
+    
+
+
+}
 @end
 
 

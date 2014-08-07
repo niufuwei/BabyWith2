@@ -56,6 +56,15 @@
 //同意添加设备
 -(NSDictionary *)UserAgreeAddDeviceUsingIDMer:(NSString *)aIDMer Toekn:(NSString *)aToken;
 
+//分享设备(开关状态)
+-(NSDictionary *)UserSetSahreDeviceStatusUsingDeviceId:(NSString *)aDeviceId Type:(NSString *)aType ToUser:(NSString *)aToUser User:(NSString *)aUser Token:(NSString *)aToken;
+
+//检验设备是否可用
+-(NSDictionary *)UserCheckDeviceIsUsefullUsingDeviceId:(NSString *)aDeviceId ToUser:(NSString *)aToUser Token:(NSString *)aToken;
+
+//拒绝分享
+-(NSDictionary *)UserRefuseDeviceUsingDeviceId:(NSString *)aDeviceId MessageId:(NSString *)aMessageId SharePersonNumber:(NSString *)aSharePersonNumber ToUser:(NSString *)aToUser Token:(NSString *)aToken;
+
 @end
 
 @interface WebInfoBindingOper : NSOperation<NSURLConnectionDataDelegate, NSURLConnectionDelegate>{
@@ -472,11 +481,59 @@
 @property (retain) NSString * id_mer;
 @property (retain) NSString *token;
 -(id)initWithBinding:(WebInfoBinding *)binding IDMer:(NSString *)aIDMer Toekn:(NSString *)aToken;
-
 @end
 
 
 
+@interface WebInfoBinding_SetShareDeviceStatus:WebInfoBindingOper
+{
+    NSString *_device_id;
+    NSString *_type;
+    NSString *_sharePersonNumber;
+    NSString *_toUserNumber;
+    NSString *_token;
+
+}
+@property (retain) NSString *device_id;
+@property (retain) NSString *type;
+@property (retain) NSString *token;
+@property (retain) NSString *sharePersonNumber;
+@property (retain) NSString *toUserNumber;
+
+-(id)initWithBinding:(WebInfoBinding *)binding DeviceId:(NSString *)aDeviceId Type:(NSString *)type SharePersonNumber:(NSString *)aSharePersonNumber ToUserNumber:(NSString *)aToUserNuber Token:(NSString *)aToken;
+@end;
+
+
+@interface WebInfoBinding_CheckDeviceUsefull:WebInfoBindingOper
+{
+    NSString *_device_id;
+    NSString *_token;
+    NSString *_toUserNumber;
+    
+}
+@property (retain) NSString *device_id;
+@property (retain) NSString *toUserNumber;
+@property (retain) NSString *token;
+-(id)initWithBinding:(WebInfoBinding *)binding DeviceId:(NSString *)aDeviceId ToUserNumber:(NSString *)aToUserNuber Token:(NSString *)aToken;
+@end;
+
+@interface WebInfoBinding_RefuseDeviceShare:WebInfoBindingOper
+{
+    NSString *_device_id;
+    NSString *_message_id;
+    NSString *_sharePersonNumber;
+    NSString *_toUserNumber;
+    NSString *_token;
+    
+}
+@property (retain) NSString *device_id;
+@property (retain) NSString *message_id;
+@property (retain) NSString *token;
+@property (retain) NSString *sharePersonNumber;
+@property (retain) NSString *toUserNumber;
+
+-(id)initWithBinding:(WebInfoBinding *)binding DeviceId:(NSString *)aDeviceId MessageId:(NSString *)aMessageId SharePersonNumber:(NSString *)aSharePersonNumber ToUserNumber:(NSString *)aToUserNuber Token:(NSString *)aToken;
+@end;
 
 
 

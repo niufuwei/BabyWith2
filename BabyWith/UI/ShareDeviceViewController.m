@@ -253,6 +253,15 @@
             [indicator removeFromSuperview];
             
             [activity stop];
+            
+            
+            
+            
+            //存入设备的分享状态，1代表给对方权限观看，0代表不给权限观看
+            NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
+            
+            
+            
 
             //选择的设备的数量
             int i = [appDelegate.selectDeviceArr count];
@@ -262,6 +271,7 @@
             for (int n = 1; n <= i; n++)
             {
                 
+                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:[NSString stringWithFormat:@"%@_%@_%@_status",username,[[appDelegate.selectDeviceArr objectAtIndex:n - 1] objectForKey:@"device_id"],self.phoneNumber.text]];
                 
                 NSLog(@"设备的分享人员是%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_number",[[appDelegate.selectDeviceArr objectAtIndex:n - 1] objectForKey:@"device_id"]]]);
                 

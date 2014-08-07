@@ -25,6 +25,7 @@
 #import <sys/sysctl.h>
 #import <mach/mach.h>
 #import "mytoast.h"
+#import "Activity.h"
 #define REUSEABLE @"cell"
 #define ITEM_WIDTH  (64)
 #define ITEM_HEIGTH (36)
@@ -33,7 +34,11 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 
 
 @implementation CameraPlayViewController
+{
 
+    Activity *activity;
+
+}
 @synthesize playView =  _playView;
 @synthesize m_PPPPChannelMgtCondition = _m_PPPPChannelMgtCondition;
 @synthesize cameraID = _cameraID;
@@ -93,8 +98,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     //默认是非截屏状态
     screenshots = 0;
     
-    
-    
+       
     
     for (id obj in [appDelegate.deviceConnectManager getDeviceInfoList])
     {
@@ -1873,14 +1877,64 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     }
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated
+{
+
+   
     _rotateEnableFlag = 1;
     _lockFlag = 0;
     [_lockButton setImage:[UIImage imageNamed:@"lock_off.png"] forState:UIControlStateNormal];
     [_lockButton setImage:[UIImage imageNamed:@"lock_off_highlighted.png"] forState:UIControlStateHighlighted];
-   
-    [self CameraTargetPressed];
-    [self.collectionView reloadData];
+    
+    
+    if ([[[[[NSUserDefaults standardUserDefaults] objectForKey:@"Device_selected"] objectForKey:@"id_member"] stringValue] isEqualToString:@"2"])
+    {
+        
+        activity = [[Activity alloc] initWithActivity:self.view];
+        [activity start];
+        NSString *deviceId = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Device_selected"] objectForKey:@"device_id"];
+        NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
+        NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"Token"];
+        NSLog(@"device id is %@,user is %@",deviceId,user);
+        NSDictionary * dic =  [appDelegate.webInfoManger UserCheckDeviceIsUsefullUsingDeviceId:deviceId ToUser:user Token:token];
+        
+        if (dic)
+        {
+            if ([[dic objectForKey:@"shareStatus"] isEqualToString:@"1"])
+            {
+                [activity stop];
+                [self CameraTargetPressed];
+                [self.collectionView reloadData];
+            }
+            else
+            {
+                
+                [activity stop];
+                
+                UIAlertView *alert =   [[UIAlertView alloc] initWithTitle:@"提示" message:@"分享者已暂时关闭视频分享" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                alert.tag = 2046;
+                
+                
+            }
+        }
+        else
+        {
+            
+            [activity stop];
+            
+        }
+    }
+    else
+    {
+    
+        [self CameraTargetPressed];
+        [self.collectionView reloadData];
+        
+    
+    }
+    
+    
+    
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -2450,6 +2504,14 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                 [self.navigationController popViewControllerAnimated:YES];
                 }
             }
+        }
+    }
+    
+    if (alertView.tag == 2046)
+    {
+        if (buttonIndex == 0)
+        {
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }
 }

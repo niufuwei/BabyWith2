@@ -8,6 +8,9 @@
 
 #import "PersonEditViewController.h"
 #import "NumberDescriptionViewController.h"
+#import "MainAppDelegate.h"
+#import "WebInfoManager.h"
+#import "Activity.h"
 @interface PersonEditViewController ()
 
 @end
@@ -111,7 +114,6 @@
         if (indexPath.row == 2)
         {
             switchImage = [[UIImageView alloc] initWithFrame:CGRectMake(250, 12.5, 50, 20)];
-            switchImage.image = [UIImage imageNamed:@"切换 (1).png"];
             [cell addSubview:switchImage];
         }
 
@@ -151,6 +153,31 @@
     }
     if (indexPath.row == 2)
     {
+        NSString *loginName = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
+        NSString *deviceId = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Device_selected"] objectForKey:@"device_id"];
+        NSString * key =   [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@_status",loginName,deviceId,_phone]];
+        NSLog(@"key is %@",key);
+        
+        if (key)
+        {
+            if ([key isEqualToString:@"1"])
+            {
+                switchImage.image = [UIImage imageNamed:@"切换 (1).png"];
+
+            }
+            if ([key isEqualToString:@"0"])
+            {
+                switchImage.image = [UIImage imageNamed:@"切换 (2).png"];
+            }
+            
+        }
+        else
+        {
+        
+            switchImage.image = [UIImage imageNamed:@"切换 (1).png"];
+        
+            
+        }
         
     }
     
@@ -170,8 +197,67 @@
         [self.navigationController pushViewController:Vc animated:YES];
         
     }
-    else
+     if(indexPath.row == 2)
     {
+        
+        Activity *activity = [[Activity alloc] initWithActivity:self.view];
+        [activity start];
+        NSString *loginName = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
+        NSString *deviceId = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Device_selected"] objectForKey:@"device_id"];
+        NSString *key = [NSString stringWithFormat:@"%@_%@_%@_status",loginName,deviceId,_phone];
+        NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"Token"];
+        NSLog(@"key is %@",key);
+
+        if (switchImage.image == [UIImage imageNamed:@"切换 (2).png"])
+        {
+            
+            
+            if ([appDelegate.webInfoManger UserSetSahreDeviceStatusUsingDeviceId:deviceId Type:@"1" ToUser:_phone User:loginName Token:token] == YES)
+            {
+                [activity stop];
+                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:key];
+                NSString * key1 =   [[NSUserDefaults standardUserDefaults] objectForKey:key];
+                NSLog(@"key1 is %@",key1);
+                switchImage.image = [UIImage imageNamed:@"切换 (1).png"];
+
+
+            }
+            else
+            {
+                 [activity stop];
+                //提示框提示错误
+                [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
+            
+            }
+            
+            
+        }
+        else
+        {
+            if ([appDelegate.webInfoManger UserSetSahreDeviceStatusUsingDeviceId:deviceId Type:@"0" ToUser:_phone User:loginName Token:token] == YES)
+            {
+                [activity stop];
+                [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:key];
+                NSString * key2 =   [[NSUserDefaults standardUserDefaults] objectForKey:key];
+                NSLog(@"key2 is %@",key2);
+                
+                switchImage.image = [UIImage imageNamed:@"切换 (2).png"];
+                
+                
+            }
+            else
+            {
+                 [activity stop];
+                //提示框提示错误
+                [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
+                
+            }
+        
+            
+            
+        
+        }
+        
     
     
     }
