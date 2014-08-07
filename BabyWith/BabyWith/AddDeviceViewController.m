@@ -319,6 +319,7 @@
         
         UILabel *warnLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 5, 100, 20)];
         warnLabel.text = @"请选择设备";
+        warnLabel.textAlignment = NSTextAlignmentCenter;
         warnLabel.backgroundColor = [UIColor clearColor];
         warnLabel.font = [UIFont systemFontOfSize:14.0];
         [deviceListView addSubview:warnLabel];
@@ -757,8 +758,6 @@
     
     return cell;
     
-
-
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
