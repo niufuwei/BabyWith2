@@ -88,10 +88,22 @@
     }
     
     int contentHeight = self.view.frame.size.height;
-    _photoScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, contentHeight)];
+    if (IOS7) {
+        _photoScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, contentHeight)];
+    }
+    else
+    {
+        _photoScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, contentHeight)];
+    }
+    if (IOS7) {
+        _photoScrollView.contentSize = CGSizeMake(320*pageCount,contentHeight - 64);
+    }
+    else
+    {
+        _photoScrollView.contentSize = CGSizeMake(320*pageCount,contentHeight - 44);
+    }
     _photoScrollView.pagingEnabled = YES;
     _photoScrollView.delegate = self;
-    _photoScrollView.contentSize = CGSizeMake(320*pageCount,contentHeight);
     _photoScrollView.showsHorizontalScrollIndicator = NO;
     _photoScrollView.showsVerticalScrollIndicator = NO;
     _photoScrollView.scrollEnabled = YES;
@@ -105,7 +117,7 @@
     for (NSDictionary *dic in _photoArray)
     {
         
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*320, 0, 320, contentHeight)] ;
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*320, 0, 320, _photoScrollView.frame.size.height)] ;
         view.tag = i+1;
         
         
@@ -117,8 +129,17 @@
         if ([[dic objectForKey:@"height_image"] integerValue] == 180) {
             imageView.frame = CGRectMake(0, (view.frame.size.height - 180)/2 - 60, view.frame.size.width,180);
             
-        } else {
-            imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-60);
+        } else
+        {
+            if (IOS7)
+            {
+                imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-60);
+            }
+            else
+            {
+            imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-40);
+            }
+            
             
         }
         //是视频图片的话要添加开始按钮一样的东西作为普通图片和视频区别

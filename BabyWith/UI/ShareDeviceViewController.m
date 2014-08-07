@@ -127,13 +127,21 @@
         NSLog(@">>>>>%@",phone);
         //do something
     
+        NSString *NumPhone;
+        if ([phone hasPrefix:@"+86"]) {
+             NSString *aPhone = [phone substringFromIndex:3];
+//            NSLog(@"<><><>%@",aPhone);
+            NumPhone = [aPhone stringByReplacingOccurrencesOfString:@"-" withString:@""];
+//            NSLog(@"<><><>%@",NumPhone);
+        }
         
+        else
+        {
+            NumPhone = [phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        }
         
-        self.phoneNumber.text = phone;
+        self.phoneNumber.text = NumPhone;
         
-        
-        
-
         
         [peoplePicker dismissViewControllerAnimated:YES completion:nil];
         

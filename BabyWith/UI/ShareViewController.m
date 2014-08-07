@@ -209,7 +209,7 @@
 
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
     _nextStepBtn.frame = CGRectMake(35, 30, 250, 35);
-    [self configurationForGreenButton:_nextStepBtn];
+//    [self configurationForGreenButton:_nextStepBtn];
     [_nextStepBtn setBackgroundImage:[UIImage imageNamed:@"qietu_118.png"] forState:UIControlStateNormal];
     _nextStepBtn.layer.cornerRadius = 1.5;
     [_nextStepBtn addTarget:self action:@selector(nextStep) forControlEvents:UIControlEventTouchUpInside];

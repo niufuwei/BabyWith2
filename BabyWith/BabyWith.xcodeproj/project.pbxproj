@@ -244,6 +244,8 @@
 		EF4A5F21198B915100A54EB2 /* 选择 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E70198B27F600A54EB2 /* 选择 (2).png */; };
 		EF4AAF25198F5F1400F33F0E /* cameraBackImage.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4AAF24198F5F1400F33F0E /* cameraBackImage.png */; };
 		EF4AAF27198F6CE400F33F0E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4AAF26198F6CE400F33F0E /* RegisterViewController.xib */; };
+		EF4C175A19920E0E00FC3532 /* qietu_307.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4C175819920E0E00FC3532 /* qietu_307.png */; };
+		EF4C175B19920E0E00FC3532 /* qietu_310.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4C175919920E0E00FC3532 /* qietu_310.png */; };
 		EF517DA91811340100EB5CED /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = EF517DA81811340100EB5CED /* Icon-80.png */; };
 		EF96F12E18D2E110002C1245 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF96F12B18D2E110002C1245 /* Default-568h@2x.png */; };
 		EF96F13018D2E110002C1245 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF96F12D18D2E110002C1245 /* Default@2x.png */; };
@@ -625,6 +627,8 @@
 		EF4A5F11198B90B800A54EB2 /* 更多 (4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (4).png"; sourceTree = "<group>"; };
 		EF4AAF24198F5F1400F33F0E /* cameraBackImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraBackImage.png; sourceTree = "<group>"; };
 		EF4AAF26198F6CE400F33F0E /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		EF4C175819920E0E00FC3532 /* qietu_307.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_307.png; sourceTree = "<group>"; };
+		EF4C175919920E0E00FC3532 /* qietu_310.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_310.png; sourceTree = "<group>"; };
 		EF517DA81811340100EB5CED /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
 		EF96F12B18D2E110002C1245 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EF96F12C18D2E110002C1245 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -1181,6 +1185,8 @@
 				1DCB5BD819909AAB001D177E /* 主菜单栏-选中 (2).png */,
 				1DCB5BD919909AAB001D177E /* 主菜单栏-选中 (3).png */,
 				1DCB5BDA19909AAB001D177E /* 主菜单栏-选中 (4).png */,
+				EF4C175819920E0E00FC3532 /* qietu_307.png */,
+				EF4C175919920E0E00FC3532 /* qietu_310.png */,
 				1DCB5BCB198F3665001D177E /* qietu_34.png */,
 				1DCB5BC9198F3645001D177E /* 编辑2.png */,
 				EF4AAF24198F5F1400F33F0E /* cameraBackImage.png */,
@@ -1899,9 +1905,11 @@
 				EF1B062E178C65E400C08313 /* grayArrow.png in Resources */,
 				EF96F30418D2E279002C1245 /* Images.xcassets in Resources */,
 				EF4A5EC2198B27F600A54EB2 /* 播放视频 (1).png in Resources */,
+				EF4C175B19920E0E00FC3532 /* qietu_310.png in Resources */,
 				EF1B0630178C65E400C08313 /* whiteArrow.png in Resources */,
 				71CAFE22198B6EF200E2DC1F /* 竖屏(1).png in Resources */,
 				EF4A5EDC198B27F600A54EB2 /* 网络选择 (2).png in Resources */,
+				EF4C175A19920E0E00FC3532 /* qietu_307.png in Resources */,
 				EF1B0631178C65E400C08313 /* whiteArrow@2x.png in Resources */,
 				EF4A5EE5198B27F600A54EB2 /* 选择 (1).png in Resources */,
 				EF4A5EBF198B27F600A54EB2 /* 拍照3.png in Resources */,
@@ -2175,7 +2183,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
 				SDKROOT = iphoneos7.1;
 			};
 			name = Debug;
@@ -2202,7 +2209,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
+
 				SDKROOT = iphoneos7.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv7s";
@@ -2244,6 +2251,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = armv7;
@@ -2286,6 +2294,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = "armv7 armv7s arm64";

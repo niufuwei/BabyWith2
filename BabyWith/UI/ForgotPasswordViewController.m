@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self titleSet:@"找回密码"];
-    [self configurationForGreenButton:_nextButton];
+//    [self configurationForGreenButton:_nextButton];
 }
 -(void)viewDidAppear:(BOOL)animated
 {

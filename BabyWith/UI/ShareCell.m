@@ -21,11 +21,13 @@
         
          _nameLabel =[[UILabel alloc] initWithFrame:CGRectMake(60, 3, 180, 40)];
         _nameLabel.font = [UIFont systemFontOfSize:17.0];
+        _nameLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:_nameLabel];
         
         
         _bindTimeLabel =[[UILabel alloc] initWithFrame:CGRectMake(60, 33, 180, 20)];
         _bindTimeLabel.font = [UIFont systemFontOfSize:15.0];
+        _bindTimeLabel.backgroundColor = [UIColor clearColor];
         _bindTimeLabel.textColor = [UIColor grayColor];
         [self addSubview:_bindTimeLabel];
         

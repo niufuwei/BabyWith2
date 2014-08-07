@@ -59,7 +59,7 @@
     }
     _selectedRow = 0;
     
-    _settingTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320,44*3+64) style:UITableViewStylePlain];
+    _settingTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320,44*3) style:UITableViewStylePlain];
     _settingTableView.dataSource = self;
     _settingTableView.delegate = self;
     _settingTableView.backgroundView = nil;

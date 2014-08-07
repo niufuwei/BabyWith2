@@ -50,7 +50,10 @@
     _homeTableView1.dataSource = self;
     _homeTableView1.backgroundView = nil;
     _homeTableView1.backgroundColor = [UIColor clearColor];
-    _homeTableView1.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    if (IOS7) {
+        _homeTableView1.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    
     [self.view addSubview:_homeTableView1];
     
     activity = [[Activity alloc] initWithActivity:self.view];
@@ -200,7 +203,15 @@
     }
     
     CGRect yyyyy = _homeTableView1.frame;
-    yyyyy.origin.y = yyy+30;
+    if(IOS7)
+    {
+       yyyyy.origin.y = yyy+30;
+    }
+    else
+    {
+        yyyyy.origin.y = yyy+50;
+    }
+    
     yyyyy.size.height = self.view.frame.size.height - yyy- 44 - 50+10;
     _homeTableView1.frame = yyyyy;
     
