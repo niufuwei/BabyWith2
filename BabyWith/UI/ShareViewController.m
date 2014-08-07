@@ -76,12 +76,23 @@
     //有选中的话根据数据库有没有昵称进入不同的页面
     if (_hasSelect == YES)
     {
-        
-        
-        
+        //[appDelegate.appDefault setObject:_nickName.text forKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"]]]
+        //是否有昵称
+        if (![appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"]]]) {
+            _hasSelect = NO;
+            SetNickNameViewController *setNickNameVC=[[SetNickNameViewController alloc] init];
+            [self.navigationController pushViewController:setNickNameVC animated:YES];
+            
+            
+        }
+        else
+        {
             _hasSelect = NO;
             ShareDeviceViewController *vc = [[ShareDeviceViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        
 
     }
     else

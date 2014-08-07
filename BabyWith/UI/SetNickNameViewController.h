@@ -11,6 +11,10 @@
 @interface SetNickNameViewController : BaseViewController
 @property (retain, nonatomic) IBOutlet UITextField *nickNameField;
 @property (retain, nonatomic)  UIButton *nextBtn;
+@property (retain, nonatomic) IBOutlet UIButton *nextStepBtnClick;
+
+- (IBAction)nextBtnClick:(id)sender;
+
 
 
 @end
