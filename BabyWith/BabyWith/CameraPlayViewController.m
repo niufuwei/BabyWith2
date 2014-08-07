@@ -1912,6 +1912,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                 [activity stop];
                 
                 UIAlertView *alert =   [[UIAlertView alloc] initWithTitle:@"提示" message:@"分享者已暂时关闭视频分享" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
                 alert.tag = 2046;
                 
                 

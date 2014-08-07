@@ -193,7 +193,7 @@
             else
             {
                 aImageVie.hidden = NO;
-                [self.view viewWithTag:102].backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"系统消息未读背景.png"]];
+               [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"系统消息未读背景.png"] forState:UIControlStateNormal];
             }
 
         }
@@ -231,7 +231,7 @@
             break;
         case 102:
         {
-            [self.view viewWithTag:102].backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"主页- 消息背景 (2).png"]];
+            [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"主页- 消息背景 (2).png"] forState:UIControlStateNormal];
             NewMessageViewController * newMessageVC = [[NewMessageViewController alloc] init];
             [self.navigationController pushViewController:newMessageVC animated:YES];
         }
@@ -651,7 +651,7 @@
     else
     {
         aImageVie.hidden = NO;
-        [self.view viewWithTag:102].backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"系统消息未读背景.png"]];
+        [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"系统消息未读背景.png"] forState:UIControlStateNormal];
     }
 
 }
@@ -750,10 +750,26 @@
     else
     {
         cell3.isShare.hidden = NO;
-        cell3.state.text = @"来自的设备";
+        if ([[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"niceName"])
+        {
+            if ([[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"niceName"] length] == 0)
+            {
+                cell3.state.text = @"被分享的设备";
+            }
+            else
+            {
+            cell3.state.text = [NSString stringWithFormat:@"来自%@的设备",[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"niceName"]];
+            }
+        }
+        else
+        {
+        
+            cell3.state.text = @"被分享的设备";
+        
+        }
+        
     }
     cell3.selectionStyle = UITableViewCellSelectionStyleNone;
-    //cell3.state.text = tempState;
 
     
     return cell3;
