@@ -143,11 +143,6 @@
         self.phoneNumber.text = NumPhone;
         
         
-        
-        
-        
-
-        
         [peoplePicker dismissViewControllerAnimated:YES completion:nil];
         
         

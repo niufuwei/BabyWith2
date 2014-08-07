@@ -167,7 +167,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     {
         if([deleteArray count]==0)
         {
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"请选择要删除的图片" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"请选择要删除的内容" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
         }
         else
