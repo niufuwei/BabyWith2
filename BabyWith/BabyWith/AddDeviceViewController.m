@@ -740,13 +740,12 @@
             accLabel.text = @"已绑定";
             accLabel.textColor = [UIColor blackColor];
             [_searchDeviceIdArr removeObjectAtIndex:i];
-
+	
             break;
             
         }
         else
         {
-        
             accLabel.text =  @"未绑定";
             accLabel.textColor = [UIColor grayColor];
             [_searchDeviceIdArr removeObjectAtIndex:i];
