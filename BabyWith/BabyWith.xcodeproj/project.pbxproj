@@ -29,7 +29,7 @@
 		711BB9A0195C1E9400265F41 /* CameraPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711BB99F195C1E9400265F41 /* CameraPlayViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7150969E192CBAA6005F4BBA /* OpenGLView20.m in Sources */ = {isa = PBXBuildFile; fileRef = 7150969D192CBAA6005F4BBA /* OpenGLView20.m */; };
 		715B086C1991C77A00A7220B /* PersonEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B086B1991C77A00A7220B /* PersonEditViewController.m */; };
-		715B086F1991D13900A7220B /* NumberDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B086E1991D13900A7220B /* NumberDescriptionViewController.m */; };
+		715B086F1991D13900A7220B /* NumberDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B086E1991D13900A7220B /* NumberDescriptionViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		716C830918D94403006CB5C3 /* SetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C830718D94403006CB5C3 /* SetPasswordViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		716C830A18D94403006CB5C3 /* SetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716C830818D94403006CB5C3 /* SetPasswordViewController.xib */; };
 		7174A0BA194EC88F00DCC781 /* 4031.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7174A0B9194EC88F00DCC781 /* 4031.wav */; };
@@ -48,7 +48,7 @@
 		7197BCAF18D92559009C71E1 /* MessagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197BCAD18D92559009C71E1 /* MessagViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71A41D881951778800B45C7E /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A41D871951778800B45C7E /* AboutUsViewController.xib */; };
 		71A41D8B1951961100B45C7E /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A41D8A1951961100B45C7E /* ImagePickerController.m */; };
-		71A41D8E1951971C00B45C7E /* ImageShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A41D8D1951971C00B45C7E /* ImageShowController.m */; };
+		71A41D8E1951971C00B45C7E /* ImageShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A41D8D1951971C00B45C7E /* ImageShowController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71A86CEB190A04FC004AFA50 /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 71A86CEA190A04FC004AFA50 /* help.html */; };
 		71A86CF1190A310A004AFA50 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71A86CEF190A310A004AFA50 /* line@2x.png */; };
 		71A86CF2190A310A004AFA50 /* pick_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71A86CF0190A310A004AFA50 /* pick_bg@2x.png */; };
