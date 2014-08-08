@@ -132,17 +132,36 @@
          cell.contentView.backgroundColor = [UIColor whiteColor];
         
         
+        accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(320-25,16, 7, 13)];
+        [accessoryView setImage:[UIImage imageNamed:@"qietu_40.png"]];
+        [cell addSubview:accessoryView];
+        
+        
+        statusImage = [[UIImageView alloc] initWithFrame:CGRectMake(cell.textLabel.frame.size.width + 20, 17.5 , 10, 10)];
+        
+        
+        
+        
+        statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 0, 30, 45)];
+        statusLabel.backgroundColor = [UIColor clearColor];
+        
+        statusLabel.font = [UIFont systemFontOfSize:14.0];
+
+        [cell addSubview:statusImage];
+        
+        [cell addSubview:statusLabel];
+
+        
+        
     }
-    else
-    {
-        while ([cell.contentView.subviews lastObject] != nil)
-        {
-            [statusImage removeFromSuperview];
-            [statusLabel removeFromSuperview];
-            [accessoryView removeFromSuperview];
-            [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];  //删除并进行重新分配
-        }
-    }
+//    else
+//    {
+//        
+//            [statusImage removeFromSuperview];
+//            [statusLabel removeFromSuperview];
+//            [accessoryView removeFromSuperview];
+//        
+//    }
     
    
     NSString *phone = [[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] objectAtIndex:indexPath.row];
@@ -170,22 +189,8 @@
     
     }
     
-    accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(320-25,16, 7, 13)];
-    [accessoryView setImage:[UIImage imageNamed:@"qietu_40.png"]];
-    [cell addSubview:accessoryView];
     
-    
-    statusImage = [[UIImageView alloc] initWithFrame:CGRectMake(cell.textLabel.frame.size.width + 20, 17.5 , 10, 10)];
-    
-    
-    
-    
-    statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 0, 30, 45)];
-    statusLabel.backgroundColor = [UIColor clearColor];
-   
-    statusLabel.font = [UIFont systemFontOfSize:14.0];
-    
-    
+    statusImage.frame = CGRectMake(cell.textLabel.frame.size.width + 20, 17.5 , 10, 10);
     NSString * key =   [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@_status",loginName,deviceId,phone]];
     
 
@@ -217,9 +222,6 @@
     }
 
     
-    [cell addSubview:statusImage];
-
-    [cell addSubview:statusLabel];
     
     
     
