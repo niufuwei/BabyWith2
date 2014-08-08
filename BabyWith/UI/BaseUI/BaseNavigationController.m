@@ -34,7 +34,7 @@
 - (id)initWithRootViewController:(UIViewController *)rootViewController{
     id obj  = [super initWithRootViewController:rootViewController];
     self.delegate = self;
-    [self dropShadowWithOpacity:0.4];
+//    [self dropShadowWithOpacity:0.4];
     return obj;
     
     
