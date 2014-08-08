@@ -49,12 +49,12 @@
     [self.view addSubview:_messageTableView];
     
     
-    if (100.0*[self tableView:_messageTableView numberOfRowsInSection:0] > self.view.frame.size.height)
+    if (75.0*[self tableView:_messageTableView numberOfRowsInSection:0] > self.view.frame.size.height)
     {
         _messageTableView.frame = CGRectMake(0, 0, 320,self.view.frame.size.height -64);
 
     } else {
-        _messageTableView.frame = CGRectMake(0, 0, 320, 100.0*[self tableView:_messageTableView numberOfRowsInSection:0]);
+        _messageTableView.frame = CGRectMake(0, 0, 320, 75.0*[self tableView:_messageTableView numberOfRowsInSection:0]);
 
     }
     
@@ -106,7 +106,7 @@
 #pragma mark -tableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     return [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count];
 
 }
@@ -142,22 +142,9 @@
     
     if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] > indexPath.row)
     {
-//        [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]
-//        MessageCell *aCell = (MessageCell *) [cell.contentView viewWithTag:(indexPath.row + 1) *200];
-//        
-//        NSLog(@">>>>%d",aCell.tag);
+
         cell.backgroundColor = babywith_color(0xdce6ff);
-     
-//        for (int i=0 ; i<[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count];i++)
-//        {
-//            MessageCell *aCell = (MessageCell *) [_messageTableView viewWithTag:(i+1) *200];
-//            
-//            NSLog(@">>>>%@",aCell);
-//            aCell.backgroundColor = [UIColor redColor];
-//        }
         
-        
-     
     }
     else {
         
