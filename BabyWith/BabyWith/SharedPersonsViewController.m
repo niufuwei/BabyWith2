@@ -138,7 +138,7 @@
         
         
         statusImage = [[UIImageView alloc] initWithFrame:CGRectMake(cell.textLabel.frame.size.width + 20, 17.5 , 10, 10)];
-        
+        statusImage.tag = indexPath.row + 10000;
         
         
         
@@ -146,7 +146,7 @@
         statusLabel.backgroundColor = [UIColor clearColor];
         
         statusLabel.font = [UIFont systemFontOfSize:14.0];
-
+        statusLabel.tag = indexPath.row + 100000;
         [cell addSubview:statusImage];
         
         [cell addSubview:statusLabel];
@@ -190,7 +190,7 @@
     }
     
     
-    statusImage.frame = CGRectMake(cell.textLabel.frame.size.width + 20, 17.5 , 10, 10);
+    ((UIImageView *)[cell viewWithTag:indexPath.row + 10000]).frame = CGRectMake(cell.textLabel.frame.size.width + 20, 17.5 , 10, 10);
     NSString * key =   [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@_status",loginName,deviceId,phone]];
     
 
@@ -198,25 +198,25 @@
     {
         if ([key isEqualToString:@"1"])
         {
-            statusImage.image = [UIImage imageNamed:@"分享人员 (1)"];
-            statusLabel.text  = @"开启";
-            statusLabel.textColor = babywith_color(0x373737);
+            ((UIImageView *)[cell viewWithTag:indexPath.row + 10000]).image = [UIImage imageNamed:@"分享人员 (1)"];
+            ((UILabel *)[cell viewWithTag:indexPath.row + 100000]).text  = @"开启";
+            ((UILabel *)[cell viewWithTag:indexPath.row + 100000]).textColor = babywith_color(0x373737);
         }
         else
         {
             
-            statusImage.image = [UIImage imageNamed:@"分享人员 (2)"];
-            statusLabel.text  = @"关闭";
-            statusLabel.textColor = babywith_color(0xff5b7e);
+            ((UIImageView *)[cell viewWithTag:indexPath.row + 10000]).image = [UIImage imageNamed:@"分享人员 (2)"];
+            ((UILabel *)[cell viewWithTag:indexPath.row + 100000]).text  = @"关闭";
+            ((UILabel *)[cell viewWithTag:indexPath.row + 100000]).textColor = babywith_color(0xff5b7e);
             
         }
     }
     else
     {
         
-        statusImage.image = [UIImage imageNamed:@"分享人员 (1)"];
-        statusLabel.text  = @"开启";
-        statusLabel.textColor = babywith_color(0x373737);
+        ((UIImageView *)[cell viewWithTag:indexPath.row + 10000]).image = [UIImage imageNamed:@"分享人员 (1)"];
+        ((UILabel *)[cell viewWithTag:indexPath.row + 100000]).text  = @"开启";
+        ((UILabel *)[cell viewWithTag:indexPath.row + 100000]).textColor = babywith_color(0x373737);
 
         
     }

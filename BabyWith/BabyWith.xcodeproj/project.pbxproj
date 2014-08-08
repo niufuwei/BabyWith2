@@ -25,7 +25,6 @@
 		1DDF0DBB198B3F7D00E26961 /* AVCallController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF0DBA198B3F7D00E26961 /* AVCallController.mm */; };
 		1DEEFEE8198B904100ED2C84 /* 1374.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1DEEFEE7198B904100ED2C84 /* 1374.wav */; };
 		710AEDD5190795C000B19A58 /* NewMessageCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710AEDD3190794B700B19A58 /* NewMessageCell1.xib */; };
-		710AEDD81907AA1B00B19A58 /* SharedPersonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 710AEDD71907AA1B00B19A58 /* SharedPersonsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71121D36191D2E9F007B6937 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 71121D35191D2E9F007B6937 /* Activity.m */; };
 		711BB9A0195C1E9400265F41 /* CameraPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711BB99F195C1E9400265F41 /* CameraPlayViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7150969E192CBAA6005F4BBA /* OpenGLView20.m in Sources */ = {isa = PBXBuildFile; fileRef = 7150969D192CBAA6005F4BBA /* OpenGLView20.m */; };
@@ -67,6 +66,7 @@
 		71AC54821904BD6F00DEBB46 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AC54811904BD6F00DEBB46 /* AdSupport.framework */; };
 		71AD0D0D195C34A3002B34BF /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0D0C195C34A3002B34BF /* HomeCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71B3D9FC195BC626001C355D /* ShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B3D9FB195BC626001C355D /* ShareCell.m */; };
+		71B6DC851994AD96006BA120 /* SharedPersonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B6DC841994AD96006BA120 /* SharedPersonsViewController.m */; };
 		71CAFE22198B6EF200E2DC1F /* 竖屏(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE03198B6EF200E2DC1F /* 竖屏(1).png */; };
 		71CAFE23198B6EF200E2DC1F /* 竖屏(2).png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE04198B6EF200E2DC1F /* 竖屏(2).png */; };
 		71CAFE24198B6EF200E2DC1F /* 竖屏(3).png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE05198B6EF200E2DC1F /* 竖屏(3).png */; };
@@ -350,7 +350,6 @@
 		1DEEFEE7198B904100ED2C84 /* 1374.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 1374.wav; path = BabyWith/images/1374.wav; sourceTree = "<group>"; };
 		710AEDD3190794B700B19A58 /* NewMessageCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMessageCell1.xib; sourceTree = "<group>"; };
 		710AEDD61907AA1B00B19A58 /* SharedPersonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedPersonsViewController.h; sourceTree = "<group>"; };
-		710AEDD71907AA1B00B19A58 /* SharedPersonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPersonsViewController.m; sourceTree = "<group>"; };
 		71121D34191D2E9F007B6937 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Activity.h; path = ../Activity.h; sourceTree = "<group>"; };
 		71121D35191D2E9F007B6937 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Activity.m; path = ../Activity.m; sourceTree = "<group>"; };
 		711BB99F195C1E9400265F41 /* CameraPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraPlayViewController.m; sourceTree = "<group>"; };
@@ -421,6 +420,7 @@
 		71AD0D0C195C34A3002B34BF /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
 		71B3D9FA195BC626001C355D /* ShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCell.h; sourceTree = "<group>"; };
 		71B3D9FB195BC626001C355D /* ShareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCell.m; sourceTree = "<group>"; };
+		71B6DC841994AD96006BA120 /* SharedPersonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPersonsViewController.m; sourceTree = "<group>"; };
 		71CAFE03198B6EF200E2DC1F /* 竖屏(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "竖屏(1).png"; sourceTree = "<group>"; };
 		71CAFE04198B6EF200E2DC1F /* 竖屏(2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "竖屏(2).png"; sourceTree = "<group>"; };
 		71CAFE05198B6EF200E2DC1F /* 竖屏(3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "竖屏(3).png"; sourceTree = "<group>"; };
@@ -1332,7 +1332,7 @@
 				EF14B7AA17D32CDF004F47AC /* CameraSetWifiViewController.h */,
 				EF14B7AB17D32CE0004F47AC /* CameraSetWifiViewController.m */,
 				710AEDD61907AA1B00B19A58 /* SharedPersonsViewController.h */,
-				710AEDD71907AA1B00B19A58 /* SharedPersonsViewController.m */,
+				71B6DC841994AD96006BA120 /* SharedPersonsViewController.m */,
 				715B086A1991C77A00A7220B /* PersonEditViewController.h */,
 				715B086B1991C77A00A7220B /* PersonEditViewController.m */,
 				715B086D1991D13900A7220B /* NumberDescriptionViewController.h */,
@@ -2057,7 +2057,6 @@
 				EFF53F941779CB8200C4AEB4 /* WebInfoManager.m in Sources */,
 				EFE79549177BE4AD00D15A32 /* DeviceConnectManager.m in Sources */,
 				EFE7954C177BE4C500D15A32 /* SQLiteManager.m in Sources */,
-				710AEDD81907AA1B00B19A58 /* SharedPersonsViewController.m in Sources */,
 				EFE7956E177C19CE00D15A32 /* CameraSettingViewController.m in Sources */,
 				EFE79571177C1AC000D15A32 /* CameraPhotoRecordViewController.m in Sources */,
 				EFE79574177C1B6100D15A32 /* SettingCell.m in Sources */,
@@ -2112,6 +2111,7 @@
 				71B3D9FC195BC626001C355D /* ShareCell.m in Sources */,
 				EF1D3C5418D2B2D90079C358 /* NextForgotPasswordViewController.m in Sources */,
 				EF06235317969886009E4D56 /* MBProgressHUD.m in Sources */,
+				71B6DC851994AD96006BA120 /* SharedPersonsViewController.m in Sources */,
 				EF1D3C5018D2B2D90079C358 /* LoginRegisterViewController.m in Sources */,
 				7195029618D43E85006FCB7F /* LoginViewController.m in Sources */,
 				71A8E72918F394530025726F /* UIViewController+Alert.m in Sources */,

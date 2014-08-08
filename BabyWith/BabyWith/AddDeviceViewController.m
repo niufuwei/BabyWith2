@@ -310,7 +310,7 @@
         
         UIButton *bindBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         bindBtn.frame = CGRectMake(45, 90, 210, 31);
-        [bindBtn setBackgroundImage:[UIImage imageNamed:@"qietu_164"] forState:UIControlStateNormal];
+        [bindBtn setBackgroundImage:[UIImage imageNamed:@"qietu_164.png"] forState:UIControlStateNormal];
         [bindBtn addTarget:self action:@selector(ButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [inputView addSubview:bindBtn];
         [self.view addSubview:inputView];
