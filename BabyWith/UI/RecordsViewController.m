@@ -16,9 +16,10 @@
 #import "AppGlobal.h"
 #import "myCollectionViewCell.h"
 #import "AVCallController.h"
-
+#import "FooterView.h"
 //#define REUSEABLE_CELL_IDENTITY @"CELL"
 #define REUSEABLE_HEADER @"HEADER"
+#define REUSEABLE_FOOTER @"FOOTER"
 @interface RecordsViewController ()
 {
     UIButton *leftButton;
@@ -98,13 +99,19 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 //    _yearArray = appDelegate.recordLocalYearCountArray;
     
     UICollectionViewFlowLayout *fl =[[UICollectionViewFlowLayout alloc] init];
-    _imageCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 320, kScreenHeight - 64 - 44) collectionViewLayout:fl];
+    _imageCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 0, 300, kScreenHeight - 64 - 44) collectionViewLayout:fl];
     _imageCollection.backgroundColor = [UIColor clearColor];
     _imageCollection.delegate = self;
     _imageCollection.dataSource = self;
     //    [_imageCollection registerClass:[CollectionCell class] forCellWithReuseIdentifier:REUSEABLE_CELL_IDENTITY];
     //
     [_imageCollection registerClass:[HeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:REUSEABLE_HEADER];
+    
+    [_imageCollection registerClass:[FooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:REUSEABLE_FOOTER];
+    //头的高度
+//    [fl setHeaderReferenceSize:CGSizeMake(320, 50)];
+    
+    
     
 //    [fl release];
     [self.view addSubview:_imageCollection];
@@ -121,16 +128,18 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         //换一张图片
 //        [leftButton setTitle:@"取消" forState:UIControlStateNormal];
         [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑2.png"] forState:UIControlStateNormal];
-
+        
+        leftButton.frame = CGRectMake(0, 0, 20, 20);
         [rightButton setBackgroundImage:[UIImage imageNamed:@"删除.png"] forState:UIControlStateNormal];
         [_imageCollection reloadData];
         [appDelegate hideTabbar];
         
-        _imageCollection.frame = CGRectMake(0, 0, 320, kScreenHeight - 64);
+        _imageCollection.frame = CGRectMake(10, 0, 300, kScreenHeight - 64);
     }
     else
     {
         isDelete = FALSE;
+         leftButton.frame = CGRectMake(0, 0, 25, 25);
 //        [leftButton setTitle:@"编辑" forState:UIControlStateNormal];
         [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑.png"] forState:UIControlStateNormal];
         [deleteArray removeAllObjects];
@@ -139,7 +148,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         [_imageCollection reloadData];
         [appDelegate showTabbar];
         
-        _imageCollection.frame = CGRectMake(0, 0, 320, kScreenHeight - 64 - 44);
+        _imageCollection.frame = CGRectMake(10, 0, 300, kScreenHeight - 64 - 44);
     }
     
 }
@@ -204,7 +213,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
             
             isDelete = FALSE;
             [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑.png"] forState:UIControlStateNormal];
-            
+            leftButton.frame = CGRectMake(0, 0, 25, 25);
             //        [leftButton setTitle:@"编辑" forState:UIControlStateNormal];
             [deleteArray removeAllObjects];
             [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
@@ -672,45 +681,64 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    HeaderView *headerView = [_imageCollection dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:REUSEABLE_HEADER forIndexPath:indexPath];
     
-     NSDictionary *dic = [NSDictionary dictionaryWithDictionary:[[_sectionArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
-    
-    
-    headerView.headerLabel.text = [_dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"time_record"] doubleValue]/1000]];
-    headerView.headerLabel.textColor = [UIColor grayColor];
-    
-    
-   
-    headerView.AllSelectButton.tag = indexPath.section+1;
-    [headerView.AllSelectButton addTarget:self action:@selector(onDelete:) forControlEvents:UIControlEventTouchUpInside];
-    
-    if(!isDelete)
-    {
-        headerView.AllSelectButton.hidden = YES;
+    if (kind == UICollectionElementKindSectionHeader) {
+        HeaderView *headerView = [_imageCollection dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:REUSEABLE_HEADER forIndexPath:indexPath];
         
+        
+        NSDictionary *dic = [NSDictionary dictionaryWithDictionary:[[_sectionArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+        
+        
+        headerView.headerLabel.text = [_dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"time_record"] doubleValue]/1000]];
+        headerView.headerLabel.textColor = [UIColor grayColor];
+        
+        
+        
+        headerView.AllSelectButton.tag = indexPath.section+1;
+        [headerView.AllSelectButton addTarget:self action:@selector(onDelete:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if(!isDelete)
+        {
+            headerView.AllSelectButton.hidden = YES;
+            
+        }
+        else
+        {
+            headerView.AllSelectButton.hidden = NO;
+            
+        }
+        
+        if([[selectButtonIsExit objectForKey:[NSString stringWithFormat:@"%d",indexPath.section]] isEqualToString:@"ok"])
+        {
+            [headerView.AllSelectButton setBackgroundImage:[UIImage imageNamed:@"编辑记录.png"] forState:UIControlStateNormal];
+            
+        }
+        else
+        {
+            [headerView.AllSelectButton setBackgroundImage:[UIImage imageNamed:@"qietu_15.png"] forState:UIControlStateNormal];
+            
+        }
+        
+        return headerView;
+        
+
     }
+    
     else
     {
-        headerView.AllSelectButton.hidden = NO;
+         FooterView *footerView = [_imageCollection dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:REUSEABLE_FOOTER forIndexPath:indexPath];
+        
+        
+        return footerView;
         
     }
-
-    if([[selectButtonIsExit objectForKey:[NSString stringWithFormat:@"%d",indexPath.section]] isEqualToString:@"ok"])
-    {
-        [headerView.AllSelectButton setBackgroundImage:[UIImage imageNamed:@"编辑记录.png"] forState:UIControlStateNormal];
-
-    }
-    else
-    {
-        [headerView.AllSelectButton setBackgroundImage:[UIImage imageNamed:@"qietu_15.png"] forState:UIControlStateNormal];
-
-    }
-
-    return headerView;
-
+    
+    
+    
 
 }
+
+
 
 -(void)onDelete:(id)sender
 {
@@ -793,14 +821,14 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(75.5, 75.5);
+    return CGSizeMake(72, 72);
 
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     
-    return UIEdgeInsetsMake(5, 0, 5, 0);
+    return UIEdgeInsetsMake(10, 0, 0, 0);
     
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -821,6 +849,25 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 
     }
 }
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    
+    if ([[_sectionArray objectAtIndex:section] count] == 0) {
+        return CGSizeZero;
+    }
+    else
+    {
+        return CGSizeMake(320, 10);
+        
+    }
+
+    
+
+}
+
+
+
+
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
@@ -895,14 +942,14 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
 
-    return 6.0;
+    return 4.0;
 
 
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
 
-    return 6.0;
+    return 4.0;
 
 
 }

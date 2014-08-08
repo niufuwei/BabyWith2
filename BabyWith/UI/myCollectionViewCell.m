@@ -15,14 +15,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _image = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 75.5, 75.5)] autorelease];
+        _image = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 72, 72)] autorelease];
         [self addSubview:_image];
         
         _videoImage = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"播放视频 (4).png"]] autorelease];
-        _videoImage.frame = CGRectMake(21.75, 21.75,32, 32);
+        _videoImage.frame = CGRectMake(20, 20,32, 32);
         [self addSubview:_videoImage];
         
-        _deleteImage = [[[UIImageView alloc] initWithFrame:CGRectMake(60, 0, 15, 15)] autorelease];
+        _deleteImage = [[[UIImageView alloc] initWithFrame:CGRectMake(57, 0, 15, 15)] autorelease];
         [_deleteImage.layer setCornerRadius:7.5];
         [self addSubview:_deleteImage];
     }

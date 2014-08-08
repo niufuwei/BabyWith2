@@ -250,6 +250,7 @@
 		EF96F30418D2E279002C1245 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF96F30318D2E279002C1245 /* Images.xcassets */; };
 		EFA7C16C19946333006EDB5F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA7C16A19946333006EDB5F /* Default-568h@2x.png */; };
 		EFA7C16D19946333006EDB5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA7C16B19946333006EDB5F /* Default@2x.png */; };
+		EFA7C1701994B847006EDB5F /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA7C16F1994B847006EDB5F /* FooterView.m */; };
 		EFE79549177BE4AD00D15A32 /* DeviceConnectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE79548177BE4AD00D15A32 /* DeviceConnectManager.m */; };
 		EFE7954C177BE4C500D15A32 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE7954B177BE4C500D15A32 /* SQLiteManager.m */; };
 		EFE7956E177C19CE00D15A32 /* CameraSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE7956C177C19CE00D15A32 /* CameraSettingViewController.m */; };
@@ -633,6 +634,8 @@
 		EF96F30318D2E279002C1245 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFA7C16A19946333006EDB5F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EFA7C16B19946333006EDB5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		EFA7C16E1994B847006EDB5F /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
+		EFA7C16F1994B847006EDB5F /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
 		EFE79547177BE4AD00D15A32 /* DeviceConnectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceConnectManager.h; sourceTree = "<group>"; };
 		EFE79548177BE4AD00D15A32 /* DeviceConnectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceConnectManager.m; sourceTree = "<group>"; };
 		EFE7954A177BE4C500D15A32 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
@@ -1369,6 +1372,8 @@
 				71A8CB6318E93E41008C793D /* CollectionCell.m */,
 				71AA855518EA4C030047FFB9 /* HeaderView.h */,
 				71AA855618EA4C030047FFB9 /* HeaderView.m */,
+				EFA7C16E1994B847006EDB5F /* FooterView.h */,
+				EFA7C16F1994B847006EDB5F /* FooterView.m */,
 				7196B06318D8333A00B8D8BB /* ListCell.h */,
 				7196B06418D8333A00B8D8BB /* ListCell.m */,
 				EFE79572177C1B6000D15A32 /* SettingCell.h */,
@@ -2117,6 +2122,7 @@
 				71A8E72918F394530025726F /* UIViewController+Alert.m in Sources */,
 				EF04E92B18D6A0EB00429681 /* BaseNavigationController.m in Sources */,
 				71A8E6E518F391B50025726F /* NSData+Base64.m in Sources */,
+				EFA7C1701994B847006EDB5F /* FooterView.m in Sources */,
 				71CAFEB3198B994900E2DC1F /* RegisterViewController.m in Sources */,
 				EF04E92C18D6A0EB00429681 /* BaseTabBarController.m in Sources */,
 				7197BCAF18D92559009C71E1 /* MessagViewController.m in Sources */,
@@ -2180,7 +2186,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
+				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
 				SDKROOT = iphoneos7.1;
 			};
 			name = Debug;
@@ -2207,7 +2213,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
+				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
 				SDKROOT = iphoneos7.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv7s";
@@ -2248,7 +2254,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
+				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = armv7;
@@ -2290,7 +2296,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
+				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = "armv7 armv7s arm64";
