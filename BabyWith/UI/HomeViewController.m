@@ -45,7 +45,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
-    _homeTableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.frame.size.height - 44 - 50) style:UITableViewStyleGrouped];
+    _homeTableView1 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.frame.size.height - 44 - 50) style:UITableViewStylePlain];
     _homeTableView1.delegate = self;
     _homeTableView1.dataSource = self;
     _homeTableView1.backgroundView = nil;
@@ -205,11 +205,11 @@
     CGRect yyyyy = _homeTableView1.frame;
     if(IOS7)
     {
-       yyyyy.origin.y = yyy+30;
+       yyyyy.origin.y = yyy+60;
     }
     else
     {
-        yyyyy.origin.y = yyy+50;
+        yyyyy.origin.y = yyy+60;
     }
     
     yyyyy.size.height = self.view.frame.size.height - yyy- 44 - 50+10;
@@ -665,7 +665,15 @@
     [_homeTableView1 reloadData];
     titleImage.hidden = NO;
     
-    
+    if (50.0*[self tableView:_homeTableView1 numberOfRowsInSection:0] > self.view.frame.size.height- 90 - 15 - 50)
+    {
+        _homeTableView1.frame = CGRectMake(0, 105, 320, self.view.frame.size.height - 90   - 50 - 15);
+    }
+    else
+    {
+        _homeTableView1.frame = CGRectMake(0, 105, 320, 50.0*[self tableView:_homeTableView1 numberOfRowsInSection:0]);
+        
+    }
     
     tuisongLabel.text =[NSString stringWithFormat:@"%lu",(unsigned long)[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]];
     
