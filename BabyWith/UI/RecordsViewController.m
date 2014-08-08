@@ -172,6 +172,8 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         }
         else
         {
+            
+            
             for(int i = 0 ;i<deleteArray.count;i++)
             {
                 //删除选中图片
@@ -208,6 +210,9 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
             [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
             
             [_imageCollection reloadData];
+            
+            //显示tabBar
+            [appDelegate showTabbar];
         }
     }
 }
