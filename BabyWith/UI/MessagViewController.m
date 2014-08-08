@@ -165,9 +165,8 @@
     }
     
 
-    NSLog(@".....%@",[appDelegate.appDefault objectForKey:@"alert"]);
     
-    cell.alertLabel.text =[NSString stringWithFormat:@"%@",[appDelegate.appDefault objectForKey:@"alert"]];
+    cell.alertLabel.text =[[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] objectAtIndex:indexPath.row] objectForKey:@"alert"];
     
     int i = [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count];
     NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:1];
