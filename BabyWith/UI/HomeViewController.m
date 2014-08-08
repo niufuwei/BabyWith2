@@ -647,6 +647,7 @@
     if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
     {
         aImageVie.hidden = YES;
+        [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"主页- 消息背景 (2).png"] forState:UIControlStateNormal];
     }
     else
     {
@@ -671,10 +672,12 @@
     if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
     {
         aImageVie.hidden = YES;
+        [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"主页- 消息背景 (2).png"] forState:UIControlStateNormal];
     }
     else
     {
         aImageVie.hidden = NO;
+        [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"系统消息未读背景.png"] forState:UIControlStateNormal];
     }
 }
 -(void)viewWillDisappear:(BOOL)animated
