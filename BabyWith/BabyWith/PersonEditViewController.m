@@ -33,7 +33,8 @@
     
     [self titleSet:@"分享设置"];
     
-    
+    _descriptionArray = [[NSArray alloc] initWithObjects:@"分享账号",@"账号备注名",@"开启视频分享", nil];
+
     NSLog(@"phone is %@",_phone);
     // Do any additional setup after loading the view.
     self.view.backgroundColor = babywith_background_color;
@@ -52,7 +53,6 @@
 {
 
     [super viewWillAppear:YES];
-    _descriptionArray = @[@"分享账号",@"账号备注名",@"开启视频分享"];
     [_shareEditTable reloadData];
 
 }

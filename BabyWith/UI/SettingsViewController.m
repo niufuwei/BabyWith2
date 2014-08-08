@@ -56,8 +56,9 @@
     
     _tableList = [[UITableView alloc] initWithFrame:CGRectMake(0, 65, 320, 200)];
     _tableList.delegate = self;
+    _tableList.backgroundColor = [UIColor whiteColor];
     _tableList.dataSource = self;
-    _tableList.backgroundColor = [UIColor clearColor];
+//    _tableList.backgroundColor = [UIColor clearColor];
     _tableList.scrollEnabled = NO;
     [self.view addSubview:_tableList];
 //    _tableList.frame = CGRectMake(0, 90, 320, [self tableView:_tableList numberOfRowsInSection:0]*[self tableView:_tableList heightForRowAtIndexPath:0]);
