@@ -53,7 +53,7 @@
     
     
     UIButton * submitBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    submitBtn.frame = CGRectMake(44, appel.frame.origin.y + appel.frame.size.height + 50, 232, 31);
+    submitBtn.frame = CGRectMake(44, appel.frame.origin.y + appel.frame.size.height + 50, 232, 35);
     [submitBtn setBackgroundImage:[UIImage imageNamed:@"qietu_146"] forState:UIControlStateNormal];
     [submitBtn addTarget:self action:@selector(setAppelName:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitBtn];
