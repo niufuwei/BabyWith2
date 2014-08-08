@@ -40,7 +40,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self titleSet:@"账号注册"];
-    [self configurationForGreenButton:_registerButton];
+//    [self configurationForGreenButton:_registerButton];
     
     _agreeOrNot = YES;
     

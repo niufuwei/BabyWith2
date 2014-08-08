@@ -38,7 +38,7 @@
     _passwordField.delegate = self;
     
 //    [self configurationForGreenButton:_hidePass];
-    [self configurationForGreenButton:_submit];
+//    [self configurationForGreenButton:_submit];
     
     activity = [[Activity alloc] initWithActivity:self.view];
     //圆角

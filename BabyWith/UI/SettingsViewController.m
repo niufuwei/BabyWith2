@@ -83,6 +83,9 @@
     [self.tableList reloadData];
 
 }
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
@@ -100,6 +103,12 @@
         cell.statusLabel.backgroundColor = [UIColor clearColor];
         
     }
+    else{
+        while ([cell.contentView.subviews lastObject] != nil) {
+            [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];  //删除并进行重新分配
+        }
+    }
+
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.logoImage.image = [_cellLogoArr objectAtIndex:[indexPath row]];
@@ -131,16 +140,23 @@
     {
         if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] > 0)
         {
+            
             cell.statusLabel.hidden = NO;
-            cell.statusLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"主页-消息.png"]];
-            cell.statusLabel.frame = CGRectMake(230, 15, 20, 20);
+            cell.statusLabel.frame = CGRectMake(260, 15, 20, 20);
             cell.statusLabel.textAlignment = NSTextAlignmentCenter;
+            cell.statusLabel.backgroundColor = babywith_color(0xff5b95);
+            
             cell.statusLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]];
             cell.statusLabel.textColor = [UIColor whiteColor];
+            cell.statusLabel.layer.cornerRadius = 10;
+            cell.statusLabel.layer.masksToBounds = YES;
+            
+            
         }
         else if([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
         {
             cell.statusLabel.hidden = YES;
+
         }
     }
     return cell;
@@ -180,6 +196,8 @@
         [message getBackName:(^(NSString *str)
                                 {
                                     [((ListCell *)[tableView cellForRowAtIndexPath:indexPath]).statusLabel setHidden:YES];
+//                                    [aImageVie removeFromSuperview];
+                                    
                                 })];
         [self.navigationController pushViewController:message animated:YES];
     

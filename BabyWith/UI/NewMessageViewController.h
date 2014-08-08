@@ -12,6 +12,8 @@
 {
 
     UILabel *_label;
+    NSDictionary * messageListDic;
+    NSMutableArray *messageArray1;
 
 }
 

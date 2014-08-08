@@ -70,7 +70,11 @@
     _cameraTableView.scrollEnabled = NO;
     _cameraTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     _cameraTableView.backgroundView = nil;
-    _cameraTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    if (IOS7) {
+        _cameraTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    
     _cameraTableView.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:_cameraTableView];

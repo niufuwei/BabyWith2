@@ -44,7 +44,7 @@
         isShare.textColor =babywith_green_color;
         [self.contentView addSubview:isShare];
         
-        jiantou = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width-25,18.5, 10, 13)];
+        jiantou = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width-25,18.5, 7, 13)];
         [jiantou setImage:[UIImage imageNamed:@"qietu_40.png"]];
         [self addSubview:jiantou];
 

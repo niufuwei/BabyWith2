@@ -49,12 +49,12 @@
     [self.view addSubview:_messageTableView];
     
     
-    if (100.0*[self tableView:_messageTableView numberOfRowsInSection:0] > self.view.frame.size.height)
+    if (75.0*[self tableView:_messageTableView numberOfRowsInSection:0] > self.view.frame.size.height)
     {
         _messageTableView.frame = CGRectMake(0, 0, 320,self.view.frame.size.height -64);
 
     } else {
-        _messageTableView.frame = CGRectMake(0, 0, 320, 100.0*[self tableView:_messageTableView numberOfRowsInSection:0]);
+        _messageTableView.frame = CGRectMake(0, 0, 320, 75.0*[self tableView:_messageTableView numberOfRowsInSection:0]);
 
     }
     
@@ -106,7 +106,7 @@
 #pragma mark -tableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     return [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count];
 
 }
@@ -131,21 +131,26 @@
     if (cell == nil) {
         cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
     }
-    else
+    //判断未读消息
+//   
+    NSLog(@">>>>>>>%d",[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]);
+    
+    if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] > indexPath.row)
     {
-        while ([cell.contentView.subviews lastObject] != nil) {
-            [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
-        }
+
+        cell.backgroundColor = babywith_color(0xdce6ff);
+        
+    }
+    else {
+        
+        cell.backgroundColor = [UIColor whiteColor];
     }
     
-    
-    
-    cell.backgroundColor = [UIColor whiteColor];
 
-    NSLog(@".....%@",[appDelegate.appDefault objectForKey:@"alert"]);
     
-    cell.alertLabel.text =[NSString stringWithFormat:@"%@",[appDelegate.appDefault objectForKey:@"alert"]];
+    cell.alertLabel.text =[[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] objectAtIndex:indexPath.row] objectForKey:@"alert"];
     
     int i = [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count];
     NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:1];
@@ -154,9 +159,6 @@
         [arr addObject:[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] objectAtIndex:j]];
         
     }
-    
-    
-    
     
     cell.timeLabel.text = [[arr objectAtIndex:indexPath.row] objectForKey:@"messageTime"];
     

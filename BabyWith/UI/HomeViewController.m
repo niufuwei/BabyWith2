@@ -50,7 +50,10 @@
     _homeTableView1.dataSource = self;
     _homeTableView1.backgroundView = nil;
     _homeTableView1.backgroundColor = [UIColor clearColor];
-    _homeTableView1.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    if (IOS7) {
+        _homeTableView1.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    
     [self.view addSubview:_homeTableView1];
     
     activity = [[Activity alloc] initWithActivity:self.view];
@@ -165,27 +168,32 @@
         [buttonTitle addTarget:self action:@selector(onclick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:buttonTitle];
         
-        UIImageView * jiantou = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width-25,17.5, 10, 13)];
+        UIImageView * jiantou = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width-25,17.5, 7, 13)];
         [jiantou setImage:[UIImage imageNamed:@"qietu_40.png"]];
         [buttonTitle addSubview:jiantou];
         
         if(i==1)
         {
-            tuisongLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 10, 24, 24)];
+            
+            aImageVie = [[UIImageView alloc] initWithFrame:CGRectMake(260, 12.5, 20, 20)];
+            aImageVie.image = [UIImage imageNamed:@"主页-消息.png"];
+            [buttonTitle addSubview:aImageVie];
+            tuisongLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             tuisongLabel.text =[NSString stringWithFormat:@"%lu",(unsigned long)[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]];
+            tuisongLabel.textColor = [UIColor whiteColor];
             tuisongLabel.textAlignment = NSTextAlignmentCenter;
-            tuisongLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"主页-消息.png"]];
-           
-            [buttonTitle addSubview:tuisongLabel];
+            tuisongLabel.backgroundColor = [UIColor clearColor];
+            //tuisongLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"主页-消息.png"]];
+            [aImageVie addSubview:tuisongLabel];
             
             if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
             {
-                tuisongLabel.hidden = YES;
+                aImageVie.hidden = YES;
             }
             else
             {
-                tuisongLabel.hidden = NO;
-                [self.view viewWithTag:102].backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"系统消息未读背景.png"]];
+                aImageVie.hidden = NO;
+               [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"系统消息未读背景.png"] forState:UIControlStateNormal];
             }
 
         }
@@ -195,7 +203,15 @@
     }
     
     CGRect yyyyy = _homeTableView1.frame;
-    yyyyy.origin.y = yyy+30;
+    if(IOS7)
+    {
+       yyyyy.origin.y = yyy+30;
+    }
+    else
+    {
+        yyyyy.origin.y = yyy+50;
+    }
+    
     yyyyy.size.height = self.view.frame.size.height - yyy- 44 - 50+10;
     _homeTableView1.frame = yyyyy;
     
@@ -215,7 +231,7 @@
             break;
         case 102:
         {
-            [self.view viewWithTag:102].backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"主页- 消息背景 (2).png"]];
+            [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"主页- 消息背景 (2).png"] forState:UIControlStateNormal];
             NewMessageViewController * newMessageVC = [[NewMessageViewController alloc] init];
             [self.navigationController pushViewController:newMessageVC animated:YES];
         }
@@ -630,12 +646,13 @@
     
     if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
     {
-        tuisongLabel.hidden = YES;
+        aImageVie.hidden = YES;
+        [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"主页- 消息背景 (2).png"] forState:UIControlStateNormal];
     }
     else
     {
-        tuisongLabel.hidden = NO;
-        [self.view viewWithTag:102].backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"系统消息未读背景.png"]];
+        aImageVie.hidden = NO;
+        [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"系统消息未读背景.png"] forState:UIControlStateNormal];
     }
 
 }
@@ -647,6 +664,21 @@
     self.deviceArray = [appDelegate.deviceConnectManager getDeviceInfoList];
     [_homeTableView1 reloadData];
     titleImage.hidden = NO;
+    
+    
+    
+    tuisongLabel.text =[NSString stringWithFormat:@"%lu",(unsigned long)[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]];
+    
+    if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
+    {
+        aImageVie.hidden = YES;
+        [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"主页- 消息背景 (2).png"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        aImageVie.hidden = NO;
+        [((UIButton *)[self.view viewWithTag:102]) setBackgroundImage:[UIImage imageNamed:@"系统消息未读背景.png"] forState:UIControlStateNormal];
+    }
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -721,10 +753,26 @@
     else
     {
         cell3.isShare.hidden = NO;
-        cell3.state.text = @"来自的设备";
+        if ([[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"niceName"])
+        {
+            if ([[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"niceName"] length] == 0)
+            {
+                cell3.state.text = @"被分享的设备";
+            }
+            else
+            {
+            cell3.state.text = [NSString stringWithFormat:@"来自%@的设备",[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"niceName"]];
+            }
+        }
+        else
+        {
+        
+            cell3.state.text = @"被分享的设备";
+        
+        }
+        
     }
     cell3.selectionStyle = UITableViewCellSelectionStyleNone;
-    //cell3.state.text = tempState;
 
     
     return cell3;
@@ -884,8 +932,18 @@
 //            [self.navigationController pushViewController:vc animated:YES];
 //        }
 //    }
+    
     [appDelegate hideTabbar];
     [appDelegate.appDefault setObject:[self.deviceArray objectAtIndex:indexPath.row] forKey:@"Device_selected"];
+    
+    if ([[[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"id_member"] stringValue] isEqualToString:@"2"])
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:[NSString stringWithFormat:@"%@_number",[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"device_id"]]];
+        
+        
+        
+    }
     NSLog(@"存入的设备是%@",[appDelegate.appDefault objectForKey:@"Device_selected"]);
     CameraPlayViewController *vc = [[CameraPlayViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];

@@ -78,7 +78,7 @@
         [_shrinkImage addGestureRecognizer:singleTap];
         if (kIsIphone5) {
             
-            _shrinkImage.frame=CGRectMake(25, (overlyView.frame.size.height - 25)/2-7, 60, 40);
+            _shrinkImage.frame=CGRectMake(25, (overlyView.frame.size.height - 25)/2-17, 60, 40);
   
         }
         
@@ -258,7 +258,6 @@
 
     [self dismissViewControllerAnimated:NO completion:^{
         
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
         
         NSLog(@"imageArray is %@",_imageArray);

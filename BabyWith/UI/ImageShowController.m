@@ -82,10 +82,26 @@
     
     float contentHeight = self.view.frame.size.height;
     NSLog(@"self.view height %f",contentHeight);
-    _photoScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, 320, contentHeight - 64)];
+    if (IOS7) {
+        _photoScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, 320, contentHeight - 64)];
+    }
+    else
+    {
+        _photoScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, 320, contentHeight - 44)];
+    }
+    
+    
     _photoScrollView.pagingEnabled = YES;
     _photoScrollView.delegate = self;
-    _photoScrollView.contentSize = CGSizeMake(320*pageCount,contentHeight - 64);
+    if (IOS7) {
+        _photoScrollView.contentSize = CGSizeMake(320*pageCount,contentHeight - 64);
+    }
+    else
+    {
+        _photoScrollView.contentSize = CGSizeMake(320*pageCount,contentHeight - 44);
+    }
+
+    
     _photoScrollView.showsHorizontalScrollIndicator = NO;
     _photoScrollView.showsVerticalScrollIndicator = NO;
     _photoScrollView.scrollEnabled = YES;
@@ -201,9 +217,6 @@
             NSLog(@"数组%@",_photoArray);
         }
         
-        
-
-       
         
     }
 }

@@ -162,6 +162,14 @@
         yyyy=self.view.frame.size.height-50 - 50 -10;
     }
     
+    if (IOS7) {
+        yyyy=self.view.frame.size.height-50 - 50 -10;
+    }
+    else
+    {
+        yyyy=self.view.frame.size.height-50 - 50 +10;
+    }
+    
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, yyyy, self.view.frame.size.width, 50)];
     [view setBackgroundColor:[UIColor blackColor]];
     
@@ -261,12 +269,13 @@
         inputLabel.text = @"请输入15位产品序列号";
         [inputView addSubview:inputLabel];
         
-        UITextField *inputTextField = [[UITextField alloc] initWithFrame:CGRectMake(12, 40, 276, 33)];
+        UITextField *inputTextField = [[UITextField alloc] initWithFrame:CGRectMake(16, 40, 268, 33)];
         inputTextField.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"输入框"]];
+        inputTextField.font = [UIFont systemFontOfSize:13.0];
+        inputTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         inputTextField.placeholder = @"产品序列号";
         inputTextField.tag = 20;
-        inputTextField.font = [UIFont systemFontOfSize:13.0];
-        inputTextField.layer.cornerRadius = 5.0;
+        inputTextField.layer.cornerRadius = 1.5;
         [inputView addSubview:inputTextField];
         
         UIButton *bindBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -311,6 +320,7 @@
         
         UILabel *warnLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 5, 100, 20)];
         warnLabel.text = @"请选择设备";
+        warnLabel.textAlignment = NSTextAlignmentCenter;
         warnLabel.backgroundColor = [UIColor clearColor];
         warnLabel.font = [UIFont systemFontOfSize:14.0];
         [deviceListView addSubview:warnLabel];
@@ -325,7 +335,11 @@
         deviceListTableView.backgroundColor = [UIColor clearColor];
         deviceListTableView.delegate = self;
         deviceListTableView.dataSource = self;
-        deviceListTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        if (IOS7) {
+            deviceListTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        }
+        
+        
         [deviceListView addSubview:deviceListTableView];
         
         
@@ -378,17 +392,32 @@
         ZBarReaderViewController *reader = [ZBarReaderViewController new];
         
         //扫面范围
-        CGRect scanMaskRect = CGRectMake(60, CGRectGetMidY(reader.view.frame)-126, 200, 200);
+        CGRect scanMaskRect = CGRectMake(40, CGRectGetMidY(reader.view.frame)-166, 240, 240);
         reader.scanCrop = [self getScanCrop:scanMaskRect readerViewBounds:reader.view.bounds];
         UITextField *backgroundTF = [[UITextField alloc]initWithFrame:scanMaskRect];
         backgroundTF.borderStyle = UITextBorderStyleBezel;
         backgroundTF.userInteractionEnabled = NO;
         [reader.view addSubview:backgroundTF];
+        
         //扫描横线
-        UIImageView *animaitionView = [[UIImageView alloc]initWithFrame:CGRectMake(60, CGRectGetMidY(reader.view.frame)-126, 200, 10)];
-        animaitionView.image = [UIImage imageNamed:@"callButton"];
+        UIImageView *animaitionView = [[UIImageView alloc]initWithFrame:CGRectMake(40, CGRectGetMidY(reader.view.frame)-166, 240, 2)];
+        animaitionView.image = [UIImage imageNamed:@"line.png"];
         [reader.view addSubview:animaitionView];
         
+        
+        UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(35, CGRectGetMidY(reader.view.frame)-166 - 5, 250, 250)];
+        imageView.image = [UIImage imageNamed:@"pick_bg"];
+        [reader.view addSubview:imageView];
+        
+        
+        UILabel *description = [[UILabel alloc]initWithFrame:CGRectMake(30, CGRectGetMidY(reader.view.frame)+ 100, 260, 20)];
+        description.backgroundColor = [UIColor clearColor];
+        description.textAlignment=YES;
+        description.numberOfLines=1;
+        description.textColor=[UIColor whiteColor];
+        description.text=@"将设备底部二维码放入框内,可自动扫描";
+        description.font = [UIFont fontWithName:@"Helvetica" size:14.0];
+        [reader.view addSubview:description];
         
         
         reader.readerDelegate = self;
@@ -401,11 +430,13 @@
                        config: ZBAR_CFG_ENABLE
                            to: 0];
         
+        
+        
         [self presentViewController:reader animated:YES completion:^{
             
         } ];
         
-        [self performSelector:@selector(animation:) withObject:animaitionView afterDelay:0.5];
+        [self performSelector:@selector(animation:) withObject:animaitionView afterDelay:1.0];
         
     }
     
@@ -527,14 +558,14 @@
     if (metadataObjects.count > 0)
     {
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
-//        [self ShowNextSetting:obj.stringValue];
+        [self ShowNextSetting:obj.stringValue];
         
     }
 }
 - (void)animation:(UIImageView *)view
 {   //扫描框内动画
-    [UIView animateWithDuration:0.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut|UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
-        view.frame = CGRectMake(60, CGRectGetMidY(view.superview.frame)-126+200-10, 200, 10) ;
+    [UIView animateWithDuration:1.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut|UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
+        view.frame = CGRectMake(40, CGRectGetMidY(view.superview.frame)-166+240-2, 240, 2) ;
     } completion:^(BOOL finished) {
         
     }];
@@ -573,7 +604,7 @@
     NSLog(@"得到的二维码是 %@",symbol.data);
     if (symbol.data.length != 0) {
         
-//        [self ShowNextSetting:symbol.data];
+        [self ShowNextSetting:symbol.data];
     }
 }
 -(void)ButtonPressed
@@ -710,13 +741,12 @@
             accLabel.text = @"已绑定";
             accLabel.textColor = [UIColor blackColor];
             [_searchDeviceIdArr removeObjectAtIndex:i];
-
+	
             break;
             
         }
         else
         {
-        
             accLabel.text =  @"未绑定";
             accLabel.textColor = [UIColor grayColor];
             [_searchDeviceIdArr removeObjectAtIndex:i];
@@ -728,8 +758,6 @@
     
     return cell;
     
-
-
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
