@@ -20,7 +20,7 @@
         [self addSubview:_headerLabel];
         
         _AllSelectButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _AllSelectButton.frame = CGRectMake(self.frame.size.width-55, 10, 45,20 );
+        _AllSelectButton.frame = CGRectMake(self.frame.size.width-55, 10, 50,20 );
         _AllSelectButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [self addSubview:_AllSelectButton];
     }
