@@ -129,7 +129,7 @@
 		71D66ED0195D535800896171 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D66ECF195D535800896171 /* HomeViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71FC430D198A1DFD00FEF070 /* VedioQualityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC430C198A1DFD00FEF070 /* VedioQualityTableViewCell.m */; };
 		71FC4310198A27E400FEF070 /* WifiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC430F198A27E400FEF070 /* WifiTableViewCell.m */; };
-		71FC4313198A344A00FEF070 /* AddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC4312198A344A00FEF070 /* AddDeviceViewController.m */; };
+		71FC4313198A344A00FEF070 /* AddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC4312198A344A00FEF070 /* AddDeviceViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		EF039C5C179AD3340019D075 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF039C5B179AD3340019D075 /* SystemConfiguration.framework */; };
 		EF04E92B18D6A0EB00429681 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04E92818D6A0EB00429681 /* BaseNavigationController.m */; };
 		EF04E92C18D6A0EB00429681 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04E92A18D6A0EB00429681 /* BaseTabBarController.m */; };
@@ -2248,7 +2248,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
+
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = armv7;
@@ -2290,7 +2290,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
+
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = "armv7 armv7s arm64";

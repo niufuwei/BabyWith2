@@ -44,7 +44,7 @@
     _messageTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.frame.size.height - 44)];
     _messageTableView.dataSource = self;
     _messageTableView.delegate = self;
-    _messageTableView.backgroundColor = [UIColor clearColor];
+//    _messageTableView.backgroundColor = [UIColor clearColor];
     _messageTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:_messageTableView];
     
@@ -134,21 +134,18 @@
         
     }
     //判断未读消息
-//    cell.tag =(indexPath.row +1) *200;
-//    
-//    NSLog(@"......%d",cell.tag);
 //   
     NSLog(@">>>>>>>%d",[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]);
     
     if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] > indexPath.row)
     {
 
-        cell.backgroundColor = babywith_color(0xdce6ff);
+        cell.contentView.backgroundColor = babywith_color(0xdce6ff);
         
     }
     else {
         
-        cell.backgroundColor = [UIColor whiteColor];
+        cell.contentView.backgroundColor = [UIColor whiteColor];
     }
     
 

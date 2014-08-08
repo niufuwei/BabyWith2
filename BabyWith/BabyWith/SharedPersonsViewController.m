@@ -78,8 +78,8 @@
     else
     {
         _label.hidden = YES;
-        _sharedPersonTableView.frame = CGRectMake(0, 0, 320, 60.0*[self tableView:_sharedPersonTableView numberOfRowsInSection:0]);
-        if (60.0*[self tableView:_sharedPersonTableView numberOfRowsInSection:0] > self.view.frame.size.height - 64)
+        _sharedPersonTableView.frame = CGRectMake(0, 0, 320, 45.0*[self tableView:_sharedPersonTableView numberOfRowsInSection:0]);
+        if (45.0*[self tableView:_sharedPersonTableView numberOfRowsInSection:0] > self.view.frame.size.height - 64)
         {
             _sharedPersonTableView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height );
         }
@@ -129,7 +129,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.textLabel.font = [UIFont systemFontOfSize:15.0];
         cell.textLabel.textColor = babywith_color(0x373737);
-         cell.backgroundColor = [UIColor whiteColor];
+         cell.contentView.backgroundColor = [UIColor whiteColor];
         
         
     }

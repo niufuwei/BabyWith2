@@ -106,7 +106,7 @@
 -(void)SearchDevice{
     
     
-    self.view.userInteractionEnabled = NO;
+    
     [activity start];
     _pSearchDVS->Close();
     
@@ -118,7 +118,7 @@
 //搜索设备的额代理方法
 - (void) SearchCameraResult:(NSString *)mac Name:(NSString *)name Addr:(NSString *)addr Port:(NSString *)port DID:(NSString*)did{
     
-    
+    NSLog(@"llllllllllllllllllllllllllllll");
     int  flag = 0;
     //去掉重复
     for (NSDictionary *dic in _cameraSearchList)
@@ -126,8 +126,12 @@
         if ([[dic objectForKey:@"uid"] isEqualToString:did])
         {
             flag = 1;
+            NSLog(@"感觉丢过航道局搜索结束");
             break;
         }
+        
+        
+        
     }
     
     if (flag == 0)
@@ -143,9 +147,9 @@
 {
     
     
-
+    [activity stop];
     [deviceListTableView reloadData];
-    self.view.userInteractionEnabled = YES;
+   
 
 }
 -(void)loadButtomView
@@ -208,7 +212,7 @@
     UIButton * btn = (UIButton*)sender;
     if(btn.tag == 1)
     {
-        
+        [activity stop];
         btn.enabled = NO;
         if (timer != nil)
         {
@@ -219,10 +223,22 @@
         _pSearchDVS->Close();
         [_searchDeviceIdArr removeAllObjects];
         
-        [self.previewLayer removeFromSuperlayer];
-        [_labIntroudction removeFromSuperview];
-        [_line removeFromSuperview];
-        [_imageView removeFromSuperview];
+        if (self.previewLayer)
+        {
+            [self.previewLayer removeFromSuperlayer];
+        }
+        if (_labIntroudction)
+        {
+            [_labIntroudction removeFromSuperview];
+        }
+        if (_line)
+        {
+            [_line removeFromSuperview];
+        }
+        if (_imageView)
+        {
+            [_imageView removeFromSuperview];
+        }
             [inputView removeFromSuperview];
             [deviceListView removeFromSuperview];
             [((UIButton*)[self.view viewWithTag:2]) setBackgroundImage:[UIImage imageNamed:@"绑定-未选 (2)"] forState:UIControlStateNormal];
@@ -235,6 +251,8 @@
     else if(btn.tag == 3)
     {
         
+        [activity stop];
+        
         ((UIButton *)[self.view viewWithTag:1]).enabled = YES;
         if (timer != nil)
         {
@@ -245,10 +263,22 @@
          _pSearchDVS->Close();
         [_searchDeviceIdArr removeAllObjects];
 
-        [self.previewLayer removeFromSuperlayer];
-        [_labIntroudction removeFromSuperview];
-        [_line removeFromSuperview];
-        [_imageView removeFromSuperview];
+        if (self.previewLayer)
+        {
+            [self.previewLayer removeFromSuperlayer];
+        }
+        if (_labIntroudction)
+        {
+            [_labIntroudction removeFromSuperview];
+        }
+        if (_line)
+        {
+            [_line removeFromSuperview];
+        }
+        if (_imageView)
+        {
+            [_imageView removeFromSuperview];
+        }
         [inputView removeFromSuperview];
         [deviceListView removeFromSuperview];
 
@@ -272,6 +302,7 @@
         UITextField *inputTextField = [[UITextField alloc] initWithFrame:CGRectMake(16, 40, 268, 33)];
         inputTextField.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"输入框"]];
         inputTextField.font = [UIFont systemFontOfSize:13.0];
+        inputTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         inputTextField.placeholder = @"产品序列号";
         inputTextField.tag = 20;
         inputTextField.layer.cornerRadius = 1.5;
@@ -288,8 +319,11 @@
     }
     else if(btn.tag == 2)
     {
-        
-        
+         //btn.enabled = NO;
+        [activity stop];
+        _pSearchDVS->Close();
+        loadDevice = NO;
+        [_searchDeviceIdArr removeAllObjects];
         ((UIButton *)[self.view viewWithTag:1]).enabled = YES;
 
         [inputView removeFromSuperview];
@@ -300,10 +334,22 @@
         }
         
         
-        [self.previewLayer removeFromSuperlayer];
-        [_labIntroudction removeFromSuperview];
-        [_line removeFromSuperview];
-        [_imageView removeFromSuperview];
+        if (self.previewLayer)
+        {
+            [self.previewLayer removeFromSuperlayer];
+        }
+        if (_labIntroudction)
+        {
+            [_labIntroudction removeFromSuperview];
+        }
+        if (_line)
+        {
+            [_line removeFromSuperview];
+        }
+        if (_imageView)
+        {
+            [_imageView removeFromSuperview];
+        }
         [deviceListView removeFromSuperview];
 
         
@@ -705,11 +751,7 @@
         accLabel.font = [UIFont systemFontOfSize:14.0];
         [cell addSubview:accLabel];
     }
-    else{
-        while ([cell.contentView.subviews lastObject] != nil) {
-            [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];  //删除并进行重新分配
-        }
-    }
+    
     cell.textLabel.font = [UIFont systemFontOfSize:13.0];
     cell.textLabel.text =[NSString stringWithFormat:@"设备%@", [[_cameraSearchList objectAtIndex:indexPath.row] objectForKey:@"uid"]];
     

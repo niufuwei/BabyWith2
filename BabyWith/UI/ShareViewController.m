@@ -186,7 +186,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }
-    cell.backgroundColor = [UIColor whiteColor];
+    cell.contentView.backgroundColor = [UIColor whiteColor];
     NSInteger row = [indexPath row];
     cell.nameLabel.text = [[appDelegate.deviceConnectManager getDeviceInfoAtRow:row] objectForKey:@"name"];
     
