@@ -89,8 +89,6 @@
     
     //InstallUncaughtExceptionHandler();
     
-    
-    
     //全局变量初始化
     self.appDefault = [NSUserDefaults standardUserDefaults];
     [appDelegate.appDefault setObject:babywith_gate_address forKey:@"BabyWith_address_api"];
@@ -100,7 +98,6 @@
     
     //数据库类初始化
     _sqliteManager = [[SQLiteManager alloc] init];
-    
     [self Initialization];
     
     //app事件通知注册
