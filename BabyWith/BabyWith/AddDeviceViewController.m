@@ -272,6 +272,7 @@
         UITextField *inputTextField = [[UITextField alloc] initWithFrame:CGRectMake(16, 40, 268, 33)];
         inputTextField.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"输入框"]];
         inputTextField.font = [UIFont systemFontOfSize:13.0];
+        inputTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         inputTextField.placeholder = @"产品序列号";
         inputTextField.tag = 20;
         inputTextField.layer.cornerRadius = 1.5;

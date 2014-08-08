@@ -70,6 +70,8 @@
     //看护器名称文本区域
      _cameraTextField= [[UITextField alloc] initWithFrame:CGRectMake(20, 55, 280, 35)];
     _cameraTextField.placeholder = @"请输入看护器名称";
+    
+    _cameraTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _cameraTextField.borderStyle = UITextBorderStyleNone;
     _cameraTextField.font = [UIFont systemFontOfSize:15.0];
     _cameraTextField.delegate = self;

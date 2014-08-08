@@ -134,9 +134,6 @@
         
     }
     //判断未读消息
-//    cell.tag =(indexPath.row +1) *200;
-//    
-//    NSLog(@"......%d",cell.tag);
 //   
     NSLog(@">>>>>>>%d",[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]);
     
