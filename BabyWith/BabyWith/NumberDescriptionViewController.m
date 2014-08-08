@@ -35,23 +35,25 @@
     // Do any additional setup after loading the view.
     [self titleSet:@"账号备注名"];
     
-    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, 30)];
+    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 280, 30)];
     descriptionLabel.backgroundColor = [UIColor clearColor];
     descriptionLabel.text = @"请填写账号备注名，该名称将优先显示";
-    descriptionLabel.font = [UIFont systemFontOfSize:15.0];
+    descriptionLabel.font = [UIFont systemFontOfSize:16.0];
     descriptionLabel.textColor = [UIColor grayColor];
     [self.view addSubview:descriptionLabel];
     
     
-    appel = [[UITextField alloc] initWithFrame:CGRectMake(10, descriptionLabel.frame.origin.y + descriptionLabel.frame.size.height + 10, 300, 30)];
+    appel = [[UITextField alloc] initWithFrame:CGRectMake(20, descriptionLabel.frame.origin.y + descriptionLabel.frame.size.height + 20, 280, 30)];
     appel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"输入框.png"]];
+    appel.font = [UIFont systemFontOfSize:15.0];
+    appel.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     appel.placeholder = @"账号备注名，如父亲、张三等";
     appel.layer.cornerRadius = 1.5;
     [self.view addSubview:appel];
     
     
     UIButton * submitBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    submitBtn.frame = CGRectMake(44, appel.frame.origin.y + appel.frame.size.height + 40, 232, 31);
+    submitBtn.frame = CGRectMake(44, appel.frame.origin.y + appel.frame.size.height + 50, 232, 31);
     [submitBtn setBackgroundImage:[UIImage imageNamed:@"qietu_146"] forState:UIControlStateNormal];
     [submitBtn addTarget:self action:@selector(setAppelName:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitBtn];
