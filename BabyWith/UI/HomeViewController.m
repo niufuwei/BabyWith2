@@ -49,7 +49,7 @@
     _homeTableView1.delegate = self;
     _homeTableView1.dataSource = self;
     _homeTableView1.backgroundView = nil;
-    _homeTableView1.backgroundColor = [UIColor clearColor];
+    _homeTableView1.backgroundColor = [UIColor whiteColor];
     if (IOS7) {
         _homeTableView1.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
@@ -859,6 +859,15 @@
                     
 
                     [_homeTableView1 reloadData];
+                    if (50.0*[self tableView:_homeTableView1 numberOfRowsInSection:0] > self.view.frame.size.height- 90 - 15 - 50)
+                    {
+                        _homeTableView1.frame = CGRectMake(0, 105, 320, self.view.frame.size.height - 90   - 50 - 15);
+                    }
+                    else
+                    {
+                        _homeTableView1.frame = CGRectMake(0, 105, 320, 50.0*[self tableView:_homeTableView1 numberOfRowsInSection:0]);
+                        
+                    }
                 }
             }];
             
