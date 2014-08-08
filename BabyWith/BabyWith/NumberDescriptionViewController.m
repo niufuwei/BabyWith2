@@ -46,7 +46,7 @@
     appel = [[UITextField alloc] initWithFrame:CGRectMake(10, descriptionLabel.frame.origin.y + descriptionLabel.frame.size.height + 10, 300, 30)];
     appel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"输入框.png"]];
     appel.placeholder = @"账号备注名，如父亲、张三等";
-    appel.layer.cornerRadius = 5.0;
+    appel.layer.cornerRadius = 1.5;
     [self.view addSubview:appel];
     
     
