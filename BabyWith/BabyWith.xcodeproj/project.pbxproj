@@ -247,9 +247,9 @@
 		EF4C175A19920E0E00FC3532 /* qietu_307.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4C175819920E0E00FC3532 /* qietu_307.png */; };
 		EF4C175B19920E0E00FC3532 /* qietu_310.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4C175919920E0E00FC3532 /* qietu_310.png */; };
 		EF517DA91811340100EB5CED /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = EF517DA81811340100EB5CED /* Icon-80.png */; };
-		EF96F12E18D2E110002C1245 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF96F12B18D2E110002C1245 /* Default-568h@2x.png */; };
-		EF96F13018D2E110002C1245 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF96F12D18D2E110002C1245 /* Default@2x.png */; };
 		EF96F30418D2E279002C1245 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF96F30318D2E279002C1245 /* Images.xcassets */; };
+		EFA7C16C19946333006EDB5F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA7C16A19946333006EDB5F /* Default-568h@2x.png */; };
+		EFA7C16D19946333006EDB5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA7C16B19946333006EDB5F /* Default@2x.png */; };
 		EFE79549177BE4AD00D15A32 /* DeviceConnectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE79548177BE4AD00D15A32 /* DeviceConnectManager.m */; };
 		EFE7954C177BE4C500D15A32 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE7954B177BE4C500D15A32 /* SQLiteManager.m */; };
 		EFE7956E177C19CE00D15A32 /* CameraSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE7956C177C19CE00D15A32 /* CameraSettingViewController.m */; };
@@ -630,10 +630,9 @@
 		EF4C175819920E0E00FC3532 /* qietu_307.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_307.png; sourceTree = "<group>"; };
 		EF4C175919920E0E00FC3532 /* qietu_310.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_310.png; sourceTree = "<group>"; };
 		EF517DA81811340100EB5CED /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
-		EF96F12B18D2E110002C1245 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		EF96F12C18D2E110002C1245 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		EF96F12D18D2E110002C1245 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EF96F30318D2E279002C1245 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EFA7C16A19946333006EDB5F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EFA7C16B19946333006EDB5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EFE79547177BE4AD00D15A32 /* DeviceConnectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceConnectManager.h; sourceTree = "<group>"; };
 		EFE79548177BE4AD00D15A32 /* DeviceConnectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceConnectManager.m; sourceTree = "<group>"; };
 		EFE7954A177BE4C500D15A32 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
@@ -1387,6 +1386,8 @@
 		EFF53E411779B64F00C4AEB4 = {
 			isa = PBXGroup;
 			children = (
+				EFA7C16A19946333006EDB5F /* Default-568h@2x.png */,
+				EFA7C16B19946333006EDB5F /* Default@2x.png */,
 				EF4A5DFD198B27F500A54EB2 /* images */,
 				7174A0B9194EC88F00DCC781 /* 4031.wav */,
 				1DEEFEE7198B904100ED2C84 /* 1374.wav */,
@@ -1483,11 +1484,8 @@
 				EFF53E591779B64F00C4AEB4 /* main.m */,
 				71A86CEA190A04FC004AFA50 /* help.html */,
 				EF517DA81811340100EB5CED /* Icon-80.png */,
-				EF96F12B18D2E110002C1245 /* Default-568h@2x.png */,
 				71A86CEF190A310A004AFA50 /* line@2x.png */,
 				71A86CF0190A310A004AFA50 /* pick_bg@2x.png */,
-				EF96F12C18D2E110002C1245 /* Default.png */,
-				EF96F12D18D2E110002C1245 /* Default@2x.png */,
 				EFEA5A3617E9A1770047C0CE /* Icon-120.png */,
 				EF13A68A17BEAC3B0022B329 /* Icon@2x.png */,
 				EF13A68B17BEAC3B0022B329 /* Icon-Small@2x.png */,
@@ -1829,6 +1827,7 @@
 				71CAFEA1198B989100E2DC1F /* 绑定-未选 (1).png in Resources */,
 				71CAFEA2198B989100E2DC1F /* 绑定-未选 (2).png in Resources */,
 				71CAFEA3198B989100E2DC1F /* 绑定-未选 (3).png in Resources */,
+				EFA7C16D19946333006EDB5F /* Default@2x.png in Resources */,
 				71CAFEA4198B989100E2DC1F /* 绑定设备-选中 (2).png in Resources */,
 				71CAFEA5198B989100E2DC1F /* 绑定设备-选中 (3).png in Resources */,
 				71CAFEA6198B989100E2DC1F /* 横屏按住说话(1).png in Resources */,
@@ -1874,7 +1873,6 @@
 				EF4A5EE9198B27F600A54EB2 /* 首页.png in Resources */,
 				71CAFE7B198B89A200E2DC1F /* 横屏切换全屏(1).png in Resources */,
 				EF4A5F15198B90B800A54EB2 /* 更多 (4).png in Resources */,
-				EF96F12E18D2E110002C1245 /* Default-568h@2x.png in Resources */,
 				EF4A5EB9198B27F600A54EB2 /* 拍照 (2).png in Resources */,
 				EF4A5E7E198B27F600A54EB2 /* qietu_162.png in Resources */,
 				7196B08018D837D600B8D8BB /* ChangePasswordViewController.xib in Resources */,
@@ -1933,13 +1931,11 @@
 				EF4A5EBE198B27F600A54EB2 /* 拍照2.png in Resources */,
 				71CAFE52198B718600E2DC1F /* 设置.png in Resources */,
 				71CAFE53198B718600E2DC1F /* 跳过.png in Resources */,
-				EF96F13018D2E110002C1245 /* Default@2x.png in Resources */,
 				EF4A5E75198B27F600A54EB2 /* qietu_118.png in Resources */,
 				71CAFE4F198B718600E2DC1F /* 导航栏背景.png in Resources */,
 				EF4A5EC0198B27F600A54EB2 /* 拍照4.png in Resources */,
 				71CAFE26198B6EF200E2DC1F /* 竖屏分享人员(2).png in Resources */,
 				EF4A5EBE198B27F600A54EB2 /* 拍照2.png in Resources */,
-				EF96F13018D2E110002C1245 /* Default@2x.png in Resources */,
 				EF4A5E75198B27F600A54EB2 /* qietu_118.png in Resources */,
 				EF4A5EC0198B27F600A54EB2 /* 拍照4.png in Resources */,
 				EF4A5ECD198B27F600A54EB2 /* 横版导航栏背景.png in Resources */,
@@ -2034,6 +2030,7 @@
 				EF4A5E8E198B27F600A54EB2 /* 主页-消息.png in Resources */,
 				1DCB5BE119909AAB001D177E /* 主菜单栏-选中 (3).png in Resources */,
 				EF13A68E17BEAC3B0022B329 /* Icon@2x.png in Resources */,
+				EFA7C16C19946333006EDB5F /* Default-568h@2x.png in Resources */,
 				EF13A68F17BEAC3B0022B329 /* Icon-Small@2x.png in Resources */,
 				EF13A69017BEAC3B0022B329 /* Icon.png in Resources */,
 				EF13A69117BEAC3B0022B329 /* Icon-Small.png in Resources */,
@@ -2222,7 +2219,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2265,7 +2261,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";

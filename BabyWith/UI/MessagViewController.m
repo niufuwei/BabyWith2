@@ -146,7 +146,7 @@
 //        MessageCell *aCell = (MessageCell *) [cell.contentView viewWithTag:(indexPath.row + 1) *200];
 //        
 //        NSLog(@">>>>%d",aCell.tag);
-        cell.backgroundColor = [UIColor redColor];
+        cell.backgroundColor = babywith_color(0xdce6ff);
      
 //        for (int i=0 ; i<[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count];i++)
 //        {

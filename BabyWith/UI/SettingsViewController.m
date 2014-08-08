@@ -141,29 +141,22 @@
         if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] > 0)
         {
             
-            aImageVie = [[UIImageView alloc] initWithFrame:CGRectMake(260, 15, 20, 20)];
-            aImageVie.image = [UIImage imageNamed:@"主页-消息.png"];
-            
-            
-            [cell addSubview:aImageVie];
-            
             cell.statusLabel.hidden = NO;
-            cell.statusLabel.frame = CGRectMake(0, 0, 20, 20);
+            cell.statusLabel.frame = CGRectMake(260, 15, 20, 20);
             cell.statusLabel.textAlignment = NSTextAlignmentCenter;
-//            cell.statusLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"主页-消息.png"]];
+            cell.statusLabel.backgroundColor = babywith_color(0xff5b95);
             
             cell.statusLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]];
             cell.statusLabel.textColor = [UIColor whiteColor];
             cell.statusLabel.layer.cornerRadius = 10;
             cell.statusLabel.layer.masksToBounds = YES;
             
-            [aImageVie addSubview:cell.statusLabel];
             
         }
         else if([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] == 0)
         {
             cell.statusLabel.hidden = YES;
-            [aImageVie removeFromSuperview];
+
         }
     }
     return cell;
@@ -203,7 +196,7 @@
         [message getBackName:(^(NSString *str)
                                 {
                                     [((ListCell *)[tableView cellForRowAtIndexPath:indexPath]).statusLabel setHidden:YES];
-                                    [aImageVie removeFromSuperview];
+//                                    [aImageVie removeFromSuperview];
                                     
                                 })];
         [self.navigationController pushViewController:message animated:YES];

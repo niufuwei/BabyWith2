@@ -12,7 +12,7 @@
 
 {
     
-    UIImageView *aImageVie;
+//    UIImageView *aImageVie;
     
 }
 @property (retain, nonatomic) IBOutlet UILabel *userInfo;
