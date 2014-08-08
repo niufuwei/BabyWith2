@@ -28,7 +28,7 @@
 		71121D36191D2E9F007B6937 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 71121D35191D2E9F007B6937 /* Activity.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		711BB9A0195C1E9400265F41 /* CameraPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711BB99F195C1E9400265F41 /* CameraPlayViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7150969E192CBAA6005F4BBA /* OpenGLView20.m in Sources */ = {isa = PBXBuildFile; fileRef = 7150969D192CBAA6005F4BBA /* OpenGLView20.m */; };
-		715B086C1991C77A00A7220B /* PersonEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B086B1991C77A00A7220B /* PersonEditViewController.m */; };
+		715B086C1991C77A00A7220B /* PersonEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B086B1991C77A00A7220B /* PersonEditViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		715B086F1991D13900A7220B /* NumberDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B086E1991D13900A7220B /* NumberDescriptionViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		716C830918D94403006CB5C3 /* SetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C830718D94403006CB5C3 /* SetPasswordViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		716C830A18D94403006CB5C3 /* SetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716C830818D94403006CB5C3 /* SetPasswordViewController.xib */; };
@@ -2186,7 +2186,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
+				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
 				SDKROOT = iphoneos7.1;
 			};
 			name = Debug;
@@ -2213,7 +2213,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
+				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
 				SDKROOT = iphoneos7.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv7s";
@@ -2254,7 +2254,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
+				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = armv7;
@@ -2296,7 +2296,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
+				PROVISIONING_PROFILE = "343E5FD1-7F5C-42E2-9F3C-5A74588B023C";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = "armv7 armv7s arm64";

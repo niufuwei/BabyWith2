@@ -18,7 +18,7 @@
 
 @implementation NumberDescriptionViewController
 
--(id)initwithPhoneNumber:(NSString *)phoneNumber
+-(id)initWithPhoneNumber:(NSString *)phoneNumber
 {
     
     self = [super init];

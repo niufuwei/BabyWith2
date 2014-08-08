@@ -15,6 +15,6 @@
 }
 
 
--(id)initwithPhoneNumber:(NSString *)phoneNumber;
+-(id)initWithPhoneNumber:(NSString *)phoneNumber;
 
 @end

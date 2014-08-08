@@ -17,7 +17,7 @@
 
 @implementation PersonEditViewController
 
--(id)initwithPhoneNumber:(NSString *)phoneNumber
+-(id)initWithPhoneNumber:(NSString *)phoneNumber
 {
 
     self = [super init];
@@ -193,7 +193,7 @@
     if (indexPath.row == 1)
     {
         
-        NumberDescriptionViewController *Vc = [[NumberDescriptionViewController alloc] initwithPhoneNumber:_phone];
+        NumberDescriptionViewController *Vc = [[NumberDescriptionViewController alloc] initWithPhoneNumber:_phone];
         [self.navigationController pushViewController:Vc animated:YES];
         
     }

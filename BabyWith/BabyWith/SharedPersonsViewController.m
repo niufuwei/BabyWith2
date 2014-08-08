@@ -230,7 +230,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%@",[[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] objectAtIndex:indexPath.row]);
-    PersonEditViewController *editVC = [[PersonEditViewController alloc] initwithPhoneNumber:[[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] objectAtIndex:indexPath.row]];
+    PersonEditViewController *editVC = [[PersonEditViewController alloc] initWithPhoneNumber:[[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:editVC animated:YES];
 
 }
