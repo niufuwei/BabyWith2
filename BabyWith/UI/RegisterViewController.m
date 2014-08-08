@@ -69,7 +69,7 @@
     [_confirmTF resignFirstResponder];
     
     [UIView animateWithDuration:0.3 delay:0 options:0 animations:^{
-        self.view.frame = CGRectMake(0, 0, 320, kScreenHeight -44 -20);
+        self.view.frame = CGRectMake(0, 0, 320, kScreenHeight);
     } completion:^(BOOL finished) {
         _keyboardShowed = NO;
     }];
@@ -82,7 +82,7 @@
     }
     
     [UIView animateWithDuration:0.3 delay:0 options:0 animations:^{
-        self.view.frame = CGRectMake(0, -100, 320, kScreenHeight -44 -20);
+        self.view.frame = CGRectMake(0, -80, 320, kScreenHeight);
     } completion:^(BOOL finished) {
         _keyboardShowed = YES;
     }];
@@ -97,7 +97,7 @@
     }
     
     [UIView animateWithDuration:0.3 delay:0 options:0 animations:^{
-        self.view.frame = CGRectMake(0, 0, 320, kScreenHeight -44 -20);
+        self.view.frame = CGRectMake(0, 0, 320, kScreenHeight);
     } completion:^(BOOL finished) {
         _keyboardShowed = NO;
     }];
