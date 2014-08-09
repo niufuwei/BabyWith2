@@ -168,7 +168,8 @@
 
 - (IBAction)submit:(id)sender {
     
-    
+    [_checkCodeTF resignFirstResponder];
+    [_passwordTF resignFirstResponder];
     //校检验证码
     _checkCodeTF.text = [_checkCodeTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([_checkCodeTF.text length] == 0) {

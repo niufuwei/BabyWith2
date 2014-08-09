@@ -116,6 +116,10 @@
     
     //校验手机号码
     
+    [_phoneTF resignFirstResponder];
+    [_confirmTF resignFirstResponder];
+    
+    
     NSString *phoneStr = [_phoneTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *configStr = [_confirmTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     

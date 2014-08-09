@@ -48,6 +48,9 @@
 
 
 - (IBAction)next:(id)sender {
+    
+    [_phoneTF resignFirstResponder];
+    
     NSString *configStr = [_phoneTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     int phone_flag = [self checkTel:configStr Type:1];
