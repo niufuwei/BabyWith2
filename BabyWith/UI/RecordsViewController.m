@@ -749,6 +749,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         
         headerView.headerLabel.text = [_dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"time_record"] doubleValue]/1000]];
         headerView.headerLabel.textColor = [UIColor grayColor];
+        headerView.headerLabel.font = [UIFont systemFontOfSize:18.0];
         
         
         
@@ -782,7 +783,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     }
     
     else
-    {
+    { 
          FooterView *footerView = [_imageCollection dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:REUSEABLE_FOOTER forIndexPath:indexPath];
         
         
@@ -880,7 +881,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     
-    return UIEdgeInsetsMake(10, 0, 0, 0);
+    return UIEdgeInsetsMake(20, 0, 0, 0);
     
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -897,7 +898,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     }
     else
     {
-    return CGSizeMake(320, 30);
+    return CGSizeMake(320, 40);
 
     }
 }

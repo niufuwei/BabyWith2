@@ -49,6 +49,7 @@
         
         UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 22+10, 10, 20)];
         [backBtn setBackgroundImage:[UIImage imageNamed:@"返回.png"] forState:UIControlStateNormal];
+    
         [backBtn addTarget:self action:@selector(backToCamera) forControlEvents:UIControlEventTouchUpInside];
         [topView addSubview:backBtn];
         

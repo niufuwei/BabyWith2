@@ -15,13 +15,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, 150, 20)];
+        _headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 20, 150, 20)];
+        _headerLabel.font = [UIFont systemFontOfSize:16.0];
         _headerLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:_headerLabel];
         
         _AllSelectButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _AllSelectButton.frame = CGRectMake(self.frame.size.width-55, 10, 50,20 );
-        _AllSelectButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        _AllSelectButton.frame = CGRectMake(self.frame.size.width-65, 15, 60,25 );
+//        _AllSelectButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
         [self addSubview:_AllSelectButton];
     }
     return self;
