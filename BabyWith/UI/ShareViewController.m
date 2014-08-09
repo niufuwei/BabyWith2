@@ -41,13 +41,26 @@
     _shareListTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     
+    self.deviceArray = [[NSMutableArray alloc] initWithCapacity:1];
+    
+    
+    
+    for (int i = 0; i <[[appDelegate.deviceConnectManager getDeviceInfoList] count]; i++)
+    {
+        if ([[[[[appDelegate.deviceConnectManager getDeviceInfoList] objectAtIndex:i] objectForKey:@"id_member"] stringValue] isEqualToString:@"1"])
+        {
+            [self.deviceArray addObject:[[appDelegate.deviceConnectManager getDeviceInfoList] objectAtIndex:i]];
+        }
+    }
+
+    
 }
 
 
 -(void)nextStep
 {
 
-    int i =  [appDelegate.deviceConnectManager getDeviceCount];
+    int i =  [self.deviceArray count];
     NSLog(@"设备一共有%d个",i);
     for (int j = 0; j< i; j++)
     {
@@ -61,9 +74,9 @@
             
             
             _hasSelect = YES;
-            [appDelegate.selectDeviceArr addObject:[appDelegate.deviceConnectManager getDeviceInfoAtRow:j]];
+            [appDelegate.selectDeviceArr addObject:[self.deviceArray objectAtIndex:j]];
             
-            NSLog(@"qqqqqqq%@",[appDelegate.deviceConnectManager getDeviceInfoAtRow:j]);
+            NSLog(@"qqqqqqq%@",[self.deviceArray objectAtIndex:j]);
 
         }
         
@@ -119,7 +132,15 @@
 {
 
     [super viewWillAppear:YES];
-    
+    [self.deviceArray removeAllObjects];
+    for (int i = 0; i <[[appDelegate.deviceConnectManager getDeviceInfoList] count]; i++)
+    {
+        if ([[[[[appDelegate.deviceConnectManager getDeviceInfoList] objectAtIndex:i] objectForKey:@"id_member"] stringValue] isEqualToString:@"1"])
+        {
+            [self.deviceArray addObject:[[appDelegate.deviceConnectManager getDeviceInfoList] objectAtIndex:i]];
+        }
+    }
+
     [_shareListTable reloadData];
     
     if ([self tableView:_shareListTable numberOfRowsInSection:0] == 0)
@@ -166,8 +187,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return [appDelegate.deviceConnectManager getDeviceCount];
-    NSLog(@"拥有的设备数量是%d",[appDelegate.deviceConnectManager getDeviceCount]);
+    return [self.deviceArray count];
+    NSLog(@"拥有的设备数量是%d",[self.deviceArray count]);
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -188,13 +209,13 @@
     }
     cell.contentView.backgroundColor = [UIColor whiteColor];
     NSInteger row = [indexPath row];
-    cell.nameLabel.text = [[appDelegate.deviceConnectManager getDeviceInfoAtRow:row] objectForKey:@"name"];
+    cell.nameLabel.text = [[self.deviceArray objectAtIndex:row] objectForKey:@"name"];
     
     
-    if ([appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_time",[[appDelegate.deviceConnectManager getDeviceInfoAtRow:row] objectForKey:@"device_id"]]])
+    if ([appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_time",[[self.deviceArray objectAtIndex:row] objectForKey:@"device_id"]]])
     {
         
-        cell.bindTimeLabel.text =[NSString stringWithFormat:@"绑定时间：%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_time",[[appDelegate.deviceConnectManager getDeviceInfoAtRow:row] objectForKey:@"device_id"]]]];
+        cell.bindTimeLabel.text =[NSString stringWithFormat:@"绑定时间：%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_time",[[self.deviceArray objectAtIndex:row] objectForKey:@"device_id"]]]];
     }
     
 //    cell.imageCell.image = [UIImage imageNamed:@"设备.png"];

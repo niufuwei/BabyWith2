@@ -16,4 +16,6 @@
 @property (retain,nonatomic) UIButton *nextStepBtn;
 @property (nonatomic,assign) BOOL hasSelect;
 
+@property (nonatomic,strong) NSMutableArray *deviceArray;
+
 @end
