@@ -138,7 +138,6 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         leftButton.frame = CGRectMake(0, 0, 20, 20);
         [rightButton setBackgroundImage:[UIImage imageNamed:@"删除.png"] forState:UIControlStateNormal];
         [selectButtonIsExit removeAllObjects];
-        [_imageCollection reloadData];
         [appDelegate hideTabbar];
         
         _imageCollection.frame = CGRectMake(10, 0, 300, kScreenHeight - 64);
@@ -155,13 +154,70 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 
         [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
 
-        [_imageCollection reloadData];
         [appDelegate showTabbar];
         
         _imageCollection.frame = CGRectMake(10, 0, 300, kScreenHeight - 64 - 44);
     }
     
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex ==0)
+    {
+        for(int i = 0 ;i<deleteArray.count;i++)
+        {
+            //删除选中图片
+            NSDictionary * dic = [deleteArray objectAtIndex:i];
+            
+            [appDelegate.sqliteManager removeRecordInfo:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0] deleteType:1];
+            
+            //看是否是有视频，有视频就删除视频
+            if ([[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"is_vedio"] intValue]==1)
+            {
+                //删除视频
+                NSString *vedioPath = [NSString stringWithFormat:@"%@",[babywith_sandbox_address
+                                                                        stringByAppendingPathComponent:[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"record_data_path"]]];
+                NSError *error = nil;
+                [[NSFileManager defaultManager] removeItemAtPath:vedioPath error:&error];
+                if (!error)
+                {
+                    NSLog(@"删除视频成功");
+                }
+            }
+            
+        }
+        [_sectionArray removeAllObjects];
+        [RowDictionary removeAllObjects];
+        [arrayDictionary removeAllObjects];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:documents error:nil];
+        
+        [_countForSectionArray removeAllObjects];
+        [self ShowRecordList];
+        
+        isDelete = FALSE;
+        [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑.png"] forState:UIControlStateNormal];
+        leftButton.frame = CGRectMake(0, 0, 25, 25);
+        //        [leftButton setTitle:@"编辑" forState:UIControlStateNormal];
+        [deleteArray removeAllObjects];
+        [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
+        
+        [_imageCollection reloadData];
+        
+        CGRect hh = _imageCollection.frame;
+        hh.size.height = self.view.frame.size.height -44;
+        _imageCollection.frame = hh;
+        //显示tabBar
+        [appDelegate showTabbar];
+
+    }
+    else
+    {
+    }
+}
+
 -(void)RightButtonClick
 {
     if(!isDelete)
@@ -191,55 +247,12 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         }
         else
         {
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"您确定要删除吗?" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+            alert.tag = 101;
+            [alert show];
+
             
-            
-            for(int i = 0 ;i<deleteArray.count;i++)
-            {
-                //删除选中图片
-                NSDictionary * dic = [deleteArray objectAtIndex:i];
-                
-                [appDelegate.sqliteManager removeRecordInfo:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0] deleteType:1];
-                
-                //看是否是有视频，有视频就删除视频
-                if ([[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"is_vedio"] intValue]==1)
-                {
-                    //删除视频
-                    NSString *vedioPath = [NSString stringWithFormat:@"%@",[babywith_sandbox_address
-                                                                            stringByAppendingPathComponent:[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"record_data_path"]]];
-                    NSError *error = nil;
-                    [[NSFileManager defaultManager] removeItemAtPath:vedioPath error:&error];
-                    if (!error)
-                    {
-                        NSLog(@"删除视频成功");
                     }
-                }
-                
-            }
-            [_sectionArray removeAllObjects];
-            [RowDictionary removeAllObjects];
-            [arrayDictionary removeAllObjects];
-            
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            [fileManager removeItemAtPath:documents error:nil];
-            
-            [_countForSectionArray removeAllObjects];
-            [self ShowRecordList];
-            
-            isDelete = FALSE;
-            [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑.png"] forState:UIControlStateNormal];
-            leftButton.frame = CGRectMake(0, 0, 25, 25);
-            //        [leftButton setTitle:@"编辑" forState:UIControlStateNormal];
-            [deleteArray removeAllObjects];
-            [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
-            
-            [_imageCollection reloadData];
-            
-            CGRect hh = _imageCollection.frame;
-            hh.size.height = self.view.frame.size.height -44;
-            _imageCollection.frame = hh;
-            //显示tabBar
-            [appDelegate showTabbar];
-        }
     }
 }
 
