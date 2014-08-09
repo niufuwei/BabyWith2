@@ -38,7 +38,7 @@
         state.textColor = [UIColor grayColor];
         [self.contentView addSubview:state];
         
-        isShare= [[UILabel alloc] initWithFrame:CGRectMake(state.frame.size.width+state.frame.origin.x+10, title.frame.size.height+title.frame.origin.y, 120, 20)];
+        isShare= [[UILabel alloc] initWithFrame:CGRectMake(state.frame.size.width+state.frame.origin.x+10, title.frame.size.height+title.frame.origin.y, 200, 20)];
         isShare.backgroundColor = [UIColor clearColor];
         isShare.font = [UIFont systemFontOfSize:12];
         isShare.textColor =babywith_green_color;
