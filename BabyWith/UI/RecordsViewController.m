@@ -25,6 +25,8 @@
     UIButton *leftButton;
     UIButton * rightButton;
     BOOL hiddenTabBar;
+    NSString * sandboxPath;
+    NSString * documents;
 }
 @end
 
@@ -40,6 +42,10 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 {
     [super viewDidLoad];
     isDelete = FALSE;
+    
+    //获取沙河地址
+    sandboxPath = NSHomeDirectory();
+    documents = [sandboxPath stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents"]];
 
     // Do any additional setup after loading the view from its nib.
     
@@ -208,6 +214,10 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
             [_sectionArray removeAllObjects];
             [RowDictionary removeAllObjects];
             [arrayDictionary removeAllObjects];
+            
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            [fileManager removeItemAtPath:documents error:nil];
+            
             [_countForSectionArray removeAllObjects];
             [self ShowRecordList];
             
@@ -243,6 +253,8 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     
     [RowDictionary removeAllObjects];
     [arrayDictionary removeAllObjects];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:documents error:nil];
     [statusDictionary removeAllObjects];
     
     
@@ -604,8 +616,14 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         
         UIImage *image = [UIImage imageWithData:imageData];
         
-        [arrayDictionary setObject:image forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
-
+//        [arrayDictionary setObject:image forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
+        
+    
+        NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.txt",indexPath.row]];
+        
+        //把图像存入本地文件
+        [imageData writeToFile:filename atomically:YES];
+        
         
         [cell.image setImage:image];
         //假如是视频图片，要加一个按钮一样的图片加以区别
@@ -626,7 +644,18 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     }
     else{
         
-        [cell.image setImage:[arrayDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]]];
+//        [cell.image setImage:[arrayDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]]];
+
+        NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.txt",indexPath.row]];
+
+       __block NSData * imageData;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            imageData = [NSData dataWithContentsOfFile:filename options:0 error:NULL];
+             UIImage *image = [UIImage imageWithData:imageData];
+            NSArray * arr =[NSArray arrayWithObjects:cell,image ,nil];
+            
+            [self performSelectorOnMainThread:@selector(onUpdate:) withObject:arr waitUntilDone:NO];
+        });
 
         
         if(![[statusDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]] isEqualToString:@"1"])
@@ -679,6 +708,13 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     
     return cell;
 }
+
+-(void)onUpdate:(NSArray *)arr
+{
+    myCollectionViewCell * cell = (myCollectionViewCell*)[arr objectAtIndex:0];
+    [cell.image setImage:(UIImage*)[arr objectAtIndex:1]];
+}
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -732,9 +768,6 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         return footerView;
         
     }
-    
-    
-    
 
 }
 
