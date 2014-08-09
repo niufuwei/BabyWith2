@@ -619,7 +619,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 //        [arrayDictionary setObject:image forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
         
     
-        NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.txt",indexPath.row]];
+        NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d%d.txt",indexPath.section,indexPath.row]];
         
         //把图像存入本地文件
         [imageData writeToFile:filename atomically:YES];
@@ -646,7 +646,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         
 //        [cell.image setImage:[arrayDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]]];
 
-        NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.txt",indexPath.row]];
+        NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d%d.txt",indexPath.section,indexPath.row]];
 
        __block NSData * imageData;
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -770,8 +770,6 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     }
 
 }
-
-
 
 -(void)onDelete:(id)sender
 {
