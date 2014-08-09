@@ -249,6 +249,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
             [self reloadCollentView];
         }
     }
+    
     isFirst=TRUE;
 }
 
