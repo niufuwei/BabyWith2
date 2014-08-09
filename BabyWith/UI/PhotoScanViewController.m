@@ -398,7 +398,7 @@
 -(void)deletePic
 {
     
-    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:nil message:@"是否确定删除" delegate:self cancelButtonTitle:@"是" otherButtonTitles:@"否", nil];
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"是否确定删除" message:nil delegate:self cancelButtonTitle:@"是" otherButtonTitles:@"否", nil];
     alert.tag=10010;
     [alert show];
     
