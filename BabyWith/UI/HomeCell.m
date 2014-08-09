@@ -31,7 +31,7 @@
         title.textColor = babywith_color(0x373737);
         [self.contentView addSubview:title];
         
-        state = [[UILabel alloc] initWithFrame:CGRectMake(image.frame.size.width+image.frame.origin.x+10, title.frame.size.height+title.frame.origin.y - 5, 120, 20)];
+        state = [[UILabel alloc] initWithFrame:CGRectMake(image.frame.size.width+image.frame.origin.x+10, title.frame.size.height+title.frame.origin.y - 5, 200, 20)];
         state.backgroundColor = [UIColor clearColor];
         state.font = [UIFont systemFontOfSize:13];
         state.textColor = babywith_color(0x909090);

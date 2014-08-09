@@ -18,12 +18,12 @@
 
 
 
-#define babywith_gate_address  @"http://www.chaoyongwenhua.com:8080/aiJIaJIaWebservice/api"
+//#define babywith_gate_address  @"http://www.chaoyongwenhua.com:8080/aiJIaJIaWebservice/api"
 //#define babywith_gate_address @"http://192.168.18.105:8081/aiJIaJIaWebservice/api"
 
 //#define babywith_gate_address @"http://192.168.18.159:8081/skyeyeWebservice/api"
 
-//#define babywith_gate_address @"http://192.168.18.122:8080/skyeyeWebservice/api"
+#define babywith_gate_address @"http://192.168.18.122:8080/skyeyeWebservice/api"
 
 //#define babywith_gate_address @"http://112.124.24.209:8089/skyeyeWebservice/api"
 

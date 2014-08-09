@@ -1922,6 +1922,11 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         {
             
             [activity stop];
+            //[self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[appDelegate.appDefault objectForKey:@"Error_message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            alert.tag = 55555;
+            [alert show];
             
         }
     }
@@ -2515,6 +2520,15 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }
+    
+    
+    if (alertView.tag == 55555) {
+        if (buttonIndex == 0)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+    
 }
 #pragma mark -
 #pragma mark UICollectionViewDataSource
