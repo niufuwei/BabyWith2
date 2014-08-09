@@ -45,6 +45,9 @@
     _messageTableView.dataSource = self;
     _messageTableView.delegate = self;
 //    _messageTableView.backgroundColor = [UIColor clearColor];
+    if (IOS7) {
+        _messageTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
     _messageTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.view addSubview:_messageTableView];
     
