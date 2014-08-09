@@ -243,12 +243,12 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     {
         if([deleteArray count]==0)
         {
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"请选择要删除的内容" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"请选择要删除的内容" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
         }
         else
         {
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"您确定要删除吗?" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"是否确定删除" message:nil delegate:self cancelButtonTitle:@"是" otherButtonTitles:@"否", nil];
             alert.tag = 101;
             [alert show];
 
