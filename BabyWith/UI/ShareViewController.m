@@ -150,7 +150,7 @@
         
         _label.frame = CGRectMake(20, 200, 280, 60);
         _label.textAlignment = NSTextAlignmentCenter;
-        _label.text =@"您还没有绑定设备";
+        _label.text =@"您还没有可分享的设备";
         _label.hidden = NO;
         _label.backgroundColor = [UIColor clearColor];
         [self.view addSubview:_label];
