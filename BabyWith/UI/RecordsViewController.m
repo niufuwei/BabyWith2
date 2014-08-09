@@ -648,11 +648,15 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 
         NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.txt",indexPath.row]];
 
-        NSData * imageData = [NSData dataWithContentsOfFile:filename options:0 error:NULL];
+       __block NSData * imageData;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            imageData = [NSData dataWithContentsOfFile:filename options:0 error:NULL];
+             UIImage *image = [UIImage imageWithData:imageData];
+            NSArray * arr =[NSArray arrayWithObjects:cell,image ,nil];
+            
+            [self performSelectorOnMainThread:@selector(onUpdate:) withObject:arr waitUntilDone:NO];
+        });
 
-        UIImage *image = [UIImage imageWithData:imageData];
-        
-        [cell.image setImage:image];
         
         if(![[statusDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]] isEqualToString:@"1"])
         {
@@ -704,6 +708,13 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     
     return cell;
 }
+
+-(void)onUpdate:(NSArray *)arr
+{
+    myCollectionViewCell * cell = (myCollectionViewCell*)[arr objectAtIndex:0];
+    [cell.image setImage:(UIImage*)[arr objectAtIndex:1]];
+}
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -757,9 +768,6 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         return footerView;
         
     }
-    
-    
-    
 
 }
 
