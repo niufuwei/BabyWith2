@@ -139,7 +139,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         [rightButton setBackgroundImage:[UIImage imageNamed:@"删除.png"] forState:UIControlStateNormal];
         [selectButtonIsExit removeAllObjects];
         [appDelegate hideTabbar];
-        
+        [_imageCollection reloadData];
         _imageCollection.frame = CGRectMake(10, 0, 300, kScreenHeight - 64);
         
     }
@@ -155,7 +155,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
 
         [appDelegate showTabbar];
-        
+        [_imageCollection reloadData];
         _imageCollection.frame = CGRectMake(10, 0, 300, kScreenHeight - 64 - 44);
     }
     
@@ -215,6 +215,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     }
     else
     {
+        
     }
 }
 
