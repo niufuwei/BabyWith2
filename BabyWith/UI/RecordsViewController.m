@@ -234,6 +234,9 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
             
             [_imageCollection reloadData];
             
+            CGRect hh = _imageCollection.frame;
+            hh.size.height = self.view.frame.size.height -44;
+            _imageCollection.frame = hh;
             //显示tabBar
             [appDelegate showTabbar];
         }
