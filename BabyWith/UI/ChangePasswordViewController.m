@@ -250,6 +250,9 @@
 
 - (void)submitChange:(id)sender {
     
+    [_oldPass resignFirstResponder];
+    [_freshPass resignFirstResponder];
+    
     _oldPass.text = [_oldPass.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     _freshPass.text = [_freshPass.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     

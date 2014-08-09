@@ -149,8 +149,9 @@
     }
     
 
+    NSLog(@">>>>>>>>%@",[[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] objectAtIndex:indexPath.row] objectForKey:@"alert"]);
     
-    cell.alertLabel.text =[[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] objectAtIndex:indexPath.row] objectForKey:@"alert"];
+   
     
     int i = [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count];
     NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:1];
@@ -159,7 +160,14 @@
         [arr addObject:[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] objectAtIndex:j]];
         
     }
-    
+    if ([[arr objectAtIndex:indexPath.row] objectForKey:@"alert"]) {
+        cell.alertLabel.text =[[arr objectAtIndex:indexPath.row] objectForKey:@"alert"];
+
+    }
+    else
+    {
+     cell.alertLabel.text =@"您的好友将他使用的设备分享给您！";
+    }
     cell.timeLabel.text = [[arr objectAtIndex:indexPath.row] objectForKey:@"messageTime"];
     
     

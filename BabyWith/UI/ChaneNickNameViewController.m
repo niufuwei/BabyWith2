@@ -94,6 +94,9 @@
 - (IBAction)submitNickName:(id)sender {
     
     
+
+    [self.nickName resignFirstResponder];
+    
     if ([_nickName.text isEqualToString:@""])
     {
         [self makeAlert:@"昵称不可为空"];
