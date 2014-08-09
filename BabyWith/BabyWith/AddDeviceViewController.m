@@ -397,9 +397,6 @@
         [self SearchDevice];
         
         
-        
-        
-    
     }
 }
 - (void) turnTorchOn{
