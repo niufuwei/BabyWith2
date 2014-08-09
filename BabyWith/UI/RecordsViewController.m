@@ -137,10 +137,12 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         
         leftButton.frame = CGRectMake(0, 0, 20, 20);
         [rightButton setBackgroundImage:[UIImage imageNamed:@"删除.png"] forState:UIControlStateNormal];
+        [selectButtonIsExit removeAllObjects];
         [_imageCollection reloadData];
         [appDelegate hideTabbar];
         
         _imageCollection.frame = CGRectMake(10, 0, 300, kScreenHeight - 64);
+        
     }
     else
     {
@@ -149,6 +151,8 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 //        [leftButton setTitle:@"编辑" forState:UIControlStateNormal];
         [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑.png"] forState:UIControlStateNormal];
         [deleteArray removeAllObjects];
+        [selectButtonIsExit removeAllObjects];
+
         [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
 
         [_imageCollection reloadData];
@@ -736,12 +740,11 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         if(!isDelete)
         {
             headerView.AllSelectButton.hidden = YES;
-            
         }
         else
         {
             headerView.AllSelectButton.hidden = NO;
-            
+
         }
         
         if([[selectButtonIsExit objectForKey:[NSString stringWithFormat:@"%d",indexPath.section]] isEqualToString:@"ok"])
@@ -984,6 +987,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 
 
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
