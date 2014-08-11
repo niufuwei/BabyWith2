@@ -41,27 +41,52 @@
     
     [self titleSet:@"分享设备"];
     
-     Activity *activity = [[Activity alloc] initWithActivity:self.view];
-    [activity start];
-    messageListDic =  [appDelegate.webInfoManger UserGetMessageUsingToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"Token"]];
-    NSLog(@"dic is %@",messageListDic);
-    messageArray1 =[[NSMutableArray alloc] initWithArray:[messageListDic  objectForKey:@"info"]];
-    NSLog(@"message array is %@",messageArray1);
+    messageArray1 = [[NSMutableArray alloc] initWithCapacity:1];
     
     
-    [appDelegate.appDefault setObject:messageArray1 forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
     
-    [activity stop];
-    
-    
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
+    if (buttonIndex == 0)
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+
 }
 - (void)viewWillAppear:(BOOL)animated
 {
 
     [super viewWillAppear:YES];
+    Activity *activity = [[Activity alloc] initWithActivity:self.view];
+    [activity start];
+    messageListDic =  [appDelegate.webInfoManger UserGetMessageUsingToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"Token"]];
+    NSLog(@"dic is %@",messageListDic);
+    if (!messageListDic)
+    {
+        [activity stop];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[appDelegate.appDefault objectForKey:@"Error_message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        alert.tag = 666;
+        [alert show];
+    }
+    else
+    {
+        messageArray1 =[messageListDic  objectForKey:@"info"];
+        NSLog(@"message array is %@",messageArray1);
+        [appDelegate.appDefault setObject:messageArray1 forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
+        [activity stop];
+    }
+    
+    [self loadUI];
+
+
+}
+-(void)loadUI
+{
     [_messageTableView reloadData];
     
-  
+    
     if ([messageArray1 count]== 0)
     {
         
@@ -77,22 +102,24 @@
     else
     {
         _label.hidden = YES;
-   
-    
+        
+        
         if (130.0*[self tableView:_messageTableView numberOfRowsInSection:0] > self.view.frame.size.height - 66)
         {
             _messageTableView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height);
         }
         else
         {
-        _messageTableView.frame = CGRectMake(0, 0, 320, 130.0*[self tableView:_messageTableView numberOfRowsInSection:0]);
-
+            _messageTableView.frame = CGRectMake(0, 0, 320, 130.0*[self tableView:_messageTableView numberOfRowsInSection:0]);
+            
         }
     }
     [self.view addSubview:_messageTableView];
-
+    
 
 }
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

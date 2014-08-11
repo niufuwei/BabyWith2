@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface NewMessageViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+@interface NewMessageViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {
 
     UILabel *_label;
