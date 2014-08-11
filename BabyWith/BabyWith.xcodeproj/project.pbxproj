@@ -100,7 +100,6 @@
 		71CAFE74198B814200E2DC1F /* 横版导航栏背景.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E57198B27F500A54EB2 /* 横版导航栏背景.png */; };
 		71CAFE75198B814200E2DC1F /* 编辑.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E63198B27F500A54EB2 /* 编辑.png */; };
 		71CAFE76198B814200E2DC1F /* 输入框.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E6B198B27F600A54EB2 /* 输入框.png */; };
-		71CAFE77198B814200E2DC1F /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E6C198B27F600A54EB2 /* 返回.png */; };
 		71CAFE78198B814200E2DC1F /* 退出系统-取消显示.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E6E198B27F600A54EB2 /* 退出系统-取消显示.png */; };
 		71CAFE7B198B89A200E2DC1F /* 横屏切换全屏(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE79198B89A200E2DC1F /* 横屏切换全屏(1).png */; };
 		71CAFE7C198B89A200E2DC1F /* 横屏切换全屏(2).png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE7A198B89A200E2DC1F /* 横屏切换全屏(2).png */; };
@@ -237,7 +236,6 @@
 		EF4A5F1A198B915100A54EB2 /* 分享人员 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E29198B27F500A54EB2 /* 分享人员 (2).png */; };
 		EF4A5F1D198B915100A54EB2 /* 导航栏背景.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E40198B27F500A54EB2 /* 导航栏背景.png */; };
 		EF4A5F1E198B915100A54EB2 /* 编辑.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E63198B27F500A54EB2 /* 编辑.png */; };
-		EF4A5F1F198B915100A54EB2 /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E6C198B27F600A54EB2 /* 返回.png */; };
 		EF4A5F20198B915100A54EB2 /* 退出系统-取消显示.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E6E198B27F600A54EB2 /* 退出系统-取消显示.png */; };
 		EF4A5F21198B915100A54EB2 /* 选择 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E70198B27F600A54EB2 /* 选择 (2).png */; };
 		EF4AAF25198F5F1400F33F0E /* cameraBackImage.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4AAF24198F5F1400F33F0E /* cameraBackImage.png */; };
@@ -602,7 +600,6 @@
 		EF4A5E69198B27F600A54EB2 /* 设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置.png"; sourceTree = "<group>"; };
 		EF4A5E6A198B27F600A54EB2 /* 跳过.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "跳过.png"; sourceTree = "<group>"; };
 		EF4A5E6B198B27F600A54EB2 /* 输入框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框.png"; sourceTree = "<group>"; };
-		EF4A5E6C198B27F600A54EB2 /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
 		EF4A5E6D198B27F600A54EB2 /* 退出系统 -显示密码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "退出系统 -显示密码.png"; sourceTree = "<group>"; };
 		EF4A5E6E198B27F600A54EB2 /* 退出系统-取消显示.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "退出系统-取消显示.png"; sourceTree = "<group>"; };
 		EF4A5E6F198B27F600A54EB2 /* 选择 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选择 (1).png"; sourceTree = "<group>"; };
@@ -1295,7 +1292,6 @@
 				71CAFE63198B7D4800E2DC1F /* 更多 (3).png */,
 				71CAFE64198B7D4800E2DC1F /* 更多 (4).png */,
 				EF4A5E6B198B27F600A54EB2 /* 输入框.png */,
-				EF4A5E6C198B27F600A54EB2 /* 返回.png */,
 				EF4A5E6D198B27F600A54EB2 /* 退出系统 -显示密码.png */,
 				EF4A5E6E198B27F600A54EB2 /* 退出系统-取消显示.png */,
 				EF4A5E6F198B27F600A54EB2 /* 选择 (1).png */,
@@ -1854,7 +1850,6 @@
 				71CAFE74198B814200E2DC1F /* 横版导航栏背景.png in Resources */,
 				71CAFE75198B814200E2DC1F /* 编辑.png in Resources */,
 				71CAFE76198B814200E2DC1F /* 输入框.png in Resources */,
-				71CAFE77198B814200E2DC1F /* 返回.png in Resources */,
 				71CAFE78198B814200E2DC1F /* 退出系统-取消显示.png in Resources */,
 				71CAFE6D198B804600E2DC1F /* 选择 (2).png in Resources */,
 				71CAFE6C198B7F8C00E2DC1F /* 主页摄像头.png in Resources */,
@@ -1868,7 +1863,6 @@
 				EF4A5F1A198B915100A54EB2 /* 分享人员 (2).png in Resources */,
 				EF4A5F1D198B915100A54EB2 /* 导航栏背景.png in Resources */,
 				EF4A5F1E198B915100A54EB2 /* 编辑.png in Resources */,
-				EF4A5F1F198B915100A54EB2 /* 返回.png in Resources */,
 				EF4A5F20198B915100A54EB2 /* 退出系统-取消显示.png in Resources */,
 				EF4A5F21198B915100A54EB2 /* 选择 (2).png in Resources */,
 				1DCB5BDF19909AAB001D177E /* 主菜单栏-选中 (1).png in Resources */,
