@@ -25,6 +25,7 @@
     int _year;
     int localLoadFlag;
 
+    NSMutableDictionary * imageArray;
     NSDateFormatter *_dateFormatter;
     
     NSMutableArray *_countForSectionArray;

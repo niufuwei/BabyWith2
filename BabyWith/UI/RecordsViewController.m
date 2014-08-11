@@ -51,7 +51,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     
 //    isFirst=TRUE;
     selectButtonIsExit = [[NSMutableDictionary alloc] init];
-    
+    imageArray = [[NSMutableDictionary alloc] init];
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCollentView) name:@"imageCollectionReload" object:nil];
     
@@ -187,6 +187,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
             }
             
         }
+        [imageArray removeAllObjects];
         [_sectionArray removeAllObjects];
         [RowDictionary removeAllObjects];
         [arrayDictionary removeAllObjects];
@@ -282,7 +283,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     
     [_countForSectionArray removeAllObjects];
     [_sectionArray removeAllObjects];
-    
+    [imageArray removeAllObjects];
    
     
 //    UICollectionViewFlowLayout *fl =[[UICollectionViewFlowLayout alloc] init];
@@ -529,6 +530,31 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         }
         count += num;
     }
+    
+    NSLog(@"%@",_sectionArray);
+    for(int i =0;i<[_sectionArray count];i++)
+    {
+        for(int j =0;j<[[_sectionArray objectAtIndex:i] count];j++)
+        {
+            NSDictionary *dic = [NSDictionary dictionaryWithDictionary:[[_sectionArray objectAtIndex:i] objectAtIndex:j]];
+            
+            NSLog(@"%@",dic);
+            
+            
+            NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
+            
+            UIImage *image = [UIImage imageWithData:imageData];
+            
+            [imageArray setObject:image forKey:[NSString stringWithFormat:@"%d*1000+%d",i+1,j+1]];
+            
+            //        [arrayDictionary setObject:image forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
+              
+    
+
+        }
+        
+    }
+   
 
 //    NSLog(@"数组是%@,section总数是%@",_countForSectionArray,_sectionArray);
 }
@@ -633,27 +659,8 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     
     if(![[RowDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]] isEqualToString:@"ok"])
     {
-       
-       
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
-            
-            UIImage *image = [UIImage imageWithData:imageData];
-            
-            //        [arrayDictionary setObject:image forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
-            
-            
-            NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d%d.txt",indexPath.section,indexPath.row]];
-            
-            //把图像存入本地文件
-            [imageData writeToFile:filename atomically:YES];
-            
-            NSArray * arr = [NSArray arrayWithObjects:cell,image, nil];
-            [self performSelectorOnMainThread:@selector(onUpdate:) withObject:arr waitUntilDone:NO];
-            
-
-        });
         
+        [cell.image setImage:[imageArray objectForKey:[NSString stringWithFormat:@"%d*1000+%d",indexPath.section+1,indexPath.row+1]]];
         //假如是视频图片，要加一个按钮一样的图片加以区别
         if ([[dic objectForKey:@"is_vedio"] intValue] !=1)
         {
@@ -669,21 +676,11 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         
         [RowDictionary setObject:@"ok" forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
 
+        
     }
     else{
         
-//        [cell.image setImage:[arrayDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]]];
-
-        NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d%d.txt",indexPath.section,indexPath.row]];
-
-       __block NSData * imageData;
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            imageData = [NSData dataWithContentsOfFile:filename options:0 error:NULL];
-             UIImage *image = [UIImage imageWithData:imageData];
-            NSArray * arr =[NSArray arrayWithObjects:cell,image ,nil];
-            
-            [self performSelectorOnMainThread:@selector(onUpdate:) withObject:arr waitUntilDone:NO];
-        });
+        [cell.image setImage:[imageArray objectForKey:[NSString stringWithFormat:@"%d*1000+%d",indexPath.section+1,indexPath.row+1]]];
 
         
         if(![[statusDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]] isEqualToString:@"1"])
@@ -739,6 +736,8 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 
 -(void)onUpdate:(NSArray *)arr
 {
+    NSLog(@"%@",arr);
+
     myCollectionViewCell * cell = (myCollectionViewCell*)[arr objectAtIndex:0];
     [cell.image setImage:(UIImage*)[arr objectAtIndex:1]];
 }
