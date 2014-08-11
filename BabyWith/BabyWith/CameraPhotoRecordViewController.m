@@ -167,7 +167,7 @@
                 aView.alpha=0.5;
                 //添加返回按钮
                 UIButton *backBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-                [backBtn setBackgroundImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+                [backBtn setBackgroundImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
                 [backBtn addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
                 backBtn.frame=CGRectMake(20, 12, 10, 20);
                 [aView addSubview:backBtn];
@@ -199,7 +199,7 @@
                 aView.alpha=0.5;
                 //添加返回按钮
                 UIButton *backBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-                [backBtn setBackgroundImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+                [backBtn setBackgroundImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
                 [backBtn addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
                 backBtn.frame=CGRectMake(20, 12, 10, 20);
                 [aView addSubview:backBtn];

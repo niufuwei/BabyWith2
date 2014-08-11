@@ -47,11 +47,11 @@
         [self.view addSubview:topView];
         
         
-        UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(7.5, 22+10, 10, 20)];
+        UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(7.5, 22+10, 60, 30)];
 //    UIImageView *aBackImage = [[UIImageView alloc] initWithFrame:CGRectMake(7.5, 0, 10, 20)];
 //    aBackImage.image = [UIImage imageNamed:@"导航返回.png"];
 //    
-//    //        [backBtn setImage:aBackImage.image forState:UIControlStateNormal];
+//    aBackImage.userInteractionEnabled = YES;
 //    
 //    [backBtn addSubview:aBackImage];
 
