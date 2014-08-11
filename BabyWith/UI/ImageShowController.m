@@ -47,14 +47,21 @@
         [self.view addSubview:topView];
         
         
-        UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 22+10, 10, 20)];
-        [backBtn setBackgroundImage:[UIImage imageNamed:@"返回.png"] forState:UIControlStateNormal];
+        UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(7.5, 22+10, 10, 20)];
+//    UIImageView *aBackImage = [[UIImageView alloc] initWithFrame:CGRectMake(7.5, 0, 10, 20)];
+//    aBackImage.image = [UIImage imageNamed:@"导航返回.png"];
+//    
+//    //        [backBtn setImage:aBackImage.image forState:UIControlStateNormal];
+//    
+//    [backBtn addSubview:aBackImage];
+
+        [backBtn setBackgroundImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
     
         [backBtn addTarget:self action:@selector(backToCamera) forControlEvents:UIControlEventTouchUpInside];
         [topView addSubview:backBtn];
         
         //右导航--删除按钮
-        UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 17+10, 60, 30)];
+        UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(245, 17+10, 60, 30)];
         
         [setButton addTarget:self action:@selector(deletePic) forControlEvents:UIControlEventTouchUpInside];
         [setButton setTitle:@"删除" forState:UIControlStateNormal];

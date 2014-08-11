@@ -12,11 +12,15 @@
 @interface RegisterViewController : BaseViewController<UITextFieldDelegate ,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UITextField *confirmTF;
-@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+
+
+
+
 @property (weak, nonatomic) IBOutlet UIButton *skipRegistButton;
 
 
 - (IBAction)skipRegistration:(UIButton *)sender;
-- (IBAction)startRegister:(UIButton *)sender;
+
+
 
 @end

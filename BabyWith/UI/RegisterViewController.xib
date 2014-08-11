@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="confirmTF" destination="SuF-yR-dc8" id="fbS-qE-8EV"/>
                 <outlet property="phoneTF" destination="X45-cH-UyN" id="dus-3W-GZE"/>
-                <outlet property="registerButton" destination="OUA-E8-rEU" id="k0J-8f-eDY"/>
                 <outlet property="skipRegistButton" destination="p9t-OB-7sF" id="cAH-Nn-4MH"/>
                 <outlet property="view" destination="1" id="jHc-MV-e5X"/>
             </connections>
@@ -24,7 +23,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" 手机号码" minimumFontSize="17" background="背景条.png" translatesAutoresizingMaskIntoConstraints="NO" id="X45-cH-UyN">
-                    <rect key="frame" x="20" y="218" width="280" height="30"/>
+                    <rect key="frame" x="20" y="218" width="280" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -33,7 +32,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" 确认手机号码" minimumFontSize="17" background="背景条.png" translatesAutoresizingMaskIntoConstraints="NO" id="SuF-yR-dc8">
-                    <rect key="frame" x="20" y="249" width="280" height="30"/>
+                    <rect key="frame" x="20" y="254" width="280" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -48,18 +47,6 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUA-E8-rEU">
-                    <rect key="frame" x="50" y="303" width="220" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                    <state key="normal" backgroundImage="qietu_118.png">
-                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="startRegister:" destination="-1" eventType="touchUpInside" id="TND-sR-QMk"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9t-OB-7sF">
                     <rect key="frame" x="70" y="430" width="180" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -83,7 +70,6 @@
         </view>
     </objects>
     <resources>
-        <image name="qietu_118.png" width="464" height="62"/>
         <image name="qietu_267.png" width="444" height="114"/>
         <image name="qietu_271.png" width="360" height="60"/>
         <image name="背景条.png" width="10" height="100"/>

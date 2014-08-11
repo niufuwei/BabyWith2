@@ -129,6 +129,10 @@
 		71FC430D198A1DFD00FEF070 /* VedioQualityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC430C198A1DFD00FEF070 /* VedioQualityTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71FC4310198A27E400FEF070 /* WifiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC430F198A27E400FEF070 /* WifiTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71FC4313198A344A00FEF070 /* AddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FC4312198A344A00FEF070 /* AddDeviceViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		EF0373A819962F4900771AF0 /* qietu_118.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5DFE198B27F500A54EB2 /* qietu_118.png */; };
+		EF0373A919962F6700771AF0 /* qietu_29.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5EEC198B2CE600A54EB2 /* qietu_29.png */; };
+		EF0373AA19962F6E00771AF0 /* qietu_148.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E04198B27F500A54EB2 /* qietu_148.png */; };
+		EF0373AB19962F7200771AF0 /* qietu_166.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E09198B27F500A54EB2 /* qietu_166.png */; };
 		EF039C5C179AD3340019D075 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF039C5B179AD3340019D075 /* SystemConfiguration.framework */; };
 		EF04E92B18D6A0EB00429681 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04E92818D6A0EB00429681 /* BaseNavigationController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		EF04E92C18D6A0EB00429681 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04E92A18D6A0EB00429681 /* BaseTabBarController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -1821,6 +1825,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF0373AB19962F7200771AF0 /* qietu_166.png in Resources */,
+				EF0373AA19962F6E00771AF0 /* qietu_148.png in Resources */,
+				EF0373A919962F6700771AF0 /* qietu_29.png in Resources */,
+				EF0373A819962F4900771AF0 /* qietu_118.png in Resources */,
 				71CAFEA1198B989100E2DC1F /* 绑定-未选 (1).png in Resources */,
 				71CAFEA2198B989100E2DC1F /* 绑定-未选 (2).png in Resources */,
 				71CAFEA3198B989100E2DC1F /* 绑定-未选 (3).png in Resources */,

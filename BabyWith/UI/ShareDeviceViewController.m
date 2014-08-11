@@ -43,7 +43,7 @@
     
     //左导航-主选择页面
     UIButton *navButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
-    [navButton setImage:[UIImage imageNamed:@"返回.png"] forState:UIControlStateNormal];
+    [navButton setImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
     [navButton addTarget:self action:@selector(pop:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView: navButton];
     if([UIDevice currentDevice].systemVersion.floatValue >= 7.0f){
