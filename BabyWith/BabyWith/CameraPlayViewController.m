@@ -130,10 +130,10 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     
     //显示视频的画面
     _playView = [[OpenGLView20 alloc] initWithFrame:CGRectMake(0, 0, 320,  180)];
-//    [_playView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"cameraBackImage.png"]]];
-    imageVie = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];
-    imageVie.image = [UIImage imageNamed:@"cameraBackImage.png"];
-    [_playView addSubview:imageVie];
+    [_playView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"cameraBackImage.png"]]];
+//    imageVie = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];
+//    imageVie.image = [UIImage imageNamed:@"cameraBackImage.png"];
+//    [_playView addSubview:imageVie];
     [_playView setVideoSize:320 height:180];
     [self.view addSubview:_playView];
     [self imageAddGest:_playView];//增加手势，让摄像头可以左右上下旋转
@@ -268,7 +268,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     UIButton *pressTalkButton = [UIButton buttonWithType:UIButtonTypeCustom];
     pressTalkButton.tag = 14;
     [pressTalkButton setBackgroundImage:[UIImage imageNamed:@"qietu_124.png"] forState:UIControlStateNormal];
-    pressTalkButton.frame = CGRectMake(10 ,5 ,320/4+20 ,34);
+    pressTalkButton.frame = CGRectMake(10 ,5 ,320/4+60 ,34);
     [pressTalkButton addTarget:self action:@selector(ButtonPressed:) forControlEvents:UIControlEventTouchDown];
     [pressTalkButton addTarget:self action:@selector(startListen:) forControlEvents:UIControlEventTouchUpInside];
     [_lTalkView addSubview:pressTalkButton];
@@ -483,7 +483,8 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     NSDate *date = [NSDate date];
     NSTimeInterval time = [date timeIntervalSince1970];
     NSData *imageData = UIImageJPEGRepresentation(screenshotsImage ,0.3);
-    NSLog(@"data length =[%lu]", (unsigned long)[imageData length]);
+    NSLog(@"data length =[%lu]", (unsigned long)[imageData
+                                                 length]);
     
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -2105,7 +2106,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         sleep(1.2);
     } completionBlock:^{
         //移除图片
-         [imageVie removeFromSuperview];
+//         [imageVie removeFromSuperview];
         [indicator removeFromSuperview];
         
         UIImageView *imageView = (UIImageView *)[self.navigationItem.titleView viewWithTag:20];

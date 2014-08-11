@@ -86,12 +86,25 @@
 - (void)leftButtonItemWithImageName:(NSString *)imageName
 {
     //左导航-主选择页面
-    UIButton *navButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    UIButton *navButton = [[UIButton alloc] initWithFrame:CGRectMake(-20, 0, 10, 20)];
     [navButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     //[navButton setImage:[UIImage imageNamed:@"goMain_highlight.png"] forState:UIControlStateHighlighted];
     [navButton addTarget:self action:@selector(pop:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView: navButton];
-    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    if([UIDevice currentDevice].systemVersion.floatValue >= 7.0f){
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                           initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                           target:nil action:nil];
+        negativeSpacer.width = -7.5;
+        self.navigationItem.leftBarButtonItems = @[negativeSpacer, leftItem];
+    }
+    else{
+        self.navigationItem.leftBarButtonItem = leftItem;
+    }
+
+    
+//    self.navigationItem.leftBarButtonItem = leftItem;
 }
 
 -(void)rightButtonTitle:(NSString *)titleName

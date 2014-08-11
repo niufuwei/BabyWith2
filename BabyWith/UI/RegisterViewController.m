@@ -51,6 +51,16 @@
     
     NSLog(@"是否是第一次登陆%@",[USRDEFAULT objectForKey:@"First_use_flag"]);
 
+    
+    //下一步
+    
+    UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    nextBtn.frame = CGRectMake(40, self.view.frame.size.height-165, 240, 35);
+    [nextBtn setBackgroundImage:[UIImage imageNamed:@"qietu_118.png"] forState:UIControlStateNormal];
+//    [nextBtn setBackgroundColor:[UIColor redColor]];
+//    [nextBtn setTitle:@",...." forState:UIControlStateNormal];
+    [nextBtn addTarget:self action:@selector(nextStepBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:nextBtn];
 
 }
 
@@ -104,15 +114,10 @@
     
 }
 
-- (IBAction)skipRegistration:(UIButton *)sender {
-    LoginViewController *vc = [[LoginViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-    //[NOTICECENTER postNotificationName:@"MoveToMain" object:nil];
-}
-
-- (IBAction)startRegister:(UIButton *)sender {
+-(void)nextStepBtnClick:(id)sender
+{
     //校验手机号码
-
+    
     NSString *phoneStr = [_phoneTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     int phone_email_flag = [self checkTel:phoneStr Type:1];
     if (phone_email_flag == 0) {
@@ -129,55 +134,62 @@
     [activity start];
     
     BOOL result = [appDelegate.webInfoManger UserRegisterUsingUser:phoneStr Vesting:@"86" RefistType:@"1" Password:@"" Mac:[appDelegate.appDefault objectForKey:@"Mac_self"]];
-
     
-        if (result) {
-            
-            
-            
-            UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:[[UIApplication sharedApplication].windows count]-1];
-            MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithWindow:window];
-            indicator.labelText = @"注册成功";
-            indicator.mode = MBProgressHUDModeText;
-            [window addSubview:indicator];
-            [indicator showAnimated:YES whileExecutingBlock:^{
-                sleep(1.2);
-            } completionBlock:^{
-                [indicator removeFromSuperview];
-                [USRDEFAULT setInteger:1 forKey:@"First_use_flag"];
-                if (result) {
-
-                    
-                    
-                    //登陆校验，发送消息到服务器
-                    BOOL result = [appDelegate.webInfoManger UserLoginUsingUsername:_phoneTF.text Password:@"" Version:ClientVersion Vesting:@"86" ClientType:@"2" DeviceToken:appDelegate.deviceToken];
-                    
-                    if (result)
-                    {
-                        [activity stop];
-                        [appDelegate.appDefault setObject:@"0" forKey:@"login_expired"];
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToMain" object:nil];
-                        
-                    }
-                    
-
-                }else{ //错误判断 如果是版本更新TODO
-
+    
+    if (result) {
+        
+        
+        
+        UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:[[UIApplication sharedApplication].windows count]-1];
+        MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithWindow:window];
+        indicator.labelText = @"注册成功";
+        indicator.mode = MBProgressHUDModeText;
+        [window addSubview:indicator];
+        [indicator showAnimated:YES whileExecutingBlock:^{
+            sleep(1.2);
+        } completionBlock:^{
+            [indicator removeFromSuperview];
+            [USRDEFAULT setInteger:1 forKey:@"First_use_flag"];
+            if (result) {
+                
+                
+                
+                //登陆校验，发送消息到服务器
+                BOOL result = [appDelegate.webInfoManger UserLoginUsingUsername:_phoneTF.text Password:@"" Version:ClientVersion Vesting:@"86" ClientType:@"2" DeviceToken:appDelegate.deviceToken];
+                
+                if (result)
+                {
                     [activity stop];
-
-                    [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
+                    [appDelegate.appDefault setObject:@"0" forKey:@"login_expired"];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToMain" object:nil];
+                    
                 }
-            }];
-        }else{
-            
-            
+                
+                
+            }else{ //错误判断 如果是版本更新TODO
+                
+                [activity stop];
+                
+                [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
+            }
+        }];
+    }else{
+        
+        
+        
+        [activity stop];
+        
+        [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
+    }
 
-            [activity stop];
-            
-            [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
-        }
-    
 }
+
+- (IBAction)skipRegistration:(UIButton *)sender {
+    LoginViewController *vc = [[LoginViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+    //[NOTICECENTER postNotificationName:@"MoveToMain" object:nil];
+}
+
 
 
 - (void)macAddressGet
@@ -190,5 +202,6 @@
         [appDelegate.appDefault setValue:mac forKey:@"Mac_self"];
     }
 }
+
 
 @end

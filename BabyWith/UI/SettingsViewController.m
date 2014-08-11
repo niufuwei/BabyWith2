@@ -58,6 +58,9 @@
     _tableList.delegate = self;
     _tableList.backgroundColor = [UIColor whiteColor];
     _tableList.dataSource = self;
+    if (IOS7) {
+        _tableList.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
 //    _tableList.backgroundColor = [UIColor clearColor];
     _tableList.scrollEnabled = NO;
     [self.view addSubview:_tableList];

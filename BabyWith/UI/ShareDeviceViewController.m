@@ -43,10 +43,20 @@
     
     //左导航-主选择页面
     UIButton *navButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
-    [navButton setImage:[UIImage imageNamed:@"返回.png"] forState:UIControlStateNormal];
+    [navButton setImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
     [navButton addTarget:self action:@selector(pop:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView: navButton];
-    self.navigationItem.leftBarButtonItem = leftItem;
+    if([UIDevice currentDevice].systemVersion.floatValue >= 7.0f){
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                           initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                           target:nil action:nil];
+        negativeSpacer.width = -7.5;
+        self.navigationItem.leftBarButtonItems = @[negativeSpacer, leftItem];
+    }
+    else{
+        self.navigationItem.leftBarButtonItem = leftItem;
+    }
+
     
     
     [self titleSet:@"分享账号"];
@@ -88,7 +98,7 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
     
-    [appDelegate.selectDeviceArr removeAllObjects];
+    
 }
 
 
@@ -342,6 +352,7 @@
     {
         if ([[appDelegate.appDefault objectForKey:@"login_expired"] isEqualToString:@"1"])
         {
+            [appDelegate.selectDeviceArr removeAllObjects];
             [appDelegate.appDefault setObject:@"" forKey:@"Username"];
             [appDelegate.appDefault setObject:@"" forKey:@"Password"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToLogin" object:nil];

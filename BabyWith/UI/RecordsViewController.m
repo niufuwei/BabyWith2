@@ -51,7 +51,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     
 //    isFirst=TRUE;
     selectButtonIsExit = [[NSMutableDictionary alloc] init];
-    
+    imageArray = [[NSMutableDictionary alloc] init];
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCollentView) name:@"imageCollectionReload" object:nil];
     
@@ -138,9 +138,8 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         leftButton.frame = CGRectMake(0, 0, 20, 20);
         [rightButton setBackgroundImage:[UIImage imageNamed:@"删除.png"] forState:UIControlStateNormal];
         [selectButtonIsExit removeAllObjects];
-        [_imageCollection reloadData];
         [appDelegate hideTabbar];
-        
+        [_imageCollection reloadData];
         _imageCollection.frame = CGRectMake(10, 0, 300, kScreenHeight - 64);
         
     }
@@ -155,13 +154,72 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 
         [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
 
-        [_imageCollection reloadData];
         [appDelegate showTabbar];
-        
+        [_imageCollection reloadData];
         _imageCollection.frame = CGRectMake(10, 0, 300, kScreenHeight - 64 - 44);
     }
     
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex ==0)
+    {
+        for(int i = 0 ;i<deleteArray.count;i++)
+        {
+            //删除选中图片
+            NSDictionary * dic = [deleteArray objectAtIndex:i];
+            
+            [appDelegate.sqliteManager removeRecordInfo:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0] deleteType:1];
+            
+            //看是否是有视频，有视频就删除视频
+            if ([[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"is_vedio"] intValue]==1)
+            {
+                //删除视频
+                NSString *vedioPath = [NSString stringWithFormat:@"%@",[babywith_sandbox_address
+                                                                        stringByAppendingPathComponent:[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"record_data_path"]]];
+                NSError *error = nil;
+                [[NSFileManager defaultManager] removeItemAtPath:vedioPath error:&error];
+                if (!error)
+                {
+                    NSLog(@"删除视频成功");
+                }
+            }
+            
+        }
+        [imageArray removeAllObjects];
+        [_sectionArray removeAllObjects];
+        [RowDictionary removeAllObjects];
+        [arrayDictionary removeAllObjects];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:documents error:nil];
+        
+        [_countForSectionArray removeAllObjects];
+        [self ShowRecordList];
+        
+        isDelete = FALSE;
+        [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑.png"] forState:UIControlStateNormal];
+        leftButton.frame = CGRectMake(0, 0, 25, 25);
+        //        [leftButton setTitle:@"编辑" forState:UIControlStateNormal];
+        [deleteArray removeAllObjects];
+        [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
+        
+        [_imageCollection reloadData];
+        
+        CGRect hh = _imageCollection.frame;
+        hh.size.height = self.view.frame.size.height -44;
+        _imageCollection.frame = hh;
+        //显示tabBar
+        [appDelegate showTabbar];
+
+    }
+    else
+    {
+        
+    }
+}
+
 -(void)RightButtonClick
 {
     if(!isDelete)
@@ -186,60 +244,17 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     {
         if([deleteArray count]==0)
         {
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:@"请选择要删除的内容" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"请选择要删除的内容" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
         }
         else
         {
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"是否确定删除" message:nil delegate:self cancelButtonTitle:@"是" otherButtonTitles:@"否", nil];
+            alert.tag = 101;
+            [alert show];
+
             
-            
-            for(int i = 0 ;i<deleteArray.count;i++)
-            {
-                //删除选中图片
-                NSDictionary * dic = [deleteArray objectAtIndex:i];
-                
-                [appDelegate.sqliteManager removeRecordInfo:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0] deleteType:1];
-                
-                //看是否是有视频，有视频就删除视频
-                if ([[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"is_vedio"] intValue]==1)
-                {
-                    //删除视频
-                    NSString *vedioPath = [NSString stringWithFormat:@"%@",[babywith_sandbox_address
-                                                                            stringByAppendingPathComponent:[[dic objectForKey:[[[deleteArray objectAtIndex:i] allKeys] objectAtIndex:0]] objectForKey:@"record_data_path"]]];
-                    NSError *error = nil;
-                    [[NSFileManager defaultManager] removeItemAtPath:vedioPath error:&error];
-                    if (!error)
-                    {
-                        NSLog(@"删除视频成功");
                     }
-                }
-                
-            }
-            [_sectionArray removeAllObjects];
-            [RowDictionary removeAllObjects];
-            [arrayDictionary removeAllObjects];
-            
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            [fileManager removeItemAtPath:documents error:nil];
-            
-            [_countForSectionArray removeAllObjects];
-            [self ShowRecordList];
-            
-            isDelete = FALSE;
-            [leftButton setBackgroundImage:[UIImage imageNamed:@"编辑.png"] forState:UIControlStateNormal];
-            leftButton.frame = CGRectMake(0, 0, 25, 25);
-            //        [leftButton setTitle:@"编辑" forState:UIControlStateNormal];
-            [deleteArray removeAllObjects];
-            [rightButton setBackgroundImage:[UIImage imageNamed:@"拍照.png"] forState:UIControlStateNormal];
-            
-            [_imageCollection reloadData];
-            
-            CGRect hh = _imageCollection.frame;
-            hh.size.height = self.view.frame.size.height -44;
-            _imageCollection.frame = hh;
-            //显示tabBar
-            [appDelegate showTabbar];
-        }
     }
 }
 
@@ -268,7 +283,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     
     [_countForSectionArray removeAllObjects];
     [_sectionArray removeAllObjects];
-    
+    [imageArray removeAllObjects];
    
     
 //    UICollectionViewFlowLayout *fl =[[UICollectionViewFlowLayout alloc] init];
@@ -515,6 +530,31 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         }
         count += num;
     }
+    
+    NSLog(@"%@",_sectionArray);
+    for(int i =0;i<[_sectionArray count];i++)
+    {
+        for(int j =0;j<[[_sectionArray objectAtIndex:i] count];j++)
+        {
+            NSDictionary *dic = [NSDictionary dictionaryWithDictionary:[[_sectionArray objectAtIndex:i] objectAtIndex:j]];
+            
+            NSLog(@"%@",dic);
+            
+            
+            NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
+            
+            UIImage *image = [UIImage imageWithData:imageData];
+            
+            [imageArray setObject:image forKey:[NSString stringWithFormat:@"%d*1000+%d",i+1,j+1]];
+            
+            //        [arrayDictionary setObject:image forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
+              
+    
+
+        }
+        
+    }
+   
 
 //    NSLog(@"数组是%@,section总数是%@",_countForSectionArray,_sectionArray);
 }
@@ -619,21 +659,8 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     
     if(![[RowDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]] isEqualToString:@"ok"])
     {
-       
-        NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
         
-        UIImage *image = [UIImage imageWithData:imageData];
-        
-//        [arrayDictionary setObject:image forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
-        
-    
-        NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d%d.txt",indexPath.section,indexPath.row]];
-        
-        //把图像存入本地文件
-        [imageData writeToFile:filename atomically:YES];
-        
-        
-        [cell.image setImage:image];
+        [cell.image setImage:[imageArray objectForKey:[NSString stringWithFormat:@"%d*1000+%d",indexPath.section+1,indexPath.row+1]]];
         //假如是视频图片，要加一个按钮一样的图片加以区别
         if ([[dic objectForKey:@"is_vedio"] intValue] !=1)
         {
@@ -649,21 +676,11 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         
         [RowDictionary setObject:@"ok" forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
 
+        
     }
     else{
         
-//        [cell.image setImage:[arrayDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]]];
-
-        NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d%d.txt",indexPath.section,indexPath.row]];
-
-       __block NSData * imageData;
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            imageData = [NSData dataWithContentsOfFile:filename options:0 error:NULL];
-             UIImage *image = [UIImage imageWithData:imageData];
-            NSArray * arr =[NSArray arrayWithObjects:cell,image ,nil];
-            
-            [self performSelectorOnMainThread:@selector(onUpdate:) withObject:arr waitUntilDone:NO];
-        });
+        [cell.image setImage:[imageArray objectForKey:[NSString stringWithFormat:@"%d*1000+%d",indexPath.section+1,indexPath.row+1]]];
 
         
         if(![[statusDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]] isEqualToString:@"1"])
@@ -719,6 +736,8 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 
 -(void)onUpdate:(NSArray *)arr
 {
+    NSLog(@"%@",arr);
+
     myCollectionViewCell * cell = (myCollectionViewCell*)[arr objectAtIndex:0];
     [cell.image setImage:(UIImage*)[arr objectAtIndex:1]];
 }
@@ -735,6 +754,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         
         headerView.headerLabel.text = [_dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"time_record"] doubleValue]/1000]];
         headerView.headerLabel.textColor = [UIColor grayColor];
+        headerView.headerLabel.font = [UIFont systemFontOfSize:18.0];
         
         
         
@@ -768,7 +788,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     }
     
     else
-    {
+    { 
          FooterView *footerView = [_imageCollection dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:REUSEABLE_FOOTER forIndexPath:indexPath];
         
         
@@ -866,7 +886,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     
-    return UIEdgeInsetsMake(10, 0, 0, 0);
+    return UIEdgeInsetsMake(20, 0, 0, 0);
     
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -883,7 +903,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     }
     else
     {
-    return CGSizeMake(320, 30);
+    return CGSizeMake(320, 40);
 
     }
 }

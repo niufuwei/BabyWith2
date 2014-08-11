@@ -59,6 +59,8 @@
 
 -(void)nextStep
 {
+    
+    [appDelegate.selectDeviceArr removeAllObjects];
 
     int i =  [self.deviceArray count];
     NSLog(@"设备一共有%d个",i);

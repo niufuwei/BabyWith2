@@ -18,7 +18,7 @@
     
     int _count;                //照片的张数
     UIImage *_image;          //取出来的每一张照片
-    
+    UIImageView *aBackImage;
 }
 - (id)initWithArray:(NSArray *)array ;
 

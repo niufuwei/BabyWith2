@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 #import "ImagePickerController.h"
-@interface RecordsViewController : BaseViewController<ImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,NavgationDelegate>
+@interface RecordsViewController : BaseViewController<ImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,NavgationDelegate,UIAlertViewDelegate>
 {
 
     ImagePickerController *_picker;
@@ -25,6 +25,7 @@
     int _year;
     int localLoadFlag;
 
+    NSMutableDictionary * imageArray;
     NSDateFormatter *_dateFormatter;
     
     NSMutableArray *_countForSectionArray;

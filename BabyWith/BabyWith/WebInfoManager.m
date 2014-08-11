@@ -141,7 +141,10 @@
        
         
         [appDelegate.deviceConnectManager removeDeviceList];
-        [appDelegate.deviceConnectManager putDeviceInfo:[[response objectForKey:@"value"] objectForKey:@"device_info"]];
+       
+         [appDelegate.deviceConnectManager putDeviceInfo:[[response objectForKey:@"value"] objectForKey:@"device_info"]];
+        
+        
         
         [appDelegate.appDefault setObject:@"" forKey:@"Phone_bind_new"];
         [appDelegate.appDefault setObject:@"" forKey:@"Phone_checkcode"];

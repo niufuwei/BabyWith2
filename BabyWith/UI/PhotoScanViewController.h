@@ -26,6 +26,7 @@
     BOOL _isBack;
     FILE * FileHandle;
     UIView *aView;
+    UIImageView *aBackImage;
 }
 
 - (id)initWithArray:(NSArray *)array Type:(int) type CurrentPage:(int )currentPage Delegate:(NSObject *)delegate;

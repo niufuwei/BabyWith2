@@ -166,10 +166,20 @@
                 aView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"导航栏背景"]];
                 aView.alpha=0.5;
                 //添加返回按钮
+                //添加返回按钮
                 UIButton *backBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-                [backBtn setBackgroundImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+                //                [backBtn setBackgroundImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
+                
+                aBackImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+                aBackImage.image = [UIImage imageNamed:@"导航返回.png"];
+                
+                
+                [backBtn addSubview:aBackImage];
+                
+                [backBtn addTarget:self action:@selector(btnTouchDown) forControlEvents:UIControlEventTouchDown];
+                
                 [backBtn addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
-                backBtn.frame=CGRectMake(20, 12, 10, 20);
+                backBtn.frame=CGRectMake(10, 12, 60, 30);
                 [aView addSubview:backBtn];
                 
                 
@@ -198,11 +208,22 @@
                 aView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"导航栏背景"]];
                 aView.alpha=0.5;
                 //添加返回按钮
+                //添加返回按钮
                 UIButton *backBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-                [backBtn setBackgroundImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+                //                [backBtn setBackgroundImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
+                
+                aBackImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+                aBackImage.image = [UIImage imageNamed:@"导航返回.png"];
+                
+                
+                [backBtn addSubview:aBackImage];
+                
+                [backBtn addTarget:self action:@selector(btnTouchDown) forControlEvents:UIControlEventTouchDown];
+                
                 [backBtn addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
-                backBtn.frame=CGRectMake(20, 12, 10, 20);
+                backBtn.frame=CGRectMake(10, 12, 60, 30);
                 [aView addSubview:backBtn];
+
                 
                 UILabel *playLabel = [[UILabel alloc] initWithFrame:CGRectMake(160, 0, 160, 44)];
                 playLabel.backgroundColor = [UIColor clearColor];
@@ -291,6 +312,13 @@
     });
 }
 
+-(void)btnTouchDown
+{
+    
+    aBackImage.image = [UIImage imageNamed:@"qietu_56.png"];
+    
+}
+
 //停止播放
 -(void)stopPlaying
 {
@@ -331,7 +359,7 @@
 
 -(void)deletePic
 {
-    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:nil message:@"是否确定删除" delegate:self cancelButtonTitle:@"是" otherButtonTitles:@"否", nil];
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"是否确定删除" message:nil delegate:self cancelButtonTitle:@"是" otherButtonTitles:@"否", nil];
     alert.tag=10010;
     [alert show];
     

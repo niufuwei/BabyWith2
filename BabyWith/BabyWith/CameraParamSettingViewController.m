@@ -43,7 +43,19 @@
         [navButton setImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
         [navButton addTarget:self action:@selector(ShowPrePage) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView: navButton];
-        self.navigationItem.leftBarButtonItem = leftItem;
+        
+        
+        if([UIDevice currentDevice].systemVersion.floatValue >= 7.0f){
+            UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                               initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                               target:nil action:nil];
+            negativeSpacer.width = -7.5;
+            self.navigationItem.leftBarButtonItems = @[negativeSpacer, leftItem];
+        }
+        else{
+            self.navigationItem.leftBarButtonItem = leftItem;
+        }
+
         
         [navButton release];
         [leftItem release];

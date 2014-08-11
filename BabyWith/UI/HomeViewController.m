@@ -662,6 +662,9 @@
     //获取设备列表，并且刷新数据
      [appDelegate showTabbar];
     self.deviceArray = [appDelegate.deviceConnectManager getDeviceInfoList];
+    
+    NSLog(@">>>>>%@",self.deviceArray);
+    
     [_homeTableView1 reloadData];
     titleImage.hidden = NO;
     

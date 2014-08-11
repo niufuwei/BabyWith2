@@ -18,7 +18,7 @@
         
         _line = [[UIImageView alloc] initWithFrame:CGRectMake(0, 9, 320, 1)];
         _line.backgroundColor = [UIColor grayColor];
-        _line.alpha=0.5;
+        _line.alpha=0.3;
         [self addSubview:_line];
         
         
