@@ -242,6 +242,8 @@
 		EF4C175A19920E0E00FC3532 /* qietu_307.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4C175819920E0E00FC3532 /* qietu_307.png */; };
 		EF4C175B19920E0E00FC3532 /* qietu_310.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4C175919920E0E00FC3532 /* qietu_310.png */; };
 		EF4CE54319988E6D00310924 /* qietu_56.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4CE54219988E6D00310924 /* qietu_56.png */; };
+		EF4CE5441998A57E00310924 /* 系统消息未读背景.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E5C198B27F500A54EB2 /* 系统消息未读背景.png */; };
+		EF4CE5471998C0CC00310924 /* DeviceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4CE5461998C0CC00310924 /* DeviceListCell.m */; };
 		EF517DA91811340100EB5CED /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = EF517DA81811340100EB5CED /* Icon-80.png */; };
 		EF96F30418D2E279002C1245 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF96F30318D2E279002C1245 /* Images.xcassets */; };
 		EFA7C16C19946333006EDB5F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA7C16A19946333006EDB5F /* Default-568h@2x.png */; };
@@ -624,6 +626,8 @@
 		EF4C175819920E0E00FC3532 /* qietu_307.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_307.png; sourceTree = "<group>"; };
 		EF4C175919920E0E00FC3532 /* qietu_310.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_310.png; sourceTree = "<group>"; };
 		EF4CE54219988E6D00310924 /* qietu_56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_56.png; sourceTree = "<group>"; };
+		EF4CE5451998C0CC00310924 /* DeviceListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListCell.h; sourceTree = "<group>"; };
+		EF4CE5461998C0CC00310924 /* DeviceListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceListCell.m; sourceTree = "<group>"; };
 		EF517DA81811340100EB5CED /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
 		EF96F30318D2E279002C1245 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFA7C16A19946333006EDB5F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -1378,6 +1382,8 @@
 				71FC430C198A1DFD00FEF070 /* VedioQualityTableViewCell.m */,
 				71FC430E198A27E400FEF070 /* WifiTableViewCell.h */,
 				71FC430F198A27E400FEF070 /* WifiTableViewCell.m */,
+				EF4CE5451998C0CC00310924 /* DeviceListCell.h */,
+				EF4CE5461998C0CC00310924 /* DeviceListCell.m */,
 			);
 			name = "View&Cell";
 			sourceTree = "<group>";
@@ -1823,6 +1829,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF4CE5441998A57E00310924 /* 系统消息未读背景.png in Resources */,
 				EF0373AB19962F7200771AF0 /* qietu_166.png in Resources */,
 				EF0373AA19962F6E00771AF0 /* qietu_148.png in Resources */,
 				EF0373A919962F6700771AF0 /* qietu_29.png in Resources */,
@@ -2047,6 +2054,7 @@
 				EFE79574177C1B6100D15A32 /* SettingCell.m in Sources */,
 				7196B05D18D80E5D00B8D8BB /* ShareDeviceViewController.m in Sources */,
 				EF04E96E18D6A20B00429681 /* CustomSegmentView.m in Sources */,
+				EF4CE5471998C0CC00310924 /* DeviceListCell.m in Sources */,
 				7196B05818D80E1000B8D8BB /* SetNickNameViewController.m in Sources */,
 				7196B08918D837F700B8D8BB /* AboutUsViewController.m in Sources */,
 				EFF7B932178885730035FB82 /* CameraAddingViewController.m in Sources */,

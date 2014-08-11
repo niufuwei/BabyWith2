@@ -98,7 +98,7 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
     
-    [appDelegate.selectDeviceArr removeAllObjects];
+    
 }
 
 
@@ -352,6 +352,7 @@
     {
         if ([[appDelegate.appDefault objectForKey:@"login_expired"] isEqualToString:@"1"])
         {
+            [appDelegate.selectDeviceArr removeAllObjects];
             [appDelegate.appDefault setObject:@"" forKey:@"Username"];
             [appDelegate.appDefault setObject:@"" forKey:@"Password"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToLogin" object:nil];

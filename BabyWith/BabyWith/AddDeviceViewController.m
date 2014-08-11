@@ -14,6 +14,7 @@
 #import "WebInfoManager.h"
 #import "UIViewController+Alert.h"
 #import "Activity.h"
+#import "DeviceListCell.h"
 @interface AddDeviceViewController ()
 {
 
@@ -112,13 +113,13 @@
     
     [_cameraSearchList removeAllObjects];
     
-    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(tableviewReloadData) userInfo:nil repeats:NO];
+    //[deviceListTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     _pSearchDVS->Open();
 }
-//搜索设备的额代理方法
+//搜索设备的代理方法
 - (void) SearchCameraResult:(NSString *)mac Name:(NSString *)name Addr:(NSString *)addr Port:(NSString *)port DID:(NSString*)did{
     
-    NSLog(@"llllllllllllllllllllllllllllll");
+    NSLog(@"11111111111111111111111111111111111111name is %@,did is %@",name,did);
     int  flag = 0;
     //去掉重复
     for (NSDictionary *dic in _cameraSearchList)
@@ -126,7 +127,7 @@
         if ([[dic objectForKey:@"uid"] isEqualToString:did])
         {
             flag = 1;
-            NSLog(@"感觉丢过航道局搜索结束");
+            NSLog(@"去除重复");
             break;
         }
         
@@ -138,8 +139,8 @@
     {
         NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:name,@"name", did, @"uid", nil];
         [_cameraSearchList addObject:dic];
-        
-    NSLog(@"cameralist is %@",_cameraSearchList);
+        NSLog(@"调用刷新方法");
+       [deviceListTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
         
     }
 }
@@ -148,7 +149,7 @@
     
     
     [activity stop];
-    [deviceListTableView reloadData];
+    
    
 
 }
@@ -214,6 +215,7 @@
     {
         [activity stop];
         btn.enabled = NO;
+        ((UIButton*)[self.view viewWithTag:2]).enabled = YES;
         if (timer != nil)
         {
             [timer invalidate];
@@ -254,6 +256,7 @@
         [activity stop];
         
         ((UIButton *)[self.view viewWithTag:1]).enabled = YES;
+        ((UIButton*)[self.view viewWithTag:2]).enabled = YES;
         if (timer != nil)
         {
             [timer invalidate];
@@ -319,7 +322,7 @@
     }
     else if(btn.tag == 2)
     {
-         //btn.enabled = NO;
+         btn.enabled = NO;
         [activity stop];
         _pSearchDVS->Close();
         loadDevice = NO;
@@ -736,25 +739,24 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"identifier";
-    UILabel * accLabel;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+   
+    DeviceListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[DeviceListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
         
-        accLabel = [[UILabel alloc] initWithFrame:CGRectMake(240, 0, 70, 40)];
-        accLabel.font = [UIFont systemFontOfSize:14.0];
-        [cell addSubview:accLabel];
     }
+    
     
     cell.textLabel.font = [UIFont systemFontOfSize:13.0];
     cell.textLabel.text =[NSString stringWithFormat:@"设备%@", [[_cameraSearchList objectAtIndex:indexPath.row] objectForKey:@"uid"]];
     
-    if (loadDevice == NO)
-    {
-        for (id obj in _cameraSearchList)
+    
+    
+    NSLog(@"cameraSearchList is %@",_cameraSearchList);
+           for (id obj in _cameraSearchList)
         {
             
             if (![_searchDeviceIdArr containsObject:[obj objectForKey:@"uid"]])
@@ -763,35 +765,39 @@
                 
             }
         }
-        loadDevice = YES;
-    }
+    
     
     [activity stop];
     [deviceListView setHidden:NO];
     NSLog(@"arr 1 and arr2 %@,,,,,%@",_searchDeviceIdArr,_alreadyGotDeviceIdArr);
+    NSLog(@"number oof rows is %d",[tableView numberOfRowsInSection:0]);
+    NSLog(@"current row is%d",indexPath.row);
 
-    
-    for (int i = 0; i<[_searchDeviceIdArr count];i++)
+    if([_searchDeviceIdArr objectAtIndex:indexPath.row])
     {
-        NSLog(@"lllllllllll%@",[_searchDeviceIdArr objectAtIndex:i]);
-        if ([_alreadyGotDeviceIdArr containsObject:[_searchDeviceIdArr objectAtIndex:i]])
+        if ([_alreadyGotDeviceIdArr  containsObject:[_searchDeviceIdArr objectAtIndex:indexPath.row]])
         {
-            accLabel.text = @"已绑定";
-            accLabel.textColor = [UIColor blackColor];
-            [_searchDeviceIdArr removeObjectAtIndex:i];
-	
-            break;
+            cell.accLabel.text = @"已绑定";
+            cell.accLabel.textColor = [UIColor blackColor];
+            
+            
+            
             
         }
         else
         {
-            accLabel.text =  @"未绑定";
-            accLabel.textColor = [UIColor grayColor];
-            [_searchDeviceIdArr removeObjectAtIndex:i];
-            break;
-        
+            cell.accLabel.text =  @"未绑定";
+            cell.accLabel.textColor = [UIColor grayColor];
+            
+            
+            
+            
         }
+
+        
+    
     }
+    
    
     
     return cell;
