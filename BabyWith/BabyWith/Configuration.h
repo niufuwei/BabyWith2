@@ -16,8 +16,6 @@
 #define ClientVersion @"5"
 
 
-
-
 //#define babywith_gate_address  @"http://www.chaoyongwenhua.com:8080/aiJIaJIaWebservice/api"
 //#define babywith_gate_address @"http://192.168.18.105:8081/aiJIaJIaWebservice/api"
 
@@ -26,9 +24,6 @@
 //#define babywith_gate_address @"http://192.168.18.122:8080/skyeyeWebservice/api"
 
 //#define babywith_gate_address @"http://112.124.24.209:8089/skyeyeWebservice/api"
-
-
-
 
 #define babywith_background_color babywith_color(0xf5f5f5)
 
@@ -40,8 +35,6 @@
 #define babywith_orange_color [UIColor colorWithRed:242/255.0 green:142/255.0 blue:115/255.0 alpha:1.0]
 #define babywith_orange_color_hightlight [UIColor colorWithRed:247/255.0 green:196/255.0 blue:182/255.0 alpha:1.0]
 #define babywith_color(rgbValue)   [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
-
 
 #define babywith_sandbox_address [[NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"babywith"]
 #define kAlphaNum   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
