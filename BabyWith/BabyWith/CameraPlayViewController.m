@@ -268,7 +268,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     UIButton *pressTalkButton = [UIButton buttonWithType:UIButtonTypeCustom];
     pressTalkButton.tag = 14;
     [pressTalkButton setBackgroundImage:[UIImage imageNamed:@"qietu_124.png"] forState:UIControlStateNormal];
-    pressTalkButton.frame = CGRectMake(10 ,5 ,320/4+20 ,34);
+    pressTalkButton.frame = CGRectMake(10 ,5 ,320/4+60 ,34);
     [pressTalkButton addTarget:self action:@selector(ButtonPressed:) forControlEvents:UIControlEventTouchDown];
     [pressTalkButton addTarget:self action:@selector(startListen:) forControlEvents:UIControlEventTouchUpInside];
     [_lTalkView addSubview:pressTalkButton];
