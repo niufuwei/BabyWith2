@@ -483,7 +483,8 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     NSDate *date = [NSDate date];
     NSTimeInterval time = [date timeIntervalSince1970];
     NSData *imageData = UIImageJPEGRepresentation(screenshotsImage ,0.3);
-    NSLog(@"data length =[%lu]", (unsigned long)[imageData length]);
+    NSLog(@"data length =[%lu]", (unsigned long)[imageData
+                                                 length]);
     
     
     NSFileManager *fileManager = [NSFileManager defaultManager];

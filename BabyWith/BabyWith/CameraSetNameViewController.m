@@ -134,6 +134,9 @@
 
 -(void)ModifyCameraName{
     
+    [_cameraTextField resignFirstResponder];
+    
+    
     if ([[_cameraTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0) {
         [self makeAlert:@"看护器名称不可为空"];
         return;

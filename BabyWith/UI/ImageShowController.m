@@ -47,17 +47,15 @@
         [self.view addSubview:topView];
         
         
-        UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(7.5, 22+10, 60, 30)];
-//    UIImageView *aBackImage = [[UIImageView alloc] initWithFrame:CGRectMake(7.5, 0, 10, 20)];
-//    aBackImage.image = [UIImage imageNamed:@"导航返回.png"];
-//    
-//    aBackImage.userInteractionEnabled = YES;
-//    
-//    [backBtn addSubview:aBackImage];
-
-        [backBtn setBackgroundImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
+    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 22+10, 60, 30)];
+    aBackImage = [[UIImageView alloc] initWithFrame:CGRectMake(7.5, 0, 10, 20)];
+    aBackImage.image = [UIImage imageNamed:@"导航返回.png"];
     
-        [backBtn addTarget:self action:@selector(backToCamera) forControlEvents:UIControlEventTouchUpInside];
+    
+    [backBtn addSubview:aBackImage];
+    
+    [backBtn addTarget:self action:@selector(backToCamera) forControlEvents:UIControlEventTouchUpInside];
+    [backBtn addTarget:self action:@selector(btnTouchDown) forControlEvents:UIControlEventTouchDown];
         [topView addSubview:backBtn];
         
         //右导航--删除按钮
@@ -148,9 +146,19 @@
     [_photoScrollView setContentOffset:tem];
     
 }
+
+
+-(void)btnTouchDown
+{
+
+     aBackImage.image = [UIImage imageNamed:@"qietu_56.png"];
+
+}
 -(void)backToCamera
 {
 
+   // aBackImage.image = [UIImage imageNamed:@"qietu_56.png"];
+    
     NSLog(@"退出的时候的数组是%@",_photoArray);
     [appDelegate.appDefault setObject:_photoArray forKey:@"imageEditArray"];
     [self dismissViewControllerAnimated:YES completion:^{

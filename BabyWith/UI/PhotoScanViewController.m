@@ -214,9 +214,18 @@
                 
                 //添加返回按钮
                 UIButton *backBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-                [backBtn setBackgroundImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
+//                [backBtn setBackgroundImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
+                
+                aBackImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+                aBackImage.image = [UIImage imageNamed:@"导航返回.png"];
+                
+                
+                [backBtn addSubview:aBackImage];
+                
+                [backBtn addTarget:self action:@selector(btnTouchDown) forControlEvents:UIControlEventTouchDown];
+
                 [backBtn addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
-                backBtn.frame=CGRectMake(20, 12, 10, 20);
+                backBtn.frame=CGRectMake(10, 12, 60, 30);
                 [aView addSubview:backBtn];
                 
                 
@@ -246,9 +255,16 @@
                 aView.alpha=0.5;
                 //添加返回按钮
                 UIButton *backBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-                [backBtn setBackgroundImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
+//                [backBtn setBackgroundImage:[UIImage imageNamed:@"导航返回.png"] forState:UIControlStateNormal];
+                aBackImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+                aBackImage.image = [UIImage imageNamed:@"导航返回.png"];
+                
+                
+                [backBtn addSubview:aBackImage];
+                
+                [backBtn addTarget:self action:@selector(btnTouchDown) forControlEvents:UIControlEventTouchDown];
                 [backBtn addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
-                backBtn.frame=CGRectMake(20, 12, 10, 20);
+                backBtn.frame=CGRectMake(10, 12, 60, 30);
                 [aView addSubview:backBtn];
                 
                 
@@ -338,6 +354,15 @@
     
     
 }
+
+-(void)btnTouchDown
+{
+    
+    aBackImage.image = [UIImage imageNamed:@"qietu_56.png"];
+    
+}
+
+
 -(UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
 {
     

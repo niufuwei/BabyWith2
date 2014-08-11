@@ -205,7 +205,6 @@
 		EF4A5ECF198B27F600A54EB2 /* 登录 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E59198B27F500A54EB2 /* 登录 (1).png */; };
 		EF4A5ED0198B27F600A54EB2 /* 登录 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E5A198B27F500A54EB2 /* 登录 (2).png */; };
 		EF4A5ED1198B27F600A54EB2 /* 登录.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E5B198B27F500A54EB2 /* 登录.png */; };
-		EF4A5ED2198B27F600A54EB2 /* 系统消息未读背景.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E5C198B27F500A54EB2 /* 系统消息未读背景.png */; };
 		EF4A5EDA198B27F600A54EB2 /* 编辑记录.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E64198B27F500A54EB2 /* 编辑记录.png */; };
 		EF4A5EDB198B27F600A54EB2 /* 网络选择 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E65198B27F500A54EB2 /* 网络选择 (1).png */; };
 		EF4A5EDC198B27F600A54EB2 /* 网络选择 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E66198B27F600A54EB2 /* 网络选择 (2).png */; };
@@ -242,6 +241,7 @@
 		EF4AAF27198F6CE400F33F0E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4AAF26198F6CE400F33F0E /* RegisterViewController.xib */; };
 		EF4C175A19920E0E00FC3532 /* qietu_307.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4C175819920E0E00FC3532 /* qietu_307.png */; };
 		EF4C175B19920E0E00FC3532 /* qietu_310.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4C175919920E0E00FC3532 /* qietu_310.png */; };
+		EF4CE54319988E6D00310924 /* qietu_56.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4CE54219988E6D00310924 /* qietu_56.png */; };
 		EF517DA91811340100EB5CED /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = EF517DA81811340100EB5CED /* Icon-80.png */; };
 		EF96F30418D2E279002C1245 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF96F30318D2E279002C1245 /* Images.xcassets */; };
 		EFA7C16C19946333006EDB5F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA7C16A19946333006EDB5F /* Default-568h@2x.png */; };
@@ -623,6 +623,7 @@
 		EF4AAF26198F6CE400F33F0E /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		EF4C175819920E0E00FC3532 /* qietu_307.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_307.png; sourceTree = "<group>"; };
 		EF4C175919920E0E00FC3532 /* qietu_310.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_310.png; sourceTree = "<group>"; };
+		EF4CE54219988E6D00310924 /* qietu_56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_56.png; sourceTree = "<group>"; };
 		EF517DA81811340100EB5CED /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
 		EF96F30318D2E279002C1245 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFA7C16A19946333006EDB5F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -1172,6 +1173,7 @@
 		EF4A5DFD198B27F500A54EB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				EF4CE54219988E6D00310924 /* qietu_56.png */,
 				1DCB5BD319909AAB001D177E /* 主菜单栏-未选 (1).png */,
 				1DCB5BD419909AAB001D177E /* 主菜单栏-未选 (2).png */,
 				1DCB5BD519909AAB001D177E /* 主菜单栏-未选 (3).png */,
@@ -1946,6 +1948,7 @@
 				7196B05918D80E1000B8D8BB /* SetNickNameViewController.xib in Resources */,
 				1DCB5BE019909AAB001D177E /* 主菜单栏-选中 (2).png in Resources */,
 				71CAFE24198B6EF200E2DC1F /* 竖屏(3).png in Resources */,
+				EF4CE54319988E6D00310924 /* qietu_56.png in Resources */,
 				1DCB5BDB19909AAB001D177E /* 主菜单栏-未选 (1).png in Resources */,
 				EF4A5E76198B27F600A54EB2 /* qietu_120.png in Resources */,
 				EF4A5EE7198B27F600A54EB2 /* 选择.png in Resources */,
@@ -1991,7 +1994,6 @@
 				1DCB5BCC198F3665001D177E /* qietu_34.png in Resources */,
 				71CAFE25198B6EF200E2DC1F /* 竖屏(4).png in Resources */,
 				EF4A5EA2198B27F600A54EB2 /* 分享设备-新消息.png in Resources */,
-				EF4A5ED2198B27F600A54EB2 /* 系统消息未读背景.png in Resources */,
 				71CAFE2B198B6EF200E2DC1F /* qietu_174.png in Resources */,
 				EF4A5EEA198B27F600A54EB2 /* 首页背景.png in Resources */,
 				1DCB5BCA198F3645001D177E /* 编辑2.png in Resources */,
@@ -2002,7 +2004,6 @@
 				EF4A5EF4198B60B600A54EB2 /* qietu_254.png in Resources */,
 				EF4A5EBC198B27F600A54EB2 /* 拍照.png in Resources */,
 				EF4A5EA2198B27F600A54EB2 /* 分享设备-新消息.png in Resources */,
-				EF4A5ED2198B27F600A54EB2 /* 系统消息未读背景.png in Resources */,
 				EF4A5F12198B90B800A54EB2 /* 更多 (1).png in Resources */,
 				EF4A5EEA198B27F600A54EB2 /* 首页背景.png in Resources */,
 				EF1246E117BB2A760012BBCC /* zbar-back.png in Resources */,

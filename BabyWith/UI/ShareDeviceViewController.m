@@ -57,7 +57,6 @@
         self.navigationItem.leftBarButtonItem = leftItem;
     }
 
-    self.navigationItem.leftBarButtonItem = leftItem;
     
     
     [self titleSet:@"分享账号"];
