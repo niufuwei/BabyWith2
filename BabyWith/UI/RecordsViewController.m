@@ -634,20 +634,26 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
     if(![[RowDictionary objectForKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]] isEqualToString:@"ok"])
     {
        
-        NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
+       
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
+            
+            UIImage *image = [UIImage imageWithData:imageData];
+            
+            //        [arrayDictionary setObject:image forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
+            
+            
+            NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d%d.txt",indexPath.section,indexPath.row]];
+            
+            //把图像存入本地文件
+            [imageData writeToFile:filename atomically:YES];
+            
+            NSArray * arr = [NSArray arrayWithObjects:cell,image, nil];
+            [self performSelectorOnMainThread:@selector(onUpdate:) withObject:arr waitUntilDone:NO];
+            
+
+        });
         
-        UIImage *image = [UIImage imageWithData:imageData];
-        
-//        [arrayDictionary setObject:image forKey:[NSString stringWithFormat:@"%d",(indexPath.section+1)*1000+indexPath.row]];
-        
-    
-        NSString * filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"%d%d.txt",indexPath.section,indexPath.row]];
-        
-        //把图像存入本地文件
-        [imageData writeToFile:filename atomically:YES];
-        
-        
-        [cell.image setImage:image];
         //假如是视频图片，要加一个按钮一样的图片加以区别
         if ([[dic objectForKey:@"is_vedio"] intValue] !=1)
         {
