@@ -179,7 +179,7 @@
                 [backBtn addTarget:self action:@selector(btnTouchDown) forControlEvents:UIControlEventTouchDown];
                 
                 [backBtn addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
-                backBtn.frame=CGRectMake(10, 12, 60, 30);
+                backBtn.frame=CGRectMake(7.5, 12, 60, 30);
                 [aView addSubview:backBtn];
                 
                 
@@ -221,7 +221,7 @@
                 [backBtn addTarget:self action:@selector(btnTouchDown) forControlEvents:UIControlEventTouchDown];
                 
                 [backBtn addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
-                backBtn.frame=CGRectMake(10, 12, 60, 30);
+                backBtn.frame=CGRectMake(7.5, 12, 60, 30);
                 [aView addSubview:backBtn];
 
                 

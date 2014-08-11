@@ -789,9 +789,6 @@
             cell.accLabel.text =  @"未绑定";
             cell.accLabel.textColor = [UIColor grayColor];
             
-            
-            
-            
         }
 
         
