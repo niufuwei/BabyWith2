@@ -774,7 +774,7 @@
     
     
     NSLog(@"cameraSearchList is %@",_cameraSearchList);
-           for (id obj in _cameraSearchList)
+        for (id obj in _cameraSearchList)
         {
             
             if (![_searchDeviceIdArr containsObject:[obj objectForKey:@"uid"]])

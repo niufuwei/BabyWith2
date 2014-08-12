@@ -920,7 +920,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     [_playView displayYUV420pData:yuv width:width height:height];
     
 //
-//    NSLog(@"lenght is %d,width is %d,height is %d",length,width,height);
+    NSLog(@"lenght is %d,width is %d,height is %d",length,width,height);
 //    
         _isFirst = !_isFirst;
 
@@ -1617,6 +1617,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                     
                     //设置视频质量
                     appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],13, [[[appDelegate.appDefault objectForKey:_cameraID] objectForKey:@"quality"] integerValue]);
+                    appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],0, 0);
                     
                     
                     if ([[[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"id_member"] stringValue] isEqualToString:@"1"])
