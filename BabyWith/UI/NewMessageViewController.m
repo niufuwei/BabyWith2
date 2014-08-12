@@ -72,7 +72,7 @@
     }
     else
     {
-        messageArray1 =[messageListDic  objectForKey:@"info"];
+        messageArray1 =[NSMutableArray arrayWithArray:[messageListDic  objectForKey:@"info"]];
         NSLog(@"message array is %@",messageArray1);
         [appDelegate.appDefault setObject:messageArray1 forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
         [activity stop];
@@ -210,6 +210,7 @@
         
         [appDelegate.messageArray addObjectsFromArray: [appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]];
         [appDelegate.messageArray removeObjectAtIndex:btn.tag - 100];
+        NSLog(@"message array is %@",messageArray1);
         [messageArray1 removeObjectAtIndex:btn.tag - 100];
         [appDelegate.appDefault setObject:appDelegate.messageArray forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
         [appDelegate.messageArray removeAllObjects];
