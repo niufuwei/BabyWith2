@@ -396,8 +396,26 @@
         [deviceListView setHidden:YES];
         activity = [[Activity alloc] initWithActivity:self.view];
 
-        NSLog(@",,,,,,,,,,,,,,,,,%@",_cameraSearchList);
+        
         [self SearchDevice];
+        NSLog(@",,,,,,,,,,,,,,,,,%@",_cameraSearchList);
+        if ([_cameraSearchList count] == 0)
+        {
+            NSLog(@"没有搜到设备");
+            [activity stop];
+            UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:[[UIApplication sharedApplication].windows count]-1];
+            MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithWindow:window];
+            indicator.labelText = @"没有搜到设备";
+            indicator.mode = MBProgressHUDModeText;
+            [window addSubview:indicator];
+            [indicator showAnimated:YES whileExecutingBlock:^{
+                sleep(1.2);
+            } completionBlock:^{
+                [indicator removeFromSuperview];
+            }];
+
+            
+        }
         
         
     }
