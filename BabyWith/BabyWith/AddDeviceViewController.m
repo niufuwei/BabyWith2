@@ -213,6 +213,9 @@
     UIButton * btn = (UIButton*)sender;
     if(btn.tag == 1)
     {
+        [_aTimer invalidate];
+        _aTimer = nil;
+        
         [activity stop];
         btn.enabled = NO;
         ((UIButton*)[self.view viewWithTag:2]).enabled = YES;
@@ -252,7 +255,8 @@
     }
     else if(btn.tag == 3)
     {
-        
+        [_aTimer invalidate];
+        _aTimer = nil;
         [activity stop];
         
         ((UIButton *)[self.view viewWithTag:1]).enabled = YES;
@@ -400,7 +404,7 @@
         [self SearchDevice];
         NSLog(@",,,,,,,,,,,,,,,,,%@",_cameraSearchList);
         
-        [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(searchResultCharge) userInfo:nil repeats:NO];
+    _aTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(searchResultCharge) userInfo:nil repeats:NO];
         
         
         
