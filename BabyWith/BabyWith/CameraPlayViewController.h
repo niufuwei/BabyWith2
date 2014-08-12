@@ -19,6 +19,7 @@
 #import "CustomAVRecorder.h"
 #import "OpenGLView20.h"
 #import "PhotoScanViewController.h"
+#import "MBProgressHUD.h"
 @class CameraMainViewController;
 @class CameraPhotoRecordViewController;
 
@@ -77,6 +78,10 @@
     BOOL hasSavedVideoImage;
     
     UIImageView *imageVie;
+    
+    
+    MBProgressHUD *aIndicator;
+    BOOL _afterFirstIn;
 }
 
 @property (nonatomic, strong) OpenGLView20 *playView;
