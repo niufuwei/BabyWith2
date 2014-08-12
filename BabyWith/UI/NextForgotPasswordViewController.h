@@ -12,6 +12,7 @@
 
 {
     NSTimer *_timer;
+    BOOL _isBtnClick;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
