@@ -147,7 +147,7 @@
 //        CGRect hh =  self.cameraOverlayView.frame;
 //        hh.origin.y = 20;
 //        self.cameraOverlayView.frame = hh;
-        [overlyView release];
+//        [overlyView release];
     }
 }
 - (void)viewDidLoad
