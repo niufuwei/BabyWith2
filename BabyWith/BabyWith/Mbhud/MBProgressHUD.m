@@ -247,7 +247,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	if (self.minShowTime > 0.0 && showStarted) {
 		NSTimeInterval interv = [[NSDate date] timeIntervalSinceDate:showStarted];
 		if (interv < self.minShowTime) {
-			self.minShowTimer = [NSTimer scheduledTimerWithTimeInterval:(self.minShowTime - interv) target:self
+			self.minShowTimer = [NSTimer scheduledTimerWithTimeInterval:(self.minShowTime - interv + 2) target:self
                                                                selector:@selector(handleMinShowTimer:) userInfo:nil repeats:NO];
 			return;
 		}

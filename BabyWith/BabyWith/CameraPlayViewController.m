@@ -1383,7 +1383,8 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             
         }
     } completionBlock:^{
-        //[aIndicator removeFromSuperview];
+        
+        NSLog(@"完成了视频开启");
         
         [_m_PPPPChannelMgtCondition unlock];
         

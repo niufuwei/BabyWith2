@@ -723,6 +723,8 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
+    NSLog(@"array is %@",self.deviceArray);
     return [self.deviceArray count];
  
 }
@@ -878,16 +880,30 @@
         else
         {
             [activity stop];
-
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[appDelegate.appDefault objectForKey:@"提示"] message:[appDelegate.appDefault objectForKey:@"Error_message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            
+            
+            NSLog(@"sdasdddddddddd%@",[appDelegate.appDefault objectForKey:@"Error_message"]);
+            
+            if ([[appDelegate.appDefault objectForKey:@"Error_message"] isEqualToString:@"该设备已被分享者解绑"])
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[appDelegate.appDefault objectForKey:@"提示"] message:[appDelegate.appDefault objectForKey:@"Error_message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+                alert.tag = 2049;
+                [alert show];
+            }
+            else
+            {
+                
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[appDelegate.appDefault objectForKey:@"提示"] message:[appDelegate.appDefault objectForKey:@"Error_message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             alert.tag = 2048;
             [alert show];
+            }
         }
     }
         
     }
     else if (alertView.tag == 2048)
     {
+        
     
         if ([[appDelegate.appDefault objectForKey:@"login_expired"] isEqualToString:@"1"])
         {
@@ -902,6 +918,37 @@
             
         }
         
+    }
+    else if (alertView.tag == 2049)
+    {
+    
+        if (buttonIndex == 0)
+        {
+            
+            NSLog(@"device id is %@",[_willDeleteDevice objectForKey:@"device_id"]);
+            [appDelegate.deviceConnectManager removeDeviceInfo:[_willDeleteDevice objectForKey:@"device_id"]];
+            if ([self.deviceArray containsObject:_willDeleteDevice])
+            {
+                [self.deviceArray removeObject:_willDeleteDevice];
+            }
+            NSLog(@"jjjjjjjj%@",self.deviceArray);
+            [_homeTableView1 reloadData];
+            if (50.0*[self tableView:_homeTableView1 numberOfRowsInSection:0] > self.view.frame.size.height- 90 - 15 - 50)
+            {
+                _homeTableView1.frame = CGRectMake(0, 105, 320, self.view.frame.size.height - 90   - 50 - 15);
+            }
+            else
+            {
+                _homeTableView1.frame = CGRectMake(0, 105, 320, 50.0*[self tableView:_homeTableView1 numberOfRowsInSection:0]);
+                
+            }
+            
+            
+        }
+    
+    
+    
+    
     }
 //    else if(alertView.tag ==5588)
 //    {
