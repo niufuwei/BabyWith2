@@ -1616,8 +1616,25 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                    
                     
                     //设置视频质量
-                    appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],13, [[[appDelegate.appDefault objectForKey:_cameraID] objectForKey:@"quality"] integerValue]);
-                    appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],0, 0);
+                    appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],13, 256);
+                    
+                    
+                    [appDelegate.appDefault setObject:@"256" forKey:[NSString stringWithFormat:@"%@_quality",_cameraID]];
+                    
+                    
+                    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"isSwitchNet"] isEqualToString:@"3g"])
+                    {
+                        
+                        
+                        appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],0, 1);
+                    }
+                    else
+                    {
+                    
+                        appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],0, 0);
+                    
+                    }
+                    
                     
                     
                     if ([[[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"id_member"] stringValue] isEqualToString:@"1"])
