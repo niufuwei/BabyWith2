@@ -36,6 +36,7 @@
     // Do any additional setup after loading the view from its nib.
     _passwordField.secureTextEntry = YES;
     _passwordField.delegate = self;
+    _passwordField.clearsOnBeginEditing = NO;
     
 //    [self configurationForGreenButton:_hidePass];
 //    [self configurationForGreenButton:_submit];

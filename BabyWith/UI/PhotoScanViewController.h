@@ -27,6 +27,7 @@
     FILE * FileHandle;
     UIView *aView;
     UIImageView *aBackImage;
+    NSMutableDictionary * imageIsLoad;
 }
 
 - (id)initWithArray:(NSArray *)array Type:(int) type CurrentPage:(int )currentPage Delegate:(NSObject *)delegate;
