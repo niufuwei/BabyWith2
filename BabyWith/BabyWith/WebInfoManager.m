@@ -137,6 +137,10 @@
         [appDelegate.appDefault setObject:aUsername forKey:@"Username"];
         [appDelegate.appDefault setObject:aPassword forKey:@"Password"];
         [appDelegate.appDefault setObject:[[response objectForKey:@"value"] objectForKey:@"token"] forKey:@"Token"];
+        if ([[response objectForKey:@"value"] objectForKey:@"nickeName"])
+        {
+            [appDelegate.appDefault setObject:[[response objectForKey:@"value"] objectForKey:@"nickeName"] forKey:[NSString stringWithFormat:@"%@Appel_self",aUsername]];
+        }
         
        
         

@@ -128,9 +128,19 @@
     if ([indexPath row] == 0) {
         
         
-        if (![[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"]]]  isEqual: @""] && [appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"]]])
+        if ([appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"]]])
         {
-            cell.statusLabel.text = [NSString stringWithFormat:@"%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"] ]]];
+            if (![[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"]]]  isEqual: @""])
+            {
+                cell.statusLabel.text = [NSString stringWithFormat:@"%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"] ]]];
+            }
+            else
+            {
+                
+                cell.statusLabel.text = @"无";
+                
+            }
+            
 
         }
         else

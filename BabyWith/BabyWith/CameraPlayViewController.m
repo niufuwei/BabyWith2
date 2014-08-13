@@ -907,10 +907,11 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 -(void)hideIndicator
 {
 
+    [connectIndicator hide:YES];
+
     self.navigationItem.leftBarButtonItem.enabled=YES;
     self.navigationItem.rightBarButtonItem.enabled=YES;
     self.view.userInteractionEnabled = YES;
-    [connectIndicator hide:YES];
 
 
 }
@@ -930,7 +931,12 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     
     
 //
-    [self performSelectorOnMainThread:@selector(hideIndicator) withObject:nil waitUntilDone:YES];
+    if (_afterFirstIn)
+    {
+        [self performSelectorOnMainThread:@selector(hideIndicator) withObject:nil waitUntilDone:YES];
+        _afterFirstIn = !_afterFirstIn;
+
+    }
 
     NSLog(@"lenght is %d,width is %d,height is %d",length,width,height);
 //    
@@ -2136,6 +2142,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     connectIndicator.labelText = @"视频开启...";
     [self.view addSubview:connectIndicator];
     [connectIndicator show:YES];
+    _afterFirstIn = YES;
         
     
         UIImageView *imageView = (UIImageView *)[self.navigationItem.titleView viewWithTag:20];
@@ -2390,7 +2397,6 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     {
         _isRecord =3;
         _isStart = false;
-        _recordImage = nil;
 
         [self ActionForStopVideo:0 RemindFlag:1];
         appDelegate.m_PPPPChannelMgt->StopPPPPAudio([_cameraID UTF8String]);
@@ -2417,6 +2423,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         if(buttonIndex ==0)
         {
             [self savePicAndVideo];
+
             
             if (alertView.tag == 33333)
             {
@@ -2478,6 +2485,9 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                 
             }
         }
+        
+        _recordImage = nil;
+
     }
     
     if(alertView.tag ==11111)
