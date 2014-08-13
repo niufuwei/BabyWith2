@@ -16,10 +16,6 @@
 
 @implementation PhotoScanViewController
 
-
-
-
-
 - (id)initWithArray:(NSArray *)array Type:(int )type CurrentPage:(int)currentPage Delegate:(NSObject *)delegate
 {
     self = [super init];
@@ -46,6 +42,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     
+    imageIsLoad = [[NSMutableDictionary alloc] init];
     //导航条设置
     {
         
@@ -66,8 +63,12 @@
         setButton.titleLabel.font = [UIFont boldSystemFontOfSize:17.0];
         setButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         setButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        
+     
+        
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView: setButton];
         self.navigationItem.rightBarButtonItem = rightItem;
+        
         
         //        [setButton release];
         
@@ -119,13 +120,8 @@
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*320, 0, 320, _photoScrollView.frame.size.height)] ;
         view.tag = i+1;
-        
-        
-        NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
-        UIImage *image = [UIImage imageWithData:imageData];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image] ;
-        
+        UIImageView *imageView = [[UIImageView alloc] init] ;
+        imageView.tag = (i+1)*1000000;
         if ([[dic objectForKey:@"height_image"] integerValue] == 180) {
             imageView.frame = CGRectMake(0, (view.frame.size.height - 180)/2 - 60, view.frame.size.width,180);
             
@@ -137,11 +133,11 @@
             }
             else
             {
-            imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-40);
+                imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-40);
             }
-            
-            
+
         }
+        
         //是视频图片的话要添加开始按钮一样的东西作为普通图片和视频区别
         if ([[dic objectForKey:@"is_vedio"] intValue] ==1)
         {
@@ -161,18 +157,57 @@
         imageView.userInteractionEnabled = YES;
         [view addSubview:imageView];
         [_photoScrollView addSubview:view];
-        
+    
         i++;
     }
     
     [self.view addSubview:_photoScrollView];
     
-    NSLog(@"current page is %d",_currentPage);
     CGRect temp = _photoScrollView.frame;
     CGPoint tem =_photoScrollView.contentOffset;
     tem.x = temp.size.width*_currentPage;
     [_photoScrollView setContentOffset:tem];
     
+    
+    [self getImage:_currentPage];
+}
+
+
+-(void)getImage:(NSInteger)indexPath
+{
+    
+    NSDictionary * dic = [_photoArray objectAtIndex:indexPath];
+    NSLog(@"dic===>%@",dic);
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
+        UIImage *image = [UIImage imageWithData:imageData];
+        
+        NSArray * arr = [NSArray arrayWithObjects:image,[NSString stringWithFormat:@"%d",indexPath], nil];
+        [self performSelectorOnMainThread:@selector(upDateImage:) withObject:arr waitUntilDone:NO];
+        
+    });
+}
+
+-(void)upDateImage:(NSArray*)arr
+{
+    for(UIView * view in [_photoScrollView subviews])
+    {
+        for(UIView * view2  in [view subviews])
+        {
+            if(view2.tag ==([[arr objectAtIndex:1] intValue]+1) *1000000)
+            {
+                UIImageView * imageView  = (UIImageView*)view2;
+                [imageView setImage:[arr objectAtIndex:0]];
+
+            }
+            else
+            {
+                
+            }
+        }
+    }
+   
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -418,6 +453,18 @@
     _currentPage = (_scrollView.contentOffset.x /_scrollView.frame.size.width);
     ((UILabel *)self.navigationItem.titleView).text = [NSString stringWithFormat:@"%d/%d", _currentPage+1, pageCount];
     
+    if([[imageIsLoad objectForKey:[NSString stringWithFormat:@"%d",_currentPage]] isEqualToString:@"ok"])
+    {
+
+    }
+    else
+    {
+        [imageIsLoad setObject:@"ok" forKey:[NSString stringWithFormat:@"%d",_currentPage]];
+
+        [self getImage:_currentPage];
+
+    }
+    
 }
 
 -(void)deletePic
@@ -436,7 +483,7 @@
         int index = _currentPage;
         
         [[_photoScrollView viewWithTag:index+1] removeFromSuperview];
-        
+
         for (int i= index+2; i<pageCount+1; i++)
         {
             UIView *view = [_photoScrollView viewWithTag:i];
