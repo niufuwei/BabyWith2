@@ -70,7 +70,7 @@
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    
+    _passwordTF.clearsOnBeginEditing = NO;
     NSCharacterSet *cs;
     cs = [[NSCharacterSet characterSetWithCharactersInString:kAlphaNum] invertedSet];
     NSString *filtered =
@@ -154,11 +154,13 @@
     if (_passwordTF.secureTextEntry == YES)
     {
         _passwordTF.secureTextEntry = NO;
+        
         [btn setBackgroundImage:[UIImage imageNamed:@"退出系统 -显示密码.png"] forState:UIControlStateNormal];
     }
     else
     {
         _passwordTF.secureTextEntry = YES;
+        
         [btn setBackgroundImage:[UIImage imageNamed:@"退出系统-取消显示.png"] forState:UIControlStateNormal];
     }
     

@@ -176,6 +176,9 @@
     [appDelegate.appDefault setObject:param forKey:[_deviceDictionary objectForKey:@"device_id"]];
     NSLog(@"quality dic = [%@]", [appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]]);
     
+    [appDelegate.appDefault setObject:[NSString stringWithFormat:@"%d", quality] forKey:[NSString stringWithFormat:@"%@_quality",[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"device_id"]]];
+    
+    
     if ([self CheckOnline] == 2)
     {
         appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[[_deviceDictionary objectForKey:@"device_id"] UTF8String],13, quality);
@@ -425,7 +428,8 @@
             cell.textLabel.text = @"视频质量";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             
-            int quality = [[[appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]] objectForKey:@"quality"] integerValue];
+            int quality = [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_quality",[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"device_id"]]] integerValue];
+            NSLog(@"视频质量是%d",quality);
             if (quality == 512) {
                 cell.detailTextLabel.text = @"高清";
             }else if(quality == 256){

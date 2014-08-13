@@ -43,6 +43,8 @@
     NSMutableArray *_searchDeviceIdArr;
 
     BOOL loadDevice;
+    
+    NSTimer *_aTimer;
 
 }
 

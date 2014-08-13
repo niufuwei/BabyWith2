@@ -81,7 +81,7 @@
     
     [self.view addSubview:_settingTableView];
     
-    int quality = [[[appDelegate.appDefault objectForKey:[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"device_id"]] objectForKey:@"quality"] integerValue];
+     int quality = [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_quality",[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"device_id"]]] integerValue];
     
     _selectedRow = 512/quality -1;
     

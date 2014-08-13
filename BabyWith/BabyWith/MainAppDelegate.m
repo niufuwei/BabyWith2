@@ -395,6 +395,10 @@ int HudIsBecome = 0;
 {
     
     
+    //清空判断网络的本地
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"isSwitchNet"];
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     //停止警告声音
@@ -429,6 +433,41 @@ int HudIsBecome = 0;
     
     //进入程序的时候图标的信息数量设置为0
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    //检测网络连接的状态
+    [self GetCurrntNet];
+    NSLog(@"当前的网络状态是 %@",[self GetCurrntNet]);
+    //保存到本地
+    [[NSUserDefaults standardUserDefaults] setObject:[self GetCurrntNet] forKey:@"isSwitchNet"];
+    
+}
+
+
+-(NSString*)GetCurrntNet
+
+{
+    
+    NSString* result = nil;
+    
+    Reachability *r = [Reachability reachabilityWithHostName:@"www.apple.com"];
+    
+    if ([r currentReachabilityStatus] == NotReachable)
+    {
+        result = @"";
+       
+    }
+    else if([r currentReachabilityStatus] == ReachableViaWWAN)
+    {
+        
+       result = @"3g";
+    }
+    else
+    {
+        result =@"wifi";
+    }
+    
+    return result;
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

@@ -919,8 +919,14 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     
     [_playView displayYUV420pData:yuv width:width height:height];
     
+    if (!_afterFirstIn)
+    {
+        _afterFirstIn = !_afterFirstIn;
+        [aIndicator removeFromSuperview];
+        
+    }
 //
-//    NSLog(@"lenght is %d,width is %d,height is %d",length,width,height);
+    NSLog(@"lenght is %d,width is %d,height is %d",length,width,height);
 //    
         _isFirst = !_isFirst;
 
@@ -1359,12 +1365,12 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     _stopConnectFlag = 0;
     _errorMsg = @"看护器连接错误";
     NSLog(@"password 3 is %d",_passwordFlag);
-    MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithView:self.view];
-    indicator.labelText = @"视频连接中";
-    indicator.dimBackground = YES;
+    aIndicator = [[MBProgressHUD alloc] initWithView:self.view];
+    aIndicator.labelText = @"视频连接中";
+    aIndicator.dimBackground = YES;
 //    [self addTapGest:indicator];//点击终止视频
-    [self.view addSubview:indicator];
-    [indicator showAnimated:YES whileExecutingBlock:^{
+    [self.view addSubview:aIndicator];
+    [aIndicator showAnimated:YES whileExecutingBlock:^{
         
         [self performSelector:@selector(startPPPP:) withObject:_currentDeviceDic];
         
@@ -1377,7 +1383,8 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             
         }
     } completionBlock:^{
-        [indicator removeFromSuperview];
+        
+        NSLog(@"完成了视频开启");
         
         [_m_PPPPChannelMgtCondition unlock];
         
@@ -1616,7 +1623,25 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                    
                     
                     //设置视频质量
-                    appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],13, [[[appDelegate.appDefault objectForKey:_cameraID] objectForKey:@"quality"] integerValue]);
+                    appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],13, 256);
+                    
+                    
+                    [appDelegate.appDefault setObject:@"256" forKey:[NSString stringWithFormat:@"%@_quality",_cameraID]];
+                    
+                    
+                    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"isSwitchNet"] isEqualToString:@"3g"])
+                    {
+                        
+                        
+                        appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],0, 1);
+                    }
+                    else
+                    {
+                    
+                        appDelegate.m_PPPPChannelMgt->CameraControl( (char *)[_cameraID UTF8String],0, 0);
+                    
+                    }
+                    
                     
                     
                     if ([[[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"id_member"] stringValue] isEqualToString:@"1"])
@@ -2105,8 +2130,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     [indicator showAnimated:YES whileExecutingBlock:^{
         sleep(1.2);
     } completionBlock:^{
-        //移除图片
-//         [imageVie removeFromSuperview];
+        
         [indicator removeFromSuperview];
         
         UIImageView *imageView = (UIImageView *)[self.navigationItem.titleView viewWithTag:20];

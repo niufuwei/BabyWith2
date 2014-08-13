@@ -213,6 +213,9 @@
     UIButton * btn = (UIButton*)sender;
     if(btn.tag == 1)
     {
+        [_aTimer invalidate];
+        _aTimer = nil;
+        
         [activity stop];
         btn.enabled = NO;
         ((UIButton*)[self.view viewWithTag:2]).enabled = YES;
@@ -252,7 +255,8 @@
     }
     else if(btn.tag == 3)
     {
-        
+        [_aTimer invalidate];
+        _aTimer = nil;
         [activity stop];
         
         ((UIButton *)[self.view viewWithTag:1]).enabled = YES;
@@ -396,11 +400,38 @@
         [deviceListView setHidden:YES];
         activity = [[Activity alloc] initWithActivity:self.view];
 
-        NSLog(@",,,,,,,,,,,,,,,,,%@",_cameraSearchList);
+        
         [self SearchDevice];
+        NSLog(@",,,,,,,,,,,,,,,,,%@",_cameraSearchList);
+        
+    _aTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(searchResultCharge) userInfo:nil repeats:NO];
+        
         
         
     }
+}
+-(void)searchResultCharge
+{
+
+    if ([_cameraSearchList count] == 0)
+    {
+        NSLog(@"没有搜到设备");
+        [activity stop];
+        UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:[[UIApplication sharedApplication].windows count]-1];
+        MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithWindow:window];
+        indicator.labelText = @"没有搜到设备";
+        indicator.mode = MBProgressHUDModeText;
+        [window addSubview:indicator];
+        [indicator showAnimated:YES whileExecutingBlock:^{
+            sleep(1.2);
+        } completionBlock:^{
+            [indicator removeFromSuperview];
+        }];
+        
+        
+    }
+    
+
 }
 - (void) turnTorchOn{
     
@@ -731,7 +762,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-
+    
     return [_cameraSearchList count];
     
 
@@ -756,7 +787,7 @@
     
     
     NSLog(@"cameraSearchList is %@",_cameraSearchList);
-           for (id obj in _cameraSearchList)
+        for (id obj in _cameraSearchList)
         {
             
             if (![_searchDeviceIdArr containsObject:[obj objectForKey:@"uid"]])
