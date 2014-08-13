@@ -21,7 +21,7 @@
 
 #define babywith_gate_address @"http://192.168.18.159:8081/skyeyeWebservice/api"
 
-//#define babywith_gate_address @"http://192.168.18.122:8080/skyeyeWebservice/api"
+//#define babywith_gate_address @"http://192.168.18.122:8089/skyeyeWebservice/api"
 
 //#define babywith_gate_address @"http://112.124.24.209:8089/skyeyeWebservice/api"
 
