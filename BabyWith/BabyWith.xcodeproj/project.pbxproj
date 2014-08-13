@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18642EAB199B5BB3002F1C18 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 18642EAA199B5BB3002F1C18 /* image.png */; };
+		18642EAD199B5C70002F1C18 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18642EAC199B5C70002F1C18 /* image2.png */; };
 		1DCB5BC2198F1E8B001D177E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCB5BC1198F1E8B001D177E /* AddressBook.framework */; };
 		1DCB5BC4198F1E90001D177E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCB5BC3198F1E90001D177E /* AddressBookUI.framework */; };
 		1DCB5BC6198F1ECB001D177E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCB5BC5198F1ECB001D177E /* ImageIO.framework */; };
@@ -326,6 +328,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18642EAA199B5BB3002F1C18 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		18642EAC199B5C70002F1C18 /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
 		1DCB5BC1198F1E8B001D177E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1DCB5BC3198F1E90001D177E /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		1DCB5BC5198F1ECB001D177E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -864,8 +868,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DCB5BC8198F1ED1001D177E /* CoreImage.framework in Frameworks */,
 				1DCB5BC6198F1ECB001D177E /* ImageIO.framework in Frameworks */,
+				1DCB5BC8198F1ED1001D177E /* CoreImage.framework in Frameworks */,
 				1DCB5BC4198F1E90001D177E /* AddressBookUI.framework in Frameworks */,
 				1DCB5BC2198F1E8B001D177E /* AddressBook.framework in Frameworks */,
 				EFF53F811779BCBF00C4AEB4 /* QuartzCore.framework in Frameworks */,
@@ -1177,6 +1181,8 @@
 		EF4A5DFD198B27F500A54EB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				18642EAC199B5C70002F1C18 /* image2.png */,
+				18642EAA199B5BB3002F1C18 /* image.png */,
 				EF4CE54219988E6D00310924 /* qietu_56.png */,
 				1DCB5BD319909AAB001D177E /* 主菜单栏-未选 (1).png */,
 				1DCB5BD419909AAB001D177E /* 主菜单栏-未选 (2).png */,
@@ -1911,6 +1917,7 @@
 				EF4A5EB8198B27F600A54EB2 /* 拍照 (1).png in Resources */,
 				EF04E92E18D6A10F00429681 /* BaseTabBar.xib in Resources */,
 				EF1D3C5518D2B2D90079C358 /* NextForgotPasswordViewController.xib in Resources */,
+				18642EAD199B5C70002F1C18 /* image2.png in Resources */,
 				EF4A5EB8198B27F600A54EB2 /* 拍照 (1).png in Resources */,
 				EF04E92E18D6A10F00429681 /* BaseTabBar.xib in Resources */,
 				EF1D3C5518D2B2D90079C358 /* NextForgotPasswordViewController.xib in Resources */,
@@ -1951,6 +1958,7 @@
 				71CAFE27198B6EF200E2DC1F /* 竖屏截屏(2).png in Resources */,
 				EF4A5EDB198B27F600A54EB2 /* 网络选择 (1).png in Resources */,
 				7196B05E18D80E5D00B8D8BB /* ShareDeviceViewController.xib in Resources */,
+				18642EAB199B5BB3002F1C18 /* image.png in Resources */,
 				EF4A5EA3198B27F600A54EB2 /* 分隔栏.png in Resources */,
 				7196B05918D80E1000B8D8BB /* SetNickNameViewController.xib in Resources */,
 				1DCB5BE019909AAB001D177E /* 主菜单栏-选中 (2).png in Resources */,
@@ -2174,6 +2182,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "07CC622C-1AE2-45E6-9C54-71045F10E728";
 				SDKROOT = iphoneos7.1;
 			};
 			name = Debug;
@@ -2200,6 +2209,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "07CC622C-1AE2-45E6-9C54-71045F10E728";
 				SDKROOT = iphoneos7.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv7s";
@@ -2240,6 +2250,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "07CC622C-1AE2-45E6-9C54-71045F10E728";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = armv7;
@@ -2281,6 +2292,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "07CC622C-1AE2-45E6-9C54-71045F10E728";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = "armv7 armv7s arm64";

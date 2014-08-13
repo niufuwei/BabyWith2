@@ -8,7 +8,8 @@
 
 #import "BaseViewController.h"
 #import "APICommon.h"
-
+#import <CoreImage/CoreImage.h>
+#import <ImageIO/ImageIO.h>
 @interface PhotoScanViewController : BaseViewController<UIScrollViewDelegate,UIAlertViewDelegate>{
     
     int pageCount;

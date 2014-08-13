@@ -121,19 +121,32 @@
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*320, 0, 320, _photoScrollView.frame.size.height)] ;
         view.tag = i+1;
         UIImageView *imageView = [[UIImageView alloc] init] ;
+        if(iPhone5)
+        {
+            [imageView setImage:[UIImage imageNamed:@"image2.png"]];
+
+        }
+        else
+        {
+            [imageView setImage:[UIImage imageNamed:@"image.png"]];
+
+        }
         imageView.tag = (i+1)*1000000;
         if ([[dic objectForKey:@"height_image"] integerValue] == 180) {
             imageView.frame = CGRectMake(0, (view.frame.size.height - 180)/2 - 60, view.frame.size.width,180);
             
         } else
+            
         {
             if (IOS7)
             {
                 imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-60);
+
             }
             else
             {
                 imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-40);
+
             }
 
         }
@@ -200,6 +213,7 @@
             if(view2.tag ==([[arr objectAtIndex:1] intValue]+1) *1000000)
             {
                 UIImageView * imageView  = (UIImageView*)view2;
+                [imageView stopAnimating];
                 [imageView setImage:[arr objectAtIndex:0]];
 
             }
