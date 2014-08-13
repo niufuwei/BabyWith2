@@ -177,7 +177,6 @@
 {
     
     NSDictionary * dic = [_photoArray objectAtIndex:indexPath];
-    NSLog(@"dic===>%@",dic);
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
@@ -191,6 +190,9 @@
 
 -(void)upDateImage:(NSArray*)arr
 {
+    
+    NSLog(@"%@",[_photoScrollView subviews]);
+    NSLog(@"%@",arr);
     for(UIView * view in [_photoScrollView subviews])
     {
         for(UIView * view2  in [view subviews])
@@ -234,7 +236,6 @@
         [tmpself.view setTransform: CGAffineTransformMakeRotation(M_PI / 2)];
         [tmpself.view addSubview:_playView];
         
-        NSLog(@"self.view.frame.height is %f",self.view.frame.size.height);
         [UIView animateWithDuration:0.0f animations:^{
             
             _playView.backgroundColor = [UIColor blackColor];
@@ -481,17 +482,15 @@
     if (buttonIndex==0)
     {
         int index = _currentPage;
-        
+        pageCount -= 1;
+
+        //删除当前页面
         [[_photoScrollView viewWithTag:index+1] removeFromSuperview];
 
-        for (int i= index+2; i<pageCount+1; i++)
-        {
-            UIView *view = [_photoScrollView viewWithTag:i];
-            view.tag = i-1;
-            view.frame = CGRectMake((i-2)*320, 0, 320, 480);
-        }
+        //把下载记录清空
+        [imageIsLoad removeAllObjects];
         
-        pageCount -= 1;
+        
         if (pageCount == 0)
         {
             [self.navigationController popViewControllerAnimated:YES];
@@ -502,7 +501,6 @@
         }
         
         _currentPage =  (_photoScrollView.contentOffset.x /_photoScrollView.frame.size.width);
-        NSLog(@"当前的currentPage是%d",_currentPage);
         
         
         
@@ -525,8 +523,43 @@
         }
         
         [_photoArray removeObjectAtIndex:index];
+         
+        for(UIView * view in [_photoScrollView subviews])
+        {
+            if(view.tag >index+1)
+            {
+                view.tag = view.tag-1;
+                CGRect xx = view.frame;
+                xx.origin.x = view.frame.origin.x - self.view.frame.size.width;
+                view.frame = xx;
+                for(UIView*view2 in [view subviews])
+                {
+                    if(view2.tag >(index+1)*1000000)
+                    {
+                        view2.tag = view2.tag -1000000;
+                    }
+
+                }
+            }
+        }
         
+        CGRect temp = _photoScrollView.frame;
+        CGPoint tem =_photoScrollView.contentOffset;
+        tem.x = temp.size.width*_currentPage;
+        [_photoScrollView setContentOffset:tem];
         
+        //重新请求数据
+        if(index+1 > pageCount)
+        {
+            NSLog(@"有异常");
+        }
+        else
+        {
+            
+            [self getImage:index];
+            
+        }
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"imageCollectionReload" object:self];
         
     }
