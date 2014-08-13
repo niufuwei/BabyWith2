@@ -253,6 +253,32 @@
         NSString *vedioPath1 = [NSString stringWithFormat:@"%@",[babywith_sandbox_address stringByAppendingPathComponent:vedioPath]];
         
         
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:[[_photoArray objectAtIndex:_currentPage] objectForKey:@"record_data_path"]])
+        {
+            _frameLenght = 1382400;
+            _frameWidth = 1280;
+            _frameHeight = 720;
+        }
+        else
+        {
+        
+            if ([[[NSUserDefaults standardUserDefaults] objectForKey:[[_photoArray objectAtIndex:_currentPage] objectForKey:@"record_data_path"]] isEqualToString:@"460800"])
+            {
+                _frameLenght = 460800;
+                _frameWidth = 640;
+                _frameHeight = 480;
+            }
+            
+            else if ([[[NSUserDefaults standardUserDefaults] objectForKey:[[_photoArray objectAtIndex:_currentPage] objectForKey:@"record_data_path"]] isEqualToString:@"115200"])
+            {
+                _frameLenght = 115200;
+                _frameWidth = 320;
+                _frameHeight = 240;
+            }
+        
+        
+        }
+        
         FileHandle =NULL;
         
         FileHandle =fopen([vedioPath1 UTF8String],"rb");
@@ -261,22 +287,22 @@
         {
             int idxPos = 0;
             uint8_t * byte;
-            if ((byte = (uint8_t*)malloc (KeyFrameLenth)) != NULL)
+            if ((byte = (uint8_t*)malloc (_frameLenght)) != NULL)
             {
                 while(1)  {
                     
                     fseek(FileHandle, idxPos, SEEK_SET);
                     
                     
-                    idxPos +=KeyFrameLenth;
-                    memset(byte,0,KeyFrameLenth);
+                    idxPos +=_frameLenght;
+                    memset(byte,0,_frameLenght);
                     
-                    if(fread(byte, 1, KeyFrameLenth, FileHandle)==0)
+                    if(fread(byte, 1, _frameLenght, FileHandle)==0)
                     {
                         break;
                     }
                     @autoreleasepool {
-                        _image = [APICommon YUV420ToImage:(uint8_t*)byte width:KeyFrameWidth height:KeyFrameHeight];
+                        _image = [APICommon YUV420ToImage:(uint8_t*)byte width:_frameWidth height:_frameHeight];
                         
                         dispatch_sync(dispatch_get_main_queue(), ^{
                             CGSize imageSize = _image.size;

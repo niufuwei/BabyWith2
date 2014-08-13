@@ -28,6 +28,11 @@
     UIView *aView;
     UIImageView *aBackImage;
     NSMutableDictionary * imageIsLoad;
+    
+    
+    int _frameLenght;
+    int _frameWidth;
+    int _frameHeight;
 }
 
 - (id)initWithArray:(NSArray *)array Type:(int) type CurrentPage:(int )currentPage Delegate:(NSObject *)delegate;
