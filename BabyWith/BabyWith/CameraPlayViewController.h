@@ -82,6 +82,9 @@
     
     MBProgressHUD *aIndicator;
     BOOL _afterFirstIn;
+    
+    
+    int _lenghtForEveryFrame;
 }
 
 @property (nonatomic, strong) OpenGLView20 *playView;
