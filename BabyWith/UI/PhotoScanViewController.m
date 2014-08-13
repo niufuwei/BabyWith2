@@ -534,11 +534,8 @@
                 view.frame = xx;
                 for(UIView*view2 in [view subviews])
                 {
-                    if(view2.tag >(index+1)*1000000)
-                    {
-                        view2.tag = view2.tag -1000000;
-                    }
-
+                    view2.tag = view2.tag -1000000;
+                   
                 }
             }
         }
@@ -549,17 +546,23 @@
         [_photoScrollView setContentOffset:tem];
         
         //重新请求数据
-        if(index+1 > pageCount)
+        NSLog(@"%d---->page==>%d",index,pageCount);
+        
+        if(pageCount !=0)
         {
-            NSLog(@"有异常");
-        }
-        else
-        {
-            
-            [self getImage:index];
-            
-        }
+            if(index ==pageCount)
+            {
+                [self getImage:index-1];
+                
+            }
+            else
+            {
+                [self getImage:index];
+                
+            }
 
+        }
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"imageCollectionReload" object:self];
         
     }
