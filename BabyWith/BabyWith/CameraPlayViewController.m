@@ -1032,6 +1032,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                 {
                     
                     NSLog(@"record image %@",_recordImage);
+                    _lenghtForEveryFrame = length;
                     [self savePicAndVideo];
                 }
             
@@ -1119,6 +1120,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     NSString *path1 = [NSString stringWithFormat:@"/vedio/record/%d/%d/%d/%d/%@320x240.264",[nowComp year],[nowComp month],[nowComp day],[[appDelegate.appDefault objectForKey:@"Member_id_self"] integerValue]%10,record_id];
     //获取快照,这里加入了图片对应视频的路径，方便以后找到对应的视频
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:filePath,@"image",[NSString stringWithFormat:@"%.0f", time*1000], @"time", date, @"date", [NSString stringWithFormat:@"%d", 320], @"width", [NSString stringWithFormat:@"%d", 180], @"height",[NSString stringWithFormat:@"%d",1],@"is_vedio",path1,@"record_data_path",nil];
+ 
     
     //图片相对路径
     NSString *path = [NSString stringWithFormat:@"/image/record/%d/%d/%d/%d/%@.png", [nowComp year],[nowComp month], [nowComp day],[[appDelegate.appDefault objectForKey:@"Member_id_self"] integerValue]%10,record_id];
@@ -1140,6 +1142,8 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             
             
             NSArray *keyArray = [NSArray arrayWithObjects:@"id_record", @"id_member", @"time_record",@"year_record",@"month_record",@"day_record", @"width_image",@"height_image",@"path",@"is_vedio",@"record_data_path",nil];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",_lenghtForEveryFrame] forKey:path1];
             NSDictionary *insertDic = [NSDictionary dictionaryWithObjects:array forKeys:keyArray];
             
             if ([appDelegate.sqliteManager insertRecordInfo:insertDic])
