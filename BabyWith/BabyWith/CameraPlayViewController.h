@@ -81,6 +81,8 @@
     
     
     MBProgressHUD *aIndicator;
+    
+    MBProgressHUD *connectIndicator;
     BOOL _afterFirstIn;
     
     
