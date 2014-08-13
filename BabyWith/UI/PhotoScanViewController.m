@@ -132,24 +132,20 @@
 
         }
         imageView.tag = (i+1)*1000000;
-        if ([[dic objectForKey:@"height_image"] integerValue] == 180) {
-            imageView.frame = CGRectMake(0, (view.frame.size.height - 180)/2 - 60, view.frame.size.width,180);
-            
-        } else
-            
+        
+      
+        if (IOS7)
         {
-            if (IOS7)
-            {
-                imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-60);
-
-            }
-            else
-            {
-                imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-40);
-
-            }
+            imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-60);
 
         }
+        else
+        {
+            imageView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-40);
+
+        }
+
+        
         
         //是视频图片的话要添加开始按钮一样的东西作为普通图片和视频区别
         if ([[dic objectForKey:@"is_vedio"] intValue] ==1)
@@ -195,7 +191,7 @@
         NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
         UIImage *image = [UIImage imageWithData:imageData];
         
-        NSArray * arr = [NSArray arrayWithObjects:image,[NSString stringWithFormat:@"%d",indexPath], nil];
+        NSArray * arr = [NSArray arrayWithObjects:image,[NSString stringWithFormat:@"%d",indexPath],dic, nil];
         [self performSelectorOnMainThread:@selector(upDateImage:) withObject:arr waitUntilDone:NO];
         
     });
@@ -215,6 +211,11 @@
                 UIImageView * imageView  = (UIImageView*)view2;
                 [imageView stopAnimating];
                 [imageView setImage:[arr objectAtIndex:0]];
+                
+                if ([[[arr objectAtIndex:2]  objectForKey:@"height_image"] integerValue] == 180) {
+                    imageView.frame = CGRectMake(0, (view.frame.size.height - 180)/2 - 60, view.frame.size.width,180);
+                    
+                }
 
             }
             else
