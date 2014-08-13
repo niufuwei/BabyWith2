@@ -904,7 +904,16 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 }
 
 
+-(void)hideIndicator
+{
 
+    self.navigationItem.leftBarButtonItem.enabled=YES;
+    self.navigationItem.rightBarButtonItem.enabled=YES;
+    self.view.userInteractionEnabled = YES;
+    [connectIndicator hide:YES];
+
+
+}
 #pragma mark -ImageNotifyProtocol
 - (void) ImageNotify: (UIImage *)image timestamp: (NSInteger)timestamp DID:(NSString *)did
 {
@@ -919,13 +928,10 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     
     [_playView displayYUV420pData:yuv width:width height:height];
     
-    if (!_afterFirstIn)
-    {
-        _afterFirstIn = !_afterFirstIn;
-        [aIndicator removeFromSuperview];
-        
-    }
+    
 //
+    [self performSelectorOnMainThread:@selector(hideIndicator) withObject:nil waitUntilDone:YES];
+
     NSLog(@"lenght is %d,width is %d,height is %d",length,width,height);
 //    
         _isFirst = !_isFirst;
@@ -2114,8 +2120,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 -(void)ActionForStartVideo{
     
     
-    self.navigationItem.leftBarButtonItem.enabled=YES;
-    self.navigationItem.rightBarButtonItem.enabled=YES;
+    self.view.userInteractionEnabled = NO;
     
     
     
@@ -2127,16 +2132,12 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     }
     
    
-    MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithView:self.view];
-    indicator.labelText = @"视频开启";
-    indicator.mode = MBProgressHUDModeText;
-    [self.view addSubview:indicator];
-    [indicator showAnimated:YES whileExecutingBlock:^{
-        sleep(1.2);
-    } completionBlock:^{
+    connectIndicator = [[MBProgressHUD alloc] initWithView:self.view];
+    connectIndicator.labelText = @"视频开启...";
+    [self.view addSubview:connectIndicator];
+    [connectIndicator show:YES];
         
-        [indicator removeFromSuperview];
-        
+    
         UIImageView *imageView = (UIImageView *)[self.navigationItem.titleView viewWithTag:20];
         [imageView setImage:[UIImage imageNamed:@"switch_on.png"]];
         [(UIButton *)[self.view viewWithTag:2020] setImage:[UIImage imageNamed:@"vertical_switch_on.png"] forState:UIControlStateNormal];
@@ -2162,7 +2163,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             [self hideToolBar];
         }
         
-    }];
+
 }
 
 
