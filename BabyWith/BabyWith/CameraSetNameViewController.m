@@ -77,6 +77,8 @@
     nameLabel.textColor = [UIColor grayColor];
     [self.view addSubview:nameLabel];
     
+    [nameLabel release];
+    
     //看护器名称文本区域
      _cameraTextField= [[UITextField alloc] initWithFrame:CGRectMake(20, 55, 280, 35)];
     _cameraTextField.placeholder = @"请输入看护器名称";

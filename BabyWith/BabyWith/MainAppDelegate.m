@@ -658,9 +658,6 @@ int HudIsBecome = 0;
     }
     
     
-    
-    
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"changeCount" object:nil];
     //更多里面的图标的改变
     [[NSNotificationCenter defaultCenter] postNotificationName:@"changeCount1" object:nil];
