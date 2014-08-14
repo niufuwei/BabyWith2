@@ -46,7 +46,11 @@
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     
-    if(self.sourceType == UIImagePickerControllerSourceTypeCamera){
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        
+        self.sourceType = UIImagePickerControllerSourceTypeCamera;
+		self.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
         
         UIImage *deviceImage = [UIImage imageNamed:@"拍照1.png"];
         UIButton *deviceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -76,7 +80,8 @@
         _shrinkImage.userInteractionEnabled=YES;
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClicked)];
         [_shrinkImage addGestureRecognizer:singleTap];
-        if (kIsIphone5) {
+        if (kIsIphone5)
+        {
             
             _shrinkImage.frame=CGRectMake(25, (overlyView.frame.size.height - 25)/2-17, 60, 40);
   

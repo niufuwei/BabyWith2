@@ -80,7 +80,7 @@
     UIImageView *imageVie;
     
     
-    MBProgressHUD *aIndicator;
+    
     
     MBProgressHUD *connectIndicator;
     BOOL _afterFirstIn;

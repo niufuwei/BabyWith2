@@ -1381,12 +1381,12 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     _stopConnectFlag = 0;
     _errorMsg = @"看护器连接错误";
     NSLog(@"password 3 is %d",_passwordFlag);
-    aIndicator = [[MBProgressHUD alloc] initWithView:self.view];
-    aIndicator.labelText = @"视频连接中";
-    aIndicator.dimBackground = YES;
+   MBProgressHUD * indicator = [[MBProgressHUD alloc] initWithView:self.view];
+    indicator.labelText = @"视频连接中";
+    indicator.dimBackground = YES;
 //    [self addTapGest:indicator];//点击终止视频
-    [self.view addSubview:aIndicator];
-    [aIndicator showAnimated:YES whileExecutingBlock:^{
+    [self.view addSubview:indicator];
+    [indicator showAnimated:YES whileExecutingBlock:^{
         
         [self performSelector:@selector(startPPPP:) withObject:_currentDeviceDic];
         
