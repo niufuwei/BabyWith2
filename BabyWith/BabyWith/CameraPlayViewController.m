@@ -2562,10 +2562,25 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     }
     
     
-    if (alertView.tag == 55555) {
+    if (alertView.tag == 55555)
+    {
+        
         if (buttonIndex == 0)
         {
-            [self.navigationController popViewControllerAnimated:YES];
+            if ([[appDelegate.appDefault objectForKey:@"login_expired"] isEqualToString:@"1"])
+                
+            {
+                
+                [appDelegate.appDefault setObject:@"" forKey:@"Username"];
+                [appDelegate.appDefault setObject:@"" forKey:@"Password"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToLogin" object:nil];
+                
+                
+            }
+            else
+            {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
         }
     }
     

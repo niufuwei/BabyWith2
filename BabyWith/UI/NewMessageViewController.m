@@ -49,10 +49,50 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 
-    if (buttonIndex == 0)
+    if (alertView.tag == 666)
     {
-        [self.navigationController popViewControllerAnimated:YES];
+        if (buttonIndex == 0)
+        {
+            if ([[appDelegate.appDefault objectForKey:@"login_expired"] isEqualToString:@"1"])
+                
+            {
+                
+                [appDelegate.appDefault setObject:@"" forKey:@"Username"];
+                [appDelegate.appDefault setObject:@"" forKey:@"Password"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToLogin" object:nil];
+                
+                
+            }
+            else
+            {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }
     }
+    else
+    {
+    
+        if (buttonIndex == 0)
+        {
+            if ([[appDelegate.appDefault objectForKey:@"login_expired"] isEqualToString:@"1"])
+                
+            {
+                
+                [appDelegate.appDefault setObject:@"" forKey:@"Username"];
+                [appDelegate.appDefault setObject:@"" forKey:@"Password"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToLogin" object:nil];
+                
+                
+            }
+            else
+            {
+//                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }
+        
+    
+    }
+    
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -222,7 +262,9 @@
     
         [activity stop];
         //提示框提示错误
-        [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[appDelegate.appDefault objectForKey:@"Error_message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+         alert.tag = 555;
+         [alert show];
   
     }
     
@@ -274,7 +316,9 @@
     {
          [activity stop];
         //提示框提示错误
-        [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[appDelegate.appDefault objectForKey:@"Error_message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        alert.tag = 444;
+        [alert show];
 
     
     }

@@ -18,6 +18,7 @@
 #import "Activity.h"
 #import "HomeCell.h"
 #import "AddDeviceViewController.h"
+#import "LoginViewController.h"
 @interface HomeViewController ()
 {
 
@@ -909,7 +910,12 @@
         {
             [appDelegate.appDefault setObject:@"" forKey:@"Username"];
             [appDelegate.appDefault setObject:@"" forKey:@"Password"];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToLogin" object:nil];
+            
+            LoginViewController *loginVC = [[LoginViewController alloc] init];
+            [appDelegate hideTabbar];
+            [self.navigationController pushViewController:loginVC animated:YES];
+            
+            //[[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToLogin" object:nil];
         }
         else
         {
