@@ -246,7 +246,7 @@
     
     //    [itemBG setImage:[UIImage imageNamed:@"ground_bar.png"]];
     //
-    //    [myTaobaoBtn setBackgroundColor:[UIColor colorWithRed:52.0/255 green:169.0/255 blue:220.0/255 alpha:1.0]];
+    //    [myTaobaoBtn  :[UIColor colorWithRed:52.0/255 green:169.0/255 blue:220.0/255 alpha:1.0]];
     //    [homeBtn setBackgroundColor:[UIColor colorWithRed:52.0/255 green:169.0/255 blue:220.0/255 alpha:1.0]];
 }
 
