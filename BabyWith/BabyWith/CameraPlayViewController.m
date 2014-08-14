@@ -1245,7 +1245,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             {
                 
                 //[self makeAlert:@"检测到非WIFI网络，如有需要，请手动开启视频"];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"检测到非WIFI网络，确认开启视频吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认开启", nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"检测到非WIFI网络，确认开启视频吗" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认开启", nil];
                 alert.tag = 100;
                 [alert show];
                 _wifiFlag = 1;

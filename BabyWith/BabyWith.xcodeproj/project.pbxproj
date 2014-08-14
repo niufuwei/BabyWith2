@@ -87,10 +87,6 @@
 		71CAFE53198B718600E2DC1F /* 跳过.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE4B198B718600E2DC1F /* 跳过.png */; };
 		71CAFE54198B718600E2DC1F /* 导航返回.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE4C198B718600E2DC1F /* 导航返回.png */; };
 		71CAFE56198B736100E2DC1F /* qietu_254.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE55198B736100E2DC1F /* qietu_254.png */; };
-		71CAFE65198B7D4800E2DC1F /* 更多 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE61198B7D4800E2DC1F /* 更多 (1).png */; };
-		71CAFE66198B7D4800E2DC1F /* 更多 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE62198B7D4800E2DC1F /* 更多 (2).png */; };
-		71CAFE67198B7D4800E2DC1F /* 更多 (3).png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE63198B7D4800E2DC1F /* 更多 (3).png */; };
-		71CAFE68198B7D4800E2DC1F /* 更多 (4).png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE64198B7D4800E2DC1F /* 更多 (4).png */; };
 		71CAFE6B198B7F6600E2DC1F /* qietu_40.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E0C198B27F500A54EB2 /* qietu_40.png */; };
 		71CAFE6C198B7F8C00E2DC1F /* 主页摄像头.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E18198B27F500A54EB2 /* 主页摄像头.png */; };
 		71CAFE6D198B804600E2DC1F /* 选择 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E70198B27F600A54EB2 /* 选择 (2).png */; };
@@ -179,7 +175,6 @@
 		EF4A5E8E198B27F600A54EB2 /* 主页-消息.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E17198B27F500A54EB2 /* 主页-消息.png */; };
 		EF4A5E9E198B27F600A54EB2 /* 关闭.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E27198B27F500A54EB2 /* 关闭.png */; };
 		EF4A5E9F198B27F600A54EB2 /* 分享人员 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E28198B27F500A54EB2 /* 分享人员 (1).png */; };
-		EF4A5EA1198B27F600A54EB2 /* 分享人员_MarkMan_MarkMan.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E2A198B27F500A54EB2 /* 分享人员_MarkMan_MarkMan.png */; };
 		EF4A5EA2198B27F600A54EB2 /* 分享设备-新消息.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E2B198B27F500A54EB2 /* 分享设备-新消息.png */; };
 		EF4A5EA3198B27F600A54EB2 /* 分隔栏.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E2C198B27F500A54EB2 /* 分隔栏.png */; };
 		EF4A5EA5198B27F600A54EB2 /* 切换 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E2E198B27F500A54EB2 /* 切换 (2).png */; };
@@ -226,10 +221,6 @@
 		EF4A5EF6198B6E4A00A54EB2 /* qietu_261.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5EF5198B6E4A00A54EB2 /* qietu_261.png */; };
 		EF4A5EF8198B88FE00A54EB2 /* qietu_267.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5EF7198B88FE00A54EB2 /* qietu_267.png */; };
 		EF4A5EFA198B8AB200A54EB2 /* qietu_271.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5EF9198B8AB200A54EB2 /* qietu_271.png */; };
-		EF4A5F12198B90B800A54EB2 /* 更多 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5F0E198B90B800A54EB2 /* 更多 (1).png */; };
-		EF4A5F13198B90B800A54EB2 /* 更多 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5F0F198B90B800A54EB2 /* 更多 (2).png */; };
-		EF4A5F14198B90B800A54EB2 /* 更多 (3).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5F10198B90B800A54EB2 /* 更多 (3).png */; };
-		EF4A5F15198B90B800A54EB2 /* 更多 (4).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5F11198B90B800A54EB2 /* 更多 (4).png */; };
 		EF4A5F16198B915100A54EB2 /* qietu_257.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5EEF198B45B800A54EB2 /* qietu_257.png */; };
 		EF4A5F17198B915100A54EB2 /* qietu_164.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E08198B27F500A54EB2 /* qietu_164.png */; };
 		EF4A5F18198B915100A54EB2 /* qietu_40.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E0C198B27F500A54EB2 /* qietu_40.png */; };
@@ -247,6 +238,10 @@
 		EF4CE5441998A57E00310924 /* 系统消息未读背景.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E5C198B27F500A54EB2 /* 系统消息未读背景.png */; };
 		EF4CE5471998C0CC00310924 /* DeviceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4CE5461998C0CC00310924 /* DeviceListCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		EF517DA91811340100EB5CED /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = EF517DA81811340100EB5CED /* Icon-80.png */; };
+		EF658C51199CAF68009B68C3 /* 更多 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = EF658C4D199CAF68009B68C3 /* 更多 (1).png */; };
+		EF658C52199CAF68009B68C3 /* 更多 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF658C4E199CAF68009B68C3 /* 更多 (2).png */; };
+		EF658C53199CAF68009B68C3 /* 更多 (3).png in Resources */ = {isa = PBXBuildFile; fileRef = EF658C4F199CAF68009B68C3 /* 更多 (3).png */; };
+		EF658C54199CAF68009B68C3 /* 更多 (4).png in Resources */ = {isa = PBXBuildFile; fileRef = EF658C50199CAF68009B68C3 /* 更多 (4).png */; };
 		EF96F30418D2E279002C1245 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF96F30318D2E279002C1245 /* Images.xcassets */; };
 		EFA7C16C19946333006EDB5F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA7C16A19946333006EDB5F /* Default-568h@2x.png */; };
 		EFA7C16D19946333006EDB5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA7C16B19946333006EDB5F /* Default@2x.png */; };
@@ -440,10 +435,6 @@
 		71CAFE4B198B718600E2DC1F /* 跳过.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "跳过.png"; sourceTree = "<group>"; };
 		71CAFE4C198B718600E2DC1F /* 导航返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "导航返回.png"; sourceTree = "<group>"; };
 		71CAFE55198B736100E2DC1F /* qietu_254.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_254.png; sourceTree = "<group>"; };
-		71CAFE61198B7D4800E2DC1F /* 更多 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (1).png"; sourceTree = "<group>"; };
-		71CAFE62198B7D4800E2DC1F /* 更多 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (2).png"; sourceTree = "<group>"; };
-		71CAFE63198B7D4800E2DC1F /* 更多 (3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (3).png"; sourceTree = "<group>"; };
-		71CAFE64198B7D4800E2DC1F /* 更多 (4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (4).png"; sourceTree = "<group>"; };
 		71CAFE79198B89A200E2DC1F /* 横屏切换全屏(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "横屏切换全屏(1).png"; sourceTree = "<group>"; };
 		71CAFE7A198B89A200E2DC1F /* 横屏切换全屏(2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "横屏切换全屏(2).png"; sourceTree = "<group>"; };
 		71CAFE7D198B981600E2DC1F /* 绑定-未选 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "绑定-未选 (1).png"; path = "导航栏/绑定-未选 (1).png"; sourceTree = "<group>"; };
@@ -566,7 +557,6 @@
 		EF4A5E27198B27F500A54EB2 /* 关闭.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关闭.png"; sourceTree = "<group>"; };
 		EF4A5E28198B27F500A54EB2 /* 分享人员 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分享人员 (1).png"; sourceTree = "<group>"; };
 		EF4A5E29198B27F500A54EB2 /* 分享人员 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分享人员 (2).png"; sourceTree = "<group>"; };
-		EF4A5E2A198B27F500A54EB2 /* 分享人员_MarkMan_MarkMan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分享人员_MarkMan_MarkMan.png"; sourceTree = "<group>"; };
 		EF4A5E2B198B27F500A54EB2 /* 分享设备-新消息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分享设备-新消息.png"; sourceTree = "<group>"; };
 		EF4A5E2C198B27F500A54EB2 /* 分隔栏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分隔栏.png"; sourceTree = "<group>"; };
 		EF4A5E2D198B27F500A54EB2 /* 切换 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "切换 (1).png"; sourceTree = "<group>"; };
@@ -621,10 +611,6 @@
 		EF4A5EF5198B6E4A00A54EB2 /* qietu_261.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_261.png; sourceTree = "<group>"; };
 		EF4A5EF7198B88FE00A54EB2 /* qietu_267.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_267.png; sourceTree = "<group>"; };
 		EF4A5EF9198B8AB200A54EB2 /* qietu_271.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_271.png; sourceTree = "<group>"; };
-		EF4A5F0E198B90B800A54EB2 /* 更多 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (1).png"; sourceTree = "<group>"; };
-		EF4A5F0F198B90B800A54EB2 /* 更多 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (2).png"; sourceTree = "<group>"; };
-		EF4A5F10198B90B800A54EB2 /* 更多 (3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (3).png"; sourceTree = "<group>"; };
-		EF4A5F11198B90B800A54EB2 /* 更多 (4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (4).png"; sourceTree = "<group>"; };
 		EF4AAF24198F5F1400F33F0E /* cameraBackImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraBackImage.png; sourceTree = "<group>"; };
 		EF4AAF26198F6CE400F33F0E /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		EF4C175819920E0E00FC3532 /* qietu_307.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qietu_307.png; sourceTree = "<group>"; };
@@ -633,6 +619,10 @@
 		EF4CE5451998C0CC00310924 /* DeviceListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListCell.h; sourceTree = "<group>"; };
 		EF4CE5461998C0CC00310924 /* DeviceListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceListCell.m; sourceTree = "<group>"; };
 		EF517DA81811340100EB5CED /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
+		EF658C4D199CAF68009B68C3 /* 更多 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (1).png"; sourceTree = "<group>"; };
+		EF658C4E199CAF68009B68C3 /* 更多 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (2).png"; sourceTree = "<group>"; };
+		EF658C4F199CAF68009B68C3 /* 更多 (3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (3).png"; sourceTree = "<group>"; };
+		EF658C50199CAF68009B68C3 /* 更多 (4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多 (4).png"; sourceTree = "<group>"; };
 		EF96F30318D2E279002C1245 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFA7C16A19946333006EDB5F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EFA7C16B19946333006EDB5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -1181,6 +1171,10 @@
 		EF4A5DFD198B27F500A54EB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				EF658C4D199CAF68009B68C3 /* 更多 (1).png */,
+				EF658C4E199CAF68009B68C3 /* 更多 (2).png */,
+				EF658C4F199CAF68009B68C3 /* 更多 (3).png */,
+				EF658C50199CAF68009B68C3 /* 更多 (4).png */,
 				18642EAC199B5C70002F1C18 /* image2.png */,
 				18642EAA199B5BB3002F1C18 /* image.png */,
 				EF4CE54219988E6D00310924 /* qietu_56.png */,
@@ -1229,10 +1223,6 @@
 				71CAFE0A198B6EF200E2DC1F /* 竖屏切换全屏(2).png */,
 				71CAFE0B198B6EF200E2DC1F /* qietu_173.png */,
 				71CAFE0C198B6EF200E2DC1F /* qietu_174.png */,
-				EF4A5F0E198B90B800A54EB2 /* 更多 (1).png */,
-				EF4A5F0F198B90B800A54EB2 /* 更多 (2).png */,
-				EF4A5F10198B90B800A54EB2 /* 更多 (3).png */,
-				EF4A5F11198B90B800A54EB2 /* 更多 (4).png */,
 				EF4A5EF9198B8AB200A54EB2 /* qietu_271.png */,
 				EF4A5EF7198B88FE00A54EB2 /* qietu_267.png */,
 				EF4A5EF5198B6E4A00A54EB2 /* qietu_261.png */,
@@ -1260,7 +1250,6 @@
 				EF4A5E27198B27F500A54EB2 /* 关闭.png */,
 				EF4A5E28198B27F500A54EB2 /* 分享人员 (1).png */,
 				EF4A5E29198B27F500A54EB2 /* 分享人员 (2).png */,
-				EF4A5E2A198B27F500A54EB2 /* 分享人员_MarkMan_MarkMan.png */,
 				EF4A5E2B198B27F500A54EB2 /* 分享设备-新消息.png */,
 				EF4A5E2C198B27F500A54EB2 /* 分隔栏.png */,
 				EF4A5E2D198B27F500A54EB2 /* 切换 (1).png */,
@@ -1299,10 +1288,6 @@
 				EF4A5E68198B27F600A54EB2 /* 记录-视频.png */,
 				EF4A5E69198B27F600A54EB2 /* 设置.png */,
 				EF4A5E6A198B27F600A54EB2 /* 跳过.png */,
-				71CAFE61198B7D4800E2DC1F /* 更多 (1).png */,
-				71CAFE62198B7D4800E2DC1F /* 更多 (2).png */,
-				71CAFE63198B7D4800E2DC1F /* 更多 (3).png */,
-				71CAFE64198B7D4800E2DC1F /* 更多 (4).png */,
 				EF4A5E6B198B27F600A54EB2 /* 输入框.png */,
 				EF4A5E6D198B27F600A54EB2 /* 退出系统 -显示密码.png */,
 				EF4A5E6E198B27F600A54EB2 /* 退出系统-取消显示.png */,
@@ -1858,6 +1843,7 @@
 				71CAFEAF198B989100E2DC1F /* 横屏录制(2).png in Resources */,
 				71CAFE6E198B814200E2DC1F /* qietu_257.png in Resources */,
 				71CAFE6F198B814200E2DC1F /* qietu_124.png in Resources */,
+				EF658C51199CAF68009B68C3 /* 更多 (1).png in Resources */,
 				71CAFE71198B814200E2DC1F /* 分享人员 (2).png in Resources */,
 				71CAFE72198B814200E2DC1F /* 切换 (1).png in Resources */,
 				71CAFE97198B981600E2DC1F /* 横屏分享人员(1).png in Resources */,
@@ -1885,7 +1871,6 @@
 				EFF53E581779B64F00C4AEB4 /* InfoPlist.strings in Resources */,
 				EF4A5EE9198B27F600A54EB2 /* 首页.png in Resources */,
 				71CAFE7B198B89A200E2DC1F /* 横屏切换全屏(1).png in Resources */,
-				EF4A5F15198B90B800A54EB2 /* 更多 (4).png in Resources */,
 				EF4A5EB9198B27F600A54EB2 /* 拍照 (2).png in Resources */,
 				EF4A5E7E198B27F600A54EB2 /* qietu_162.png in Resources */,
 				7196B08018D837D600B8D8BB /* ChangePasswordViewController.xib in Resources */,
@@ -1894,7 +1879,6 @@
 				71CAFE23198B6EF200E2DC1F /* 竖屏(2).png in Resources */,
 				EF4A5ED0198B27F600A54EB2 /* 登录 (2).png in Resources */,
 				EF1B062A178C65E400C08313 /* blackArrow.png in Resources */,
-				71CAFE66198B7D4800E2DC1F /* 更多 (2).png in Resources */,
 				EF4A5ED0198B27F600A54EB2 /* 登录 (2).png in Resources */,
 				1DCB5BDE19909AAB001D177E /* 主菜单栏-未选 (4).png in Resources */,
 				EF1B062A178C65E400C08313 /* blackArrow.png in Resources */,
@@ -1946,8 +1930,6 @@
 				EF4A5EDF198B27F600A54EB2 /* 设置.png in Resources */,
 				EF4A5E9F198B27F600A54EB2 /* 分享人员 (1).png in Resources */,
 				EF4A5EC6198B27F600A54EB2 /* 播放视频-进度条 (1).png in Resources */,
-				71CAFE65198B7D4800E2DC1F /* 更多 (1).png in Resources */,
-				EF4A5F14198B90B800A54EB2 /* 更多 (3).png in Resources */,
 				EF1D3C5118D2B2D90079C358 /* LoginRegisterViewController.xib in Resources */,
 				1DEEFEE8198B904100ED2C84 /* 1374.wav in Resources */,
 				EF4A5ECE198B27F600A54EB2 /* 添加.png in Resources */,
@@ -1970,7 +1952,6 @@
 				EF4A5ED1198B27F600A54EB2 /* 登录.png in Resources */,
 				EF4A5EDE198B27F600A54EB2 /* 记录-视频.png in Resources */,
 				71CAFE4D198B718600E2DC1F /* 关闭.png in Resources */,
-				EF4A5EA1198B27F600A54EB2 /* 分享人员_MarkMan_MarkMan.png in Resources */,
 				1DCB5BE219909AAB001D177E /* 主菜单栏-选中 (4).png in Resources */,
 				EF4A5E77198B27F600A54EB2 /* qietu_122.png in Resources */,
 				71A86CF2190A310A004AFA50 /* pick_bg@2x.png in Resources */,
@@ -1980,13 +1961,11 @@
 				EF4A5EFA198B8AB200A54EB2 /* qietu_271.png in Resources */,
 				EF4A5E7C198B27F600A54EB2 /* qietu_149.png in Resources */,
 				EF517DA91811340100EB5CED /* Icon-80.png in Resources */,
-				71CAFE68198B7D4800E2DC1F /* 更多 (4).png in Resources */,
 				EF1D3C4D18D2B2D90079C358 /* ForgotPasswordViewController.xib in Resources */,
 				EF4A5EBB198B27F600A54EB2 /* 拍照 (4).png in Resources */,
 				EF4A5EB7198B27F600A54EB2 /* 开灯.png in Resources */,
 				710AEDD5190795C000B19A58 /* NewMessageCell1.xib in Resources */,
 				7195029718D43E85006FCB7F /* LoginViewController.xib in Resources */,
-				EF4A5F13198B90B800A54EB2 /* 更多 (2).png in Resources */,
 				EF4A5ECF198B27F600A54EB2 /* 登录 (1).png in Resources */,
 				EF4A5E8C198B27F600A54EB2 /* 主页- 消息背景 (1).png in Resources */,
 				EF4A5E9E198B27F600A54EB2 /* 关闭.png in Resources */,
@@ -2000,6 +1979,7 @@
 				EF4A5EC1198B27F600A54EB2 /* 拍照5.png in Resources */,
 				EF4A5EC7198B27F600A54EB2 /* 播放视频-进度条 (2).png in Resources */,
 				EF4A5EBA198B27F600A54EB2 /* 拍照 (3).png in Resources */,
+				EF658C53199CAF68009B68C3 /* 更多 (3).png in Resources */,
 				716C830A18D94403006CB5C3 /* SetPasswordViewController.xib in Resources */,
 				EF4A5EC1198B27F600A54EB2 /* 拍照5.png in Resources */,
 				EF4A5EF8198B88FE00A54EB2 /* qietu_267.png in Resources */,
@@ -2015,11 +1995,11 @@
 				71CAFE54198B718600E2DC1F /* 导航返回.png in Resources */,
 				EF1246E117BB2A760012BBCC /* zbar-back.png in Resources */,
 				1DCB5BDC19909AAB001D177E /* 主菜单栏-未选 (2).png in Resources */,
-				71CAFE67198B7D4800E2DC1F /* 更多 (3).png in Resources */,
 				EF4A5EF4198B60B600A54EB2 /* qietu_254.png in Resources */,
 				EF4A5EBC198B27F600A54EB2 /* 拍照.png in Resources */,
+				EF658C52199CAF68009B68C3 /* 更多 (2).png in Resources */,
 				EF4A5EA2198B27F600A54EB2 /* 分享设备-新消息.png in Resources */,
-				EF4A5F12198B90B800A54EB2 /* 更多 (1).png in Resources */,
+				EF658C54199CAF68009B68C3 /* 更多 (4).png in Resources */,
 				EF4A5EEA198B27F600A54EB2 /* 首页背景.png in Resources */,
 				EF1246E117BB2A760012BBCC /* zbar-back.png in Resources */,
 				EF1246E217BB2A760012BBCC /* zbar-help.html in Resources */,
