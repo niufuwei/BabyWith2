@@ -1987,6 +1987,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 }
 - (void)viewWillAppear:(BOOL)animated
 {
+    
     [self titleSet:[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"name"]];
     _isViode = FALSE;
     
@@ -2016,6 +2017,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 //            
 //        }
 //    }
+    
     NSLog(@"视图出现");
     
     
@@ -2370,6 +2372,10 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         {
             [self ShowCameraPlaying];
         }
+        else
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         
     }
     if (alertView.tag==10010) {
@@ -2583,6 +2589,8 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             }
         }
     }
+    
+    
     
 }
 #pragma mark -
