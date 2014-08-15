@@ -81,7 +81,6 @@
 		71CAFE2A198B6EF200E2DC1F /* qietu_173.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE0B198B6EF200E2DC1F /* qietu_173.png */; };
 		71CAFE2B198B6EF200E2DC1F /* qietu_174.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE0C198B6EF200E2DC1F /* qietu_174.png */; };
 		71CAFE4D198B718600E2DC1F /* 关闭.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE45198B718600E2DC1F /* 关闭.png */; };
-		71CAFE4F198B718600E2DC1F /* 导航栏背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE47198B718600E2DC1F /* 导航栏背景.png */; };
 		71CAFE50198B718600E2DC1F /* 开灯.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE48198B718600E2DC1F /* 开灯.png */; };
 		71CAFE51198B718600E2DC1F /* 添加.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE49198B718600E2DC1F /* 添加.png */; };
 		71CAFE52198B718600E2DC1F /* 设置.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE4A198B718600E2DC1F /* 设置.png */; };
@@ -198,7 +197,6 @@
 		EF4A5EC6198B27F600A54EB2 /* 播放视频-进度条 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E50198B27F500A54EB2 /* 播放视频-进度条 (1).png */; };
 		EF4A5EC7198B27F600A54EB2 /* 播放视频-进度条 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E51198B27F500A54EB2 /* 播放视频-进度条 (2).png */; };
 		EF4A5EC8198B27F600A54EB2 /* 播放视频-进度条 (3).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E52198B27F500A54EB2 /* 播放视频-进度条 (3).png */; };
-		EF4A5ECD198B27F600A54EB2 /* 横版导航栏背景.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E57198B27F500A54EB2 /* 横版导航栏背景.png */; };
 		EF4A5ECE198B27F600A54EB2 /* 添加.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E58198B27F500A54EB2 /* 添加.png */; };
 		EF4A5ECF198B27F600A54EB2 /* 登录 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E59198B27F500A54EB2 /* 登录 (1).png */; };
 		EF4A5ED0198B27F600A54EB2 /* 登录 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E5A198B27F500A54EB2 /* 登录 (2).png */; };
@@ -227,7 +225,6 @@
 		EF4A5F18198B915100A54EB2 /* qietu_40.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E0C198B27F500A54EB2 /* qietu_40.png */; };
 		EF4A5F19198B915100A54EB2 /* 主页摄像头.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E18198B27F500A54EB2 /* 主页摄像头.png */; };
 		EF4A5F1A198B915100A54EB2 /* 分享人员 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E29198B27F500A54EB2 /* 分享人员 (2).png */; };
-		EF4A5F1D198B915100A54EB2 /* 导航栏背景.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E40198B27F500A54EB2 /* 导航栏背景.png */; };
 		EF4A5F1E198B915100A54EB2 /* 编辑.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E63198B27F500A54EB2 /* 编辑.png */; };
 		EF4A5F20198B915100A54EB2 /* 退出系统-取消显示.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E6E198B27F600A54EB2 /* 退出系统-取消显示.png */; };
 		EF4A5F21198B915100A54EB2 /* 选择 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E70198B27F600A54EB2 /* 选择 (2).png */; };
@@ -1867,7 +1864,6 @@
 				EF4A5F18198B915100A54EB2 /* qietu_40.png in Resources */,
 				EF4A5F19198B915100A54EB2 /* 主页摄像头.png in Resources */,
 				EF4A5F1A198B915100A54EB2 /* 分享人员 (2).png in Resources */,
-				EF4A5F1D198B915100A54EB2 /* 导航栏背景.png in Resources */,
 				EF4A5F1E198B915100A54EB2 /* 编辑.png in Resources */,
 				EF4A5F20198B915100A54EB2 /* 退出系统-取消显示.png in Resources */,
 				EF4A5F21198B915100A54EB2 /* 选择 (2).png in Resources */,
@@ -1924,12 +1920,10 @@
 				EF4A5EBE198B27F600A54EB2 /* 拍照2.png in Resources */,
 				71CAFE52198B718600E2DC1F /* 设置.png in Resources */,
 				71CAFE53198B718600E2DC1F /* 跳过.png in Resources */,
-				71CAFE4F198B718600E2DC1F /* 导航栏背景.png in Resources */,
 				EF4A5EC0198B27F600A54EB2 /* 拍照4.png in Resources */,
 				71CAFE26198B6EF200E2DC1F /* 竖屏分享人员(2).png in Resources */,
 				EF4A5EBE198B27F600A54EB2 /* 拍照2.png in Resources */,
 				EF4A5EC0198B27F600A54EB2 /* 拍照4.png in Resources */,
-				EF4A5ECD198B27F600A54EB2 /* 横版导航栏背景.png in Resources */,
 				EF4A5EE1198B27F600A54EB2 /* 输入框.png in Resources */,
 				71CAFEB9198B995700E2DC1F /* SettingsViewController.xib in Resources */,
 				EF4A5EDF198B27F600A54EB2 /* 设置.png in Resources */,
@@ -2168,7 +2162,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-                SDKROOT = iphoneos7.1;
+				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
+				SDKROOT = iphoneos7.1;
 				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
@@ -2195,6 +2190,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
 				SDKROOT = iphoneos7.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = armv7;
@@ -2235,6 +2231,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
@@ -2275,6 +2272,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2AD3E3DA-D766-413D-A85B-0153CD515F67";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = "armv7 arm64";
 				WRAPPER_EXTENSION = app;
