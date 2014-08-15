@@ -12,7 +12,7 @@
 #import "DeviceConnectManager.h"
 #import "UIViewController+Alert.h"
 #import <AdSupport/ASIdentifierManager.h>
-
+#import "newVersion.h"
 #import "P2P_API_Define.h"
 #import "Reachability.h"
 //#import "UncaughtExceptionHandler.h"
@@ -111,7 +111,10 @@
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
     
     
- 
+
+    NewVersion = [[newVersion alloc] init];
+    [NewVersion begin:@"http://itunes.apple.com/lookup?id=689223855" boolBegin:NO];
+    
     
 
     return YES;

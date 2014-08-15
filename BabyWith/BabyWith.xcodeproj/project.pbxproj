@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18642EAB199B5BB3002F1C18 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 18642EAA199B5BB3002F1C18 /* image.png */; };
 		18642EAD199B5C70002F1C18 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18642EAC199B5C70002F1C18 /* image2.png */; };
+		18C71F4D199DA9C80050D42B /* newVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C71F4C199DA9C80050D42B /* newVersion.m */; };
 		1DCB5BC2198F1E8B001D177E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCB5BC1198F1E8B001D177E /* AddressBook.framework */; };
 		1DCB5BC4198F1E90001D177E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCB5BC3198F1E90001D177E /* AddressBookUI.framework */; };
 		1DCB5BC6198F1ECB001D177E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCB5BC5198F1ECB001D177E /* ImageIO.framework */; };
@@ -330,6 +331,8 @@
 /* Begin PBXFileReference section */
 		18642EAA199B5BB3002F1C18 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		18642EAC199B5C70002F1C18 /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
+		18C71F4B199DA9C80050D42B /* newVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newVersion.h; sourceTree = "<group>"; };
+		18C71F4C199DA9C80050D42B /* newVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newVersion.m; sourceTree = "<group>"; };
 		1DCB5BC1198F1E8B001D177E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1DCB5BC3198F1E90001D177E /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		1DCB5BC5198F1ECB001D177E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -1471,6 +1474,8 @@
 				EFF53F8E1779CB5F00C4AEB4 /* WebInfo */,
 				EFF53E5C1779B64F00C4AEB4 /* MainAppDelegate.h */,
 				EFF53E5D1779B64F00C4AEB4 /* MainAppDelegate.m */,
+				18C71F4B199DA9C80050D42B /* newVersion.h */,
+				18C71F4C199DA9C80050D42B /* newVersion.m */,
 				EFF53F8D1779CA3000C4AEB4 /* Configuration.h */,
 				EF423A3918D3E50100925BBE /* ULog.h */,
 				EF1D3C6D18D2C6AF0079C358 /* AppGlobal.h */,
@@ -2077,6 +2082,7 @@
 				71FC430D198A1DFD00FEF070 /* VedioQualityTableViewCell.m in Sources */,
 				EFF7BA011788862B0035FB82 /* CameraListMgt.mm in Sources */,
 				71AAF66218ED22E100C3B0D8 /* PhotoScanViewController.m in Sources */,
+				18C71F4D199DA9C80050D42B /* newVersion.m in Sources */,
 				EFF7BA021788862B0035FB82 /* CgiPacket.cpp in Sources */,
 				71A90A201908DD9D00A0427C /* CommonProblemsGuideViewController.m in Sources */,
 				EF1D3C5618D2B2D90079C358 /* RecordsViewController.m in Sources */,
@@ -2182,6 +2188,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "07CC622C-1AE2-45E6-9C54-71045F10E728";
 				SDKROOT = iphoneos7.1;
 			};
 			name = Debug;
@@ -2208,6 +2215,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "07CC622C-1AE2-45E6-9C54-71045F10E728";
 				SDKROOT = iphoneos7.1;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv7s";
@@ -2248,7 +2256,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-
+				PROVISIONING_PROFILE = "07CC622C-1AE2-45E6-9C54-71045F10E728";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = armv7;
@@ -2290,8 +2298,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-                
-                SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				PROVISIONING_PROFILE = "07CC622C-1AE2-45E6-9C54-71045F10E728";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/BabyWith/ffmpeg\" \"$(SRCROOT)/BabyWith/ffmpeg/i386\" \"$(SRCROOT)/BabyWith/Classes\"";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;

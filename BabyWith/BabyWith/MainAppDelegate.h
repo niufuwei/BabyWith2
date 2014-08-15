@@ -23,7 +23,7 @@
 @class SQLiteManager;
 @class DeviceConnectManager;
 @class LoginViewController;
-
+@class newVersion;
 
 @interface MainAppDelegate : UIResponder <UIApplicationDelegate,MBProgressHUDDelegate,PPPPSensorAlarmProtocol,AlarmProtocol>{
     
@@ -49,7 +49,7 @@
     NetworkStatus _networkStatus;
     int _navFlag;
     
-    
+    newVersion * NewVersion;
     
     NSMutableArray *_selectDeviceArr;
     NSMutableArray *_systemMessageArray;
