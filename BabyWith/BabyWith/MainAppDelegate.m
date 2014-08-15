@@ -61,8 +61,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     self.window.backgroundColor  = babywith_background_color;
     
-//    //状态栏 白色
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     //添加本地计时器用来几时验证码
 
     [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"sendCheckMessage"];
@@ -72,16 +71,6 @@
     _systemDic = [[NSMutableDictionary alloc] init];
     _pushDic = [[NSMutableDictionary alloc] init];
 
-    
-//    if (IOS7){
-//        [application setStatusBarStyle:UIStatusBarStyleLightContent];
-//        self.window.clipsToBounds =YES;
-//        self.window.frame =  CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height-20);                //added on 19th Sep
-//        self.window.bounds = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height);
-//    }else{
-//        //设置状态条风格为黑色
-//        [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
-//}
 
     
     //防锁屏

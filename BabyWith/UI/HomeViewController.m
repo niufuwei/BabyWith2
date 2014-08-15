@@ -815,7 +815,7 @@
     _willDeleteDevice =[NSMutableDictionary dictionaryWithDictionary:[[appDelegate.deviceConnectManager getDeviceInfoList] objectAtIndex:indexPath.row]];
 
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要解绑该设备吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"删除", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要解绑该设备吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     alert.tag = 2046;
     [alert show];
     
@@ -828,7 +828,7 @@
     if (alertView.tag == 2046)
     {
        
-    if (buttonIndex == 0)
+    if (buttonIndex == 1)
     {
         
         [activity start];
