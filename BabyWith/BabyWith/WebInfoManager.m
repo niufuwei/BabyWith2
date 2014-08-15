@@ -602,14 +602,20 @@
         NSString *bindTime = [formatter stringFromDate:date];
         NSLog(@".....%@",bindTime);
         
-        if ([[newDeviceInfo objectAtIndex:0] objectForKey:@"device_id"])
+        if ([newDeviceInfo count] > 0)
         {
-            [appDelegate.appDefault setObject:bindTime forKey:[NSString stringWithFormat:@"%@_time",[[newDeviceInfo objectAtIndex:0] objectForKey:@"device_id"]]];
+            if ([[newDeviceInfo objectAtIndex:0] objectForKey:@"device_id"])
+            {
+                [appDelegate.appDefault setObject:bindTime forKey:[NSString stringWithFormat:@"%@_time",[[newDeviceInfo objectAtIndex:0] objectForKey:@"device_id"]]];
+            }
+            
+            NSLog(@"新分享设备是%@",newDeviceInfo);
+            [appDelegate.deviceConnectManager putDeviceInfo:[response objectForKey:@"value"]];
+
         }
         
-        NSLog(@"新分享设备是%@",newDeviceInfo);
+       
         
-        [appDelegate.deviceConnectManager putDeviceInfo:[response objectForKey:@"value"]];
         return YES;
     }
     else

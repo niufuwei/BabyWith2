@@ -1245,7 +1245,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             {
                 
                 //[self makeAlert:@"检测到非WIFI网络，如有需要，请手动开启视频"];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"检测到非WIFI网络，确认开启视频吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认开启", nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"检测到非WIFI网络，确认开启视频吗" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认开启", nil];
                 alert.tag = 100;
                 [alert show];
                 _wifiFlag = 1;
@@ -1381,12 +1381,12 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     _stopConnectFlag = 0;
     _errorMsg = @"看护器连接错误";
     NSLog(@"password 3 is %d",_passwordFlag);
-    aIndicator = [[MBProgressHUD alloc] initWithView:self.view];
-    aIndicator.labelText = @"视频连接中";
-    aIndicator.dimBackground = YES;
+   MBProgressHUD * indicator = [[MBProgressHUD alloc] initWithView:self.view];
+    indicator.labelText = @"视频连接中";
+    indicator.dimBackground = YES;
 //    [self addTapGest:indicator];//点击终止视频
-    [self.view addSubview:aIndicator];
-    [aIndicator showAnimated:YES whileExecutingBlock:^{
+    [self.view addSubview:indicator];
+    [indicator showAnimated:YES whileExecutingBlock:^{
         
         [self performSelector:@selector(startPPPP:) withObject:_currentDeviceDic];
         
@@ -1987,6 +1987,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 }
 - (void)viewWillAppear:(BOOL)animated
 {
+    
     [self titleSet:[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"name"]];
     _isViode = FALSE;
     
@@ -2016,6 +2017,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 //            
 //        }
 //    }
+    
     NSLog(@"视图出现");
     
     
@@ -2370,6 +2372,10 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         {
             [self ShowCameraPlaying];
         }
+        else
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         
     }
     if (alertView.tag==10010) {
@@ -2562,12 +2568,29 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     }
     
     
-    if (alertView.tag == 55555) {
+    if (alertView.tag == 55555)
+    {
+        
         if (buttonIndex == 0)
         {
-            [self.navigationController popViewControllerAnimated:YES];
+            if ([[appDelegate.appDefault objectForKey:@"login_expired"] isEqualToString:@"1"])
+                
+            {
+                
+                [appDelegate.appDefault setObject:@"" forKey:@"Username"];
+                [appDelegate.appDefault setObject:@"" forKey:@"Password"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToLogin" object:nil];
+                
+                
+            }
+            else
+            {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
         }
     }
+    
+    
     
 }
 #pragma mark -

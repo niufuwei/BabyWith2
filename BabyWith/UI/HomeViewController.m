@@ -18,6 +18,7 @@
 #import "Activity.h"
 #import "HomeCell.h"
 #import "AddDeviceViewController.h"
+#import "LoginViewController.h"
 @interface HomeViewController ()
 {
 
@@ -814,7 +815,7 @@
     _willDeleteDevice =[NSMutableDictionary dictionaryWithDictionary:[[appDelegate.deviceConnectManager getDeviceInfoList] objectAtIndex:indexPath.row]];
 
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要解绑该设备吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要解绑该设备吗？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"删除", nil];
     alert.tag = 2046;
     [alert show];
     
@@ -827,7 +828,7 @@
     if (alertView.tag == 2046)
     {
        
-    if (buttonIndex == 1)
+    if (buttonIndex == 0)
     {
         
         [activity start];
@@ -886,7 +887,7 @@
             
             if ([[appDelegate.appDefault objectForKey:@"Error_message"] isEqualToString:@"该设备已被分享者解绑"])
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[appDelegate.appDefault objectForKey:@"提示"] message:[appDelegate.appDefault objectForKey:@"Error_message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[appDelegate.appDefault objectForKey:@"提示"] message:[NSString stringWithFormat:@"%@,是否删除该设备？",[appDelegate.appDefault objectForKey:@"Error_message"]] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
                 alert.tag = 2049;
                 [alert show];
             }
@@ -909,7 +910,12 @@
         {
             [appDelegate.appDefault setObject:@"" forKey:@"Username"];
             [appDelegate.appDefault setObject:@"" forKey:@"Password"];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToLogin" object:nil];
+            
+            LoginViewController *loginVC = [[LoginViewController alloc] init];
+            [appDelegate hideTabbar];
+            [self.navigationController pushViewController:loginVC animated:YES];
+            
+            //[[NSNotificationCenter defaultCenter] postNotificationName:@"MoveToLogin" object:nil];
         }
         else
         {
@@ -944,6 +950,12 @@
             }
             
             
+        }
+        else
+        {
+        
+            [_homeTableView1 reloadData];
+        
         }
     
     
