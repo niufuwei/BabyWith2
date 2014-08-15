@@ -17,7 +17,7 @@
 }
 
 -(void)connectUID {
-    NSLog(@"开启设备管理");
+//    NSLog(@"开启设备管理");
     IsConnect = 1;
     [NSThread detachNewThreadSelector:@selector(connectUIDTask) toTarget:self withObject:nil];
 }
@@ -40,17 +40,17 @@
 {
     [DeviceCondition lock];
     
-    NSLog(@"DeviceInfo list is %@",DeviceInfoList);
-    NSLog(@"deviceList id %@,,,,,,,",DeviceList);
+//    NSLog(@"DeviceInfo list is %@",DeviceInfoList);
+//    NSLog(@"deviceList id %@,,,,,,,",DeviceList);
 
     
     for (NSMutableDictionary *dict in DeviceInfoList)
     {
         
         
-        NSLog(@"deviceList id %@,,,,,,,",DeviceList);
-        
-        NSLog(@"dict is %@",dict);
+//        NSLog(@"deviceList id %@,,,,,,,",DeviceList);
+//        
+//        NSLog(@"dict is %@",dict);
 
         
         //寻找相同的设备
@@ -59,7 +59,7 @@
         {
             
             
-            NSLog(@"dict is %@,saveDict is %@",dict,saveDict);
+//            NSLog(@"dict is %@,saveDict is %@",dict,saveDict);
             
             
             

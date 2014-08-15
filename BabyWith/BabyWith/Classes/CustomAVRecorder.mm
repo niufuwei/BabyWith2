@@ -87,7 +87,7 @@ int CCustomAVRecorder::StartRecord(char *path, int videoformat, char *szosd)
     if (m_pfile == NULL) {
         m_pfile = fopen(path, "wb");
         if (m_pfile == NULL) {
-            NSLog(@"if (m_pfile == NULL)....");
+//            NSLog(@"if (m_pfile == NULL)....");
             return 0;
         }
         
@@ -102,7 +102,7 @@ int CCustomAVRecorder::StartRecord(char *path, int videoformat, char *szosd)
        
         if(sizeof(filehead) != fwrite((char*)&filehead, 1, sizeof(filehead), m_pfile))
         {
-            NSLog(@"write filehead error");
+//            NSLog(@"write filehead error");
             fclose(m_pfile);
             m_pfile = NULL;
             return 0;

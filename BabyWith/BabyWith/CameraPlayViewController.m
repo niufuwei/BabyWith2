@@ -92,7 +92,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 
     _isFirst=TRUE;
     
-    NSLog(@"camera play view did load!");
+//    NSLog(@"camera play view did load!");
     [self titleSet:[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"name"]];
 
     //默认是非截屏状态
@@ -102,7 +102,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     
     for (id obj in [appDelegate.deviceConnectManager getDeviceInfoList])
     {
-        NSLog(@"本设备信息是%@",obj);
+//        NSLog(@"本设备信息是%@",obj);
         NSDictionary *dic = (NSDictionary *)obj;
         
         if ([[dic objectForKey:@"name"] isEqualToString:[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"name"]])
@@ -325,7 +325,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     
     
     _currentDeviceDic  = [appDelegate.appDefault objectForKey:@"Device_selected"];
-    NSLog(@"current dic is %@",_currentDeviceDic);
+//    NSLog(@"current dic is %@",_currentDeviceDic);
     
     
 
@@ -421,10 +421,10 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 }
 
 -(void)stopCameraConnect:(UITapGestureRecognizer *)taprecognizer{
-    NSLog(@"stop connect flag =======");
+//    NSLog(@"stop connect flag =======");
     if (_finishFlag != 0) {
         _stopConnectFlag = 1;//没有完成的时候就不停止连接
-        NSLog(@"stop connect flag = [%d] [%d]", _finishFlag, _stopConnectFlag);
+//        NSLog(@"stop connect flag = [%d] [%d]", _finishFlag, _stopConnectFlag);
     }
 }
 
@@ -432,7 +432,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 -(void) viewAddGest:(UICollectionViewCell *)view{
     //单击事件
     
-    NSLog(@"手势识别");
+//    NSLog(@"手势识别");
     UITapGestureRecognizer *taprecognizer;
     taprecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchBlankView:)];
     taprecognizer.numberOfTapsRequired = 1;
@@ -451,7 +451,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 {
     [self ActionForStopVideo:0 RemindFlag:1];
  
-    NSLog(@"currentpage is%d",_currentPage);
+//    NSLog(@"currentpage is%d",_currentPage);
     _cameraPhotoRecordViewController = [[CameraPhotoRecordViewController alloc] initWithArray:_imageArray Type:0 CurrentPage:_currentPage Delegate:nil];
     
     //[_snapImageView removeFromSuperview];
@@ -483,8 +483,8 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     NSDate *date = [NSDate date];
     NSTimeInterval time = [date timeIntervalSince1970];
     NSData *imageData = UIImageJPEGRepresentation(screenshotsImage ,0.3);
-    NSLog(@"data length =[%lu]", (unsigned long)[imageData
-                                                 length]);
+//    NSLog(@"data length =[%lu]", (unsigned long)[imageData
+//                                                 length]);
     
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -545,7 +545,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             if([appDelegate.sqliteManager insertRecordInfo:insertDic])
             {
                 
-                NSLog(@"%@",@"插入到数据库");
+//                NSLog(@"%@",@"插入到数据库");
                 [_imageArray addObject:insertDic];
                 
                 _photoCount += 1;
@@ -601,7 +601,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             }
             
             hasSavedVideoImage = TRUE;
-            NSLog(@"开始录制");
+//            NSLog(@"开始录制");
         }
         else
         {
@@ -679,7 +679,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     else if(button.tag == 13)
     {//开启对讲
         _isViode=TRUE;
-        NSLog(@"start Talk ============");
+//        NSLog(@"start Talk ============");
         button.hidden = YES;
         if (!_isFullScreen)
         {
@@ -896,7 +896,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             }
             else
             {
-                NSLog(@"SAVE IMAGE ERROR=[%@][%d]", [error localizedDescription],error.code);
+//                NSLog(@"SAVE IMAGE ERROR=[%@][%d]", [error localizedDescription],error.code);
                 [self makeAlert:@"保存照片出错"];
             }
         }
@@ -921,7 +921,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     //[self performSelector:@selector(refreshImage:) withObject:image];
     
     
-    NSLog(@"图片切换");
+//    NSLog(@"图片切换");
 }
 - (void) YUVNotify: (Byte*) yuv length:(int)length width: (int) width height:(int)height timestamp:(unsigned int)timestamp DID:(NSString *)did
 {
@@ -938,8 +938,8 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 
     }
 
-    NSLog(@"lenght is %d,width is %d,height is %d",length,width,height);
-//    
+//    NSLog(@"lenght is %d,width is %d,height is %d",length,width,height);
+//
         _isFirst = !_isFirst;
 
     //screenshots ==0 非截屏，   ＝＝1 截屏
@@ -952,7 +952,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 
     if (_isRecord ==1 )//开始录制
     {
-        NSLog(@"0000000000000%f",[self freeDiskSpace]/1024.0/1024.0/1024.0);
+//        NSLog(@"0000000000000%f",[self freeDiskSpace]/1024.0/1024.0/1024.0);
         
     
         if ([self freeDiskSpace]/1024.0/1024.0 < 300.00)
@@ -988,7 +988,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             //得到开始录制的时候的第一张图片
             UIImage* image = [APICommon YUV420ToImage:yuv width:width height:height];
             _recordImage = image;
-            NSLog(@"record image is %@",_recordImage);
+//            NSLog(@"record image is %@",_recordImage);
             NSDate *date = [NSDate date];
             NSTimeInterval time = [date timeIntervalSince1970];
 
@@ -1030,20 +1030,20 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             
             if (_recordImage)
             {
-                NSLog(@"有图片");
+//                NSLog(@"有图片");
             }
             else
             {
             
             
-                NSLog(@"没有图片");
+//                NSLog(@"没有图片");
             
             }
                 
                 if (hasSavedVideoImage)
                 {
                     
-                    NSLog(@"record image %@",_recordImage);
+//                    NSLog(@"record image %@",_recordImage);
                     _lenghtForEveryFrame = length;
                     [self savePicAndVideo];
                 }
@@ -1073,8 +1073,8 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                 
                 [fileHandle closeFile];
         
-                NSLog(@"我在保存数据");
-                
+//                NSLog(@"我在保存数据");
+            
                
             }
         }
@@ -1106,14 +1106,14 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     NSDate *date = [NSDate date];
     NSTimeInterval time = [date timeIntervalSince1970];
     //图片转换成数据
-    NSLog(@"image data is %@",_recordImage);
+//    NSLog(@"image data is %@",_recordImage);
     
     
     
     
     
     NSData *imageData = UIImageJPEGRepresentation(_recordImage ,0.3);
-    NSLog(@"data length =[%lu]", (unsigned long)[imageData length]);
+//    NSLog(@"data length =[%lu]", (unsigned long)[imageData length]);
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *tmpDir =  NSTemporaryDirectory();
@@ -1167,7 +1167,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                 
                 
                 _photoCount += 1;
-                NSLog(@"这里走了没有呢");
+//                NSLog(@"这里走了没有呢");
                 hasSavedVideoImage = FALSE;
                 
                 
@@ -1215,7 +1215,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         appDelegate.m_PPPPChannelMgt->pCameraViewController = self;
         
         appDelegate.m_PPPPChannelMgt->ChangeStatusDelegate([[[appDelegate.appDefault objectForKey:@"Device_selected"]  objectForKey:@"device_id"]  UTF8String], self);
-        NSLog(@"device id is %s",[[[appDelegate.appDefault objectForKey:@"Device_selected"]  objectForKey:@"device_id"]  UTF8String]);
+//        NSLog(@"device id is %s",[[[appDelegate.appDefault objectForKey:@"Device_selected"]  objectForKey:@"device_id"]  UTF8String]);
         [self CameraSwitchPressed];
     }
     else
@@ -1271,14 +1271,14 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 }
 
 -(void)ShowCameraPlaying{
-    NSLog(@"ShowCameraPlaying");
+//    NSLog(@"ShowCameraPlaying");
     
     self.navigationItem.leftBarButtonItem.enabled = NO;
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
     [appDelegate.appDefault setInteger:0 forKey:@"Last_page_flag"];
 
-        NSLog(@"ShowCameraPlaying else");
+//        NSLog(@"ShowCameraPlaying else");
     
         //选择的那个设备
         _currentDeviceDic=[appDelegate.appDefault objectForKey:@"Device_selected"];
@@ -1287,7 +1287,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     
         if (result <= 0)
         { //不在线 或未连接，
-            NSLog(@"device is not connected or is not online============");
+//            NSLog(@"device is not connected or is not online============");
             
             [self ConnectCamForUnEqual];
         }
@@ -1297,7 +1297,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             _finishFlag = 1; //代表连接成功
             _passwordFlag = 0;
             _stopConnectFlag = 0;
-            NSLog(@"password 2 is %d",_passwordFlag);
+//            NSLog(@"password 2 is %d",_passwordFlag);
             MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithView:self.view];
             indicator.labelText = @"视频连接中";
             indicator.dimBackground = YES;
@@ -1344,7 +1344,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         else
         {
             
-            NSLog(@"checkFinishFlag == 2");
+//            NSLog(@"checkFinishFlag == 2");
             [appDelegate.appDefault setObject:_cameraID forKey:@"Last_device_id"];
             _cameraID = [_currentDeviceDic objectForKey:@"device_id"];
             _switchFlag = 1;
@@ -1355,7 +1355,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 
 //未连接或者不在线
 - (void)ConnectCamForUnEqual{
-    NSLog(@"ConnectCamForUnEqual");
+//    NSLog(@"ConnectCamForUnEqual");
     
     [_m_PPPPChannelMgtCondition lock];
     if (appDelegate.m_PPPPChannelMgt == NULL)
@@ -1380,7 +1380,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     _passwordFlag = 0;
     _stopConnectFlag = 0;
     _errorMsg = @"看护器连接错误";
-    NSLog(@"password 3 is %d",_passwordFlag);
+//    NSLog(@"password 3 is %d",_passwordFlag);
    MBProgressHUD * indicator = [[MBProgressHUD alloc] initWithView:self.view];
     indicator.labelText = @"视频连接中";
     indicator.dimBackground = YES;
@@ -1390,7 +1390,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         
         [self performSelector:@selector(startPPPP:) withObject:_currentDeviceDic];
         
-        NSLog(@"stop connect Flag 222222222= [%d] [%d]", _finishFlag, _stopConnectFlag);
+//        NSLog(@"stop connect Flag 222222222= [%d] [%d]", _finishFlag, _stopConnectFlag);
         
         while (_finishFlag != 0 && _stopConnectFlag == 0) {
             
@@ -1400,7 +1400,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         }
     } completionBlock:^{
         
-        NSLog(@"完成了视频开启");
+//        NSLog(@"完成了视频开启");
         
         [_m_PPPPChannelMgtCondition unlock];
         
@@ -1425,7 +1425,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                 _finishFlag = 1;
                 _passwordFlag = 0;
                 _stopConnectFlag = 0;
-                NSLog(@"password 4 is %d",_passwordFlag);
+//                NSLog(@"password 4 is %d",_passwordFlag);
                 MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithView:self.view];
                 indicator.labelText = _errorMsg;
                 indicator.dimBackground = YES;
@@ -1532,7 +1532,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             
             break;
         case PPPP_STATUS_INVALID_ID:
-            NSLog(@"PPPP_STATUS_INVALID_ID");
+//            NSLog(@"PPPP_STATUS_INVALID_ID");
             strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusInvalidID", @STR_LOCALIZED_FILE_NAME, nil);
             if (_finishFlag == 1) {
                 _errorFlag = 1; //序列号错误
@@ -1541,11 +1541,11 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             }
             break;
         case PPPP_STATUS_ON_LINE:
-            NSLog(@"PPPP_STATUS_ON_LINE");
+//            NSLog(@"PPPP_STATUS_ON_LINE");
             strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusOnline", @STR_LOCALIZED_FILE_NAME, nil);
             break;
         case PPPP_STATUS_DEVICE_NOT_ON_LINE:
-            NSLog(@"PPPP_STATUS_DEVICE_NOT_ON_LINE");
+//            NSLog(@"PPPP_STATUS_DEVICE_NOT_ON_LINE");
             strPPPPStatus = NSLocalizedStringFromTable(@"CameraIsNotOnline", @STR_LOCALIZED_FILE_NAME, nil);
             if (_finishFlag == 1) {
                 _errorFlag = 2;
@@ -1554,7 +1554,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             }
             break;
         case PPPP_STATUS_CONNECT_TIMEOUT:
-            NSLog(@"time out===============================");
+//            NSLog(@"time out===============================");
             strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusConnectTimeout", @STR_LOCALIZED_FILE_NAME, nil);
             if (_finishFlag == 1) {
                 _errorFlag = 3;
@@ -1563,24 +1563,24 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             }
             break;
         case PPPP_STATUS_INVALID_USER_PWD:
-            NSLog(@"PPPP_STATUS_INVALID_USER_PWD");
+//            NSLog(@"PPPP_STATUS_INVALID_USER_PWD");
             strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusInvaliduserpwd", @STR_LOCALIZED_FILE_NAME, nil);
             
             //校验密码是否为初始密码，如果不是，用初始密码重新连接
             if (![[_currentDeviceDic objectForKey:@"pass"] isEqualToString:DeviceInitPass])
             {
-                NSLog(@"passwordFlag is5 %d",_passwordFlag);
+//                NSLog(@"passwordFlag is5 %d",_passwordFlag);
                 
                 if (_passwordFlag != 1)
                 {
                     _passwordFlag = 1;
                     //校验密码
                    appDelegate.m_PPPPChannelMgt->CheckUser((char *)[_cameraID UTF8String], (char *)[DeviceInitUser UTF8String], (char *)[DeviceInitPass UTF8String]);
-                    NSLog(@"password 6 is %d",_passwordFlag);
+//                    NSLog(@"password 6 is %d",_passwordFlag);
                 }
                 else
                 {
-                    NSLog(@"password 7 is %d",_passwordFlag);
+//                    NSLog(@"password 7 is %d",_passwordFlag);
 
                     _errorFlag = 4;
                     _errorMsg = @"看护器连接错误，请重置看护器";
@@ -1605,7 +1605,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
                 if (_passwordFlag == 1)
                 {
                     
-                    NSLog(@"password 8 is %d",_passwordFlag);
+//                    NSLog(@"password 8 is %d",_passwordFlag);
                     //修改密码
                     appDelegate.m_PPPPChannelMgt->SetUserPwdForOther((char *)[_cameraID UTF8String], (char *)[DeviceInitUser UTF8String], (char *)[DeviceInitPass UTF8String]);
                     
@@ -1710,16 +1710,16 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             }
             break;
         case PPPP_STATUS_CONNECT_SUCCESS:
-            NSLog(@"PPPP_STATUS_CONNECT_SUCCESS, manager = [%@]", self);
+//            NSLog(@"PPPP_STATUS_CONNECT_SUCCESS, manager = [%@]", self);
             strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusConnectSuccess", @STR_LOCALIZED_FILE_NAME, nil);
             break;
         default:
-            NSLog(@"PPPPStatusUnknown");
+//            NSLog(@"PPPPStatusUnknown");
             strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusUnknown", @STR_LOCALIZED_FILE_NAME, nil);
             [self performSelectorOnMainThread:@selector(Finish:) withObject:@"0" waitUntilDone:NO];
             break;
     }
-    NSLog(@"PPPPStatus  %@",strPPPPStatus);
+//    NSLog(@"PPPPStatus  %@",strPPPPStatus);
 }
 #pragma mark -
 #pragma mark PPPPSensorAlarmDelegate
@@ -1730,7 +1730,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         case ALARM_MOTION_INFO:
         {
             //移动侦测 具体实现
-            NSLog(@"移动侦测调用、、、、、、、、、、、、、、、、、、、、、、、");
+//            NSLog(@"移动侦测调用、、、、、、、、、、、、、、、、、、、、、、、");
         }
             break;
     }
@@ -1800,15 +1800,15 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     if (recognizer.numberOfTapsRequired == 1) {
         if (_orientationFlag == 1) {
             
-            NSLog(@"operToolBar");
+//            NSLog(@"operToolBar");
             //触发显示或隐藏工具栏事件
             if (_toolBarHiddenFlag == 0) {
-                NSLog(@"hideToolBar");
+//                NSLog(@"hideToolBar");
                 
                 [self hideToolBar];
             }else{
                 [self showToolBar];
-                NSLog(@"showToolBar");
+//                NSLog(@"showToolBar");
                 
             }
         }
@@ -1850,7 +1850,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         return;
     }
     
-    NSLog(@"hidetoolbar=========1");
+//    NSLog(@"hidetoolbar=========1");
     
     _toolBarHiddenFlag = 1;
     
@@ -1937,7 +1937,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
         NSString *deviceId = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Device_selected"] objectForKey:@"device_id"];
         NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
         NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"Token"];
-        NSLog(@"device id is %@,user is %@",deviceId,user);
+//        NSLog(@"device id is %@,user is %@",deviceId,user);
         NSDictionary * dic =  [appDelegate.webInfoManger UserCheckDeviceIsUsefullUsingDeviceId:deviceId ToUser:user Token:token];
         
         if (dic)
@@ -1998,7 +1998,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
     if ([[appDelegate.appDefault objectForKey:[ _currentDeviceDic objectForKey:@"device_id"]] objectForKey:@"invert"])
     {
         
-        NSLog(@"函数里面");
+//        NSLog(@"函数里面");
         int invert = [[[appDelegate.appDefault objectForKey:[ _currentDeviceDic objectForKey:@"device_id"]] objectForKey:@"invert"] integerValue];
         if (invert == 1)
         {
@@ -2018,7 +2018,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 //        }
 //    }
     
-    NSLog(@"视图出现");
+//    NSLog(@"视图出现");
     
     
 }
@@ -2037,7 +2037,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 -(void)viewDidDisappear:(BOOL)animated{
    
 
-    NSLog(@"viewDidDisappear");
+//    NSLog(@"viewDidDisappear");
     if (_switchFlag == 0) {
         return;
     }
@@ -2179,7 +2179,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 -(void)GoBackground:(NSNotification *)notification
 {
     
-    NSLog(@"GoBackground=====================");
+//    NSLog(@"GoBackground=====================");
     dispatch_async(dispatch_get_main_queue(),^{
         
         if (_hiddenTimer) {
@@ -2454,18 +2454,18 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             NSError*err;
             if(![manager removeItemAtPath:vedioPath error:&err])
             {
-                NSLog(@"%@",err);
+//                NSLog(@"%@",err);
                 UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",err] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
             }
             else
             {
-                NSLog(@"删除视频成功!");
+//                NSLog(@"删除视频成功!");
                 NSError *err1;
                 
                 if (![manager removeItemAtPath:imagePath1 error:&err1])
                 {
-                    NSLog(@"%@",err1);
+//                    NSLog(@"%@",err1);
                     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",err1] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
                     
@@ -2532,18 +2532,18 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
             NSError*err;
             if(![manager removeItemAtPath:vedioPath error:&err])
             {
-                NSLog(@"%@",err);
+//                NSLog(@"%@",err);
                 UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",err] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
             }
             else
             {
-                NSLog(@"删除视频成功!");
+//                NSLog(@"删除视频成功!");
                 NSError *err1;
                 
                 if (![manager removeItemAtPath:imagePath1 error:&err1])
                 {
-                    NSLog(@"%@",err1);
+//                    NSLog(@"%@",err1);
                     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",err1] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
                     
@@ -2599,7 +2599,7 @@ AVAudioPlayer *photoSound;           //播放拍照时候的声音
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.collectionImageArray.count;
-    NSLog(@"数量是%d",self.collectionImageArray.count);
+//    NSLog(@"数量是%d",self.collectionImageArray.count);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {

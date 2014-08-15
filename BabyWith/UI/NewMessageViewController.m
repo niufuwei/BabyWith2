@@ -102,7 +102,7 @@
     Activity *activity = [[Activity alloc] initWithActivity:self.view];
     [activity start];
     messageListDic =  [appDelegate.webInfoManger UserGetMessageUsingToken:[[NSUserDefaults standardUserDefaults] objectForKey:@"Token"]];
-    NSLog(@"dic is %@",messageListDic);
+//    NSLog(@"dic is %@",messageListDic);
     if (!messageListDic)
     {
         [activity stop];
@@ -113,7 +113,7 @@
     else
     {
         messageArray1 =[NSMutableArray arrayWithArray:[messageListDic  objectForKey:@"info"]];
-        NSLog(@"message array is %@",messageArray1);
+//        NSLog(@"message array is %@",messageArray1);
         [appDelegate.appDefault setObject:messageArray1 forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
         [activity stop];
     }
@@ -227,11 +227,11 @@
 -(void)agreeShare:(UIButton *)btn
 {
     
-    NSLog(@"btn tag is %d",btn.tag);
+//    NSLog(@"btn tag is %d",btn.tag);
     Activity *activity = [[Activity alloc] initWithActivity:self.view];
 
     [activity start];
-    NSLog(@"同意分享1");
+//    NSLog(@"同意分享1");
 //    NewMessageCell *cell = (NewMessageCell *)[btn superview];
 //    NSIndexPath *indexPath = [self.messageTableView indexPathForCell:cell];
 //    
@@ -240,17 +240,17 @@
     NSString *IDMer = [[messageArray1 objectAtIndex:btn.tag - 100] objectForKey:@"id"];
     
     
-    NSLog(@"iiiiiiiiiiiiii%@",IDMer);
+//    NSLog(@"iiiiiiiiiiiiii%@",IDMer);
     if ([appDelegate.webInfoManger UserAgreeAddDeviceUsingIDMer:IDMer Toekn:[appDelegate.appDefault objectForKey:@"Token"]] == YES)
     {
-        NSLog(@"分享成功");
+//        NSLog(@"分享成功");
         
         [activity stop];
-        NSLog(@"messageArray is %@",appDelegate.messageArray);
+//        NSLog(@"messageArray is %@",appDelegate.messageArray);
         
         [appDelegate.messageArray addObjectsFromArray: [appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]];
         [appDelegate.messageArray removeObjectAtIndex:btn.tag - 100];
-        NSLog(@"message array is %@",messageArray1);
+//        NSLog(@"message array is %@",messageArray1);
         [messageArray1 removeObjectAtIndex:btn.tag - 100];
         [appDelegate.appDefault setObject:appDelegate.messageArray forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
         [appDelegate.messageArray removeAllObjects];
@@ -275,23 +275,23 @@
 {
     
     
-    NSLog(@"refuse btn tag is %d",btn.tag);
+//    NSLog(@"refuse btn tag is %d",btn.tag);
 
     Activity *activity = [[Activity alloc] initWithActivity:self.view];
 
     [activity start];
 
-    NSLog(@"拒绝别人的分享");
+//    NSLog(@"拒绝别人的分享");
    //根据message id 去同意分享
     NSString *IDMer = [[messageArray1 objectAtIndex:btn.tag - 1000] objectForKey:@"id"];
-     NSLog(@"jjjjjjjjjjjjjjjj%@",IDMer);
+//     NSLog(@"jjjjjjjjjjjjjjjj%@",IDMer);
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"Token"];
     if ([appDelegate.webInfoManger UserRefuseDeviceUsingDeviceId:@"" MessageId:IDMer SharePersonNumber:@"" ToUser:[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"] Token:token] == YES)
     {
          [activity stop];
         [appDelegate.messageArray addObjectsFromArray: [appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]];
         [appDelegate.messageArray removeObjectAtIndex:btn.tag - 1000];
-        NSLog(@"message array 1 is %@,index is %d",messageArray1,btn.tag - 1000);
+//        NSLog(@"message array 1 is %@,index is %d",messageArray1,btn.tag - 1000);
         [messageArray1 removeObjectAtIndex:btn.tag - 1000];
         [appDelegate.appDefault setObject:appDelegate.messageArray forKey:[NSString stringWithFormat:@"%@$",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
         [appDelegate.messageArray removeAllObjects];

@@ -96,7 +96,7 @@
 }
 - (void)dissolveDevice:(UIButton *)button
 {
-    NSLog(@"%@", [_deviceDictionary objectForKey:@"device_id"]);
+//    NSLog(@"%@", [_deviceDictionary objectForKey:@"device_id"]);
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定解绑本看护器" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     alertView.tag = 2046;
     [alertView show];
@@ -111,7 +111,7 @@
 -(void)CameraIsValid{
     
     
-    NSLog(@"函数调用.......");
+//    NSLog(@"函数调用.......");
     [_deviceDictionary addEntriesFromDictionary:[appDelegate.appDefault objectForKey:@"Device_selected"]];
     ((UILabel *)self.navigationItem.titleView).text = [_deviceDictionary objectForKey:@"name"];
     
@@ -143,7 +143,7 @@
 
 - (void) WifiParams: (NSString*)strDID enable:(NSInteger)enable ssid:(NSString*)strSSID channel:(NSInteger)channel mode:(NSInteger)mode authtype:(NSInteger)authtype encryp:(NSInteger)encryp keyformat:(NSInteger)keyformat defkey:(NSInteger)defkey strKey1:(NSString*)strKey1 strKey2:(NSString*)strKey2 strKey3:(NSString*)strKey3 strKey4:(NSString*)strKey4 key1_bits:(NSInteger)key1_bits key2_bits:(NSInteger)key2_bits key3_bits:(NSInteger)key3_bits key4_bits:(NSInteger)key4_bits wpa_psk:(NSString*)wpa_psk
 {
-    NSLog(@"wifi params  ssid = [%@] enable = [%d] strDID = [%@] channel = [%d] mode = [%d] aythType = [%d] encrype = [%d] ketFormat = [%d] defKey = [%d] strKey1 = [%@] strKey2 = [%@] strKey3 = [%@] strKey4 = [%@] key1_bits = [%d] key2_bits = [%d] key3_bits = [%d] key4_bits = [%d] wpa_psk = [%@]", strSSID,enable,strDID,channel,mode,authtype,encryp,keyformat,defkey,strKey1,strKey2,strKey3,strKey4,key1_bits,key2_bits,key3_bits,key4_bits,wpa_psk);
+//    NSLog(@"wifi params  ssid = [%@] enable = [%d] strDID = [%@] channel = [%d] mode = [%d] aythType = [%d] encrype = [%d] ketFormat = [%d] defKey = [%d] strKey1 = [%@] strKey2 = [%@] strKey3 = [%@] strKey4 = [%@] key1_bits = [%d] key2_bits = [%d] key3_bits = [%d] key4_bits = [%d] wpa_psk = [%@]", strSSID,enable,strDID,channel,mode,authtype,encryp,keyformat,defkey,strKey1,strKey2,strKey3,strKey4,key1_bits,key2_bits,key3_bits,key4_bits,wpa_psk);
     if ([strSSID stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length == 0)
     {
         _ssidStr = @"无";
@@ -168,13 +168,13 @@
 
 -(void)ChangeQuality:(int)quality{
     
-    NSLog(@"ChangeQuality qulity = [%d] ", quality);
+//    NSLog(@"ChangeQuality qulity = [%d] ", quality);
     
     //添加默认参数 视频质量，移动侦测开关
     NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:[appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]]];
     [param setObject:[NSString stringWithFormat:@"%d", quality] forKey:@"quality"];
     [appDelegate.appDefault setObject:param forKey:[_deviceDictionary objectForKey:@"device_id"]];
-    NSLog(@"quality dic = [%@]", [appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]]);
+//    NSLog(@"quality dic = [%@]", [appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]]);
     
     [appDelegate.appDefault setObject:[NSString stringWithFormat:@"%d", quality] forKey:[NSString stringWithFormat:@"%@_quality",[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"device_id"]]];
     
@@ -242,7 +242,7 @@
             [self performSelectorOnMainThread:@selector(Finish:) withObject:@"0" waitUntilDone:NO];
             break;
     }
-    NSLog(@"PPPPStatus  %@",strPPPPStatus);
+//    NSLog(@"PPPPStatus  %@",strPPPPStatus);
 }
 
 -(void)ConnectTimeout{
@@ -265,12 +265,12 @@
 
 -(void)InvalidUserPwd{
     
-    NSLog(@"InvalidUserPwd 9 =[%@] [%d]", [_deviceDictionary objectForKey:@"pass"] ,_passwordFlag);
+//    NSLog(@"InvalidUserPwd 9 =[%@] [%d]", [_deviceDictionary objectForKey:@"pass"] ,_passwordFlag);
     
     //校验密码是否未初始密码，如果不是，用初始密码重新连接
     if (![[_deviceDictionary objectForKey:@"pass"] isEqualToString:DeviceInitPass])
     {
-        NSLog(@"password 10 is %d",_passwordFlag);
+//        NSLog(@"password 10 is %d",_passwordFlag);
         if (_passwordFlag != 1)
         {
             _passwordFlag = 1;
@@ -279,14 +279,14 @@
         }
         else{
             if ([self.view window] != nil) {
-                NSLog(@"invalid chongzhi.........");
+//                NSLog(@"invalid chongzhi.........");
                 [self makeAlert:@"看护器连接错误，请重置看护器"];
-                NSLog(@"password 11 is %d",_passwordFlag);
+//                NSLog(@"password 11 is %d",_passwordFlag);
             }
         }
     }else{
         if ([self.view window] != nil) {
-            NSLog(@"invalid chongzhi2222.........");
+//            NSLog(@"invalid chongzhi2222.........");
             [self makeAlert:@"看护器连接错误，请重置看护器"];
         }
     }
@@ -295,7 +295,7 @@
 -(void)ValidUserPwd{
     //校验密码是否未初始密码，如果是，修改密码 -- 可放置在对象中完成
     if (![[_deviceDictionary objectForKey:@"pass"] isEqualToString:DeviceInitPass])
-    {    NSLog(@"password 12 is %d",_passwordFlag);
+    {   // NSLog(@"password 12 is %d",_passwordFlag);
         if (_passwordFlag == 1)
         {
             //修改密码
@@ -310,7 +310,7 @@
         }
         else
         {
-            NSLog(@"password 13 is %d",_passwordFlag);
+//            NSLog(@"password 13 is %d",_passwordFlag);
             appDelegate.m_PPPPChannelMgt->SetOnlineFlag((char *)[[_deviceDictionary objectForKey:@"device_id"] UTF8String], 2);
             
             if ([appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]] == nil)
@@ -379,7 +379,7 @@
         case ALARM_MOTION_INFO:
         {
             //移动侦测 具体实现
-            NSLog(@"移动侦测调用、、、、、、、、、、、、、、、、、、、、、、、");
+//            NSLog(@"移动侦测调用、、、、、、、、、、、、、、、、、、、、、、、");
         }
             break;
             
@@ -429,7 +429,7 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             
             int quality = [[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_quality",[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"device_id"]]] integerValue];
-            NSLog(@"视频质量是%d",quality);
+//            NSLog(@"视频质量是%d",quality);
             if (quality == 512) {
                 cell.detailTextLabel.text = @"高清";
             }else if(quality == 256){
@@ -575,7 +575,7 @@
             NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:[appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]]];
             [param setObject:[NSString stringWithFormat:@"%d", 2-cell.tag] forKey:@"sense"];
             [appDelegate.appDefault setObject:param forKey:[_deviceDictionary objectForKey:@"device_id"]];
-            NSLog(@"sense is = [%@]", [[appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]] objectForKey:@"sense"]);
+//            NSLog(@"sense is = [%@]", [[appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]] objectForKey:@"sense"]);
             
             if ([self CheckOnline] == 2)
             {
@@ -629,7 +629,7 @@
             NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:[appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]]];
             [param setObject:[NSString stringWithFormat:@"%d", 2-cell.tag] forKey:@"inputSense"];
             [appDelegate.appDefault setObject:param forKey:[_deviceDictionary objectForKey:@"device_id"]];
-            NSLog(@"inputSense is = [%@]", [[appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]] objectForKey:@"inputSense"]);
+//            NSLog(@"inputSense is = [%@]", [[appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]] objectForKey:@"inputSense"]);
             
             if ([self CheckOnline] == 2)
             {
@@ -684,7 +684,7 @@
             NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:[appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]]];
             [param setObject:[NSString stringWithFormat:@"%d", 2-cell.tag] forKey:@"invert"];
             [appDelegate.appDefault setObject:param forKey:[_deviceDictionary objectForKey:@"device_id"]];
-            NSLog(@"invert dic = [%@]", [appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]]);
+//            NSLog(@"invert dic = [%@]", [appDelegate.appDefault objectForKey:[_deviceDictionary objectForKey:@"device_id"]]);
             
 
             MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithView: self.view];
@@ -757,7 +757,7 @@
         else
         {
             
-            NSLog(@"没有被踢");
+//            NSLog(@"没有被踢");
             
         }
         
@@ -773,7 +773,7 @@
     
     
     
-    NSLog(@"selectdevice is %@",[appDelegate.appDefault objectForKey:@"Device_selected"]);
+//    NSLog(@"selectdevice is %@",[appDelegate.appDefault objectForKey:@"Device_selected"]);
     [appDelegate.appDefault removeObjectForKey:[[appDelegate.appDefault objectForKey:[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"device_id"]] objectForKey:@"sense"]];
      [appDelegate.appDefault removeObjectForKey:[[appDelegate.appDefault objectForKey:[[appDelegate.appDefault objectForKey:@"Device_selected"] objectForKey:@"device_id"]] objectForKey:@"inputSense"]];
     

@@ -200,8 +200,8 @@
 -(void)upDateImage:(NSArray*)arr
 {
     
-    NSLog(@"%@",[_photoScrollView subviews]);
-    NSLog(@"%@",arr);
+//    NSLog(@"%@",[_photoScrollView subviews]);
+//    NSLog(@"%@",arr);
     for(UIView * view in [_photoScrollView subviews])
     {
         for(UIView * view2  in [view subviews])
@@ -352,7 +352,7 @@
         }
         else
         {
-            NSLog(@"当前视频的每一帧的长度是%@",[[NSUserDefaults standardUserDefaults] objectForKey:[[_photoArray objectAtIndex:_currentPage] objectForKey:@"record_data_path"]]);
+//            NSLog(@"当前视频的每一帧的长度是%@",[[NSUserDefaults standardUserDefaults] objectForKey:[[_photoArray objectAtIndex:_currentPage] objectForKey:@"record_data_path"]]);
             if ([[[NSUserDefaults standardUserDefaults] objectForKey:[[_photoArray objectAtIndex:_currentPage] objectForKey:@"record_data_path"]] isEqualToString:@"460800"])
             {
                 _frameLenght = 460800;
@@ -558,7 +558,7 @@
             [[NSFileManager defaultManager] removeItemAtPath:vedioPath error:&error];
             if (!error)
             {
-                NSLog(@"删除视频成功");
+//                NSLog(@"删除视频成功");
             }
         }
         
@@ -586,7 +586,7 @@
         [_photoScrollView setContentOffset:tem];
         
         //重新请求数据
-        NSLog(@"%d---->page==>%d",index,pageCount);
+//        NSLog(@"%d---->page==>%d",index,pageCount);
         
         if(pageCount !=0)
         {

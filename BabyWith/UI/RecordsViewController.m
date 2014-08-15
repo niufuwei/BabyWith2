@@ -182,7 +182,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
                 [[NSFileManager defaultManager] removeItemAtPath:vedioPath error:&error];
                 if (!error)
                 {
-                    NSLog(@"删除视频成功");
+//                    NSLog(@"删除视频成功");
                 }
             }
             
@@ -531,14 +531,14 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         count += num;
     }
     
-    NSLog(@"%@",_sectionArray);
+//    NSLog(@"%@",_sectionArray);
     for(int i =0;i<[_sectionArray count];i++)
     {
         for(int j =0;j<[[_sectionArray objectAtIndex:i] count];j++)
         {
             NSDictionary *dic = [NSDictionary dictionaryWithDictionary:[[_sectionArray objectAtIndex:i] objectAtIndex:j]];
             
-            NSLog(@"%@",dic);
+//            NSLog(@"%@",dic);
             
             
             NSData *imageData = [NSData dataWithContentsOfFile: [babywith_sandbox_address stringByAppendingPathComponent:[dic objectForKey:@"path"]]];
@@ -710,7 +710,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
             {
                 if([[deleteArray objectAtIndex:i] objectForKey:[[[_sectionArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"id_record"]])
                 {
-                    NSLog(@"存在");
+//                    NSLog(@"存在");
                     isExit = TRUE;
                     [cell.deleteImage setImage:[UIImage imageNamed:@"qietu_34.png"]];
                     break;
@@ -736,7 +736,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
 
 -(void)onUpdate:(NSArray *)arr
 {
-    NSLog(@"%@",arr);
+//    NSLog(@"%@",arr);
 
     myCollectionViewCell * cell = (myCollectionViewCell*)[arr objectAtIndex:0];
     [cell.image setImage:(UIImage*)[arr objectAtIndex:1]];
@@ -946,7 +946,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
             NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
             [dic setObject:[[_sectionArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]forKey:[[[_sectionArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"id_record"]];
             
-            NSLog(@"已插入");
+//            NSLog(@"已插入");
             [cell.deleteImage setImage:[UIImage imageNamed:@"qietu_34.png"]];
             
 
@@ -958,7 +958,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
             {
                 if([[deleteArray objectAtIndex:i] objectForKey:[[[_sectionArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"id_record"]])
                 {
-                    NSLog(@"存在");
+//                    NSLog(@"存在");
 //                    [cell.deleteImage setImage:[UIImage imageNamed:@"选择 (1).png"]];
                     [cell.deleteImage setHidden:YES];
                     [deleteArray removeObjectAtIndex:i];
@@ -995,7 +995,7 @@ static NSString * REUSEABLE_CELL_IDENTITY = @"cee";
         
     }
     
-    NSLog(@"%@",deleteArray);
+//    NSLog(@"%@",deleteArray);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {

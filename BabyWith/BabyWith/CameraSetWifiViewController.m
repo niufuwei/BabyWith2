@@ -111,14 +111,14 @@
     if (flag == 0) {
         
         NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:strDID,@"strDID", strSSID, @"strSSID", strMac, @"strMac", [NSString stringWithFormat:@"%d", security], @"security",[NSString stringWithFormat:@"%d", mode], @"mode",[NSString stringWithFormat:@"%d", channel], @"channel", nil];
-        NSLog(@"dic is %@",dic);
+//        NSLog(@"dic is %@",dic);
         [_wifiSearchList addObject:dic];
         [_wifiListTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"select row = [%d]", indexPath.row);
+//    NSLog(@"select row = [%d]", indexPath.row);
     
     WifiTableViewCell *cell = (WifiTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -272,7 +272,7 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    NSLog(@"camerasetwifiviewcontroller viewdiddisappear=====");
+//    NSLog(@"camerasetwifiviewcontroller viewdiddisappear=====");
     
     [_wifiSearchList removeAllObjects];
     [_wifiListTableView reloadData];

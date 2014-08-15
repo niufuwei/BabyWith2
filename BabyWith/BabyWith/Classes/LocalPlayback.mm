@@ -55,7 +55,7 @@ void CLocalPlayback::updateTimeProcess(){
         
         sleep(1);
         if ((sumTime/1000)>=m_nTotalTime) {
-            NSLog(@"updateTimeProcess...结束");
+//            NSLog(@"updateTimeProcess...结束");
             return;
         }
     }
@@ -110,7 +110,7 @@ BOOL CLocalPlayback::GetIndexInfo()
     //read the total time
     fseek(m_pfile, 0, SEEK_END);
     long fileLen = ftell(m_pfile);
-    NSLog(@"fileLen: %ld", fileLen);
+//    NSLog(@"fileLen: %ld", fileLen);
     int nEndIndexLen = strlen("ENDINDEX");
     fseek(m_pfile, fileLen - nEndIndexLen, 0);
     //NSLog(@"aaaa: %ld", ftell(m_pfile));
@@ -194,7 +194,7 @@ void CLocalPlayback::PlaybackProcess()
         memset(&datahead, 0, sizeof(datahead));
         if(sizeof(datahead) != fread((char*)&datahead, 1, sizeof(datahead), m_pfile))
         {
-            NSLog(@"datahead is error");
+//            NSLog(@"datahead is error");
             [m_playbackLock lock];
             isPlayOver=YES;
             [m_playbackDelegate PlaybackStop];
@@ -202,7 +202,7 @@ void CLocalPlayback::PlaybackProcess()
             return;
         }
         if (datahead.head != 0xffff0000) {
-            NSLog(@"datahead.head != 0xffff0000");
+//            NSLog(@"datahead.head != 0xffff0000");
             [m_playbackLock lock];
             isPlayOver=YES;
             [m_playbackDelegate PlaybackStop];
@@ -213,7 +213,7 @@ void CLocalPlayback::PlaybackProcess()
         //read data
         char *p = new char[datahead.datalen];
         if (p == NULL) {
-            NSLog(@"p == NULL");
+//            NSLog(@"p == NULL");
             [m_playbackLock lock];
             isPlayOver=YES;
             [m_playbackDelegate PlaybackStop];
@@ -227,7 +227,7 @@ void CLocalPlayback::PlaybackProcess()
             isPlayOver=YES;
             [m_playbackDelegate PlaybackStop];
             [m_playbackLock unlock];
-            NSLog(@"read data error");
+//            NSLog(@"read data error");
             return;
         }
     

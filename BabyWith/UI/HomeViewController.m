@@ -659,12 +659,12 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     
-    NSLog(@"view will appear");
+//    NSLog(@"view will appear");
     //获取设备列表，并且刷新数据
      [appDelegate showTabbar];
     self.deviceArray = [appDelegate.deviceConnectManager getDeviceInfoList];
     
-    NSLog(@">>>>>%@",self.deviceArray);
+//    NSLog(@">>>>>%@",self.deviceArray);
     
     [_homeTableView1 reloadData];
     titleImage.hidden = NO;
@@ -725,7 +725,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    NSLog(@"array is %@",self.deviceArray);
+//    NSLog(@"array is %@",self.deviceArray);
     return [self.deviceArray count];
  
 }
@@ -757,7 +757,7 @@
     cell3.title.text =[[self.deviceArray  objectAtIndex: indexPath.row ]objectForKey:@"name"];
     
     
-    NSLog(@"《1----》%d》《3----》%@》",indexPath.row,[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"id_member"]);
+//    NSLog(@"《1----》%d》《3----》%@》",indexPath.row,[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"id_member"]);
     
     if([[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"id_member"] isEqualToNumber:[NSNumber numberWithInt:1]])
     {
@@ -883,7 +883,7 @@
             [activity stop];
             
             
-            NSLog(@"sdasdddddddddd%@",[appDelegate.appDefault objectForKey:@"Error_message"]);
+//            NSLog(@"sdasdddddddddd%@",[appDelegate.appDefault objectForKey:@"Error_message"]);
             
             if ([[appDelegate.appDefault objectForKey:@"Error_message"] isEqualToString:@"该设备已被分享者解绑"])
             {
@@ -920,7 +920,7 @@
         else
         {
             
-            NSLog(@"没有被踢");
+//            NSLog(@"没有被踢");
             
         }
         
@@ -931,13 +931,13 @@
         if (buttonIndex == 0)
         {
             
-            NSLog(@"device id is %@",[_willDeleteDevice objectForKey:@"device_id"]);
+//            NSLog(@"device id is %@",[_willDeleteDevice objectForKey:@"device_id"]);
             [appDelegate.deviceConnectManager removeDeviceInfo:[_willDeleteDevice objectForKey:@"device_id"]];
             if ([self.deviceArray containsObject:_willDeleteDevice])
             {
                 [self.deviceArray removeObject:_willDeleteDevice];
             }
-            NSLog(@"jjjjjjjj%@",self.deviceArray);
+//            NSLog(@"jjjjjjjj%@",self.deviceArray);
             [_homeTableView1 reloadData];
             if (50.0*[self tableView:_homeTableView1 numberOfRowsInSection:0] > self.view.frame.size.height- 90 - 15 - 50)
             {
@@ -1023,7 +1023,7 @@
         
         
     }
-    NSLog(@"存入的设备是%@",[appDelegate.appDefault objectForKey:@"Device_selected"]);
+//    NSLog(@"存入的设备是%@",[appDelegate.appDefault objectForKey:@"Device_selected"]);
     CameraPlayViewController *vc = [[CameraPlayViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }

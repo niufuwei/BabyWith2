@@ -318,7 +318,7 @@
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
     
-    NSLog(@"获取数据");
+//    NSLog(@"获取数据");
     //捕捉数据输出 要怎么处理虽你便
     CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     /*Lock the buffer*/
@@ -340,19 +340,19 @@
                     casekCVPixelFormatType_420YpCbCr8BiPlanarVideoRange:
                         //TMEDIA_PRODUCER(producer)->video.chroma = tmedia_nv12; // iPhone 3GS or 4
 //                        NSLog(@"Capture pixel format=NV12");
-                        NSLog(@"1111111111");
+//                        NSLog(@"1111111111");
 
                         break;
                     casekCVPixelFormatType_422YpCbCr8:
                         //TMEDIA_PRODUCER(producer)->video.chroma = tmedia_uyvy422; // iPhone 3
 //                        NSLog(@"Capture pixel format=UYUY422");
-                        NSLog(@"22222222222");
+//                        NSLog(@"22222222222");
 
                         break;
                     default:
                         //TMEDIA_PRODUCER(producer)->video.chroma = tmedia_rgb32;
 //                        NSLog(@"Capture pixel format=RGB32");
-                        NSLog(@"33333333333");
+//                        NSLog(@"33333333333");
 
                         break;
                 }
@@ -420,7 +420,7 @@
         
         //转换成数据信息存储
         NSData *imageData = UIImageJPEGRepresentation(imageForUse,0.5);
-        NSLog(@"data length =[%lu]", (unsigned long)[imageData length]);
+//        NSLog(@"data length =[%lu]", (unsigned long)[imageData length]);
         
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSString *tmpDir =  NSTemporaryDirectory();
@@ -483,7 +483,7 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
         
-        NSLog(@"imageArray is %@",_imageArray);
+//        NSLog(@"imageArray is %@",_imageArray);
         NSMutableArray *mutArray = [[NSMutableArray alloc] initWithArray:(NSArray*)[appDelegate.appDefault objectForKey:@"imageEditArray"]];
         [mutArray removeAllObjects];
         [appDelegate.appDefault setObject:mutArray forKey:@"imageEditArray"];
@@ -498,7 +498,7 @@
     
     [super viewWillAppear:YES];
     
-    NSLog(@"视图出现的时候的array is %@",[appDelegate.appDefault objectForKey:@"imageEditArray"]);
+//    NSLog(@"视图出现的时候的array is %@",[appDelegate.appDefault objectForKey:@"imageEditArray"]);
     
     if ([(NSArray *)[appDelegate.appDefault objectForKey:@"imageEditArray"] count] == 0)
     {
@@ -510,7 +510,7 @@
     }
     else if([(NSArray *)[appDelegate.appDefault objectForKey:@"imageEditArray"] count] > 0)
     {
-        NSLog(@"last object is %@",[(NSArray *)[appDelegate.appDefault objectForKey:@"imageEditArray"] lastObject]);
+//        NSLog(@"last object is %@",[(NSArray *)[appDelegate.appDefault objectForKey:@"imageEditArray"] lastObject]);
         
         NSData *data = [NSData dataWithContentsOfFile:[[(NSArray *)[appDelegate.appDefault objectForKey:@"imageEditArray"] lastObject] objectForKey:@"image"] ];
         SaveImage.image = [UIImage imageWithData:data];
@@ -522,7 +522,7 @@
 }
 -(void)imageClicked
 {
-    NSLog(@"图片被点击了");
+//    NSLog(@"图片被点击了");
     
     ImageShowController *imageShow = [[ImageShowController alloc] initWithArray:_imageArray];
     

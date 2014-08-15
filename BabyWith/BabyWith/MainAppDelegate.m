@@ -68,7 +68,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"sendCheckMessage"];
     
     
-    NSLog(@"launchOptions   %@",launchOptions);
+//    NSLog(@"launchOptions   %@",launchOptions);
     _systemDic = [[NSMutableDictionary alloc] init];
     _pushDic = [[NSMutableDictionary alloc] init];
 
@@ -262,7 +262,7 @@ int HudIsBecome = 0;
     self.networkStatus = [curReach currentReachabilityStatus];
     
     if ([_appDefault integerForKey:@"Mac_valid_flag"] != 1) {
-        NSLog(@"mac valid flag net status changed========");
+//        NSLog(@"mac valid flag net status changed========");
         return;
     }
     
@@ -281,7 +281,7 @@ int HudIsBecome = 0;
 - (void)AlarmProtocolResult:(NSString *)szDID motion_armed:(int)motion_armed motion_sensitivity:(int)motion_sensitivity input_armed:(int)input_armed ioin_level:(int)ioin_level alarmpresetsit:(int)alarmpresetsit iolinkage:(int)iolinkage ioout_level:(int)ioout_level mail:(int)mail snapshot:(int)snapshot upload_interval:(int)upload_interval record:(int)record
 {
     
-    NSLog(@"=========================================================");
+//    NSLog(@"=========================================================");
 
 }
 #pragma mark -

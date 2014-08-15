@@ -418,7 +418,7 @@
         view.hidden = NO;
     }
     
-    NSLog(@"metadataObjects %@",metadataObjects);
+//    NSLog(@"metadataObjects %@",metadataObjects);
     if (metadataObjects != nil && [metadataObjects count] > 0)
     {
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
@@ -510,7 +510,7 @@
             
            
             NSString *bindTime = [formatter stringFromDate:date];
-            NSLog(@"%@",bindTime);
+//            NSLog(@"%@",bindTime);
             [appDelegate.appDefault setObject:bindTime forKey:[NSString stringWithFormat:@"%@_time",deviceID]];
             
             
@@ -540,7 +540,7 @@
         else
         {
             
-            NSLog(@"没有被踢");
+//            NSLog(@"没有被踢");
             
         }
         
@@ -567,7 +567,7 @@
     }];
     
     /*************************** 二维码通信部分 **************************/
-    NSLog(@"得到的二维码是 %@",symbol.data);
+//    NSLog(@"得到的二维码是 %@",symbol.data);
     if (symbol.data.length != 0) {
         
         [self ShowNextSetting:symbol.data];
@@ -575,7 +575,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"select row = [%d]", indexPath.row);
+//    NSLog(@"select row = [%d]", indexPath.row);
     
     SettingCell *cell = (SettingCell *)[tableView cellForRowAtIndexPath:indexPath];
     

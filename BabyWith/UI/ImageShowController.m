@@ -71,7 +71,7 @@
         
         
         pageCount = [_photoArray count];
-        NSLog(@"%@",_photoArray);
+//        NSLog(@"%@",_photoArray);
         _currentPage = [_photoArray count] -1;
         _image = [[UIImage alloc]init];
         
@@ -87,7 +87,7 @@
 
     
     float contentHeight = self.view.frame.size.height;
-    NSLog(@"self.view height %f",contentHeight);
+//    NSLog(@"self.view height %f",contentHeight);
     if (IOS7) {
         _photoScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, 320, contentHeight - 64)];
     }
@@ -139,7 +139,7 @@
     
     [self.view addSubview:_photoScrollView];
     
-    NSLog(@"current page is %d",_currentPage);
+//    NSLog(@"current page is %d",_currentPage);
     CGRect temp = _photoScrollView.frame;
     CGPoint tem =_photoScrollView.contentOffset;
     tem.x = temp.size.width*_currentPage;
@@ -159,7 +159,7 @@
 
    // aBackImage.image = [UIImage imageNamed:@"qietu_56.png"];
     
-    NSLog(@"退出的时候的数组是%@",_photoArray);
+//    NSLog(@"退出的时候的数组是%@",_photoArray);
     [appDelegate.appDefault setObject:_photoArray forKey:@"imageEditArray"];
     [self dismissViewControllerAnimated:YES completion:^{
         
@@ -208,13 +208,13 @@
         if (pageCount == 0)
         {
             [_photoArray removeAllObjects];
-            NSLog(@"photoArray is %@",_photoArray);
+//            NSLog(@"photoArray is %@",_photoArray);
             [appDelegate.appDefault setObject:_photoArray forKey:@"imageEditArray"];
-            NSLog(@"返回的时候的照片数组是%@",[appDelegate.appDefault objectForKey:@"imageEditArray"]);
+//            NSLog(@"返回的时候的照片数组是%@",[appDelegate.appDefault objectForKey:@"imageEditArray"]);
             [self dismissViewControllerAnimated:YES completion:^{
                 
                 
-                NSLog(@"dismiss complete");
+//                NSLog(@"dismiss complete");
                 
             }];
             return;
@@ -223,14 +223,14 @@
         {
             _photoScrollView.contentSize = CGSizeMake(320*(pageCount),self.view.frame.size.height-44-60-30);
             _currentPage =  (_photoScrollView.contentOffset.x /_photoScrollView.frame.size.width);
-            NSLog(@"当前的currentPage是%d",_currentPage);
+//            NSLog(@"当前的currentPage是%d",_currentPage);
             
             
             
             ((UILabel *)[topView viewWithTag:101]).text = [NSString stringWithFormat:@"%d/%d", _currentPage+1, pageCount];
             
             [_photoArray removeObjectAtIndex:index];
-            NSLog(@"数组%@",_photoArray);
+//            NSLog(@"数组%@",_photoArray);
         }
         
         

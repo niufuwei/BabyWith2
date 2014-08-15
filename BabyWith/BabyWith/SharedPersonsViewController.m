@@ -60,7 +60,7 @@
     
     
     NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]]];
-    NSLog(@"arr is %d",[arr count]);
+//    NSLog(@"arr is %d",[arr count]);
     
     
     if ([arr count] == 0)
@@ -175,7 +175,7 @@
         CGSize size = CGSizeMake(320, 45);
         CGSize labelsize = [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,phone]] sizeWithFont:[UIFont systemFontOfSize:15.0] constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
         [cell.textLabel setFrame:CGRectMake(0, 0, labelsize.width, labelsize.height)];
-        NSLog(@"cell.width is %f",cell.textLabel.frame.size.width);
+//        NSLog(@"cell.width is %f",cell.textLabel.frame.size.width);
     }
     else
     {
@@ -184,7 +184,7 @@
         CGSize size = CGSizeMake(320, 45);
         CGSize labelsize = [phone sizeWithFont:[UIFont systemFontOfSize:15.0] constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
         [cell.textLabel setFrame:CGRectMake(0, 0, labelsize.width, labelsize.height)];
-        NSLog(@"cell.width 1 is %f",cell.textLabel.frame.size.width);
+//        NSLog(@"cell.width 1 is %f",cell.textLabel.frame.size.width);
 
     
     }
@@ -229,7 +229,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@",[[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] objectAtIndex:indexPath.row]);
+//    NSLog(@"%@",[[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] objectAtIndex:indexPath.row]);
     PersonEditViewController *editVC = [[PersonEditViewController alloc] initWithPhoneNumber:[[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:editVC animated:YES];
 
@@ -260,7 +260,7 @@
         {
             fullName = firstName;
         }
-        NSLog(@"===%@",fullName);
+//        NSLog(@"===%@",fullName);
         ABMultiValueRef phones = (ABMultiValueRef) ABRecordCopyValue(person, kABPersonPhoneProperty);
         for(int i = 0 ;i < ABMultiValueGetCount(phones); i++)
         {
@@ -269,8 +269,8 @@
             phone = [phone stringByReplacingOccurrencesOfString:@")" withString:@""];
             phone = [phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
             phone = [phone stringByReplacingOccurrencesOfString:@" " withString:@""];
-            NSLog(@"===%@",phone); 
-            if ([phone isEqualToString:telstr]) 
+//            NSLog(@"===%@",phone); 
+            if ([phone isEqualToString:telstr])
             {
                 return fullName;
             }

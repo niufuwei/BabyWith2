@@ -218,7 +218,7 @@
     self.phoneNumber.text = [self.phoneNumber.text
                             stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
-    NSLog(@"<><><><><><><><><>%@",self.phoneNumber.text);
+//    NSLog(@"<><><><><><><><><>%@",self.phoneNumber.text);
     
     //检查电话号码是否符合规格
     int phone_email_flag = [self checkTel:self.phoneNumber.text Type:1];
@@ -235,7 +235,7 @@
     //设备ID以逗号隔开
     NSString * deviceID;
     int i = [appDelegate.selectDeviceArr count];
-    NSLog(@">>>>>>>>%d",i);
+//    NSLog(@">>>>>>>>%d",i);
     //NSLog(@">>>>>>>>%@",[[appDelegate.selectDeviceArr objectAtIndex:0] objectForKey:@"device_id"]);
     
     deviceID =  [[appDelegate.selectDeviceArr objectAtIndex:0] objectForKey:@"device_id"];
@@ -283,7 +283,7 @@
 
             //选择的设备的数量
             int i = [appDelegate.selectDeviceArr count];
-            NSLog(@"选择的设备的数量是%d",i);
+//            NSLog(@"选择的设备的数量是%d",i);
             
             
             for (int n = 1; n <= i; n++)
@@ -291,9 +291,9 @@
                 
                 [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:[NSString stringWithFormat:@"%@_%@_%@_status",username,[[appDelegate.selectDeviceArr objectAtIndex:n - 1] objectForKey:@"device_id"],self.phoneNumber.text]];
                 
-                NSLog(@"设备的分享人员是%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_number",[[appDelegate.selectDeviceArr objectAtIndex:n - 1] objectForKey:@"device_id"]]]);
+//                NSLog(@"设备的分享人员是%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_number",[[appDelegate.selectDeviceArr objectAtIndex:n - 1] objectForKey:@"device_id"]]]);
                 
-                NSLog(@"这里走了没");
+//                NSLog(@"这里走了没");
                 //如果这个key不存在，就创建这个key
                 if (![appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_number",[[appDelegate.selectDeviceArr objectAtIndex:n - 1] objectForKey:@"device_id"]]])
                 {   //第一次创建的时候直接添加就行
@@ -304,7 +304,7 @@
                 {
                     NSMutableArray *array1 =[[NSMutableArray alloc] initWithArray: [appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",[[appDelegate.selectDeviceArr objectAtIndex: n -1] objectForKey:@"device_id"]]]];
                     //把array里面的所有元素添加到新的array1里面
-                    NSLog(@"array1----------- is %d---------------",[array1 count]);
+//                    NSLog(@"array1----------- is %d---------------",[array1 count]);
                     
                     if ([array1 containsObject:self.phoneNumber.text] == NO)
                     {
@@ -313,13 +313,13 @@
                     }
                     
                     
-                    NSLog(@"array1----------- is %d---------------",[array1 count]);
+//                    NSLog(@"array1----------- is %d---------------",[array1 count]);
 
                     NSArray *array2 = [NSArray arrayWithArray:array1];
                     [appDelegate.appDefault setObject:array2 forKey:[NSString stringWithFormat:@"%@_number",[[appDelegate.selectDeviceArr objectAtIndex: n - 1] objectForKey:@"device_id"]]];
                     
                     
-                    NSLog(@"分享人员的名单是 %@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_number",[[appDelegate.selectDeviceArr objectAtIndex:n -1] objectForKey:@"device_id"]]]);
+//                    NSLog(@"分享人员的名单是 %@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@_number",[[appDelegate.selectDeviceArr objectAtIndex:n -1] objectForKey:@"device_id"]]]);
                 }
             }
             _submit.enabled = YES;
@@ -360,7 +360,7 @@
         else
         {
         
-            NSLog(@"没有被踢");
+//            NSLog(@"没有被踢");
         
         }
         

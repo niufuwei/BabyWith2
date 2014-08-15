@@ -35,7 +35,7 @@
     
     _descriptionArray = [[NSArray alloc] initWithObjects:@"分享账号",@"账号备注名",@"开启视频分享", nil];
 
-    NSLog(@"phone is %@",_phone);
+//    NSLog(@"phone is %@",_phone);
     // Do any additional setup after loading the view.
     self.view.backgroundColor = babywith_background_color;
     _shareEditTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 135) style:UITableViewStylePlain];
@@ -87,7 +87,7 @@
             phoneLabel.textColor = babywith_color(0x373737);
             phoneLabel.textAlignment = NSTextAlignmentRight;
             phoneLabel.backgroundColor = [UIColor clearColor];
-            NSLog(@"ppppppphone is %@",_phone);
+//            NSLog(@"ppppppphone is %@",_phone);
             [cell addSubview:phoneLabel];
         }
         if (indexPath.row == 1)
@@ -136,8 +136,8 @@
         NSString *loginName = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
         NSString *deviceId = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Device_selected"] objectForKey:@"device_id"];
         
-        NSLog(@"description is is %@",[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]);
-        NSLog(@"cell name is %@",[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]]);
+//        NSLog(@"description is is %@",[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]);
+//        NSLog(@"cell name is %@",[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]]);
         if ([[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]])
         {
             nameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]];
@@ -156,7 +156,7 @@
         NSString *loginName = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
         NSString *deviceId = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Device_selected"] objectForKey:@"device_id"];
         NSString * key =   [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@_status",loginName,deviceId,_phone]];
-        NSLog(@"key is %@",key);
+//        NSLog(@"key is %@",key);
         
         if (key)
         {
@@ -206,7 +206,7 @@
         NSString *deviceId = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Device_selected"] objectForKey:@"device_id"];
         NSString *key = [NSString stringWithFormat:@"%@_%@_%@_status",loginName,deviceId,_phone];
         NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"Token"];
-        NSLog(@"key is %@",key);
+//        NSLog(@"key is %@",key);
 
         if (switchImage.image == [UIImage imageNamed:@"切换 (2).png"])
         {

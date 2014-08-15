@@ -83,10 +83,10 @@
 - (BOOL)AddCamera:(NSString *)name DID:(NSString *)did User:(NSString *)user Pwd:(NSString *)pwd Snapshot:(UIImage *)img 
 {
     [m_Lock lock];
-    NSLog(@"Add Camera...name:%@, did: %@, user: %@, pwd: %@", name, did, user, pwd);
+//    NSLog(@"Add Camera...name:%@, did: %@, user: %@, pwd: %@", name, did, user, pwd);
     if ([self CheckCamere:did] == NO) {
         [m_Lock unlock];
-        NSLog(@"已经存在did=%@",did);
+//        NSLog(@"已经存在did=%@",did);
         return NO;
     }
     NSNumber *authority=[NSNumber numberWithBool:NO];
@@ -99,7 +99,7 @@
     
     if (NO == [cameraDB InsertCamera:name DID:did User:user Pwd:pwd])
     {
-        NSLog(@"cameraDB InsertCamera return NO");
+//        NSLog(@"cameraDB InsertCamera return NO");
         if (NO == [cameraDB InsertCamera:name DID:did User:user Pwd:pwd])
         {
             [m_Lock unlock];

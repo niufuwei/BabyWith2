@@ -58,7 +58,7 @@
 
 + (UIImage*) GetImageByName: (NSString*)did filename:(NSString*)filename
 {
-    NSLog(@"GetImageByName did=%@ fileName=%@",did,filename);
+//    NSLog(@"GetImageByName did=%@ fileName=%@",did,filename);
     if (did == nil || filename == nil) {
         
         return nil;
@@ -74,7 +74,7 @@
     
     UIImage *image = [self GetFirstImageFromRecordFile:strPath];
     if (image == nil) {
-        NSLog(@"APICommon GetImageByName()  image==nil");
+//        NSLog(@"APICommon GetImageByName()  image==nil");
         return nil;
     }
     
@@ -238,7 +238,7 @@ void RGB565toRGB888(unsigned char *rgb565, unsigned char* rgb888, int width, int
     }else if(filehead.videoformat == 2){
        
          if (datahead.dataformat == 0) { //必须是I帧
-             NSLog(@"APICommon  GetFirstImageFromRecordFile  创建H264Decoder");
+//             NSLog(@"APICommon  GetFirstImageFromRecordFile  创建H264Decoder");
              CH264Decoder *pH264Decoder = new CH264Decoder();
            
              int nWidth=0;

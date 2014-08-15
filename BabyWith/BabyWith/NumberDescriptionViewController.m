@@ -79,10 +79,10 @@
 
     [[NSUserDefaults standardUserDefaults] setObject:appel.text forKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]];
     
-    NSLog(@"description is %@",[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]);
-    
-    NSLog(@"name is %@",[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]]);
-
+//    NSLog(@"description is %@",[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]);
+//    
+//    NSLog(@"name is %@",[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@_%@",loginName,deviceId,_phone]]);
+//
 }
 - (void)didReceiveMemoryWarning
 {

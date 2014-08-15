@@ -41,13 +41,13 @@
     if (self.cellType == 1) {
 //        self.textLabel.frame = self.frame;
         self.backgroundColor = babywith_green_color;
-        NSLog(@"self.frame = [%f][%f][%f][%f]",self.textLabel.frame.origin.x, self.textLabel.frame.origin.y, self.textLabel.frame.size.width,self.textLabel.frame.size.height);
+//        NSLog(@"self.frame = [%f][%f][%f][%f]",self.textLabel.frame.origin.x, self.textLabel.frame.origin.y, self.textLabel.frame.size.width,self.textLabel.frame.size.height);
         self.textLabel.font = [UIFont systemFontOfSize:20];
         self.textLabel.textAlignment = NSTextAlignmentCenter;
         self.textLabel.textColor = [UIColor whiteColor];
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.textLabel.frame = CGRectMake(10, 0, 300, self.frame.size.height);
-        NSLog(@"text === [%@]",self.textLabel.text);
+//        NSLog(@"text === [%@]",self.textLabel.text);
         
         return;
     }

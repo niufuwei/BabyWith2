@@ -85,11 +85,11 @@
 
     [appDelegate showTabbar];
     _backName(@"0");
-    NSLog(@"删除之前是%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]);
+//    NSLog(@"删除之前是%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]);
     NSMutableArray *arr = [NSMutableArray arrayWithArray:(NSArray*)[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]];
     [arr removeAllObjects];
     [appDelegate.appDefault setObject:arr forKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]];
-    NSLog(@"删除之后是%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]);
+//    NSLog(@"删除之后是%@",[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]]);
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -138,7 +138,7 @@
     }
     //判断未读消息
 //   
-    NSLog(@">>>>>>>%d",[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]);
+//    NSLog(@">>>>>>>%d",[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count]);
     
     if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@#",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] count] > indexPath.row)
     {
@@ -152,7 +152,7 @@
     }
     
 
-    NSLog(@">>>>>>>>%@",[[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] objectAtIndex:indexPath.row] objectForKey:@"alert"]);
+//    NSLog(@">>>>>>>>%@",[[[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@*",[[NSUserDefaults standardUserDefaults] objectForKey:@"Username"]]] objectAtIndex:indexPath.row] objectForKey:@"alert"]);
     
    
     

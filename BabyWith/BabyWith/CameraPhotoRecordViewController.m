@@ -24,7 +24,7 @@
     if (self) {
         // Custom initialization
         _photoArray = [[NSMutableArray alloc] initWithArray:array];
-        NSLog(@"photoArray 是 %@",_photoArray);
+//        NSLog(@"photoArray 是 %@",_photoArray);
         _type = type;
         _delegate = delegate;
         _currentPage = currentPage;
@@ -123,7 +123,7 @@
     [self.view addSubview:_photoScrollView];
     
     
-    NSLog(@"current page is %d",_currentPage);
+//    NSLog(@"current page is %d",_currentPage);
     CGRect temp = _photoScrollView.frame;
     CGPoint tem =_photoScrollView.contentOffset;
     tem.x = temp.size.width*_currentPage;
@@ -137,7 +137,7 @@
 {
     _currentPage = (_scrollView.contentOffset.x /_scrollView.frame.size.width);
     ((UILabel *)self.navigationItem.titleView).text = [NSString stringWithFormat:@"%d/%d", _currentPage+1, pageCount];
-    NSLog(@"当前页是%d",_currentPage);
+//    NSLog(@"当前页是%d",_currentPage);
     
 }
 -(void)startPlay
@@ -155,7 +155,7 @@
         [tmpself.view setTransform: CGAffineTransformMakeRotation(M_PI / 2)];
         [tmpself.view addSubview:_playView];
         
-        NSLog(@"self.view.frame.height is %f",self.view.frame.size.height);
+//        NSLog(@"self.view.frame.height is %f",self.view.frame.size.height);
         [UIView animateWithDuration:0.0f animations:^{
             
             _playView.backgroundColor = [UIColor blackColor];
@@ -424,7 +424,7 @@
         
         
         _currentPage =  (_photoScrollView.contentOffset.x /_photoScrollView.frame.size.width);
-        NSLog(@"当前的currentPage是%d",_currentPage);
+//        NSLog(@"当前的currentPage是%d",_currentPage);
         
         
         
@@ -442,7 +442,7 @@
             [[NSFileManager defaultManager] removeItemAtPath:vedioPath error:&error];
             if (!error)
             {
-                NSLog(@"删除视频成功");
+//                NSLog(@"删除视频成功");
             }
         }
         

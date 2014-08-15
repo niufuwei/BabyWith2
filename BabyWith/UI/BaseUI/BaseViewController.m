@@ -58,7 +58,7 @@
 }
 
 - (void)dealloc{
-    NSLog(@"%@->dealloc",NSStringFromClass([self class]));
+//    NSLog(@"%@->dealloc",NSStringFromClass([self class]));
 }
 #pragma mark -
 #pragma mark customButton

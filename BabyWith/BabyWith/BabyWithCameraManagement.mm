@@ -21,9 +21,9 @@ int BabyWithCameraManagement::CheckOnline(const char *szDID){
     int i;
     for (i=0; i<MAX_PPPP_CHANNEL_NUM; i++) {
         
-        NSLog(@"bValid= [%d] [%s]", m_PPPPChannel[i].bValid, m_PPPPChannel[i].szDID);
+//        NSLog(@"bValid= [%d] [%s]", m_PPPPChannel[i].bValid, m_PPPPChannel[i].szDID);
         if (m_PPPPChannel[i].bValid==1&&strcmp(m_PPPPChannel[i].szDID, szDID)==0) {
-            NSLog(@"m_PPPPChannel checkOnline");
+//            NSLog(@"m_PPPPChannel checkOnline");
             m_PPPPChannel[i].pPPPPChannel->CheckOnline();
             [m_Lock unlock];
             return 1;
@@ -40,9 +40,9 @@ int BabyWithCameraManagement::CheckOnlineReturn(const char *szDID){
     int i;
     for (i=0; i<MAX_PPPP_CHANNEL_NUM; i++) {
         
-        NSLog(@"bValid return = [%d] [%s] [%d]", m_PPPPChannel[i].bValid, m_PPPPChannel[i].szDID,strcmp(m_PPPPChannel[i].szDID, szDID));
+//        NSLog(@"bValid return = [%d] [%s] [%d]", m_PPPPChannel[i].bValid, m_PPPPChannel[i].szDID,strcmp(m_PPPPChannel[i].szDID, szDID));
         if (m_PPPPChannel[i].bValid==1&&strcmp(m_PPPPChannel[i].szDID, szDID)==0) {
-            NSLog(@"m_PPPPChannel checkOnline");
+//            NSLog(@"m_PPPPChannel checkOnline");
             return m_PPPPChannel[i].pPPPPChannel->CheckOnlineReturn();
         }
     }

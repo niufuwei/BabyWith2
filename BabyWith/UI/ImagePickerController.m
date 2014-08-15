@@ -172,7 +172,7 @@
 
     [super viewWillAppear:YES];
     
-    NSLog(@"视图出现的时候的array is %@",[appDelegate.appDefault objectForKey:@"imageEditArray"]);
+//    NSLog(@"视图出现的时候的array is %@",[appDelegate.appDefault objectForKey:@"imageEditArray"]);
     
     if ([(NSArray *)[appDelegate.appDefault objectForKey:@"imageEditArray"] count] == 0)
     {
@@ -184,7 +184,7 @@
     }
     else if([(NSArray *)[appDelegate.appDefault objectForKey:@"imageEditArray"] count] > 0)
     {
-        NSLog(@"last object is %@",[(NSArray *)[appDelegate.appDefault objectForKey:@"imageEditArray"] lastObject]);
+//        NSLog(@"last object is %@",[(NSArray *)[appDelegate.appDefault objectForKey:@"imageEditArray"] lastObject]);
     
         NSData *data = [NSData dataWithContentsOfFile:[[(NSArray *)[appDelegate.appDefault objectForKey:@"imageEditArray"] lastObject] objectForKey:@"image"] ];
         _shrinkImage.image = [UIImage imageWithData:data];
@@ -201,7 +201,7 @@
 }
 -(void)imageClicked
 {
-    NSLog(@"图片被点击了");
+//    NSLog(@"图片被点击了");
     
     ImageShowController *imageShow = [[ImageShowController alloc] initWithArray:_imageArray];
     
@@ -258,14 +258,14 @@
         return;
     }
     
-    NSLog(@"完成时的array是%@",_imageArray);
+//    NSLog(@"完成时的array是%@",_imageArray);
     
 
     [self dismissViewControllerAnimated:NO completion:^{
         
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
         
-        NSLog(@"imageArray is %@",_imageArray);
+//        NSLog(@"imageArray is %@",_imageArray);
         NSMutableArray *mutArray = [[NSMutableArray alloc] initWithArray:(NSArray*)[appDelegate.appDefault objectForKey:@"imageEditArray"]];
         [mutArray removeAllObjects];
         [appDelegate.appDefault setObject:mutArray forKey:@"imageEditArray"];
@@ -347,7 +347,7 @@
         
         //转换成数据信息存储
         NSData *imageData = UIImageJPEGRepresentation(imageForUse,0.5);
-        NSLog(@"data length =[%lu]", (unsigned long)[imageData length]);
+//        NSLog(@"data length =[%lu]", (unsigned long)[imageData length]);
         
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSString *tmpDir =  NSTemporaryDirectory();

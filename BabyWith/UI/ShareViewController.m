@@ -63,11 +63,11 @@
     [appDelegate.selectDeviceArr removeAllObjects];
 
     int i =  [self.deviceArray count];
-    NSLog(@"设备一共有%d个",i);
+//    NSLog(@"设备一共有%d个",i);
     for (int j = 0; j< i; j++)
     {
         
-        NSLog(@"indexPath  %@",[NSIndexPath indexPathForRow:j inSection:0]);
+//        NSLog(@"indexPath  %@",[NSIndexPath indexPathForRow:j inSection:0]);
         
         
         ShareCell *shareCell = (ShareCell *)[_shareListTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:0]];
@@ -78,14 +78,14 @@
             _hasSelect = YES;
             [appDelegate.selectDeviceArr addObject:[self.deviceArray objectAtIndex:j]];
             
-            NSLog(@"qqqqqqq%@",[self.deviceArray objectAtIndex:j]);
+//            NSLog(@"qqqqqqq%@",[self.deviceArray objectAtIndex:j]);
 
         }
         
     }
     
     
-    NSLog(@"选中的设备的数量是%d",[appDelegate.selectDeviceArr count]);
+//    NSLog(@"选中的设备的数量是%d",[appDelegate.selectDeviceArr count]);
     
     
     //有选中的话根据数据库有没有昵称进入不同的页面
@@ -164,8 +164,8 @@
         
         _shareListTable.frame = CGRectMake(0,0, 320, [self tableView:_shareListTable numberOfRowsInSection:0]* 80 + 100);
         _shareListTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        NSLog(@"tableview的高度是%f",_shareListTable.frame.size.height);
-                
+//        NSLog(@"tableview的高度是%f",_shareListTable.frame.size.height);
+        
         
         
     }
@@ -190,7 +190,7 @@
 {
 
     return [self.deviceArray count];
-    NSLog(@"拥有的设备数量是%d",[self.deviceArray count]);
+//    NSLog(@"拥有的设备数量是%d",[self.deviceArray count]);
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

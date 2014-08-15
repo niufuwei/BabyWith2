@@ -48,7 +48,7 @@
     [self titleSet:@"更多"];
     
     _userInfo.text = [NSString stringWithFormat:@"登录号:%@",[appDelegate.appDefault objectForKey:@"Username"]];
-    NSLog(@"登陆时候的用户是%@",[appDelegate.appDefault objectForKey:@"Username"]);
+//    NSLog(@"登陆时候的用户是%@",[appDelegate.appDefault objectForKey:@"Username"]);
     
     
     _cellNameArr = [[NSArray alloc] initWithObjects:@"修改昵称",@"修改密码",@"系统消息",@"关于我们", nil];
@@ -261,7 +261,7 @@
     {
         [activity start];
         
-        NSLog(@"token is %@",[appDelegate.appDefault objectForKey:@"Token"]);
+//        NSLog(@"token is %@",[appDelegate.appDefault objectForKey:@"Token"]);
         
         
         BOOL result = [appDelegate.webInfoManger UserLogoutUsingToken:[appDelegate.appDefault objectForKey:@"Token"]];

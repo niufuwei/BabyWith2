@@ -159,7 +159,7 @@
             [indicator removeFromSuperview];
             [indicator release];
 //            [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateDeviceName" object:nil];
-            NSLog(@"%@",[appDelegate.appDefault objectForKey:@"Device_selected"]);
+//            NSLog(@"%@",[appDelegate.appDefault objectForKey:@"Device_selected"]);
             NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:[appDelegate.appDefault objectForKey:@"Device_selected"]];
             [dic setValue:[_cameraTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"name"];
             [appDelegate.appDefault setObject:dic forKey:@"Device_selected"];
@@ -188,7 +188,7 @@
         else
         {
             
-            NSLog(@"没有被踢");
+//            NSLog(@"没有被踢");
             
         }
         

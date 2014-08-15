@@ -84,7 +84,7 @@
     _searchDeviceIdArr = [[NSMutableArray alloc] initWithCapacity:1];
     
     
-    NSLog(@"already is %@",[appDelegate.deviceConnectManager getDeviceInfoList]);
+//    NSLog(@"already is %@",[appDelegate.deviceConnectManager getDeviceInfoList]);
     for (id obj in [appDelegate.deviceConnectManager getDeviceInfoList])
     {
         if (![_alreadyGotDeviceIdArr containsObject:[obj objectForKey:@"device_id"]])
@@ -92,7 +92,7 @@
             [_alreadyGotDeviceIdArr addObject:[obj objectForKey:@"device_id"]];
 
         }
-        NSLog(@"already arr is %@",_alreadyGotDeviceIdArr);
+//        NSLog(@"already arr is %@",_alreadyGotDeviceIdArr);
     }
     
     
@@ -119,7 +119,7 @@
 //搜索设备的代理方法
 - (void) SearchCameraResult:(NSString *)mac Name:(NSString *)name Addr:(NSString *)addr Port:(NSString *)port DID:(NSString*)did{
     
-    NSLog(@"11111111111111111111111111111111111111name is %@,did is %@",name,did);
+//    NSLog(@"11111111111111111111111111111111111111name is %@,did is %@",name,did);
     int  flag = 0;
     //去掉重复
     for (NSDictionary *dic in _cameraSearchList)
@@ -127,7 +127,7 @@
         if ([[dic objectForKey:@"uid"] isEqualToString:did])
         {
             flag = 1;
-            NSLog(@"去除重复");
+//            NSLog(@"去除重复");
             break;
         }
         
@@ -139,7 +139,7 @@
     {
         NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:name,@"name", did, @"uid", nil];
         [_cameraSearchList addObject:dic];
-        NSLog(@"调用刷新方法");
+//        NSLog(@"调用刷新方法");
        [deviceListTableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
         
     }
@@ -402,7 +402,7 @@
 
         
         [self SearchDevice];
-        NSLog(@",,,,,,,,,,,,,,,,,%@",_cameraSearchList);
+//        NSLog(@",,,,,,,,,,,,,,,,,%@",_cameraSearchList);
         
     _aTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(searchResultCharge) userInfo:nil repeats:NO];
         
@@ -415,7 +415,7 @@
 
     if ([_cameraSearchList count] == 0)
     {
-        NSLog(@"没有搜到设备");
+//        NSLog(@"没有搜到设备");
         [activity stop];
         UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:[[UIApplication sharedApplication].windows count]-1];
         MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithWindow:window];
@@ -677,7 +677,7 @@
     }];
     
     /*************************** 二维码通信部分 **************************/
-    NSLog(@"得到的二维码是 %@",symbol.data);
+//    NSLog(@"得到的二维码是 %@",symbol.data);
     if (symbol.data.length != 0) {
         
         [self ShowNextSetting:symbol.data];
@@ -696,7 +696,7 @@
 
 -(void)ShowNextSetting:(NSString *)deviceID{
     
-    NSLog(@"%@",deviceID);
+//    NSLog(@"%@",deviceID);
     if([deviceID isEqualToString:@"手动输入"])
     {
 //        [self TempMakeAlert:@"未输入看护器序列号"];
@@ -740,7 +740,7 @@
             
             
             NSString *bindTime = [formatter stringFromDate:date];
-            NSLog(@"%@",bindTime);
+//            NSLog(@"%@",bindTime);
             [appDelegate.appDefault setObject:bindTime forKey:[NSString stringWithFormat:@"%@_time",deviceID]];
 
             
@@ -786,7 +786,7 @@
     
     
     
-    NSLog(@"cameraSearchList is %@",_cameraSearchList);
+//    NSLog(@"cameraSearchList is %@",_cameraSearchList);
         for (id obj in _cameraSearchList)
         {
             
@@ -800,9 +800,9 @@
     
     [activity stop];
     [deviceListView setHidden:NO];
-    NSLog(@"arr 1 and arr2 %@,,,,,%@",_searchDeviceIdArr,_alreadyGotDeviceIdArr);
-    NSLog(@"number oof rows is %d",[tableView numberOfRowsInSection:0]);
-    NSLog(@"current row is%d",indexPath.row);
+//    NSLog(@"arr 1 and arr2 %@,,,,,%@",_searchDeviceIdArr,_alreadyGotDeviceIdArr);
+//    NSLog(@"number oof rows is %d",[tableView numberOfRowsInSection:0]);
+//    NSLog(@"current row is%d",indexPath.row);
 
     if([_searchDeviceIdArr objectAtIndex:indexPath.row])
     {

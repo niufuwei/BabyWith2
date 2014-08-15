@@ -230,8 +230,8 @@
                 //提示框提示错误
                 [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
             }
-            NSLog(@"%@,,,%@",[appDelegate.appDefault objectForKey:@"Usename"],[appDelegate.appDefault objectForKey:@"Password"]);
-                        
+//            NSLog(@"%@,,,%@",[appDelegate.appDefault objectForKey:@"Usename"],[appDelegate.appDefault objectForKey:@"Password"]);
+            
         }];
     }else{
         [activity stop];
