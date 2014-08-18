@@ -433,9 +433,9 @@
             if (quality == 512) {
                 cell.detailTextLabel.text = @"高清";
             }else if(quality == 256){
-                cell.detailTextLabel.text = @"一般";
+                cell.detailTextLabel.text = @"标清";
             }else{
-                cell.detailTextLabel.text = @"低像素";
+                cell.detailTextLabel.text = @"流畅";
             }
         }
             break;
