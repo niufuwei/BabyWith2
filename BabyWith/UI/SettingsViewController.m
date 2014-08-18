@@ -267,7 +267,7 @@
         {
             BOOL result = [appDelegate.webInfoManger UserLogoutUsingToken:[appDelegate.appDefault objectForKey:@"Token"]];
             
-        if(result)
+            if(result)
             {
                 [activity stop];
                 
@@ -289,7 +289,7 @@
         {
             SetPasswordViewController *setPass = [[SetPasswordViewController alloc] init];
             [self.navigationController pushViewController:setPass animated:YES];
-
+            [activity stop];
         }
         
         
