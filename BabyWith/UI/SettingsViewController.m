@@ -263,35 +263,35 @@
         
 //        NSLog(@"token is %@",[appDelegate.appDefault objectForKey:@"Token"]);
         
-        
-        BOOL result = [appDelegate.webInfoManger UserLogoutUsingToken:[appDelegate.appDefault objectForKey:@"Token"]];
-        if(result)
+        if (![[appDelegate.appDefault objectForKey:@"Password"] isEqualToString:@""])
         {
-             [activity stop];
+            BOOL result = [appDelegate.webInfoManger UserLogoutUsingToken:[appDelegate.appDefault objectForKey:@"Token"]];
             
-            if (![[appDelegate.appDefault objectForKey:@"Password"] isEqualToString:@""])
+        if(result)
             {
-                [appDelegate.appDefault setObject:@"" forKey:@"Username"];
-                [appDelegate.appDefault setObject:@"" forKey:@"Password"];
-                [NOTICECENTER postNotificationName:@"MoveToLogin" object:nil];
+                [activity stop];
+                
+                    [appDelegate.appDefault setObject:@"" forKey:@"Username"];
+                    [appDelegate.appDefault setObject:@"" forKey:@"Password"];
+                    [NOTICECENTER postNotificationName:@"MoveToLogin" object:nil];
+                
             }
             else
             {
-            
-                SetPasswordViewController *setPass = [[SetPasswordViewController alloc] init];
-                [self.navigationController pushViewController:setPass animated:YES];
+                [activity stop];
+                
+                [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
+                
             }
-            
-            
+
         }
         else
         {
-            [activity stop];
-            
-            [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
-            
+            SetPasswordViewController *setPass = [[SetPasswordViewController alloc] init];
+            [self.navigationController pushViewController:setPass animated:YES];
+
         }
-    
+        
         
     }
         
