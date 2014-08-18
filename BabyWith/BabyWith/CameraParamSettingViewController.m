@@ -147,9 +147,9 @@
     if (indexPath.row == 0) {
         cell.textLabel.text = @"高清";
     }else if(indexPath.row == 1){
-        cell.textLabel.text = @"一般";
+        cell.textLabel.text = @"标清";
     }else{
-        cell.textLabel.text = @"低像素";
+        cell.textLabel.text = @"流畅";
     }
     return cell;
 }
