@@ -664,7 +664,7 @@
      [appDelegate showTabbar];
     self.deviceArray = [appDelegate.deviceConnectManager getDeviceInfoList];
     
-//    NSLog(@">>>>>%@",self.deviceArray);
+    NSLog(@">>>>>%@",self.deviceArray);
     
     [_homeTableView1 reloadData];
     titleImage.hidden = NO;
@@ -767,15 +767,15 @@
     else
     {
         cell3.isShare.hidden = NO;
-        if ([[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"niceName"])
+        if ([[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"nickeName"])
         {
-            if ([[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"niceName"] length] == 0)
+            if ([[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"nickeName"] length] == 0)
             {
                 cell3.state.text = @"被分享的设备";
             }
             else
             {
-            cell3.state.text = [NSString stringWithFormat:@"来自%@的设备",[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"niceName"]];
+            cell3.state.text = [NSString stringWithFormat:@"来自%@的设备",[[self.deviceArray objectAtIndex:indexPath.row] objectForKey:@"nickeName"]];
             }
         }
         else
