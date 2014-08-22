@@ -324,7 +324,7 @@
             }
             _submit.enabled = YES;
             [appDelegate.selectDeviceArr removeAllObjects];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }];
         
     }

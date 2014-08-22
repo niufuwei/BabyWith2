@@ -231,8 +231,6 @@
                 
                 [appDelegate.appDefault setObject:bindTime forKey:[NSString stringWithFormat:@"%@_time",[dic objectForKey:@"device_id"]]];
                 
-                
-            
             
             }
         }

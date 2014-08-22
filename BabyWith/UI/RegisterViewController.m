@@ -138,8 +138,6 @@
     
     if (result) {
         
-        
-        
         UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:[[UIApplication sharedApplication].windows count]-1];
         MBProgressHUD *indicator = [[MBProgressHUD alloc] initWithWindow:window];
         indicator.labelText = @"注册成功";
@@ -151,8 +149,6 @@
             [indicator removeFromSuperview];
             [USRDEFAULT setInteger:1 forKey:@"First_use_flag"];
             if (result) {
-                
-                
                 
                 //登陆校验，发送消息到服务器
                 BOOL result = [appDelegate.webInfoManger UserLoginUsingUsername:_phoneTF.text Password:@"" Version:ClientVersion Vesting:@"86" ClientType:@"2" DeviceToken:appDelegate.deviceToken];
@@ -174,9 +170,7 @@
             }
         }];
     }else{
-        
-        
-        
+                
         [activity stop];
         
         [self makeAlertForServerUseTitle:[appDelegate.appDefault objectForKey:@"Error_message"] Code:[appDelegate.appDefault objectForKey:@"Error_code"]];
