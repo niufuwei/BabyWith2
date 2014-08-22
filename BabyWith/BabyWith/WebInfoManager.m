@@ -141,7 +141,7 @@
         if ([[response objectForKey:@"value"] objectForKey:@"nickeName"])
             
         {
-            if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",aUsername]] length] > 0)
+            if ([[[response objectForKey:@"value"] objectForKey:@"nickeName"] length] > 0)
             {
                 [appDelegate.appDefault setObject:[[response objectForKey:@"value"] objectForKey:@"nickeName"] forKey:[NSString stringWithFormat:@"%@Appel_self",aUsername]];
             }
