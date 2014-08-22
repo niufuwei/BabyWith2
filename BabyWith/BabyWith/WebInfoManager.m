@@ -133,13 +133,25 @@
     {
         
         [self ClearInfo];
+        [appDelegate.appDefault removeObjectForKey:[NSString stringWithFormat:@"%@Appel_self",aUsername]];
         
         [appDelegate.appDefault setObject:aUsername forKey:@"Username"];
         [appDelegate.appDefault setObject:aPassword forKey:@"Password"];
         [appDelegate.appDefault setObject:[[response objectForKey:@"value"] objectForKey:@"token"] forKey:@"Token"];
         if ([[response objectForKey:@"value"] objectForKey:@"nickeName"])
+            
         {
-            [appDelegate.appDefault setObject:[[response objectForKey:@"value"] objectForKey:@"nickeName"] forKey:[NSString stringWithFormat:@"%@Appel_self",aUsername]];
+            if ([[appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",aUsername]] length] > 0)
+            {
+                [appDelegate.appDefault setObject:[[response objectForKey:@"value"] objectForKey:@"nickeName"] forKey:[NSString stringWithFormat:@"%@Appel_self",aUsername]];
+            }
+            else
+            {
+            
+                NSLog(@"昵称为空");
+            
+            }
+            
         }
         
        

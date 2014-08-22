@@ -93,7 +93,8 @@
     {
         //[appDelegate.appDefault setObject:_nickName.text forKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"]]]
         //是否有昵称
-        if (![appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"]]]) {
+        if (![appDelegate.appDefault objectForKey:[NSString stringWithFormat:@"%@Appel_self",[appDelegate.appDefault objectForKey:@"Username"]]])
+        {
             _hasSelect = NO;
             SetNickNameViewController *setNickNameVC=[[SetNickNameViewController alloc] init];
             [self.navigationController pushViewController:setNickNameVC animated:YES];
