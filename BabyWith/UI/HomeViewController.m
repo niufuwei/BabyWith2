@@ -887,7 +887,7 @@
             
             if ([[appDelegate.appDefault objectForKey:@"Error_message"] isEqualToString:@"该设备已被分享者解绑"])
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[appDelegate.appDefault objectForKey:@"提示"] message:[NSString stringWithFormat:@"%@,是否删除该设备？",[appDelegate.appDefault objectForKey:@"Error_message"]] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[appDelegate.appDefault objectForKey:@"提示"] message:[NSString stringWithFormat:@"%@,是否删除该设备？",[appDelegate.appDefault objectForKey:@"Error_message"]] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
                 alert.tag = 2049;
                 [alert show];
             }
@@ -928,7 +928,7 @@
     else if (alertView.tag == 2049)
     {
     
-        if (buttonIndex == 0)
+        if (buttonIndex == 1)
         {
             
 //            NSLog(@"device id is %@",[_willDeleteDevice objectForKey:@"device_id"]);
