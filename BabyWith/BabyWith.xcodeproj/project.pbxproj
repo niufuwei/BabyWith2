@@ -49,6 +49,7 @@
 		7196B08018D837D600B8D8BB /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7196B07E18D837D600B8D8BB /* ChangePasswordViewController.xib */; };
 		7196B08918D837F700B8D8BB /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196B08718D837F700B8D8BB /* AboutUsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7197BCAF18D92559009C71E1 /* MessagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7197BCAD18D92559009C71E1 /* MessagViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7199BB0019AAC4D700515D0D /* 拍照2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E48198B27F500A54EB2 /* 拍照2.png */; };
 		71A41D881951778800B45C7E /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A41D871951778800B45C7E /* AboutUsViewController.xib */; };
 		71A41D8B1951961100B45C7E /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A41D8A1951961100B45C7E /* ImagePickerController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71A41D8E1951971C00B45C7E /* ImageShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A41D8D1951971C00B45C7E /* ImageShowController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -96,7 +97,6 @@
 		71CAFE72198B814200E2DC1F /* 切换 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E2D198B27F500A54EB2 /* 切换 (1).png */; };
 		71CAFE73198B814200E2DC1F /* 导航栏背景.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E40198B27F500A54EB2 /* 导航栏背景.png */; };
 		71CAFE74198B814200E2DC1F /* 横版导航栏背景.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E57198B27F500A54EB2 /* 横版导航栏背景.png */; };
-		71CAFE75198B814200E2DC1F /* 编辑.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E63198B27F500A54EB2 /* 编辑.png */; };
 		71CAFE76198B814200E2DC1F /* 输入框.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E6B198B27F600A54EB2 /* 输入框.png */; };
 		71CAFE78198B814200E2DC1F /* 退出系统-取消显示.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E6E198B27F600A54EB2 /* 退出系统-取消显示.png */; };
 		71CAFE7B198B89A200E2DC1F /* 横屏切换全屏(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAFE79198B89A200E2DC1F /* 横屏切换全屏(1).png */; };
@@ -186,7 +186,6 @@
 		EF4A5EBB198B27F600A54EB2 /* 拍照 (4).png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E45198B27F500A54EB2 /* 拍照 (4).png */; };
 		EF4A5EBC198B27F600A54EB2 /* 拍照.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E46198B27F500A54EB2 /* 拍照.png */; };
 		EF4A5EBD198B27F600A54EB2 /* 拍照1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E47198B27F500A54EB2 /* 拍照1.png */; };
-		EF4A5EBE198B27F600A54EB2 /* 拍照2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E48198B27F500A54EB2 /* 拍照2.png */; };
 		EF4A5EBF198B27F600A54EB2 /* 拍照3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E49198B27F500A54EB2 /* 拍照3.png */; };
 		EF4A5EC0198B27F600A54EB2 /* 拍照4.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E4A198B27F500A54EB2 /* 拍照4.png */; };
 		EF4A5EC1198B27F600A54EB2 /* 拍照5.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E4B198B27F500A54EB2 /* 拍照5.png */; };
@@ -220,7 +219,6 @@
 		EF4A5EF6198B6E4A00A54EB2 /* qietu_261.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5EF5198B6E4A00A54EB2 /* qietu_261.png */; };
 		EF4A5EF8198B88FE00A54EB2 /* qietu_267.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5EF7198B88FE00A54EB2 /* qietu_267.png */; };
 		EF4A5EFA198B8AB200A54EB2 /* qietu_271.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5EF9198B8AB200A54EB2 /* qietu_271.png */; };
-		EF4A5F16198B915100A54EB2 /* qietu_257.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5EEF198B45B800A54EB2 /* qietu_257.png */; };
 		EF4A5F17198B915100A54EB2 /* qietu_164.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E08198B27F500A54EB2 /* qietu_164.png */; };
 		EF4A5F18198B915100A54EB2 /* qietu_40.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E0C198B27F500A54EB2 /* qietu_40.png */; };
 		EF4A5F19198B915100A54EB2 /* 主页摄像头.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4A5E18198B27F500A54EB2 /* 主页摄像头.png */; };
@@ -1822,6 +1820,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7199BB0019AAC4D700515D0D /* 拍照2.png in Resources */,
 				EF4CE5441998A57E00310924 /* 系统消息未读背景.png in Resources */,
 				EF0373AB19962F7200771AF0 /* qietu_166.png in Resources */,
 				EF0373AA19962F6E00771AF0 /* qietu_148.png in Resources */,
@@ -1851,13 +1850,11 @@
 				71CAFE97198B981600E2DC1F /* 横屏分享人员(1).png in Resources */,
 				71CAFE73198B814200E2DC1F /* 导航栏背景.png in Resources */,
 				71CAFE74198B814200E2DC1F /* 横版导航栏背景.png in Resources */,
-				71CAFE75198B814200E2DC1F /* 编辑.png in Resources */,
 				71CAFE76198B814200E2DC1F /* 输入框.png in Resources */,
 				71CAFE78198B814200E2DC1F /* 退出系统-取消显示.png in Resources */,
 				71CAFE6D198B804600E2DC1F /* 选择 (2).png in Resources */,
 				71CAFE6C198B7F8C00E2DC1F /* 主页摄像头.png in Resources */,
 				71CAFE6B198B7F6600E2DC1F /* qietu_40.png in Resources */,
-				EF4A5F16198B915100A54EB2 /* qietu_257.png in Resources */,
 				71CAFE92198B981600E2DC1F /* 绑定设备-选中 (1).png in Resources */,
 				EF4A5F17198B915100A54EB2 /* qietu_164.png in Resources */,
 				1DCB5BDD19909AAB001D177E /* 主菜单栏-未选 (3).png in Resources */,
@@ -1917,12 +1914,10 @@
 				EF4A5E7A198B27F600A54EB2 /* qietu_147.png in Resources */,
 				71A86CEB190A04FC004AFA50 /* help.html in Resources */,
 				EF4A5EE8198B27F600A54EB2 /* 通讯录.png in Resources */,
-				EF4A5EBE198B27F600A54EB2 /* 拍照2.png in Resources */,
 				71CAFE52198B718600E2DC1F /* 设置.png in Resources */,
 				71CAFE53198B718600E2DC1F /* 跳过.png in Resources */,
 				EF4A5EC0198B27F600A54EB2 /* 拍照4.png in Resources */,
 				71CAFE26198B6EF200E2DC1F /* 竖屏分享人员(2).png in Resources */,
-				EF4A5EBE198B27F600A54EB2 /* 拍照2.png in Resources */,
 				EF4A5EC0198B27F600A54EB2 /* 拍照4.png in Resources */,
 				EF4A5EE1198B27F600A54EB2 /* 输入框.png in Resources */,
 				71CAFEB9198B995700E2DC1F /* SettingsViewController.xib in Resources */,
@@ -2164,7 +2159,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PROVISIONING_PROFILE = "F31D54D2-FFFD-4C9E-A3D7-F44E906E369D";
 				SDKROOT = iphoneos7.1;
-				VALID_ARCHS = "arm64 armv7";
+				VALID_ARCHS = "";
 			};
 			name = Debug;
 		};
@@ -2193,7 +2188,7 @@
 				PROVISIONING_PROFILE = "F31D54D2-FFFD-4C9E-A3D7-F44E906E369D";
 				SDKROOT = iphoneos7.1;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
