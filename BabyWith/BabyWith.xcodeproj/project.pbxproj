@@ -67,7 +67,6 @@
 		71A95D071921F3190075CC61 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A95D061921F3190075CC61 /* MessageCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71AA855718EA4C030047FFB9 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AA855618EA4C030047FFB9 /* HeaderView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71AAF66218ED22E100C3B0D8 /* PhotoScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AAF66018ED22E100C3B0D8 /* PhotoScanViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		71AC54821904BD6F00DEBB46 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AC54811904BD6F00DEBB46 /* AdSupport.framework */; };
 		71AD0D0D195C34A3002B34BF /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0D0C195C34A3002B34BF /* HomeCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71B3D9FC195BC626001C355D /* ShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B3D9FB195BC626001C355D /* ShareCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		71B6DC851994AD96006BA120 /* SharedPersonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B6DC841994AD96006BA120 /* SharedPersonsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -409,7 +408,6 @@
 		71AA855618EA4C030047FFB9 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderView.m; path = ../UI/HeaderView.m; sourceTree = "<group>"; };
 		71AAF65F18ED22E100C3B0D8 /* PhotoScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoScanViewController.h; sourceTree = "<group>"; };
 		71AAF66018ED22E100C3B0D8 /* PhotoScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoScanViewController.m; sourceTree = "<group>"; };
-		71AC54811904BD6F00DEBB46 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		71AD0D0B195C34A3002B34BF /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
 		71AD0D0C195C34A3002B34BF /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
 		71B3D9FA195BC626001C355D /* ShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCell.h; sourceTree = "<group>"; };
@@ -639,7 +637,6 @@
 		EFE79573177C1B6100D15A32 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
 		EFE8E6F6179F438A001689F4 /* CameraParamSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraParamSettingViewController.h; sourceTree = "<group>"; };
 		EFE8E6F7179F438A001689F4 /* CameraParamSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraParamSettingViewController.m; sourceTree = "<group>"; };
-		EFEA10A418272B4900B4B502 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
 		EFEA5A3617E9A1770047C0CE /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		EFEAE48A179AEE7B00E39D39 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		EFEAE48B179AEE7B00E39D39 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -862,7 +859,6 @@
 				1DCB5BC2198F1E8B001D177E /* AddressBook.framework in Frameworks */,
 				EFF53F811779BCBF00C4AEB4 /* QuartzCore.framework in Frameworks */,
 				EFF53F5F1779BC0600C4AEB4 /* AudioToolbox.framework in Frameworks */,
-				71AC54821904BD6F00DEBB46 /* AdSupport.framework in Frameworks */,
 				EFF3FE8E179C7E24001845AE /* MessageUI.framework in Frameworks */,
 				EF039C5C179AD3340019D075 /* SystemConfiguration.framework in Frameworks */,
 				EFF53F831779BCCA00C4AEB4 /* Security.framework in Frameworks */,
@@ -1409,8 +1405,6 @@
 				1DCB5BC5198F1ECB001D177E /* ImageIO.framework */,
 				1DCB5BC3198F1E90001D177E /* AddressBookUI.framework */,
 				1DCB5BC1198F1E8B001D177E /* AddressBook.framework */,
-				71AC54811904BD6F00DEBB46 /* AdSupport.framework */,
-				EFEA10A418272B4900B4B502 /* AdSupport.framework */,
 				EFF3FE8D179C7E23001845AE /* MessageUI.framework */,
 				EF039C5B179AD3340019D075 /* SystemConfiguration.framework */,
 				EFF53F5C1779BBF900C4AEB4 /* AssetsLibrary.framework */,
@@ -2133,7 +2127,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2167,7 +2161,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2195,7 +2189,7 @@
 		EFF53E681779B64F00C4AEB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
@@ -2236,7 +2230,7 @@
 		EFF53E691779B64F00C4AEB4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";

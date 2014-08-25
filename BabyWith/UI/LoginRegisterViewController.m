@@ -8,7 +8,6 @@
 #import "WebInfoBinding.h"
 #import "WebInfoManager.h"
 #import "MainAppDelegate.h"
-#import <AdSupport/ASIdentifierManager.h>
 #import "HomeViewController.h"
 #import "LoginRegisterViewController.h"
 #import "Activity.h"
@@ -215,7 +214,7 @@
 {
     //本机MAC地址
     if (IOS7) {
-        [appDelegate.appDefault setValue:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] forKey:@"Mac_self"];
+//        [appDelegate.appDefault setValue:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] forKey:@"Mac_self"];
     }else{
         NSString *mac = [self getLocalMacAddress];
         [appDelegate.appDefault setValue:mac forKey:@"Mac_self"];

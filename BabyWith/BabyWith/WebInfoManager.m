@@ -10,7 +10,6 @@
 #include "Configuration.h"
 #import "MainAppDelegate.h"
 #import "DeviceConnectManager.h"
-#import <AdSupport/ASIdentifierManager.h>
 
 @implementation WebInfoManager
 
@@ -169,41 +168,41 @@
         [appDelegate.appDefault setObject:nil forKey:@"Device_selected"];
         
         //设置MAC合法标志
-        if ([appDelegate.appDefault objectForKey:@"Mac_bind_self"] != nil && [[appDelegate.appDefault objectForKey:@"Mac_bind_self"] length] !=0)
-        {
-            
-            NSLog(@"adver =[%@]",[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]);
-            
-            //修正IOS7 获取到的MAC默认地址
-            if ([[appDelegate.appDefault objectForKey:@"Mac_bind_self"] caseInsensitiveCompare:@"02:00:00:00:00:00"] == NSOrderedSame)
-            {
-                
-                //更新MAC地址
-                BOOL result = [appDelegate.webInfoManger UserBindMacUsingToken:[appDelegate.appDefault objectForKey:@"Token"] Mac:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] AuthCode:@"-1"];
-                
-                if (result)
-                {
-                    [appDelegate.appDefault setObject:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] forKey:@"Mac_self"];
-                }
-                
-                [appDelegate.appDefault setInteger:1 forKey:@"Mac_valid_flag"];
-                return YES;
-            }
-            
-            
-            if ([[appDelegate.appDefault objectForKey:@"Mac_bind_self"] isEqualToString:[appDelegate.appDefault objectForKey:@"Mac_self"]])
-            {
-                [appDelegate.appDefault setInteger:1 forKey:@"Mac_valid_flag"];
-            }else{
-                if ([[appDelegate.appDefault objectForKey:@"Mac_bind_self"] isEqualToString:@"-1"]){
-                    [appDelegate.appDefault setInteger:1 forKey:@"Mac_valid_flag"];
-                }else{
-                    [appDelegate.appDefault setInteger:0 forKey:@"Mac_valid_flag"];
-                }
-            }
-        }else{
-            [appDelegate.appDefault setInteger:0 forKey:@"Mac_valid_flag"];
-        }
+//        if ([appDelegate.appDefault objectForKey:@"Mac_bind_self"] != nil && [[appDelegate.appDefault objectForKey:@"Mac_bind_self"] length] !=0)
+//        {
+//            
+//            NSLog(@"adver =[%@]",[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]);
+//            
+//            //修正IOS7 获取到的MAC默认地址
+//            if ([[appDelegate.appDefault objectForKey:@"Mac_bind_self"] caseInsensitiveCompare:@"02:00:00:00:00:00"] == NSOrderedSame)
+//            {
+//                
+//                //更新MAC地址
+//                BOOL result = [appDelegate.webInfoManger UserBindMacUsingToken:[appDelegate.appDefault objectForKey:@"Token"] Mac:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] AuthCode:@"-1"];
+//                
+//                if (result)
+//                {
+//                    [appDelegate.appDefault setObject:[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] forKey:@"Mac_self"];
+//                }
+//                
+//                [appDelegate.appDefault setInteger:1 forKey:@"Mac_valid_flag"];
+//                return YES;
+//            }
+//            
+//            
+//            if ([[appDelegate.appDefault objectForKey:@"Mac_bind_self"] isEqualToString:[appDelegate.appDefault objectForKey:@"Mac_self"]])
+//            {
+//                [appDelegate.appDefault setInteger:1 forKey:@"Mac_valid_flag"];
+//            }else{
+//                if ([[appDelegate.appDefault objectForKey:@"Mac_bind_self"] isEqualToString:@"-1"]){
+//                    [appDelegate.appDefault setInteger:1 forKey:@"Mac_valid_flag"];
+//                }else{
+//                    [appDelegate.appDefault setInteger:0 forKey:@"Mac_valid_flag"];
+//                }
+//            }
+//        }else{
+//            [appDelegate.appDefault setInteger:0 forKey:@"Mac_valid_flag"];
+//        }
         
         return YES;
     }
