@@ -109,6 +109,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
+    NSLog(@"self.device id is %@",self.deviceID);
+    NSLog(@"数量是%d",[[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] count]);
     return [[appDelegate.appDefault arrayForKey:[NSString stringWithFormat:@"%@_number",self.deviceID]] count];
 
 }
